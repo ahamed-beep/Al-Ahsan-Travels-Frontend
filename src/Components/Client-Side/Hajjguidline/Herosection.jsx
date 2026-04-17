@@ -4,7 +4,7 @@ const Herosection = () => {
   return (
     <div>Herosection
 
-        <p className=' font-inter' > lore ipsum dolor sit amet</p>
+        <p className=' font-inter' > lore ipwwsum dolor sit amet</p>
     </div>
   )
 }
