@@ -1,9 +1,9 @@
-import Herosection from "@/Components/Client-Side/Hajjguidline/Herosection";
+import CombineHajjGuide from "@/Components/Client-Side/hajjguidline/CombineHajjGuide";
 
-export default function page() {
+export default function HajjGuide() {
   return (
     <div>
-        <Herosection/>
+        <CombineHajjGuide/>
     </div>
   )
 }

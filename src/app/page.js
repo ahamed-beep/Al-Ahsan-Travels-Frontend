@@ -1,9 +1,10 @@
-import Herosection from "@/Components/Client-Side/Hajjguidline/Herosection";
+import Combine from "@/Components/Client-Side/Home/Combine";
 
 export default function Home() {
   return (
    <div>
-    <Herosection/>
+<Combine/>
+
    </div> 
   );
 }
