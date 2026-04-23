@@ -11,7 +11,7 @@ const navItems = [
         dropdown: [
             { label: "Hajj Guide line", href: "/hajjguidline" },
             { label: "Shifting Hajj", href: "/shiftinghajj" },
-            { label: "Non Shifting Hajj", href: "/hajj/group" },
+            { label: "Non Shifting Hajj", href: "/nonshiftinghajj" },
             
         ],
     },
@@ -19,18 +19,26 @@ const navItems = [
         label: "Umrah",
         href: "#",
         dropdown: [
-            { label: "Umrah Packages", href: "/umrah/packages" },
-            { label: "Economy Umrah", href: "/umrah/economy" },
-            { label: "Luxury Umrah", href: "/umrah/luxury" },
-            { label: "Family Umrah", href: "/umrah/family" },
-            { label: "Umrah Visa", href: "/umrah/visa" },
+            { label: "Umrah Packages", href: "/umrahpackages"},
+            { label: "January Umrah Packages", href: "/umrahjanuary" },
+           { label: "February Umrah Packages", href: "/umrahfebruary" },
+           { label: "March Umrah Packages", href: "/umrahmarch" },
+           { label: "April Umrah Packages", href: "/umrahapril" },
+           { label: "May Umrah Packages", href: "/umrahmay" },
+           { label: "June Umrah Packages", href: "/umrahjune" },
+           { label: "July Umrah Packages", href: "/umrahjuly" },
+           { label: "August Umrah Packages", href: "/umrahaugust" },
+           { label: "September Umrah Packages", href: "/umrahseptember" },
+           { label: "October Umrah Packages", href: "/umrahoctober" },
+           { label: "November Umrah Packages", href: "/umrahnovember" },
+           { label: "December Umrah Packages", href: "/umrahdecember" },
         ],
     },
     {
         label: "Ramadan",
         href: "#",
         dropdown: [
-            { label: "Ramadan Umrah", href: "/ramadan/umrah" },
+            { label: "Ramadan Umrah", href: "/ramadanhajj" },
             { label: "Last 10 Nights", href: "/ramadan/last-10-nights" },
             { label: "Laylat ul Qadr", href: "/ramadan/laylat-ul-qadr" },
         ],
@@ -121,7 +129,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1 flex-wrap">
+                    <ul className="hidden lg:flex whitespace-nowrap items-center gap-0.5 xl:gap-1 flex-wrap">
                         {navItems.map((item) => (
                             <li key={item.label} className="relative group">
                                 {item.dropdown ? (

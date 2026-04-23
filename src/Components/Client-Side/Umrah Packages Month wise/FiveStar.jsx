@@ -1,0 +1,148 @@
+"use client";
+
+import Image from "next/image";
+import { Clock, MapPin, Check, Star, MessageCircle } from "lucide-react";
+
+const packages = [
+  {
+    id: 1,
+    price: "£1,899",
+    title: "5-Star Premium 7 Nights",
+    duration: "7 Days / 6 Nights",
+    makkah: "Swissotel Makkah",
+    madinah: "Oberoi Madinah",
+    image: "/Images/Image (Ramadan Umrah Premium).png",
+  },
+  {
+    id: 2,
+    price: "£2,499",
+    title: "5-Star Premium 10 Nights",
+    duration: "10 Days / 9 Nights",
+    makkah: "Raffles Makkah Palace",
+    madinah: "Pullman Zamzam",
+    image: "/Images/Image (Ramadan Umrah Premium).png",
+  },
+  {
+    id: 3,
+    price: "£3,299",
+    title: "5-Star Premium 14 Nights",
+    duration: "14 Days / 13 Nights",
+    makkah: "Fairmont Makkah",
+    madinah: "Anantara Madinah",
+    image: "/Images/Image (Ramadan Umrah Premium).png",
+  },
+];
+
+const features = ["Flights", "Visa", "Transport", "5★ Hotels", "Guide"];
+
+function Card({ item }) {
+  return (
+    <div className="bg-[#ffffff] rounded-2xl border border-[#1C398ECC] shadow-[0_6px_20px_rgba(81,162,255,0.25)] overflow-hidden hover:shadow-[0_10px_30px_rgba(81,162,255,0.35)] transition">
+
+      {/* Image */}
+      <div className="relative h-56">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover"
+        />
+
+        {/* Price */}
+        <div className="absolute top-3 right-3 bg-[#2B7FFF] text-[#ffffff] text-sm font-semibold px-3 py-1 rounded-md shadow">
+          {item.price}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="p-5 flex flex-col">
+
+        <h3 className="font-bold text-[#222222] mb-3">
+          {item.title}
+        </h3>
+
+        {/* Duration */}
+        <div className="flex items-center gap-2 text-sm text-[#4A5565] mb-2">
+          <Clock size={14} className="text-[#1C398E]" />
+          {item.duration}
+        </div>
+
+        {/* Locations */}
+        <div className="flex gap-2 text-sm text-[#364153] mb-1">
+          <MapPin size={14} className="text-[#1C398E] mt-1" />
+          <span>
+            <span className="font-semibold text-[#364153]">Makkah:</span>{" "}
+            {item.makkah}
+          </span>
+        </div>
+
+        <div className="flex gap-2 text-sm text-[#364153] mb-4">
+          <MapPin size={14} className="text-[#1C398E] mt-1" />
+          <span>
+            <span className="font-semibold text-[#364153]">Madinah:</span>{" "}
+            {item.madinah}
+          </span>
+        </div>
+
+        <hr className="mb-4 border-[#E5E7EB]" />
+
+        {/* Features */}
+        <div className="space-y-2 mb-5">
+          {features.map((f) => (
+            <div key={f} className="flex items-center gap-2 text-sm text-[#364153]">
+              <Check size={15} className="text-[#2B7FFF]" />
+              {f}
+            </div>
+          ))}
+        </div>
+
+        {/* ✅ FIXED BUTTON */}
+        <div className="mt-auto">
+          <button className="w-full bg-[#25D366] flex items-center justify-center gap-2 text-[#FFFFFF] py-2 rounded-lg text-sm ">
+          <MessageCircle className="text-[#ffffff] w-4 h-4    " />  WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+export default function FiveStarPackages() {
+  return (
+    <section
+      className="w-full py-14 px-4"
+      style={{
+        background:
+          "radial-gradient(100% 100% at 50% 50%, #FFFFFF 5.77%, rgba(81, 162, 255, 0.2) 50%, #FFFFFF 90.38%)",
+      }}
+    >
+      <div className="max-w-6xl mx-auto">
+
+        {/* Header */}
+        <div className="mb-10">
+        <div className="flex text-[#1c398e]  text-2xl">
+            {[...Array(5)].map((_, i) => (
+            <span key={i}>★</span>
+            ))}
+            <h2 className="text-2xl md:text-3xl font-extrabold text-[#222222] ml-2">
+              5-Star January Umrah Packages
+            </h2>
+          </div>
+
+          <p className="text-[#4a5565] text-sm">
+            Premium experience near Haram with maximum comfort
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {packages.map((item) => (
+            <Card key={item.id} item={item} />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
