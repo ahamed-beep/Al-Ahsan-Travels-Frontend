@@ -38,16 +38,16 @@ const navItems = [
         label: "Ramadan",
         href: "#",
         dropdown: [
-            { label: "Ramadan Umrah", href: "/ramadanhajj" },
-            { label: "Last 10 Nights", href: "/ramadan/last-10-nights" },
-            { label: "Laylat ul Qadr", href: "/ramadan/laylat-ul-qadr" },
+            { label: "1st Ashra Ramzan", href: "/ramadanhajj" },
+            { label: "2nd Ashra Ramzan", href: "/secondashra" },
+            { label: "3rd Ashra Ramzan", href: "/thirdashra" },
         ],
     },
     {
         label: "Special Packages",
         href: "#",
         dropdown: [
-            { label: "Honeymoon Package", href: "/packages/honeymoon" },
+            { label: "Hotal", href: "/specialpackage" },
             { label: "Group Discount", href: "/packages/group" },
             { label: "VIP Packages", href: "/packages/vip" },
             { label: "Student Packages", href: "/packages/student" },
