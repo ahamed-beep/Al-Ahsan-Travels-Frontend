@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Clock, MapPin, Check, Star, MessageCircle } from "lucide-react";
+import { Clock, MapPin, Check, MessageCircle } from "lucide-react";
 
 const packages = [
   {
@@ -41,14 +41,7 @@ function Card({ item }) {
 
       {/* Image */}
       <div className="relative h-56">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover"
-        />
-
-        {/* Price */}
+        <Image src={item.image} alt={item.title} fill className="object-cover" />
         <div className="absolute top-3 right-3 bg-[#2B7FFF] text-[#ffffff] text-sm font-semibold px-3 py-1 rounded-md shadow">
           {item.price}
         </div>
@@ -56,37 +49,25 @@ function Card({ item }) {
 
       {/* Content */}
       <div className="p-5 flex flex-col">
+        <h3 className="font-bold text-[#222222] mb-3">{item.title}</h3>
 
-        <h3 className="font-bold text-[#222222] mb-3">
-          {item.title}
-        </h3>
-
-        {/* Duration */}
         <div className="flex items-center gap-2 text-sm text-[#4A5565] mb-2">
           <Clock size={14} className="text-[#1C398E]" />
           {item.duration}
         </div>
 
-        {/* Locations */}
         <div className="flex gap-2 text-sm text-[#364153] mb-1">
           <MapPin size={14} className="text-[#1C398E] mt-1" />
-          <span>
-            <span className="font-semibold text-[#364153]">Makkah:</span>{" "}
-            {item.makkah}
-          </span>
+          <span><span className="font-semibold">Makkah:</span> {item.makkah}</span>
         </div>
 
         <div className="flex gap-2 text-sm text-[#364153] mb-4">
           <MapPin size={14} className="text-[#1C398E] mt-1" />
-          <span>
-            <span className="font-semibold text-[#364153]">Madinah:</span>{" "}
-            {item.madinah}
-          </span>
+          <span><span className="font-semibold">Madinah:</span> {item.madinah}</span>
         </div>
 
         <hr className="mb-4 border-[#E5E7EB]" />
 
-        {/* Features */}
         <div className="space-y-2 mb-5">
           {features.map((f) => (
             <div key={f} className="flex items-center gap-2 text-sm text-[#364153]">
@@ -96,19 +77,20 @@ function Card({ item }) {
           ))}
         </div>
 
-        {/* ✅ FIXED BUTTON */}
         <div className="mt-auto">
-          <button className="w-full bg-[#25D366] flex items-center justify-center gap-2 text-[#FFFFFF] py-2 rounded-lg text-sm ">
-          <MessageCircle className="text-[#ffffff] w-4 h-4    " />  WhatsApp
+          <button className="w-full bg-[#25D366] flex items-center justify-center gap-2 text-[#FFFFFF] py-2 rounded-lg text-sm">
+            <MessageCircle className="text-[#ffffff] w-4 h-4" /> WhatsApp
           </button>
         </div>
-
       </div>
     </div>
   );
 }
 
-export default function FiveStarPackages() {
+// ✅ month prop se heading automatically change hogi
+export default function FiveStarPackages({ month = "january" }) {
+  const monthName = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
+
   return (
     <section
       className="w-full py-14 px-4"
@@ -121,15 +103,14 @@ export default function FiveStarPackages() {
 
         {/* Header */}
         <div className="mb-10">
-        <div className="flex text-[#1c398e]  text-2xl">
+          <div className="flex text-[#1c398e] text-2xl">
             {[...Array(5)].map((_, i) => (
-            <span key={i}>★</span>
+              <span key={i}>★</span>
             ))}
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#222222] ml-2">
-              5-Star January Umrah Packages
+              5-Star {monthName} Umrah Packages
             </h2>
           </div>
-
           <p className="text-[#4a5565] text-sm">
             Premium experience near Haram with maximum comfort
           </p>
