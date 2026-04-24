@@ -46,7 +46,7 @@ export default function HeroHajjGuide() {
             </h1>
 
             {/* Description */}
-            <p className="text-base sm:text-lg md:text-xl text-[#FFFFFF] leading-relaxed mb-3">
+            <p className="text-base sm:text-lg md:text-xl whitespace-nowrap text-[#FFFFFF] leading-relaxed mb-3">
               A simple, step-by-step guide to help you prepare for your sacred journey.
             </p>
             <p className="text-base sm:text-lg md:text-xl text-[#FFFFFF] leading-relaxed mb-6 sm:mb-7 md:mb-8">

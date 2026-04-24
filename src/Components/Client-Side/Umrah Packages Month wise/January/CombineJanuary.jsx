@@ -1,20 +1,22 @@
+"use client";  // ← yeh add karo
+
 import React from 'react'
-import UmrahJanuray from './HeroSection'
 import Navbar from '../../Home/Navbar'
 import Footer from '../../Home/Footer'
 import ContantJanuary from './ContantJanuary'
 import Threeandfourstar from './Threeandfourstar'
-import FiveStar from '../FiveStar'
+import FiveStarPackages from './FiveStar'
+import HeroSection from './HeroSection'
 
 const CombineJanuary = () => {
   return (
     <div>
-        <Navbar/>
-      <UmrahJanuray/>
-      <ContantJanuary/>
-      <Threeandfourstar/>
-      <FiveStar/>
-<Footer/>
+      <Navbar/>
+      <HeroSection month='january'/>
+      <ContantJanuary month='january'/>
+      <Threeandfourstar month='january'/>
+      <FiveStarPackages month='january'/>
+      <Footer/>
     </div>
   )
 }

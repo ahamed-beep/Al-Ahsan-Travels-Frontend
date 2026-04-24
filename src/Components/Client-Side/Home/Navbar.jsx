@@ -177,12 +177,11 @@ export default function Navbar() {
                                 href="/book"
                                 className="px-4 xl:px-5 py-2 bg-[#1a1a2e] text-white text-[13px] xl:text-[14px] font-semibold rounded-full hover:bg-[#c8a44a] transition-colors whitespace-nowrap"
                             >
-                                Book Now
+                                Book Now 
                             </Link>
                         </li>
                     </ul>
 
-                    {/* Mobile: only Hamburger */}
                     <button
                         className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition"
                         onClick={() => setMobileOpen((p) => !p)}
@@ -204,7 +203,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* ── Mobile Slide-Down Menu ── */}
             <SlideDown open={mobileOpen}>
                 <div className="lg:hidden bg-white border-t border-gray-100 px-4 pb-5">
                     <ul className="mt-2 space-y-0.5">
@@ -249,7 +247,6 @@ export default function Navbar() {
                             </li>
                         ))}
 
-                        {/* Book Now — inside mobile menu, full width */}
                         <li className="pt-3">
                             <Link
                                 href="/book"
