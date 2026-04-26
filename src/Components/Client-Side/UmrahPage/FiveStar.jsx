@@ -92,9 +92,9 @@ export default function FiveStar() {
                                     <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
                                         <Hotel className="h-4 w-4 text-[#0B3D2E]" /> 5★ Hotel
                                     </span>
-                                     <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
+                                     {/* <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
                                         <Users  className="h-4 w-4 fill-[#C9A24A] text-[#C9A24A]" /> Guide
-                                    </span>
+                                    </span> */}
                                 </div>
                             </div>
 
@@ -174,9 +174,9 @@ export default function FiveStar() {
                                     <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
                                         <Hotel className="h-4 w-4 text-[#0B3D2E]" /> 5★ Hotel
                                     </span>
-                                    <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
-                                        <Users  className="h-4 w-4 fill-[#C9A24A] text-[#C9A24A]" /> Guide
-                                    </span>
+                                    {/* <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
+                                        {/* <Users  className="h-4 w-4 fill-[#C9A24A] text-[#C9A24A]" /> Guide 
+                                    </span> */}
                                 </div>
                             </div>
 
