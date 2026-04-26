@@ -4,6 +4,8 @@ import Navbar from "../Home/Navbar"
 import Footer from "../Home/Footer"
 import RamadanFirstAshra from "./RamadanFiestAshra"
 import PackageCard from "./PackageCard"
+import WhyChooseFirstAshra from "./IconBox"
+import RamadanCTA from "./RamadanCTA"
 
 
 const Combine = () => {
@@ -13,6 +15,8 @@ const Combine = () => {
       <RamadanHajjSection/>
       <RamadanFirstAshra/>
       <PackageCard/>
+      <WhyChooseFirstAshra/>
+      <RamadanCTA/>
  <Footer/>
     </div>
   )
