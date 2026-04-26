@@ -3,7 +3,12 @@ import Navbar from "../Home/Navbar";
 
 import Footer from "../Home/Footer";
 import HeroSpecialPackage from "./HeroSpecialPackage";
-import ChooseYourPackage from "./ChooseYourPackage";
+import FamilyPackages from "./ChooseYourPackage";
+import FamilyNeeds from "./FamilyNeeds";
+import WhyFamilies from "./WhyFamilies";
+import PackageIncludes from "./PackageIncludes";
+import FAQSection from "./FAQSection";
+import UmrahCTA from "./Umrahcta ";
 
 
 
@@ -12,7 +17,12 @@ const CombineSpecialPackage = () => {
     <div>
       <Navbar/>
    <HeroSpecialPackage/>
-   <ChooseYourPackage/>
+   <FamilyPackages/>
+   <FamilyNeeds/>
+   <WhyFamilies/>
+   <PackageIncludes/>
+   <FAQSection  />
+   <UmrahCTA/>
       <Footer/>
       
     </div>

@@ -1,7 +1,10 @@
+"use client";
+
 import { useState } from "react";
+import { Check } from "lucide-react";
 
 export default function HeroSpecialPackage() {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     departureDate: "",
@@ -9,236 +12,196 @@ export default function HeroSpecialPackage() {
     adults: "",
     children: "",
   });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.fullName || !form.phone) return;
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1500);
+    console.log(formData);
+    alert("Form Submitted!");
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden font-sans">
-      {/* Background Image with overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=1600&q=80')`,
-        }}
+    <div className="relative w-full min-h-screen flex items-center justify-center">
+
+      {/* Background Image */}
+      <img
+        src="/Images/Shifting.jpg"
+        alt="Umrah"
+        className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/30" />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen flex items-center px-4 sm:px-8 lg:px-16">
-        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 py-16">
+      <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-          {/* Left: Hero Text */}
-          <div className="flex-1 text-white max-w-xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm text-white text-sm font-semibold px-5 py-2 rounded-full mb-8 tracking-wide">
-              <span className="w-2 h-2 rounded-full bg-blue-400 inline-block animate-pulse"></span>
-              Affordable 3-Star Umrah Packages
-            </div>
-
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight">
-              Your Spiritual
-              <br />
-              Journey
-              <br />
-              <span className="text-blue-400">Starts Here</span>
-            </h1>
-
-            <p className="text-white/80 text-lg leading-relaxed max-w-md">
-              Experience a comfortable and affordable Umrah pilgrimage with our
-              carefully curated 3-star packages. Quality service, trusted
-              support.
-            </p>
-
-            {/* Trust indicators */}
-            <div className="flex flex-wrap gap-6 mt-10">
-              {[
-                { icon: "✓", text: "5000+ Happy Pilgrims" },
-                { icon: "✓", text: "ATOL Protected" },
-                { icon: "✓", text: "24/7 Support" },
-              ].map((item) => (
-                <div key={item.text} className="flex items-center gap-2 text-white/70 text-sm">
-                  <span className="text-blue-400 font-bold">{item.icon}</span>
-                  {item.text}
-                </div>
-              ))}
-            </div>
+        {/* LEFT SIDE */}
+        <div className=" ml-10 mb-30 text-center lg:text-left space-y-6">
+          <h1 className="text-3xl text-[#FFFFFF] md:text-4xl font-bold md:whitespace-nowrap">
+            Family Umrah Packages 2025
+          </h1>
+          <p className="text-lg text-center items-center text-[#FFFFFFE5] max-w-xl">
+            Create precious memories with your loved ones on a spiritually
+            enriching journey designed for families
+          </p>
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
+            <span className="flex items-center gap-1">
+              <Check className="w-4 h-4 text-[#FFFFFF]" /> Flights + Visa Included
+            </span>
+            <span className="flex items-center gap-1">
+              <Check className="w-4 h-4 text-[#FFFFFF]]" /> Family-Friendly Hotels
+            </span>
+            <span className="flex items-center gap-1">
+              <Check className="w-4 h-4 [#FFFFFF]" /> 24/7 Support
+            </span>
           </div>
-
-          {/* Right: Form Card */}
-          <div className="w-full max-w-md lg:max-w-lg">
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
-              {submitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Request Sent!</h3>
-                  <p className="text-gray-500 text-sm">We'll send you a personalized quote within 24 hours.</p>
-                  <button
-                    onClick={() => { setSubmitted(false); setForm({ fullName: "", phone: "", departureDate: "", departureAirport: "", adults: "", children: "" }); }}
-                    className="mt-6 text-blue-600 text-sm font-semibold hover:underline"
-                  >
-                    Submit another request
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                    Plan Your Perfect Umrah Journey
-                  </h2>
-
-                  <div className="space-y-4">
-                    {/* Row 1 */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-600 mb-1">
-                          Full Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="fullName"
-                          value={form.fullName}
-                          onChange={handleChange}
-                          placeholder="Ali"
-                          required
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-600 mb-1">
-                          Phone Number <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={form.phone}
-                          onChange={handleChange}
-                          placeholder="+44 20 1234 5678"
-                          required
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Row 2 */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
-                          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                          Departure Date
-                        </label>
-                        <input
-                          type="date"
-                          name="departureDate"
-                          value={form.departureDate}
-                          onChange={handleChange}
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
-                          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                          Departure Airport
-                        </label>
-                        <input
-                          type="text"
-                          name="departureAirport"
-                          value={form.departureAirport}
-                          onChange={handleChange}
-                          placeholder="e.g. London Heathrow"
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Row 3 */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
-                          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                          Adults
-                        </label>
-                        <select
-                          name="adults"
-                          value={form.adults}
-                          onChange={handleChange}
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
-                        >
-                          <option value="">Select</option>
-                          {[1,2,3,4,5,6,7,8,9,10].map(n => (
-                            <option key={n} value={n}>{n}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-600 mb-1 flex items-center gap-1">
-                          <svg className="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                          Children
-                        </label>
-                        <select
-                          name="children"
-                          value={form.children}
-                          onChange={handleChange}
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
-                        >
-                          <option value="">Select</option>
-                          {[0,1,2,3,4,5].map(n => (
-                            <option key={n} value={n}>{n}</option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    {/* Submit */}
-                    <button
-                      onClick={handleSubmit}
-                      disabled={loading}
-                      className="w-full bg-blue-700 hover:bg-blue-800 active:scale-[0.98] text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 text-base transition-all duration-200 shadow-lg shadow-blue-200 disabled:opacity-70"
-                    >
-                      {loading ? (
-                        <>
-                          <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                          </svg>
-                          Get Free Quote
-                        </>
-                      )}
-                    </button>
-
-                    <p className="text-center text-gray-400 text-xs">
-                      No payment required. We'll send you a personalized quote within 24 hours.
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-
         </div>
+
+        {/* RIGHT SIDE — Form Card */}
+        <div className="w-full max-w-md mx-auto lg:ml-auto lg:w-[420px] xl:w-[470px] shrink-0">
+          <div className="bg-[#ffffff] rounded-2xl shadow-xl p-5 sm:p-6 md:p-7">
+            <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#101828] mb-4 sm:mb-5">
+              Plan Your Perfect Umrah Journey
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+
+              {/* Row 1 — Full Name + Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-medium text-[#364153] mb-1">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Ali"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-[#364153] mb-1">
+                    Phone Number <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+44 20 1234 5678"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                  />
+                </div>
+              </div>
+
+              {/* Row 2 — Departure Date + Airport */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" />
+                      <line x1="8" y1="2" x2="8" y2="6" />
+                      <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                    Departure Date
+                  </label>
+                  <input
+                    type="date"
+                    name="departureDate"
+                    value={formData.departureDate}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition text-gray-500"
+                  />
+                </div>
+                <div>
+                  <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    Departure Airport
+                  </label>
+                  <input
+                    type="text"
+                    name="departureAirport"
+                    placeholder="e.g. Heathrow"
+                    value={formData.departureAirport}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                  />
+                </div>
+              </div>
+
+              {/* Row 3 — Adults + Children */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    Adults
+                  </label>
+                  <input
+                    type="number"
+                    name="adults"
+                    min="1"
+                    placeholder="1"
+                    value={formData.adults}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                  />
+                </div>
+                <div>
+                  <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                      <path d="M16 3.13a4 4 0 010 7.75" />
+                    </svg>
+                    Children
+                  </label>
+                  <input
+                    type="number"
+                    name="children"
+                    min="0"
+                    placeholder="0"
+                    value={formData.children}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition "
+                  />
+                </div>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#1C398E] text-[#ffffff] text-sm font-semibold rounded-xl  active:scale-[0.98] transition-all duration-150 shadow-md mt-2"
+              >
+                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+                Get Free Quote
+              </button>
+
+              <p className="text-center text-[10px] sm:text-xs text-[#6A7282] mt-2">
+                No payment required. We&apos;ll send you a personalized quote within 24 hours.
+              </p>
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   );

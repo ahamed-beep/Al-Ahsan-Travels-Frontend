@@ -47,10 +47,9 @@ const navItems = [
         label: "Special Packages",
         href: "#",
         dropdown: [
-            { label: "Hotal", href: "/specialpackage" },
-            { label: "Group Discount", href: "/packages/group" },
-            { label: "VIP Packages", href: "/packages/vip" },
-            { label: "Student Packages", href: "/packages/student" },
+            { label: "Family Umrah Package", href: "/specialpackage" },
+            { label: "Group Umrah Package", href: "/grouppackage" },
+           
         ],
     },
     { label: "Flights", href: "/flights" },
