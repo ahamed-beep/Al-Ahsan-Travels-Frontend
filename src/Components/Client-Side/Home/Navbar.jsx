@@ -53,7 +53,7 @@ const navItems = [
         ],
     },
     { label: "Flights", href: "/flights" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Contact Us", href: "/contactus" },
 ];
 
 /* ── Smooth slide-down component ── */
