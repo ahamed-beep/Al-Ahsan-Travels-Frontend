@@ -1,10 +1,7 @@
-"use client";
-
 import { HiHome } from "react-icons/hi";
-import { FiRefreshCw } from "react-icons/fi";
+import { FiRefreshCw, FiTrendingUp } from "react-icons/fi";
 import { MdLocationOn } from "react-icons/md";
 import { FaDollarSign, FaUsers, FaShieldAlt } from "react-icons/fa";
-import { FiTrendingUp } from "react-icons/fi";
 
 export default function NonShiftingHajjInfo() {
   const steps = [
@@ -49,9 +46,9 @@ export default function NonShiftingHajjInfo() {
   ];
 
   return (
-    <div className="bg-[#FFFFFF] py-12 sm:py-16 px-4">
+    <div className="bg-[#FFFFFF] ">
       {/* ===== Section 1 ===== */}
-      <div className="max-w-6xl mx-auto text-center mb-14">
+      <div className="max-w-6xl mx-auto text-center mb-14  px-4">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#1F1F1F]">
           How Shifting Hajj Works
         </h2>
@@ -62,12 +59,10 @@ export default function NonShiftingHajjInfo() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {steps.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
-              {/* Number */}
               <div className="w-12 h-12 rounded-full bg-blue-100 text-[#243E8B] flex items-center justify-center font-semibold mb-3">
                 {index + 1}
               </div>
 
-              {/* Icon */}
               <div className="text-[#243E8B] mb-3">{step.icon}</div>
 
               <h3 className="text-sm sm:text-base font-semibold text-gray-800">
@@ -83,7 +78,7 @@ export default function NonShiftingHajjInfo() {
       </div>
 
       {/* ===== Section 2 ===== */}
-      <div className="max-w-6xl bg-[#FAFAFA] mx-auto text-center">
+      <div className="w-full bg-[#FAFAFA] text-center py-12 px-4">
         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
           Why Choose Shifting Hajj?
         </h2>
@@ -91,7 +86,7 @@ export default function NonShiftingHajjInfo() {
           Key benefits that make this option perfect for smart pilgrims
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {benefits.map((item, index) => (
             <div
               key={index}

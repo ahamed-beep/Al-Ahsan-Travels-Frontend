@@ -1,0 +1,24 @@
+import React from 'react'
+import Navbar from '../Home/Navbar'
+import UmrahPageHeroSection from './UmrahPageHeroSection'
+import Footer from '../Home/Footer'
+import ThreeStarPackages from './ThreeStarPackage'
+import FourStar from './FourStar'
+import FiveStar from './FiveStar'
+import CostumSpecial from './CostumSpecial'
+
+const CombineUmrahPage = () => {
+  return (
+    <div>
+        <Navbar/>
+        <UmrahPageHeroSection/>
+        <ThreeStarPackages/>
+        <FourStar/>
+        <FiveStar/>
+        <CostumSpecial/>
+        <Footer/>
+    </div>
+  )
+}
+
+export default CombineUmrahPage

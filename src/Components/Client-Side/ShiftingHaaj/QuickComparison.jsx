@@ -31,7 +31,7 @@ export default function QuickComparison() {
 
   return (
     <div className="w-full bg-[#1C398E] py-12 px-4 flex flex-col items-center">
-      <h2 className="text-white text-lg sm:text-xl md:text-2xl font-semibold mb-8 text-center">
+      <h2 className="text-white text-lg sm:text-xl md:text-2xl font-semibold   mb-8 text-center">
         Quick Comparison: Shifting Hajj
       </h2>
 

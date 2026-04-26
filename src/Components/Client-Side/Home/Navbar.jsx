@@ -12,26 +12,25 @@ const navItems = [
             { label: "Hajj Guide line", href: "/hajjguidline" },
             { label: "Shifting Hajj", href: "/shiftinghajj" },
             { label: "Non Shifting Hajj", href: "/nonshiftinghajj" },
-            
         ],
     },
     {
         label: "Umrah",
         href: "#",
         dropdown: [
-            { label: "Umrah Packages", href: "/umrahpackages"},
+            { label: "Umrah Packages", href: "/umrahpage" },
             { label: "January Umrah Packages", href: "/umrahjanuary" },
-           { label: "February Umrah Packages", href: "/umrahfebruary" },
-           { label: "March Umrah Packages", href: "/umrahmarch" },
-           { label: "April Umrah Packages", href: "/umrahapril" },
-           { label: "May Umrah Packages", href: "/umrahmay" },
-           { label: "June Umrah Packages", href: "/umrahjune" },
-           { label: "July Umrah Packages", href: "/umrahjuly" },
-           { label: "August Umrah Packages", href: "/umrahaugust" },
-           { label: "September Umrah Packages", href: "/umrahseptember" },
-           { label: "October Umrah Packages", href: "/umrahoctober" },
-           { label: "November Umrah Packages", href: "/umrahnovember" },
-           { label: "December Umrah Packages", href: "/umrahdecember" },
+            { label: "February Umrah Packages", href: "/umrahfebruary" },
+            { label: "March Umrah Packages", href: "/umrahmarch" },
+            { label: "April Umrah Packages", href: "/umrahapril" },
+            { label: "May Umrah Packages", href: "/umrahmay" },
+            { label: "June Umrah Packages", href: "/umrahjune" },
+            { label: "July Umrah Packages", href: "/umrahjuly" },
+            { label: "August Umrah Packages", href: "/umrahaugust" },
+            { label: "September Umrah Packages", href: "/umrahseptember" },
+            { label: "October Umrah Packages", href: "/umrahoctober" },
+            { label: "November Umrah Packages", href: "/umrahnovember" },
+            { label: "December Umrah Packages", href: "/umrahdecember" },
         ],
     },
     {
@@ -53,56 +52,176 @@ const navItems = [
             { label: "Student Packages", href: "/packages/student" },
         ],
     },
-    { label: "Flights", href: "/flights" },
+    { label: "flight", href: "/flight" },
     { label: "Contact Us", href: "/contact" },
 ];
 
-/* ── Smooth slide-down component ── */
+/* ── Smooth slide-down ── */
 function SlideDown({ open, children }) {
     const innerRef = useRef(null);
     const [maxHeight, setMaxHeight] = useState("0px");
-
     useEffect(() => {
         if (!innerRef.current) return;
-        if (open) {
-            setMaxHeight(`${innerRef.current.scrollHeight}px`);
-        } else {
-            setMaxHeight("0px");
-        }
+        setMaxHeight(open ? `${innerRef.current.scrollHeight}px` : "0px");
     }, [open]);
-
     return (
-        <div
-            style={{
-                maxHeight,
-                overflow: "hidden",
-                transition: "max-height 0.35s ease",
-            }}
-        >
+        <div style={{ maxHeight, overflow: "hidden", transition: "max-height 0.35s ease" }}>
             <div ref={innerRef}>{children}</div>
         </div>
     );
 }
 
-/* ── Chevron SVG ── */
-const Chevron = ({ open }) => (
-    <svg
-        width="14" height="14" viewBox="0 0 24 24"
-        fill="none" stroke="currentColor"
-        strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-        style={{
-            transition: "transform 0.25s ease",
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-            flexShrink: 0,
-        }}
-    >
-        <path d="M6 9l6 6 6-6" />
-    </svg>
-);
+/* ── Chevron ── */
+function Chevron({ open }) {
+    return (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+            style={{ transition: "transform 0.25s ease", transform: open ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0 }}>
+            <path d="M6 9l6 6 6-6" />
+        </svg>
+    );
+}
 
+/* ── Reusable hover hook ── */
+function useHover() {
+    const [hovered, setHovered] = useState(false);
+    return {
+        hovered,
+        onMouseEnter: () => setHovered(true),
+        onMouseLeave: () => setHovered(false),
+    };
+}
+
+/* ── Desktop nav link ── */
+function NavLink({ href, children }) {
+    const { hovered, onMouseEnter, onMouseLeave } = useHover();
+    return (
+        <Link href={href} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                display: "block", padding: "8px 10px", fontSize: "13px", fontWeight: 500,
+                borderRadius: "6px", whiteSpace: "nowrap", textDecoration: "none",
+                transition: "color 0.15s, background 0.15s",
+                color: hovered ? "#1C398E" : "#374151",
+                background: hovered ? "#f5f0e8" : "transparent",
+            }}>
+            {children}
+        </Link>
+    );
+}
+
+/* ── Desktop dropdown button ── */
+function NavButton({ children, hovered, onMouseEnter, onMouseLeave }) {
+    return (
+        <button onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                display: "flex", alignItems: "center", gap: "4px",
+                padding: "8px 10px", fontSize: "13px", fontWeight: 500,
+                borderRadius: "6px", whiteSpace: "nowrap", border: "none", cursor: "pointer",
+                transition: "color 0.15s, background 0.15s",
+                color: hovered ? "#1C398E" : "#374151",
+                background: hovered ? "#f5f0e8" : "transparent",
+            }}>
+            {children}
+        </button>
+    );
+}
+
+/* ── Desktop dropdown sub-link ── */
+function DropdownLink({ href, children }) {
+    const { hovered, onMouseEnter, onMouseLeave } = useHover();
+    return (
+        <Link href={href} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                display: "block", padding: "9px 12px", fontSize: "13px",
+                borderRadius: "7px", textDecoration: "none",
+                transition: "color 0.15s, background 0.15s",
+                color: hovered ? "#1C398E" : "#374151",
+                background: hovered ? "#f5f0e8" : "transparent",
+            }}>
+            {children}
+        </Link>
+    );
+}
+
+/* ── Mobile plain link ── */
+function MobileNavLink({ href, children, onClick }) {
+    const { hovered, onMouseEnter, onMouseLeave } = useHover();
+    return (
+        <Link href={href} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                display: "block", padding: "12px", fontSize: "15px", fontWeight: 500,
+                borderRadius: "8px", textDecoration: "none",
+                transition: "color 0.15s, background 0.15s",
+                color: hovered ? "#1C398E" : "#374151",
+                background: hovered ? "#f5f0e8" : "transparent",
+            }}>
+            {children}
+        </Link>
+    );
+}
+
+/* ── Mobile dropdown button ── */
+function MobileDropdownBtn({ children, onClick }) {
+    const { hovered, onMouseEnter, onMouseLeave } = useHover();
+    return (
+        <button onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+                padding: "12px", fontSize: "15px", fontWeight: 500,
+                borderRadius: "8px", border: "none", cursor: "pointer",
+                transition: "color 0.15s, background 0.15s",
+                color: hovered ? "#1C398E" : "#374151",
+                background: hovered ? "#f5f0e8" : "transparent",
+            }}>
+            {children}
+        </button>
+    );
+}
+
+/* ── Mobile sub-link ── */
+function MobileSubLink({ href, children, onClick }) {
+    const { hovered, onMouseEnter, onMouseLeave } = useHover();
+    return (
+        <Link href={href} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                display: "block", padding: "10px 0", fontSize: "14px", textDecoration: "none",
+                transition: "color 0.15s",
+                color: hovered ? "#1C398E" : "#4B5563",
+            }}>
+            {children}
+        </Link>
+    );
+}
+
+/* ── Book Now button ── */
+function BookBtn({ href, onClick, mobile }) {
+    const { hovered, onMouseEnter, onMouseLeave } = useHover();
+    return (
+        <Link href={href} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+            style={{
+                display: "block", textAlign: "center",
+                padding: mobile ? "12px" : "8px 20px",
+                fontSize: mobile ? "15px" : "13px",
+                fontWeight: 600,
+                borderRadius: mobile ? "12px" : "999px",
+                whiteSpace: "nowrap", textDecoration: "none",
+                transition: "background 0.15s",
+                background: hovered ? "#1C398E" : "#1a1a2e",
+                color: "white",
+                ...(mobile ? { width: "100%" } : {}),
+            }}>
+            Book Now
+        </Link>
+    );
+}
+
+/* ══════════════════════════════════════
+   MAIN NAVBAR
+══════════════════════════════════════ */
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
+    const [hoveredItem, setHoveredItem] = useState(null);
 
     const toggleMobileDropdown = (label) =>
         setOpenDropdown((prev) => (prev === label ? null : label));
@@ -115,7 +234,6 @@ export default function Navbar() {
     return (
         <nav className="w-full bg-white border-b border-gray-100 shadow-sm relative z-50">
 
-            {/* ── Navbar Top Bar ── */}
             <div className="w-full px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-[64px] sm:h-[70px]">
 
@@ -128,60 +246,49 @@ export default function Navbar() {
                         />
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <ul className="hidden lg:flex whitespace-nowrap items-center gap-0.5 xl:gap-1 flex-wrap">
+                    {/* ── Desktop Nav ── */}
+                    <ul className="hidden lg:flex whitespace-nowrap items-center gap-0.5 xl:gap-1">
                         {navItems.map((item) => (
                             <li key={item.label} className="relative group">
                                 {item.dropdown ? (
                                     <>
-                                        <button className="flex items-center gap-1 px-2.5 xl:px-3 py-2 text-[13px] xl:text-[14px] font-medium text-gray-700 rounded-md hover:bg-[#f5f0e8] hover:text-[#c8a44a] transition-colors whitespace-nowrap">
+                                        <NavButton
+                                            hovered={hoveredItem === item.label}
+                                            onMouseEnter={() => setHoveredItem(item.label)}
+                                            onMouseLeave={() => setHoveredItem(null)}
+                                        >
                                             {item.label}
-                                            <svg
-                                                width="12" height="12" viewBox="0 0 24 24"
-                                                fill="none" stroke="currentColor"
-                                                strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-                                                className="mt-0.5 transition-transform duration-200 group-hover:rotate-180"
-                                            >
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" strokeWidth="2.5"
+                                                strokeLinecap="round" strokeLinejoin="round"
+                                                className="mt-0.5 transition-transform duration-200 group-hover:rotate-180">
                                                 <path d="M6 9l6 6 6-6" />
                                             </svg>
-                                        </button>
+                                        </NavButton>
+
                                         {/* Desktop Dropdown */}
-                                        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-xl shadow-lg min-w-[180px] p-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-1 group-hover:translate-y-0 transition-all duration-150">
+                                        <div className="absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-xl shadow-lg min-w-[190px] p-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible -translate-y-1 group-hover:translate-y-0 transition-all duration-150">
                                             {item.dropdown.map((sub) => (
-                                                <Link
-                                                    key={sub.label}
-                                                    href={sub.href}
-                                                    className="block px-3 py-2.5 text-[13px] text-gray-700 rounded-lg hover:bg-[#f5f0e8] hover:text-[#c8a44a] transition-colors"
-                                                >
+                                                <DropdownLink key={sub.label} href={sub.href}>
                                                     {sub.label}
-                                                </Link>
+                                                </DropdownLink>
                                             ))}
                                         </div>
                                     </>
                                 ) : (
-                                    <Link
-                                        href={item.href}
-                                        className="block px-2.5 xl:px-3 py-2 text-[13px] xl:text-[14px] font-medium text-gray-700 rounded-md hover:bg-[#f5f0e8] hover:text-[#c8a44a] transition-colors whitespace-nowrap"
-                                    >
-                                        {item.label}
-                                    </Link>
+                                    <NavLink href={item.href}>{item.label}</NavLink>
                                 )}
                             </li>
                         ))}
 
                         <li className="w-px h-5 bg-gray-200 mx-1 shrink-0" />
 
-                        {/* Desktop Book Now */}
                         <li className="shrink-0">
-                            <Link
-                                href="/book"
-                                className="px-4 xl:px-5 py-2 bg-[#1a1a2e] text-white text-[13px] xl:text-[14px] font-semibold rounded-full hover:bg-[#c8a44a] transition-colors whitespace-nowrap"
-                            >
-                                Book Now 
-                            </Link>
+                            <BookBtn href="/book" />
                         </li>
                     </ul>
 
+                    {/* ── Mobile Hamburger ── */}
                     <button
                         className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition"
                         onClick={() => setMobileOpen((p) => !p)}
@@ -203,6 +310,7 @@ export default function Navbar() {
                 </div>
             </div>
 
+            {/* ── Mobile Menu ── */}
             <SlideDown open={mobileOpen}>
                 <div className="lg:hidden bg-white border-t border-gray-100 px-4 pb-5">
                     <ul className="mt-2 space-y-0.5">
@@ -210,51 +318,33 @@ export default function Navbar() {
                             <li key={item.label}>
                                 {item.dropdown ? (
                                     <>
-                                        <button
-                                            onClick={() => toggleMobileDropdown(item.label)}
-                                            className="w-full flex items-center justify-between px-3 py-3 text-[15px] font-medium text-gray-700 rounded-lg hover:bg-[#f5f0e8] hover:text-[#c8a44a] transition-colors"
-                                        >
+                                        <MobileDropdownBtn onClick={() => toggleMobileDropdown(item.label)}>
                                             <span>{item.label}</span>
                                             <Chevron open={openDropdown === item.label} />
-                                        </button>
+                                        </MobileDropdownBtn>
 
-                                        {/* Sub items slide */}
                                         <SlideDown open={openDropdown === item.label}>
                                             <ul className="ml-3 mb-1 border-l-2 border-[#f0e6cc] pl-3 py-1">
                                                 {item.dropdown.map((sub) => (
                                                     <li key={sub.label}>
-                                                        <Link
-                                                            href={sub.href}
-                                                            className="block py-2.5 text-[14px] text-gray-600 hover:text-[#c8a44a] transition-colors"
-                                                            onClick={closeMobile}
-                                                        >
+                                                        <MobileSubLink href={sub.href} onClick={closeMobile}>
                                                             {sub.label}
-                                                        </Link>
+                                                        </MobileSubLink>
                                                     </li>
                                                 ))}
                                             </ul>
                                         </SlideDown>
                                     </>
                                 ) : (
-                                    <Link
-                                        href={item.href}
-                                        className="block px-3 py-3 text-[15px] font-medium text-gray-700 rounded-lg hover:bg-[#f5f0e8] hover:text-[#c8a44a] transition-colors"
-                                        onClick={closeMobile}
-                                    >
+                                    <MobileNavLink href={item.href} onClick={closeMobile}>
                                         {item.label}
-                                    </Link>
+                                    </MobileNavLink>
                                 )}
                             </li>
                         ))}
 
                         <li className="pt-3">
-                            <Link
-                                href="/book"
-                                className="block w-full text-center py-3 bg-[#1a1a2e] text-white text-[15px] font-semibold rounded-xl hover:bg-[#c8a44a] transition-colors duration-200"
-                                onClick={closeMobile}
-                            >
-                                Book Now
-                            </Link>
+                            <BookBtn href="/book" onClick={closeMobile} mobile={true} />
                         </li>
                     </ul>
                 </div>

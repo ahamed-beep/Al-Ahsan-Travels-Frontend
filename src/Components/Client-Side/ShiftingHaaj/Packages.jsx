@@ -44,15 +44,15 @@ export default function Packages() {
         Select the package that best fits your needs and budget
       </p>
 
-      <div className="w-full max-w-5xl px-25 space-y-5 sm:space-y-6">
+      <div className="w-full max-w-5xl md:px-25 space-y-5 sm:space-y-6">
         {packages.map((pkg, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-gray-200"
+            className="bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-[#E5E7EB]"
           >
             {/* Popular Badge */}
             {pkg.popular && (
-              <div className="bg-[#243E8B] text-white text-[10px] sm:text-xs text-center py-1">
+              <div className="bg-[#243E8B] text-[#ffffff] text-[10px] sm:text-xs text-center py-1">
                 ⭐ Most Popular Choice
               </div>
             )}
@@ -95,7 +95,7 @@ export default function Packages() {
                       (item, i) => (
                         <span
                           key={i}
-                          className="flex items-center gap-1 bg-[#C6D7FC] px-2 sm:px-3 py-1 text-[10px] sm:text-xs rounded-full text-gray-600"
+                          className="flex items-center gap-1 bg-[#C6D7FC] px-2 sm:px-3 py-1 text- sm:text-xs rounded-lg text-[#1C398E]"
                         >
                           {item === "Visa" && <FaPassport size={12} />}
                           {item === "Transport" && <FaBus size={12} />}
@@ -111,14 +111,14 @@ export default function Packages() {
                 {/* Price + Button */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-3">
                   <div>
-                    <p className="text-[10px] sm:text-xs text-gray-500">From</p>
-                    <h4 className="text-lg sm:text-xl font-bold text-[#243E8B]">
+                    <p className="text-[10px] sm:text-xs text-[#6A7282]">From</p>
+                    <h4 className="text-lg sm:text-xl font-bold text-[#1C398E]">
                       {pkg.price}
                     </h4>
-                    <p className="text-[10px] sm:text-xs text-gray-500">per person</p>
+                    <p className="text-[10px] sm:text-xs text-[#6A7282]">per person</p>
                   </div>
 
-                  <button className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-xs sm:text-sm">
+                  <button className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366]  text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm">
                     <FaWhatsapp /> WhatsApp
                   </button>
                 </div>

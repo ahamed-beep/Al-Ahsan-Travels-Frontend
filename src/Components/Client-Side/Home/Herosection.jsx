@@ -1,6 +1,6 @@
 "use client";
-
-import { useState } from "react";
+import { Users } from "lucide-react";
+import { useState,   } from "react";
 
 const socialLinks = [
   {
@@ -105,26 +105,28 @@ export default function HeroSection() {
 
       {/* ── Trustpilot Badge — top center ── */}
       <div className="relative z-10 flex justify-center pt-4 sm:pt-5 md:pt-6 px-3 sm:px-4">
-        <div className="flex items-center gap-2 sm:gap-3 bg-white/90 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm border border-gray-100">
+        <div className="flex items-center gap-2 sm:gap-3   rounded-full px-3 sm:px-4 py-1.5 sm:py-2 ">
           {/* Avatar stack */}
-          <div className="flex -space-x-2">
-            {["AK", "MR", "SH", "FZ"].map((initial, i) => (
-              <div
-                key={i}
-                className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#1e3a8a] border-2 border-white flex items-center justify-center text-white text-[8px] sm:text-[9px] font-bold"
-              >
-                {initial}
-              </div>
-            ))}
-          </div>
+         
+<div className="flex -space-x-2">
+  {[0, 1, 2, 3].map((i) => (
+    <div
+      key={i}
+      className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#1e3a8a] border-2 border-white flex items-center justify-center text-white"
+    >
+      <Users size={12} />
+    </div>
+  ))}
+</div>
+          
           {/* Trustpilot text */}
           <div className="flex items-center gap-1 sm:gap-1.5">
-            <svg width="14"  sm="16" height="16" viewBox="0 0 24 24" fill="#00b67a">
+            <svg width="14"  sm="16" height="16" viewBox="0 0 24 24" fill="#1C398E">
               <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
             </svg>
             <div>
-              <p className="text-[10px] sm:text-[12px] font-bold text-gray-800 leading-none">Trustpilot</p>
-              <p className="text-[8px] sm:text-[10px] text-gray-500 leading-none mt-0.5 whitespace-nowrap">Trusted by 40+ clients</p>
+              <p className="text-[10px] sm:text-[12px] font-bold text-[#1C398E] leading-none">Trustpilot</p>
+              <p className="text-[8px] sm:text-[10px] text-[#1C398E] leading-none mt-0.5 whitespace-nowrap">Trusted by 40+ clients</p>
             </div>
           </div>
         </div>
