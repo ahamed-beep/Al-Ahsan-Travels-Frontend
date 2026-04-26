@@ -19,7 +19,7 @@ export default function UmrahContactCTA() {
 
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#ffffff] leading-tight">
-          Start Your Umrah Journey Today
+          abc Start Your Umrah Journey Today
         </h2>
 
         {/* Description */}
