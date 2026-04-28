@@ -32,8 +32,8 @@ export default function HeroContactUs() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-            Get in Touch <br className="hidden sm:block" /> With Us
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl  font-medium text-gray-900 leading-tight">
+            Get in Touch  With Us
           </h1>
 
           {/* Description */}
@@ -66,6 +66,10 @@ export default function HeroContactUs() {
             </button>
           </div>
         </div>
+         {/* ⭐ TRUSTPILOT (image ke upar, center aligned like design) */}
+          <div className="absolute top-20 left-1/2 -translate-x-1/2 z-20">
+            <TrustpilotBadge />
+          </div>
 
         {/* ── Trustpilot Badge — page top center ── */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5    px-3 py-1.5 rounded-full shadow-sm border border-gray-100"
