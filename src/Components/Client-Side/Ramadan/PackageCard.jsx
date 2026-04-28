@@ -68,7 +68,7 @@ function PackageCard({ pkg }) {
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border-2 ${pkg.borderColor} bg-white shadow-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl`}
+      className={`relative flex flex-col rounded-2xl border-2 ${pkg.borderColor} bg-[#ffffff] shadow-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl`}
     >
       {/* Image */}
       <div className="relative h-48 sm:h-52 w-full overflow-hidden">
@@ -94,7 +94,7 @@ function PackageCard({ pkg }) {
       {/* Body */}
       <div className="flex flex-col flex-1 p-5 gap-4">
         {/* Star label */}
-        <div className="flex items-center gap-1.5 text-blue-700 text-xs font-semibold">
+        <div className="flex items-center gap-1.5 text-[#1C398E] text-xs font-semibold">
           <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
           </svg>
@@ -102,23 +102,23 @@ function PackageCard({ pkg }) {
         </div>
 
         {/* Title */}
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-snug">
+        <h3 className="text-lg sm:text-xl font-bold text-[#101828] leading-snug">
           {pkg.title}
         </h3>
 
         {/* Price */}
         <div>
-          <p className="text-3xl sm:text-4xl font-extrabold text-blue-700">
+          <p className="text-3xl sm:text-4xl font-extrabold text-[#1C398E]">
             {pkg.price}
           </p>
-          <p className="text-xs text-gray-500 mt-0.5">per person</p>
+          <p className="text-xs text-[#6A7282] mt-0.5">per person</p>
         </div>
 
         <hr className="border-gray-100" />
 
         {/* Duration */}
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <Clock className="w-4 h-4 text-blue-500 shrink-0" />
+        <div className="flex items-center gap-2 text-sm text-[#4A5565]">
+          <Clock className="w-4 h-4 text-[#2B7FFF] shrink-0" />
           {pkg.nights} Nights during First Ashra
         </div>
 
@@ -126,29 +126,29 @@ function PackageCard({ pkg }) {
 
         {/* Hotels */}
         <div className="space-y-2">
-          <div className="flex items-start gap-2 text-sm text-gray-700">
-            <MapPin className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+          <div className="flex items-start gap-2 text-sm text-[#101828]">
+            <MapPin className="w-4 h-4 text-[#2B7FFF] mt-0.5 shrink-0" />
             <div>
               <p className="font-semibold">Makkah</p>
-              <p className="text-gray-500 text-xs">{pkg.makkah}</p>
+              <p className="text-[#4A5565] text-xs">{pkg.makkah}</p>
             </div>
           </div>
-          <div className="flex items-start gap-2 text-sm text-gray-700">
-            <MapPin className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+          <div className="flex items-start gap-2 text-sm text-[#101828]">
+            <MapPin className="w-4 h-4 text-[#2B7FFF] mt-0.5 shrink-0" />
             <div>
               <p className="font-semibold">Madinah</p>
-              <p className="text-gray-500 text-xs">{pkg.madinah}</p>
+              <p className="text-[#4A5565] text-xs">{pkg.madinah}</p>
             </div>
           </div>
         </div>
 
-        <hr className="border-gray-100" />
+        <hr className="border-[#E5E7EB]" />
 
         {/* Features */}
         <ul className="space-y-1.5">
           {pkg.features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-sm text-gray-700">
-              <Check className="w-4 h-4 text-green-500 shrink-0" />
+            <li key={f} className="flex items-center gap-2 text-sm text-[#364153]">
+              <Check className="w-4 h-4 bg-[#C3D8FA33] text-[#2B7FFFCC] rounded-full  shrink-0" />
               {f}
             </li>
           ))}
@@ -159,9 +159,9 @@ function PackageCard({ pkg }) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 active:bg-green-700 text-white font-semibold text-sm py-3 rounded-xl transition-colors duration-150"
+          className="mt-auto flex items-center justify-center gap-2 w-full bg-[#25D366]  text-white font-semibold text-sm py-3 rounded-xl transition-colors duration-150"
         >
-          <MessageCircle className="w-4 h-4" />
+          <MessageCircle className="w-4 h-4 text-[#FFFFFF]" />
           WhatsApp
         </a>
       </div>
@@ -171,19 +171,19 @@ function PackageCard({ pkg }) {
 
 export default function PackageCards() {
   return (
-    <section className="min-h-screen bg-white py-14 px-4 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-[#FFFFFF] py-14 px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">
+        <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-2">
           Choose Your First Ashra Package
         </h2>
-        <p className="text-gray-500 text-sm sm:text-base">
+        <p className="text-[#4A5565] text-sm sm:text-base">
           Tailored packages for the blessed days of mercy
         </p>
       </div>
 
       {/* Cards Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {packages.map((pkg) => (
           <PackageCard key={pkg.id} pkg={pkg} />
         ))}
