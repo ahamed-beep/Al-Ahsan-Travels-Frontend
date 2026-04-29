@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
@@ -30,18 +31,44 @@ export default function Footer() {
             </div>
 
             <ul className="space-y-2 text-sm">
-              <li className="text-[#1C398E] cursor-pointer">About</li>
-              <li className="text-[#1C398E] cursor-pointer">Packages</li>
-              <li className="text-[#1C398E] cursor-pointer">Services</li>
+              <li>
+                <Link href="/aboutus" className="text-[#1C398E] hover:underline">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/packages" className="text-[#1C398E] hover:underline">
+                  Packages
+                </Link>
+              </li>
+              <li>
+                <li>
+                  <Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">
+                    Services
+                  </Link>
+                </li>
+              </li>
             </ul>
           </div>
 
           {/* Middle Links */}
           <div className="md:ml-10">
-            <ul className="space-y-2 text-sm">
-              <li className="text-[#1C398E] cursor-pointer">Contact</li>
-              <li className="text-[#1C398E] cursor-pointer">FAQs</li>
-              <li className="text-[#1C398E] cursor-pointer">Travel Guide</li>
+            <ul className="space-y-2  text-sm">
+              <li>
+                <Link href="/contact" className="text-[#1C398E] hover:underline">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/faqs" className="text-[#1C398E] hover:underline">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="/travel-guide" className="text-[#1C398E] hover:underline">
+                  Travel Guide
+                </Link>
+              </li>
             </ul>
           </div>
 
