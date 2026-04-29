@@ -7,7 +7,7 @@ export default function UmrahCTA() {
       <h2 className="text-[#FFFFFF] text-3xl font-bold mb-4">
         Plan Your Family Umrah Journey Today
       </h2>
-      <p className="text-[#FFFFFF]/90 text-base mb-8">
+      <p className="text-[#FFFFFF] text-base mb-8">
         Create lasting memories with your family on a spiritually enriching pilgrimage. <br />
         Our expert team is ready to help you plan the perfect journey.
       </p>

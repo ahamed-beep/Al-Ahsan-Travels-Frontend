@@ -19,6 +19,11 @@ const navItems = [
         href: "#",
         dropdown: [
             { label: "Umrah Packages", href: "/umrahpage" },
+            { label: "Family Umrah Package", href: "/specialpackage" },
+            { label: "Group Umrah Package", href: "/grouppackage" },
+            { label: "Three Star Umrah Package", href: "/threestarpackage" },
+            { label: "Four Star Umrah Package", href: "/fourstarpackage" },
+            { label: "Five Star Umrah Package", href: "/fivestarpackage" },
             { label: "January Umrah Packages", href: "/umrahjanuary" },
             { label: "February Umrah Packages", href: "/umrahfebruary" },
             { label: "March Umrah Packages", href: "/umrahmarch" },
@@ -46,13 +51,13 @@ const navItems = [
         label: "Special Packages",
         href: "#",
         dropdown: [
-            { label: "Family Umrah Package", href: "/specialpackage" },
-            { label: "Group Umrah Package", href: "/grouppackage" },
-           
+            { label: "Family Umrah Package", href: "/s" },
+            { label: "Group Umrah Package", href: "/g" },
+
         ],
     },
     { label: "flight", href: "/flight" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Contact Us", href: "/contactus" },
 ];
 
 /* ── Smooth slide-down ── */
