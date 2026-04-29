@@ -64,8 +64,8 @@ export default function HeroContactUs() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-            Get in Touch <br className="hidden sm:block" /> With Us
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl  font-medium text-gray-900 leading-tight">
+            Get in Touch  With Us
           </h1>
 
           {/* Description */}
@@ -98,14 +98,13 @@ export default function HeroContactUs() {
             </button>
           </div>
         </div>
+         {/* ⭐ TRUSTPILOT (image ke upar, center aligned like design) */}
+          <div className="absolute top-20 left-1/2 -translate-x-1/2 z-20">
+            <TrustpilotBadge />
+          </div>
 
         {/* ── Right: Image ── */}
         <div className="relative flex items-center justify-center min-h-[400px] lg:min-h-[600px]">
-
-          {/* Trustpilot — desktop only */}
-          <div className="hidden lg:flex absolute top-0 right-0 z-20">
-            <TrustpilotBadge size="lg" />
-          </div>
 
           {/* Watercolor blob */}
           <div

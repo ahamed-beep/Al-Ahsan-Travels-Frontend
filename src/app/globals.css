@@ -42,3 +42,7 @@ select:disabled,
 body {
   @apply bg-white;
 }
+
+html {
+  scroll-behavior: smooth;
+}
