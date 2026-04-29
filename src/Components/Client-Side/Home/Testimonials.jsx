@@ -49,17 +49,17 @@ export default function Testimonials() {
         </p>
 
         {/* Card */}
-        <div className="mt-10 bg-white rounded-2xl shadow-lg p-8 md:p-10 relative">
+        <div className="mt-10 bg-[#FFFFFF] rounded-2xl shadow-lg p-8 md:p-10 relative">
 
           {/* Avatar */}
           <div className="flex justify-center">
-            <div className="w-16 h-16 rounded-full bg-[#2b4c9a] text-white flex items-center justify-center text-lg font-bold">
+            <div className="w-16 h-16 rounded-full bg-[#2b4c9a] text-[#ffffff] flex items-center justify-center text-lg font-bold">
               {t.initials}
             </div>
           </div>
 
           {/* Name */}
-          <h3 className="mt-4 font-semibold text-lg">{t.name}</h3>
+          <h3 className="mt-4 font-semibold text-[#1F1F1F] text-lg">{t.name}</h3>
 
           {/* Stars */}
           <div className="flex justify-center mt-2">
@@ -69,23 +69,22 @@ export default function Testimonials() {
           </div>
 
           {/* Review */}
-          <p className="text-gray-600 italic mt-4 text-sm md:text-base max-w-2xl mx-auto">
+          <p className="text-[#364153] italic mt-4 text-sm md:text-base max-w-2xl mx-auto">
             "{t.review}"
           </p>
-
           {/* Footer Info */}
-          <div className="mt-6 text-xs text-gray-500 flex flex-wrap justify-center gap-3">
-            <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-[10px]">
+          <div className="mt-6 ml-20 text-xs text-gray-500 flex flex-wrap  gap-3">
+            <span className="bg-[#51A2FF33] text-[#1C398E] px-2 py-1 rounded-full text-[10px]">
               ✓ Verified
             </span>
-            <span>{t.date}</span>
-            <span>Completed {t.package}</span>
-            <span className="text-[#2b4c9a] cursor-pointer">
-              {t.package}
-            </span>
-            <span>{t.location}</span>
+            <span className="text-[#6A7282]">{t.date}</span>
           </div>
-        </div>
+          <div className="mt-2 ml-20 text-xs text-gray-500 flex flex-wrap gap-3">
+            <span className="text-[#4A5565]">Completed {t.package}</span>
+            <span className="cursor-pointer" style={{ color: "#155DFC" }}>
+              {t.package} </span>    
+            <span>{t.location}</span>
+          </div>        </div>
 
         {/* Controls */}
         <div className="flex justify-center items-center gap-4 mt-6">
@@ -112,11 +111,10 @@ export default function Testimonials() {
           {testimonials.map((_, index) => (
             <div
               key={index}
-              className={`h-2 rounded-full ${
-                index === current
-                  ? "w-6 bg-[#2b4c9a]"
-                  : "w-2 bg-gray-300"
-              }`}
+              className={`h-2 rounded-full ${index === current
+                ? "w-6 bg-[#2b4c9a]"
+                : "w-2 bg-gray-300"
+                }`}
             ></div>
           ))}
         </div>

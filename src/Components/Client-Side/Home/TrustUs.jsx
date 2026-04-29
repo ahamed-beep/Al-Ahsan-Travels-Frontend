@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
-import { ShieldCheck, Building2, Map, Clock } from "lucide-react";
+import { Shield, Building, Map, Clock } from "lucide-react";
 
 export default function WhyTrustUs() {
   const features = [
     {
-      icon: ShieldCheck,
+      icon: Shield,
       title: "Visa Processing Support",
       desc: "Complete assistance with Saudi visa applications and documentation",
     },
     {
-      icon: Building2,
+      icon: Building,
       title: "Premium Haram Hotels",
       desc: "Carefully selected accommodations within walking distance of the Haram",
     },
