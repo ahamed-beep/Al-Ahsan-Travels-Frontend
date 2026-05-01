@@ -10,8 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
 
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
           {/* Logo + Links */}
           <div>
             <div className="flex items-center gap-3 mb-5">
@@ -41,21 +40,20 @@ export default function Footer() {
                   Packages
                 </Link>
               </li>
+
               <li>
-                <li>
-                  <Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">
-                    Services
-                  </Link>
-                </li>
+                <Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">
+                  Services
+                </Link>
               </li>
+
             </ul>
           </div>
-
           {/* Middle Links */}
-          <div className="md:ml-10">
+          <div className="mt-25">
             <ul className="space-y-2  text-sm">
               <li>
-                <Link href="/contact" className="text-[#1C398E] hover:underline">
+                <Link href="/contactus" className="text-[#1C398E] hover:underline">
                   Contact
                 </Link>
               </li>
@@ -73,19 +71,16 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="mt-25">
             <ul className="space-y-4 text-sm">
-
               <li className="flex text-[#1C398E] items-center gap-2">
                 <Phone size={16} />
                 <span>+44 20 1234 5678</span>
               </li>
-
               <li className="flex text-[#1C398E] items-center gap-2">
                 <Mail size={16} />
                 <span>info@holycompanions.co.uk</span>
               </li>
-
               <li className="flex text-[#1C398E] items-start gap-2">
                 <MapPin size={16} className="mt-1" />
                 <span>
@@ -93,7 +88,6 @@ export default function Footer() {
                   London, UK, E1 1AA
                 </span>
               </li>
-
             </ul>
           </div>
 

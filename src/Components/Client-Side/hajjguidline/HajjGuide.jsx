@@ -5,17 +5,18 @@ import {
   Book, Home, MapPin, Shirt, Calendar,
   CircleCheckBig, CircleAlert, X, Menu,
 } from "lucide-react";
+import Link from "next/link";
 
 const sections = [
-  { id: "intro",       label: "Introduction",      icon: <Book size={16} /> },
-  { id: "kaaba",       label: "The Kaaba",          icon: <Home size={16} /> },
-  { id: "meeqat",      label: "Meeqat",             icon: <MapPin size={16} /> },
-  { id: "ihram",       label: "Ihram",              icon: <Shirt size={16} /> },
-  { id: "types",       label: "Types of Hajj",      icon: <Calendar size={16} /> },
-  { id: "steps",       label: "Step-by-Step Guide", icon: <CircleCheckBig size={16} /> },
-  { id: "obligations", label: "Obligations",        icon: <CircleAlert size={16} /> },
-  { id: "tawaf",       label: "Tawaf",              icon: <Calendar size={16} /> },
-  { id: "tips",        label: "Tips & Advice",      icon: <CircleAlert size={16} /> },
+  { id: "intro", label: "Introduction", icon: <Book size={16} /> },
+  { id: "kaaba", label: "The Kaaba", icon: <Home size={16} /> },
+  { id: "meeqat", label: "Meeqat", icon: <MapPin size={16} /> },
+  { id: "ihram", label: "Ihram", icon: <Shirt size={16} /> },
+  { id: "types", label: "Types of Hajj", icon: <Calendar size={16} /> },
+  { id: "steps", label: "Step-by-Step Guide", icon: <CircleCheckBig size={16} /> },
+  { id: "obligations", label: "Obligations", icon: <CircleAlert size={16} /> },
+  { id: "tawaf", label: "Tawaf", icon: <Calendar size={16} /> },
+  { id: "tips", label: "Tips & Advice", icon: <CircleAlert size={16} /> },
 ];
 
 export default function HajjGuide() {
@@ -139,7 +140,7 @@ export default function HajjGuide() {
           <aside className="hidden lg:flex flex-col w-60 flex-shrink-0">
             <div className="sticky top-8 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
               <div className="px-5 py-4 border-b border-gray-100 flex items-center gap-2">
-                
+
                 <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest">Contents</h2>
               </div>
               <div className="py-2 px-2">
@@ -222,10 +223,10 @@ export default function HajjGuide() {
               <div className="space-y-3">
                 {[
                   { name: "Dhul Hulaifah (Abyar Ali)", desc: "For pilgrims from Madinah and beyond" },
-                  { name: "Al-Juhfah (Rabigh)",         desc: "For pilgrims from Syria, Egypt, and North Africa" },
-                  { name: "Qarn al-Manazil",            desc: "For pilgrims from Najd and East" },
-                  { name: "Yalamlam",                   desc: "For pilgrims from Yemen and beyond" },
-                  { name: "Dhat Irq",                   desc: "For pilgrims from Iraq" },
+                  { name: "Al-Juhfah (Rabigh)", desc: "For pilgrims from Syria, Egypt, and North Africa" },
+                  { name: "Qarn al-Manazil", desc: "For pilgrims from Najd and East" },
+                  { name: "Yalamlam", desc: "For pilgrims from Yemen and beyond" },
+                  { name: "Dhat Irq", desc: "For pilgrims from Iraq" },
                 ].map((m) => (
                   <div key={m.name} className="border border-gray-200 rounded-xl px-4 sm:px-5 py-3 sm:py-4">
                     <p className="font-semibold text-gray-800 text-sm">{m.name}</p>
@@ -291,8 +292,8 @@ export default function HajjGuide() {
               <div className="space-y-4">
                 {[
                   { title: "1. Hajj al-Tamattu (Interrupted)", desc: "Perform Umrah first during the Hajj months, exit Ihram, then re-enter Ihram for Hajj on the 8th of Dhul Hijjah.", tag: "Most common type • Requires sacrifice (Qurbani)", tagColor: "text-blue-600", active: true },
-                  { title: "2. Hajj al-Qiran (Combined)",      desc: "Perform Umrah and Hajj together with one Ihram, without exiting the state of Ihram in between.",                 tag: "Requires sacrifice (Qurbani)",                  tagColor: "text-gray-500", active: false },
-                  { title: "3. Hajj al-Ifrad (Single)",        desc: "Perform Hajj only, entering Ihram specifically for Hajj without performing Umrah.",                              tag: "No sacrifice required",                         tagColor: "text-gray-500", active: false },
+                  { title: "2. Hajj al-Qiran (Combined)", desc: "Perform Umrah and Hajj together with one Ihram, without exiting the state of Ihram in between.", tag: "Requires sacrifice (Qurbani)", tagColor: "text-gray-500", active: false },
+                  { title: "3. Hajj al-Ifrad (Single)", desc: "Perform Hajj only, entering Ihram specifically for Hajj without performing Umrah.", tag: "No sacrifice required", tagColor: "text-gray-500", active: false },
                 ].map((t) => (
                   <div key={t.title} className={["rounded-xl border-2 p-4 sm:p-5", t.active ? "border-blue-900" : "border-gray-200"].join(" ")}>
                     <p className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{t.title}</p>
@@ -308,13 +309,13 @@ export default function HajjGuide() {
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Step-by-Step Hajj Journey</h2>
               <div className="space-y-4">
                 {[
-                  { n: 1, date: "8th Dhul Hijjah",  title: "Ihram & Mina",      desc: "Enter the state of Ihram and proceed to Mina. Spend the day and night in worship." },
-                  { n: 2, date: "9th Dhul Hijjah",  title: "Day of Arafat",     desc: "Stand at Arafat from noon until sunset – the most important day of Hajj." },
-                  { n: 3, date: "9th Night",         title: "Muzdalifah",        desc: "Proceed to Muzdalifah after sunset, pray Maghrib and Isha, and collect pebbles." },
-                  { n: 4, date: "10th Dhul Hijjah", title: "Rami & Sacrifice",  desc: "Stone the Jamrat al-Aqaba, offer sacrifice, and shave/trim hair." },
-                  { n: 5, date: "10th–13th",        title: "Tawaf al-Ifadah",  desc: "Perform Tawaf al-Ifadah and Saʿi between Safa and Marwah." },
-                  { n: 6, date: "11th–13th",        title: "Days of Tashreeq", desc: "Return to Mina and stone all three Jamarat daily after noon." },
-                  { n: 7, date: "Final Day",         title: "Farewell Tawaf",   desc: "Perform Tawaf al-Wada (Farewell Tawaf) before leaving Makkah." },
+                  { n: 1, date: "8th Dhul Hijjah", title: "Ihram & Mina", desc: "Enter the state of Ihram and proceed to Mina. Spend the day and night in worship." },
+                  { n: 2, date: "9th Dhul Hijjah", title: "Day of Arafat", desc: "Stand at Arafat from noon until sunset – the most important day of Hajj." },
+                  { n: 3, date: "9th Night", title: "Muzdalifah", desc: "Proceed to Muzdalifah after sunset, pray Maghrib and Isha, and collect pebbles." },
+                  { n: 4, date: "10th Dhul Hijjah", title: "Rami & Sacrifice", desc: "Stone the Jamrat al-Aqaba, offer sacrifice, and shave/trim hair." },
+                  { n: 5, date: "10th–13th", title: "Tawaf al-Ifadah", desc: "Perform Tawaf al-Ifadah and Saʿi between Safa and Marwah." },
+                  { n: 6, date: "11th–13th", title: "Days of Tashreeq", desc: "Return to Mina and stone all three Jamarat daily after noon." },
+                  { n: 7, date: "Final Day", title: "Farewell Tawaf", desc: "Perform Tawaf al-Wada (Farewell Tawaf) before leaving Makkah." },
                 ].map((step) => (
                   <div key={step.n} className="flex gap-3 sm:gap-4">
                     <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-blue-900 flex items-center justify-center text-white font-bold text-sm">
@@ -331,109 +332,109 @@ export default function HajjGuide() {
             </section>
 
             {/* Obligations */}
-           <section id="obligations" className="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
-  <h2 className="text-xl sm:text-[30px] font-bold text-[#1F1F1F] mb-3">Obligations of Hajj</h2>
-  <p className="text-[#1F1F1F] mb-6 text-sm sm:text-base">
-    The obligations (Wajibat) of Hajj are actions that must be performed. Missing any requires a penalty (dam).
-  </p>
-  <ul className="space-y-3">
-    {[
-      { title: "Entering Ihram from Meeqat",        desc: "Pilgrim must assume Ihram before crossing the Meeqat boundary" },
-      { title: "Standing at Arafat until Sunset",   desc: "Remain at Arafat from noon until sunset on the 9th of Dhul Hijjah" },
-      { title: "Spending Night at Muzdalifah",      desc: "Stay at Muzdalifah from after sunset on 9th until after midnight" },
-      { title: "Spending Nights in Mina",           desc: "Stay overnight in Mina on the 10th, 11th, and 12th nights" },
-      { title: "Stoning the Jamarat",               desc: "Throw pebbles at the three pillars on specific days" },
-      { title: "Shaving or Trimming Hair",          desc: "Men must shave or trim hair; women trim a fingertip's length" },
-      { title: "Farewell Tawaf (Tawaf al-Wada)",    desc: "Perform final Tawaf before leaving Makkah" },
-    ].map((ob) => (
-      <li key={ob.title} className="flex items-start gap-4 bg-gray-50 rounded-xl px-5 py-4">
-       <div className="text-[#1C398E]"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none " stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big-icon lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg> </div>
-        <div>
-          <p className="font-semibold text-[#1F1F1F] text-sm sm:text-base">{ob.title}</p>
-          <p className="text-[#4A5565] text-sm mt-0.5">{ob.desc}</p>
-        </div>
-      </li>
-    ))}
-  </ul>
-</section>
+            <section id="obligations" className="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
+              <h2 className="text-xl sm:text-[30px] font-bold text-[#1F1F1F] mb-3">Obligations of Hajj</h2>
+              <p className="text-[#1F1F1F] mb-6 text-sm sm:text-base">
+                The obligations (Wajibat) of Hajj are actions that must be performed. Missing any requires a penalty (dam).
+              </p>
+              <ul className="space-y-3">
+                {[
+                  { title: "Entering Ihram from Meeqat", desc: "Pilgrim must assume Ihram before crossing the Meeqat boundary" },
+                  { title: "Standing at Arafat until Sunset", desc: "Remain at Arafat from noon until sunset on the 9th of Dhul Hijjah" },
+                  { title: "Spending Night at Muzdalifah", desc: "Stay at Muzdalifah from after sunset on 9th until after midnight" },
+                  { title: "Spending Nights in Mina", desc: "Stay overnight in Mina on the 10th, 11th, and 12th nights" },
+                  { title: "Stoning the Jamarat", desc: "Throw pebbles at the three pillars on specific days" },
+                  { title: "Shaving or Trimming Hair", desc: "Men must shave or trim hair; women trim a fingertip's length" },
+                  { title: "Farewell Tawaf (Tawaf al-Wada)", desc: "Perform final Tawaf before leaving Makkah" },
+                ].map((ob) => (
+                  <li key={ob.title} className="flex items-start gap-4 bg-gray-50 rounded-xl px-5 py-4">
+                    <div className="text-[#1C398E]"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none " stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big-icon lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" /></svg> </div>
+                    <div>
+                      <p className="font-semibold text-[#1F1F1F] text-sm sm:text-base">{ob.title}</p>
+                      <p className="text-[#4A5565] text-sm mt-0.5">{ob.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
             {/* Tawaf */}
             <section
-  id="tawaf"
-  className="bg-white rounded-2xl shadow-sm p-6 sm:p-8"
->
-  {/* Title */}
-  <h2 className="text-2xl sm:text-3xl font-bold text-[#1F1F1F] mb-2">
-    Tawaf - Circling the Kaaba
-  </h2>
+              id="tawaf"
+              className="bg-white rounded-2xl shadow-sm p-6 sm:p-8"
+            >
+              {/* Title */}
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1F1F1F] mb-2">
+                Tawaf - Circling the Kaaba
+              </h2>
 
-  <p className="text-[#1F1F1F] text-sm sm:text-base mb-6 leading-relaxed">
-    Tawaf is the act of circling the Kaaba seven times counterclockwise.
-    It is a fundamental ritual in both Hajj and Umrah.
-  </p>
+              <p className="text-[#1F1F1F] text-sm sm:text-base mb-6 leading-relaxed">
+                Tawaf is the act of circling the Kaaba seven times counterclockwise.
+                It is a fundamental ritual in both Hajj and Umrah.
+              </p>
 
-  {/* Steps */}
-  <h3 className="text-lg sm:text-xl font-semibold text-[#1F1F1F] mb-4">
-    How to Perform Tawaf
-  </h3>
+              {/* Steps */}
+              <h3 className="text-lg sm:text-xl font-semibold text-[#1F1F1F] mb-4">
+                How to Perform Tawaf
+              </h3>
 
-  <div className="space-y-5">
-    {[
-      {
-        num: "1",
-        title: "Begin at the Black Stone",
-        desc: 'Start from the Black Stone corner, raise hands and say "Bismillah, Allahu Akbar"',
-      },
-      {
-        num: "2",
-        title: "Circle Counterclockwise",
-        desc: "Keep the Kaaba on your left and walk counterclockwise around it",
-      },
-      {
-        num: "3",
-        title: "Complete Seven Circuits",
-        desc: "One complete circuit is from the Black Stone back to it. Repeat seven times",
-      },
-      {
-        num: "4",
-        title: "Pray at Maqam Ibrahim",
-        desc: "After completing Tawaf, pray two rakats behind the Station of Ibrahim",
-      },
-    ].map((step) => (
-      <div key={step.num} className="flex gap-4">
-        {/* Number */}
-        <div className="flex-shrink-0">
-          <div className="w-9 h-9 rounded-full bg-[#1C398E] text-[#FFFFFF] flex items-center justify-center text-sm font-semibold">
-            {step.num}
-          </div>
-        </div>
+              <div className="space-y-5">
+                {[
+                  {
+                    num: "1",
+                    title: "Begin at the Black Stone",
+                    desc: 'Start from the Black Stone corner, raise hands and say "Bismillah, Allahu Akbar"',
+                  },
+                  {
+                    num: "2",
+                    title: "Circle Counterclockwise",
+                    desc: "Keep the Kaaba on your left and walk counterclockwise around it",
+                  },
+                  {
+                    num: "3",
+                    title: "Complete Seven Circuits",
+                    desc: "One complete circuit is from the Black Stone back to it. Repeat seven times",
+                  },
+                  {
+                    num: "4",
+                    title: "Pray at Maqam Ibrahim",
+                    desc: "After completing Tawaf, pray two rakats behind the Station of Ibrahim",
+                  },
+                ].map((step) => (
+                  <div key={step.num} className="flex gap-4">
+                    {/* Number */}
+                    <div className="flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-[#1C398E] text-[#FFFFFF] flex items-center justify-center text-sm font-semibold">
+                        {step.num}
+                      </div>
+                    </div>
 
-        {/* Content */}
-        <div>
-          <h4 className="font-semibold text-[#1F1F1F] text-sm sm:text-base">
-            {step.title}
-          </h4>
-          <p className="text-[#1F1F1F] text-xs sm:text-sm mt-1">
-            {step.desc}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
+                    {/* Content */}
+                    <div>
+                      <h4 className="font-semibold text-[#1F1F1F] text-sm sm:text-base">
+                        {step.title}
+                      </h4>
+                      <p className="text-[#1F1F1F] text-xs sm:text-sm mt-1">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-  {/* Tips Box */}
-  <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-5">
-    <div className="flex items-center gap-2 mb-3">
-      <span className="text-blue-600 font-semibold text-sm">ℹ️ Tawaf Tips</span>
-    </div>
+              {/* Tips Box */}
+              <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-blue-600 font-semibold text-sm">ℹ️ Tawaf Tips</span>
+                </div>
 
-    <ul className="space-y-2 text-sm text-gray-700 list-disc pl-5">
-      <li>Men should perform Raml (brisk walking) in first three circuits</li>
-      <li>Make dua (supplication) throughout the Tawaf</li>
-      <li>Stay focused and avoid pushing others</li>
-    </ul>
-  </div>
-</section>
+                <ul className="space-y-2 text-sm text-gray-700 list-disc pl-5">
+                  <li>Men should perform Raml (brisk walking) in first three circuits</li>
+                  <li>Make dua (supplication) throughout the Tawaf</li>
+                  <li>Stay focused and avoid pushing others</li>
+                </ul>
+              </div>
+            </section>
 
             {/* Tips & Advice */}
             <section id="tips" className="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
@@ -482,7 +483,7 @@ export default function HajjGuide() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
                   {[
                     { heading: "Key Steps", items: ["Enter Ihram at Meeqat", "Spend day at Arafat (9th)", "Night at Muzdalifah", "Stone Jamarat (10th–13th)", "Perform Tawaf & Saʿi", "Shave/trim hair", "Farewell Tawaf"] },
-                    { heading: "Key Rules",  items: ["Maintain state of Ihram", "No perfume or scents", "No cutting hair/nails", "No hunting", "Maintain good character", "Stay with your group"] },
+                    { heading: "Key Rules", items: ["Maintain state of Ihram", "No perfume or scents", "No cutting hair/nails", "No hunting", "Maintain good character", "Stay with your group"] },
                     { heading: "Important Reminders", items: ["Stay hydrated always", "Be patient in crowds", "Make lots of dua", "Follow your guide", "Rest when needed", "Keep emergency contacts"] },
                   ].map((col) => (
                     <div key={col.heading}>
@@ -505,12 +506,12 @@ export default function HajjGuide() {
                 <p className="text-gray-500 text-sm mb-5">
                   Our experienced team is here to guide you through every step of your sacred journey. Book a free consultation to discuss your Hajj plans.
                 </p>
-                <button className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200">
+                <Link href="/#hero"  className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200">
                   Book Now
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </section>
 

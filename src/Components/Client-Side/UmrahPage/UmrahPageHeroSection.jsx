@@ -48,8 +48,7 @@ export default function UmrahPageHeroSection() {
           alt="Kaaba"
           className="w-full h-full object-cover"
         />
-        {/* Dark gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a8f]/85 to-[#243E8B]/85"></div>
+        
       </div>
 
       {/* Content */}

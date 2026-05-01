@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 
 export default function UmrahCTA() {
   return (
@@ -11,9 +11,9 @@ export default function UmrahCTA() {
         Create lasting memories with your family on a spiritually enriching pilgrimage. <br />
         Our expert team is ready to help you plan the perfect journey.
       </p>
-      <button className="bg-[#FFFFFF] text-[#1C398E] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100">
+      <Link href="/#hero" className="bg-[#FFFFFF] text-[#1C398E] font-semibold px-6 py-3 rounded-lg hover:bg-gray-100">
         Book Now &rsaquo;
-      </button>
+      </Link>
     </section>
   );
 }

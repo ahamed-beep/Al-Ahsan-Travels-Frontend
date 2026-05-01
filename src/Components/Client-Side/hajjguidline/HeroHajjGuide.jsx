@@ -4,7 +4,7 @@ import React from "react";
 
 export default function HeroHajjGuide() {
   return (
-    <section className="relative w-full  sm:min-h-[450px] md:min-h-[520px] overflow-hidden">
+    <section  className="relative w-full  sm:min-h-[450px] md:min-h-[520px] overflow-hidden">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
