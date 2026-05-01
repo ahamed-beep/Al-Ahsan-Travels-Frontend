@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export default function FlightCTA() {
   return (
@@ -24,7 +25,7 @@ export default function FlightCTA() {
       {/* Buttons */}
       <div className="flex items-center gap-4 mb-10 flex-wrap justify-center">
         {/* Book Now - White */}
-        <button
+        <Link  href="/#hero"
           style={{
             backgroundColor: "#FFFFFF",
             color: "#2B7FFFCC",
@@ -39,10 +40,10 @@ export default function FlightCTA() {
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
         >
           Book Now
-        </button>
+        </Link>
 
         {/* Contact Agent - Outline */}
-        <button
+        <Link href="/contactus"
           style={{
             backgroundColor: "transparent",
             color: "#FFFFFF",
@@ -63,7 +64,7 @@ export default function FlightCTA() {
           <svg width="14" height="14" fill="none" stroke="#FFFFFF" strokeWidth={2.5} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
-        </button>
+        </Link>
       </div>
     </section>
   );

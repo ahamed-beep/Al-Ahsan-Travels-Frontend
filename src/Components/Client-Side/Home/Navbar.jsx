@@ -51,8 +51,12 @@ const navItems = [
         label: "Special Packages",
         href: "#",
         dropdown: [
-            { label: "Family Umrah Package", href: "/s" },
-            { label: "Group Umrah Package", href: "/g" },
+            { label: "Christmas Umrah Packages", href: "/christmasumrahpackage" },
+            { label: "Clock Tower Umrah Package", href: "/clocktowerumrahpackage" },
+            { label: "Couple Umrah Package", href: "/coupleumrahpackage" },
+            {label: "Easter Umrah Packages", href:"/easterumrahpackage"},
+            {label: "London Umrah package", href:"/londonumrahpackage"},
+            {label: "Manchester Umrah Package", href:"/manchesterumrahpackage"},
 
         ],
     },
@@ -201,7 +205,7 @@ function MobileSubLink({ href, children, onClick }) {
 function BookBtn({ href, onClick, mobile }) {
     const { hovered, onMouseEnter, onMouseLeave } = useHover();
     return (
-        <Link href={href} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+        <Link href="/#hero"  onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
             style={{
                 display: "block", textAlign: "center",
                 padding: mobile ? "12px" : "8px 20px",

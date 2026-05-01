@@ -92,15 +92,15 @@ export default function FiveStar() {
                                     <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
                                         <Hotel className="h-4 w-4 text-[#0B3D2E]" /> 5★ Hotel
                                     </span>
-                                     {/* <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
+                                     <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
                                         <Users  className="h-4 w-4 fill-[#C9A24A] text-[#C9A24A]" /> Guide
-                                    </span> */}
+                                    </span>
                                 </div>
                             </div>
 
                             {/* Right Side - Price + WhatsApp */}
                             <div className="md:w-48 p-5 flex flex-col items-center justify-center gap-3 relative">
-                               <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-gray-500"></div>
+                               <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-[#E5E7EB]"></div>
                                 <p className="text-3xl font-bold text-[#1a3a2a]">{pkg.price}</p>
                                 <button className="w-full flex items-center justify-center gap-2  bg-[#25d366] hover:bg-[#1ebe5d] text-white py-2 px-4 rounded-xl text-sm font-medium transition-colors">
                                     <MessageCircle size={16} /> WhatsApp
@@ -182,7 +182,7 @@ export default function FiveStar() {
 
                             {/* Right Side - Price + WhatsApp */}
                             <div className="md:w-48 p-5 flex flex-col items-center justify-center gap-3 relative">
-                               <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-gray-500"></div>
+                               <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-[#E5E7EB]"></div>
                                 <p className="text-3xl font-bold text-[#1a3a2a]">{pkg.price}</p>
                                 <button className="w-full flex items-center justify-center gap-2  bg-[#25d366] hover:bg-[#1ebe5d] text-white py-2 px-4 rounded-xl text-sm font-medium transition-colors">
                                     <MessageCircle size={16} /> WhatsApp
