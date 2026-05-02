@@ -41,7 +41,7 @@ export default function FlightHero() {
     <section
       className="relative min-h-screen w-full overflow-hidden"
       style={{
-        backgroundImage: "url('/Images/Shifting.jpg')",
+        backgroundImage: "url('/Images/BackGround.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

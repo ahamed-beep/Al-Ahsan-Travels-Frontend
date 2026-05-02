@@ -22,7 +22,7 @@ export default function WhyGroup() {
           {/* Left Image */}
           <div className="w-full">
             <img
-              src="/Images/Image (Mosque).png"
+              src="/Images/Image (Mosque).webp"
               alt="Makkah"
               className="w-full h-[320px] sm:h-[380px] object-cover rounded-2xl "
             />

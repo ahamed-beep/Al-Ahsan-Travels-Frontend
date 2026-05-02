@@ -10,7 +10,7 @@ const packages3Star = [
     duration: "7 Days / 6 Nights",
     makkah: "Al Safwah Royal Orchid",
     madinah: "Dar Al Eiman",
-    img: "/Images/Image (5-Star Luxury Umrah).png",
+    img: "/Images/Image (5-Star Luxury Umrah).webp",
   },
   {
     title: "3-Star Economy 10 Nights",
@@ -18,7 +18,7 @@ const packages3Star = [
     duration: "10 Days / 9 Nights",
     makkah: "Ajyad Hotel",
     madinah: "Al Eiman Taibah",
-    img: "/Images/Image (Ramadan Umrah Premium).png",
+    img: "/Images/Image (Ramadan Umrah Premium).webp",
   },
   {
     title: "3-Star Economy 14 Nights",
@@ -26,7 +26,7 @@ const packages3Star = [
     duration: "14 Days / 13 Nights",
     makkah: "Dar Al Eiman Royal",
     madinah: "Al Aqeeq Hotel",
-    img: "/Images/Image (Ramadan Umrah Premium).png",
+    img: "/Images/Image (Ramadan Umrah Premium).webp",
   },
 ];
 
@@ -37,7 +37,7 @@ const packages4Star = [
     duration: "7 Days / 6 Nights",
     makkah: "Anjum Hotel",
     madinah: "Dar Al Taqwa",
-    img: "/Images/Image (5-Star Luxury Umrah).png",
+    img: "/Images/Image (5-Star Luxury Umrah).webp",
   },
   {
     title: "4-Star Standard 10 Nights",
@@ -45,7 +45,7 @@ const packages4Star = [
     duration: "10 Days / 9 Nights",
     makkah: "Elaf Ajyad",
     madinah: "Shaza Al Madinah",
-    img: "/Images/Image (Ramadan Umrah Premium).png",
+    img: "/Images/Image (Ramadan Umrah Premium).webp",
   },
   {
     title: "4-Star Standard 14 Nights",
@@ -53,7 +53,7 @@ const packages4Star = [
     duration: "14 Days / 13 Nights",
     makkah: "Makkah Towers",
     madinah: "Al Madinah Harmony",
-    img: "/Images/Image (Ramadan Umrah Premium).png",
+    img: "/Images/Image (Ramadan Umrah Premium).webp",
   },
 ];
 

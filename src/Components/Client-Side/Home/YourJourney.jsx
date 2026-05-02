@@ -58,7 +58,7 @@ export default function JourneySection() {
         <div className="w-full">
           <div className="rounded-2xl overflow-hidden ">
             <Image
-              src="/Images/Image (Medina).png" // 👈 same image
+              src="/Images/Image (Medina).webp" // 👈 same image
               alt="Kaaba"
               width={600}
               height={500}

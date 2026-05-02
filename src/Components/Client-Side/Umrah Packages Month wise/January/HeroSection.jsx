@@ -4,18 +4,18 @@ import React, { useState } from "react";
 import { FaPlane, FaPassport, FaClock, FaPaperPlane } from "react-icons/fa";
 
 const monthData = {
-  january:   { label: "January 2026 Departures",   heading: "January Umrah Packages",   year: "2026", image: "/Images/Shifting.jpg" },
-  february:  { label: "February 2026 Departures",  heading: "February Umrah Packages",  year: "2026", image: "/Images/Shifting.jpg" },
-  march:     { label: "March 2026 Departures",     heading: "March Umrah Packages",     year: "2026", image: "/Images/Shifting.jpg" },
-  april:     { label: "April 2026 Departures",     heading: "April Umrah Packages",     year: "2026", image: "/Images/Shifting.jpg" },
-  may:       { label: "May 2026 Departures",       heading: "May Umrah Packages",       year: "2026", image: "/Images/Shifting.jpg" },
-  june:      { label: "June 2026 Departures",      heading: "June Umrah Packages",      year: "2026", image: "/Images/Shifting.jpg" },
-  july:      { label: "July 2026 Departures",      heading: "July Umrah Packages",      year: "2026", image: "/Images/Shifting.jpg" },
-  august:    { label: "August 2026 Departures",    heading: "August Umrah Packages",    year: "2026", image: "/Images/Shifting.jpg" },
-  september: { label: "September 2026 Departures", heading: "September Umrah Packages", year: "2026", image: "/Images/Shifting.jpg" },
-  october:   { label: "October 2026 Departures",   heading: "October Umrah Packages",   year: "2026", image: "/Images/Shifting.jpg" },
-  november:  { label: "November 2026 Departures",  heading: "November Umrah Packages",  year: "2026", image: "/Images/Shifting.jpg" },
-  december:  { label: "December 2026 Departures",  heading: "December Umrah Packages",  year: "2026", image: "/Images/Shifting.jpg" },
+  january: { label: "January 2026 Departures", heading: "January Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  february: { label: "February 2026 Departures", heading: "February Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  march: { label: "March 2026 Departures", heading: "March Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  april: { label: "April 2026 Departures", heading: "April Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  may: { label: "May 2026 Departures", heading: "May Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  june: { label: "June 2026 Departures", heading: "June Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  july: { label: "July 2026 Departures", heading: "July Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  august: { label: "August 2026 Departures", heading: "August Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  september: { label: "September 2026 Departures", heading: "September Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  october: { label: "October 2026 Departures", heading: "October Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  november: { label: "November 2026 Departures", heading: "November Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
+  december: { label: "December 2026 Departures", heading: "December Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
 };
 
 export default function HeroSection({ month = "january" }) {
@@ -119,13 +119,21 @@ export default function HeroSection({ month = "january" }) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-1 block">Departure Date *</label>
+                <label className="flex items-center text-sm font-medium mb-1 block">
+
+                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />  </svg>
+                  Departure Date *</label>
                 <input type="date" name="date" value={formData.date} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
                 {errors.date && <p className="text-red-500 text-xs">{errors.date}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium mb-1 block">Departure Airport *</label>
+                <label className="flex items-center text-sm font-medium mb-1 block">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+
+                  Departure Airport *</label>
                 <input type="text" name="airport" value={formData.airport} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
                 {errors.airport && <p className="text-red-500 text-xs">{errors.airport}</p>}
@@ -134,13 +142,26 @@ export default function HeroSection({ month = "january" }) {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-1 block">Adults *</label>
+                <label className="flex items-center text-sm font-medium mb-1 block">
+                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  Adults *</label>
                 <input type="number" name="adults" value={formData.adults} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
                 {errors.adults && <p className="text-red-500 text-xs">{errors.adults}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium mb-1 block">Children</label>
+                <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                    <path d="M16 3.13a4 4 0 010 7.75" />
+                  </svg>
+                  Children
+                </label>
                 <input type="number" name="children" value={formData.children} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
               </div>

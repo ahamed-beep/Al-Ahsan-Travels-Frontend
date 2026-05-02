@@ -137,7 +137,7 @@ export default function EasterCards() {
       makkahHotel: "Dar Al Eiman Royal Hotel",
       madinahHotel: "Al Aqeeq Hotel",
       popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).png",
+      image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
       stars: 4,
@@ -149,7 +149,7 @@ export default function EasterCards() {
       makkahHotel: "Anjum Hotel Makkah",
       madinahHotel: "Shaza Al Madinah",
       popular: true,
-      image: "/Images/Image (5-Star Luxury Umrah).png",
+      image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
       stars: 5,
@@ -161,7 +161,7 @@ export default function EasterCards() {
       makkahHotel: "Swissotel Makkah",
       madinahHotel: "Oberoi Madinah",
       popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).png",
+      image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
   ];
 

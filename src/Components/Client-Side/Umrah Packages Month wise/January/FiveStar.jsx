@@ -11,7 +11,7 @@ const packages = [
     duration: "7 Days / 6 Nights",
     makkah: "Swissotel Makkah",
     madinah: "Oberoi Madinah",
-    image: "/Images/Image (Ramadan Umrah Premium).png",
+    image: "/Images/Image (Ramadan Umrah Premium).webp",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const packages = [
     duration: "10 Days / 9 Nights",
     makkah: "Raffles Makkah Palace",
     madinah: "Pullman Zamzam",
-    image: "/Images/Image (Ramadan Umrah Premium).png",
+    image: "/Images/Image (Ramadan Umrah Premium).webp",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const packages = [
     duration: "14 Days / 13 Nights",
     makkah: "Fairmont Makkah",
     madinah: "Anantara Madinah",
-    image: "/Images/Image (Ramadan Umrah Premium).png",
+    image: "/Images/Image (Ramadan Umrah Premium).webp",
   },
 ];
 

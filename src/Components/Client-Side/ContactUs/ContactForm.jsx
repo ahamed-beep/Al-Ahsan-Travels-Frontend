@@ -179,7 +179,7 @@ export default function ContactForm() {
             {/* Kaaba Image */}
             <div className="rounded-2xl overflow-hidden h-56 sm:h-64 lg:h-72 w-full">
               <img
-                src="/Images/Contact-kabba.jpg"
+                src="/Images/Contact-kabba.webp"
                 alt="Kaaba Makkah"
                 className="w-full h-full object-cover"
               />

@@ -8,7 +8,7 @@ const packages = [
         makkah: "Dar Al Eiman Royal",
         madinah: "Al Aqeeq Hotel",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
         title: "5-Star Umrah 14 Days",
@@ -16,7 +16,7 @@ const packages = [
         makkah: "Makkah Hotel",
         madinah: "Taibah Hotel",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
         title: "5-Star Umrah 14 Days",
@@ -24,7 +24,7 @@ const packages = [
         makkah: "Makkah Hotel",
         madinah: "Taibah Hotel",
         price: "£1,199",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
 ];
 
@@ -48,7 +48,7 @@ export default function FiveStar() {
                             className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row"
                         >
                             {/* Image */}
-                            <div className="md:w-72 h-48 md:h-auto flex-shrink-0">
+                            <div className="md:w-72 h-48  flex-shrink-0">
                                 <img
                                     src={pkg.image}
                                     alt={pkg.title}
@@ -130,7 +130,7 @@ export default function FiveStar() {
                             className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row"
                         >
                             {/* Image */}
-                            <div className="md:w-72 h-48 md:h-auto flex-shrink-0">
+                            <div className="md:w-72 h-48  flex-shrink-0">
                                 <img
                                     src={pkg.image}
                                     alt={pkg.title}
