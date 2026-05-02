@@ -15,11 +15,11 @@ export default function HeroHajjGuide() {
         />
 
         {/* Dark Overlay (optional for better text visibility) */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 ml-20 flex items-center h-full">
+      <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 lg:ml-20">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20">
 
           {/* Breadcrumb */}

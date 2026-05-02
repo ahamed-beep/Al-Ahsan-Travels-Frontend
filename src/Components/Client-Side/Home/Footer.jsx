@@ -41,13 +41,13 @@ export default function Footer() {
                   Packages
                 </Link>
               </li>
-              <li>
+              
                 <li>
                   <Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">
                     Services
                   </Link>
                 </li>
-              </li>
+              
             </ul>
           </div>
 

@@ -51,8 +51,8 @@ const navItems = [
         label: "Special Packages",
         href: "#",
         dropdown: [
-            { label: "Family Umrah Package", href: "/s" },
-            { label: "Group Umrah Package", href: "/g" },
+            { label: "Easter Package", href: "/easter" },
+            { label: "London Package", href: "/london" },
 
         ],
     },

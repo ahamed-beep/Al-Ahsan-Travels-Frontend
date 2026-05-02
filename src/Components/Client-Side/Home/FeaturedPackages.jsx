@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const packages = [
@@ -49,33 +49,64 @@ const packages = [
 ];
 
 function PackageCard({ pkg }) {
+  const whatsappUrl = `https://wa.me/923001234567?text=${encodeURIComponent(
+    `Hello, I am interested in the ${pkg.title} package (${pkg.duration}) starting from ${pkg.price}. Please share details.`
+  )}`;
+
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col h-full">
+      
+      {/* Image */}
       <div className="relative">
-        <img src={pkg.image} alt={pkg.title} className="w-full h-56 object-cover" />
+        <img
+          src={pkg.image}
+          alt={pkg.title}
+          className="w-full h-56 object-cover"
+        />
         <span className="absolute top-4 right-4 bg-[#1C398E] text-white text-xs px-3 py-1 rounded-full shadow">
           {pkg.duration}
         </span>
       </div>
+
+      {/* Content */}
       <div className="p-5 text-left flex flex-col flex-1">
-        <h3 className="text-lg font-semibold text-[#1F1F1F] mb-2">{pkg.title}</h3>
+        
+        <h3 className="text-lg font-semibold text-[#1F1F1F] mb-2">
+          {pkg.title}
+        </h3>
+
+        {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           {pkg.tags.map((tag, i) => (
-            <span key={i} className="text-xs bg-gray-100 text-[#4A5565] px-2 py-1 rounded-md">
+            <span
+              key={i}
+              className="text-xs bg-gray-100 text-[#4A5565] px-2 py-1 rounded-md"
+            >
               {tag}
             </span>
           ))}
         </div>
-        <div className="flex items-center justify-between mt-auto">
-          <div>
-            <p className="text-xs text-[#4A5565]">Starting from</p>
-            <h4 className="text-xl font-bold text-[#1C398E]">{pkg.price}</h4>
-            <p className="text-xs text-[#4A5565]">per person</p>
-          </div>
-          <button className="bg-[#1C398E] text-white text-sm px-4 py-2 rounded-lg flex items-center gap-1 hover:bg-[#162d70] transition">
-            View Details <ArrowRight size={14} />
-          </button>
+
+        {/* Price */}
+        <div className="mt-auto">
+          <p className="text-xs text-[#4A5565]">Starting from</p>
+          <h4 className="text-xl font-bold text-[#1C398E]">
+            {pkg.price}
+          </h4>
+          <p className="text-xs text-[#4A5565]">per person</p>
         </div>
+
+        {/* WhatsApp Button */}
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-semibold text-sm py-3 rounded-xl transition-colors duration-150 hover:bg-[#1ebe5d]"
+        >
+          <MessageCircle className="w-4 h-4 text-white" />
+          WhatsApp
+        </a>
+
       </div>
     </div>
   );
@@ -85,29 +116,12 @@ export default function FeaturedPackages() {
   const [showAll, setShowAll] = useState(false);
   const [current, setCurrent] = useState(0);
 
-  // Mobile=1, Tablet=2, Desktop=3
-  // We track index; getVisible() slices based on screen
-  // But since we can't use window in SSR, we use CSS grid trick for responsive
-  // and just track index for desktop (3 cards at a time)
-
   const total = packages.length;
 
-  // Desktop: 3 visible, Tablet: 2, Mobile: 1
-  // We show cards based on current index — CSS handles how many columns
-  // Safest: always slice 3 from current, CSS grid shows 1/2/3 cols
-
-  const maxIndex = total - 1; // mobile: 1 card at a time (most restrictive)
   const prev = () => setCurrent((c) => Math.max(c - 1, 0));
-  const next = () => setCurrent((c) => Math.min(c + 1, maxIndex));
+  const next = () => setCurrent((c) => Math.min(c + 1, total - 1));
 
-  // For desktop we show 3 cards, tablet 2, mobile 1
-  // slice enough cards: current to current+3 (grid hides overflow via columns)
   const slicedCards = packages.slice(current, current + 3);
-
-  // On mobile: only 1 card at a time, so next disabled after current >= total-1
-  // On tablet: 2 cards, next disabled after current >= total-2
-  // On desktop: 3 cards, next disabled after current >= total-3
-  // We use the most generous (desktop) for the button — CSS handles layout
 
   return (
     <section className="bg-[#ffffff] py-16 px-4 sm:px-6 lg:px-12">
@@ -116,19 +130,18 @@ export default function FeaturedPackages() {
         <h2 className="text-3xl md:text-4xl font-bold text-[#1F1F1F] mb-3">
           Featured Packages
         </h2>
+
         <p className="text-[#4A5565] mb-12 text-sm md:text-base">
           Carefully curated journeys designed for your spiritual comfort
         </p>
 
         {showAll ? (
-          /* ── View All Grid — fully responsive ── */
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {packages.map((pkg, i) => (
               <PackageCard key={i} pkg={pkg} />
             ))}
           </div>
         ) : (
-          /* ── Slider ── */
           <div className="flex items-center gap-2 sm:gap-3">
 
             {/* Left Arrow */}
@@ -136,14 +149,14 @@ export default function FeaturedPackages() {
               {current > 0 && (
                 <button
                   onClick={prev}
-                  className="bg-white border border-gray-200 shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-[#1C398E] hover:text-white hover:border-[#1C398E] transition"
+                  className="bg-white border border-gray-200 shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-[#1C398E] hover:text-white transition"
                 >
                   <ChevronLeft size={18} />
                 </button>
               )}
             </div>
 
-            {/* Cards — responsive grid */}
+            {/* Cards */}
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {slicedCards.map((pkg, i) => (
                 <PackageCard key={current + i} pkg={pkg} />
@@ -155,7 +168,7 @@ export default function FeaturedPackages() {
               {current < total - 1 && (
                 <button
                   onClick={next}
-                  className="bg-white border border-gray-200 shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-[#1C398E] hover:text-white hover:border-[#1C398E] transition"
+                  className="bg-white border border-gray-200 shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-[#1C398E] hover:text-white transition"
                 >
                   <ChevronRight size={18} />
                 </button>
@@ -168,12 +181,16 @@ export default function FeaturedPackages() {
         {/* Bottom Button */}
         <div className="mt-12">
           <button
-            onClick={() => { setShowAll((p) => !p); setCurrent(0); }}
+            onClick={() => {
+              setShowAll((p) => !p);
+              setCurrent(0);
+            }}
             className="bg-[#1C398E] text-white px-6 py-3 rounded-full text-sm shadow-md hover:bg-[#162d70] transition"
           >
             {showAll ? "Show Less" : "View All Packages"}
           </button>
         </div>
+
       </div>
     </section>
   );
