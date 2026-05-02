@@ -13,7 +13,7 @@ export default function Packages() {
       makkah: "Swissotel Makkah",
       madinah: "Oberoi Madinah",
       price: "£6,999",
-      img: "/Images/Image (5-Star Luxury Umrah).png",
+      img: "/Images/Image (5-Star Luxury Umrah).webp",
       popular: true,
     },
     {
@@ -22,7 +22,7 @@ export default function Packages() {
       makkah: "Anjum Hotel Makkah",
       madinah: "Dar Al Taqwa",
       price: "£7,999",
-      img: "/Images/Image (Hajj Complete Package).png",
+      img: "/Images/Image (Hajj Complete Package).webp",
     },
     {
       title: "Shifting Hajj Plus",
@@ -30,7 +30,7 @@ export default function Packages() {
       makkah: "Raffles Makkah Palace",
       madinah: "Shaza Al Madinah",
       price: "£9,999",
-      img: "/Images/Image (Ramadan Umrah Premium).png",
+      img: "/Images/Image (Ramadan Umrah Premium).webp",
     },
   ];
 

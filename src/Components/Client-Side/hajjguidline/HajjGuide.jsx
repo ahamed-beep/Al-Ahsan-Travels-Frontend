@@ -348,7 +348,8 @@ export default function HajjGuide() {
                   { title: "Farewell Tawaf (Tawaf al-Wada)", desc: "Perform final Tawaf before leaving Makkah" },
                 ].map((ob) => (
                   <li key={ob.title} className="flex items-start gap-4 bg-gray-50 rounded-xl px-5 py-4">
-                    <div className="text-[#1C398E]"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none " stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big-icon lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" /></svg> </div>
+                    <div className="text-[#1C398E]">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none " stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-big-icon lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" /></svg> </div>
                     <div>
                       <p className="font-semibold text-[#1F1F1F] text-sm sm:text-base">{ob.title}</p>
                       <p className="text-[#4A5565] text-sm mt-0.5">{ob.desc}</p>

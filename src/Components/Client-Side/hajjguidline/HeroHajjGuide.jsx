@@ -9,7 +9,7 @@ export default function HeroHajjGuide() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Images/Shifting.jpg"
+          src="/Images/BackGround.webp"
           alt="Hajj Background"
           className="w-full h-full object-cover"
         />

@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
         <div className="flex-1 w-full">
           <div className="relative w-full rounded-3xl overflow-hidden shadow-lg">
             <img
-              src="/Images/Shifting.jpg"
+              src="/Images/BackGround.webp"
               className="w-full h-[420px] object-cover"
             />
           </div>

@@ -53,7 +53,7 @@ export default function WhyBookChristmasUmrah() {
                 <div className="flex-1 w-full">
                     <div className="relative w-full rounded-3xl overflow-hidden shadow-lg">
                         <img
-                            src="/Images/Holidaypic.jpg"
+                            src="/Images/Holidaypic.webp"
                             className="w-full h-[420px] object-cover"
                         />
                     </div>

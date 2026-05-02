@@ -214,7 +214,7 @@ function BookBtn({ href, onClick, mobile }) {
                 borderRadius: mobile ? "12px" : "999px",
                 whiteSpace: "nowrap", textDecoration: "none",
                 transition: "background 0.15s",
-                background: hovered ? "#1C398E" : "#1a1a2e",
+                background:  "#1C398E" ,
                 color: "white",
                 ...(mobile ? { width: "100%" } : {}),
             }}>
@@ -248,9 +248,9 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="shrink-0">
                         <img
-                            src="/Images/logo.webp"
+                            src="/Images/Logo.webp"
                             alt="Al-Ahsan Travels"
-                            className="h-[50px] sm:h-[58px] w-auto object-contain"
+                            className="h-[70px] sm:h-[58px] w-auto object-contain"
                         />
                     </Link>
 

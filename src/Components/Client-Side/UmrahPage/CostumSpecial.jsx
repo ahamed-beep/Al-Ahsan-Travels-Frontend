@@ -8,7 +8,7 @@ const packages = [
         makkah: "Your Choice",
         madinah: "Your Choice",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
         title: "Group Umrah Package",
@@ -16,7 +16,7 @@ const packages = [
         makkah: "Group Booking",
         madinah: "Group Booking",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
         title: "Group Umrah Package",
@@ -24,7 +24,7 @@ const packages = [
         makkah: "Group Booking",
         madinah: "Group Booking",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
 ];
 
@@ -48,7 +48,7 @@ export default function CostumSpecial() {
                             className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row"
                         >
                             {/* Image */}
-                            <div className="md:w-72 h-48 md:h-auto flex-shrink-0">
+                            <div className="md:w-72 h-48  flex-shrink-0">
                                 <img
                                     src={pkg.image}
                                     alt={pkg.title}

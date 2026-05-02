@@ -136,7 +136,7 @@ export default function GroupPackages() {
       madinahHotel: "Al Aqeeq Hotel",
       hotelLabel: "3★ Hotel",
       popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).png",
+      image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
       stars: 4,
@@ -146,7 +146,7 @@ export default function GroupPackages() {
       madinahHotel: "Shaza Al Madinah",
       hotelLabel: "4★ Hotel",
       popular: true,
-      image: "/Images/Image (5-Star Luxury Umrah).png",
+      image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
       stars: 5,
@@ -156,7 +156,7 @@ export default function GroupPackages() {
       madinahHotel: "Oberoi Madinah",
       hotelLabel: "5★ Hotel",
       popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).png",
+      image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
   ];
 
