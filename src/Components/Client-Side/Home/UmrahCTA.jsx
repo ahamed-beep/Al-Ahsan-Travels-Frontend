@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function UmrahCTA() {
   return (
@@ -18,10 +19,10 @@ export default function UmrahCTA() {
         </p>
 
         {/* Button */}
-        <button className="inline-flex items-center gap-2 bg-[#3b5bcc] hover:bg-[#2f4aa0] transition-all duration-300 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl">
+        <Link  href="/#hero" className="inline-flex items-center gap-2 bg-[#3b5bcc] hover:bg-[#2f4aa0] transition-all duration-300 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl">
           <span className="text-sm sm:text-base font-medium">Book Now</span>
           <ArrowRight size={18} />
-        </button>
+        </Link>
 
       </div>
     </section>

@@ -51,8 +51,12 @@ const navItems = [
         label: "Special Packages",
         href: "#",
         dropdown: [
-            { label: "Easter Package", href: "/easter" },
-            { label: "London Package", href: "/london" },
+            { label: "Christmas Umrah Packages", href: "/christmasumrahpackage" },
+            { label: "Clock Tower Umrah Package", href: "/clocktowerumrahpackage" },
+            { label: "Couple Umrah Package", href: "/coupleumrahpackage" },
+            {label: "Easter Umrah Packages", href:"/easterumrahpackage"},
+            {label: "London Umrah package", href:"/londonumrahpackage"},
+            {label: "Manchester Umrah Package", href:"/manchesterumrahpackage"},
 
         ],
     },
@@ -201,7 +205,7 @@ function MobileSubLink({ href, children, onClick }) {
 function BookBtn({ href, onClick, mobile }) {
     const { hovered, onMouseEnter, onMouseLeave } = useHover();
     return (
-        <Link href={href} onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+        <Link href="/#hero"  onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
             style={{
                 display: "block", textAlign: "center",
                 padding: mobile ? "12px" : "8px 20px",
@@ -210,7 +214,7 @@ function BookBtn({ href, onClick, mobile }) {
                 borderRadius: mobile ? "12px" : "999px",
                 whiteSpace: "nowrap", textDecoration: "none",
                 transition: "background 0.15s",
-                background: hovered ? "#1C398E" : "#1a1a2e",
+                background:  "#1C398E" ,
                 color: "white",
                 ...(mobile ? { width: "100%" } : {}),
             }}>
@@ -244,9 +248,9 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="shrink-0">
                         <img
-                            src="/Images/logo.webp"
+                            src="/Images/Logo.webp"
                             alt="Al-Ahsan Travels"
-                            className="h-[50px] sm:h-[58px] w-auto object-contain"
+                            className="h-[70px] sm:h-[58px] w-auto object-contain"
                         />
                     </Link>
 

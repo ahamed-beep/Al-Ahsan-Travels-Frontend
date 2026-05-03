@@ -4,12 +4,12 @@ import React from "react";
 
 export default function HeroHajjGuide() {
   return (
-    <section className="relative w-full  sm:min-h-[450px] md:min-h-[520px] overflow-hidden">
+    <section  className="relative w-full  sm:min-h-[450px] md:min-h-[520px] overflow-hidden">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Images/Shifting.jpg"
+          src="/Images/BackGround.webp"
           alt="Hajj Background"
           className="w-full h-full object-cover"
         />

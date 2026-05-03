@@ -5,6 +5,7 @@ import {
   Book, Home, MapPin, Shirt, Calendar,
   CircleCheckBig, CircleAlert, X, Menu,
 } from "lucide-react";
+import Link from "next/link";
 
 const sections = [
   { id: "intro", label: "Introduction", icon: <Book size={16} /> },
@@ -485,12 +486,12 @@ export default function HajjGuide() {
                 <p className="text-gray-500 text-sm mb-5">
                   Our experienced team is here to guide you through every step of your sacred journey. Book a free consultation to discuss your Hajj plans.
                 </p>
-                <button className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200">
+                <Link href="/#hero"  className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200">
                   Book Now
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </section>
 

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export default function FlexibleOptions() {
     return (
@@ -112,7 +113,7 @@ export default function FlexibleOptions() {
                     <p className="text-sm text-gray-200 leading-relaxed">
                         Work with our experts to create a tailor-made itinerary that suits your schedule.
                     </p>
-                    <button
+                    <Link href="/contactus"
                         style={{
                             backgroundColor: "#FFFFFF",
                             color: "#155DFC",
@@ -134,7 +135,7 @@ export default function FlexibleOptions() {
                         <svg width="14" height="14" fill="none" stroke="#155DFC" strokeWidth={2.5} viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                         </svg>
-                    </button>
+                    </Link>
                 </div>
 
             </div>

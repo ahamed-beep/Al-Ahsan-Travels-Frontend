@@ -9,42 +9,42 @@ const packages = [
     price: "£2,499",
     duration: "14 Days / 13 Nights",
     tags: ["Visa", "Hotel", "Transport", "Meals"],
-    image: "/Images/Image (Ramadan Umrah Premium).png",
+    image: "/Images/Image (Ramadan Umrah Premium).webp",
   },
   {
     title: "Hajj Complete Package",
     price: "£6,999",
     duration: "21 Days / 20 Nights",
     tags: ["Visa", "Hotel", "Guide", "Meals"],
-    image: "/Images/Image (Hajj Complete Package).png",
+    image: "/Images/Image (Hajj Complete Package).webp",
   },
   {
     title: "5-Star Luxury Umrah",
     price: "£3,999",
     duration: "10 Days / 9 Nights",
     tags: ["VIP", "5-Star", "Private", "Luxury"],
-    image: "/Images/Image (5-Star Luxury Umrah).png",
+    image: "/Images/Image (5-Star Luxury Umrah).webp",
   },
   {
     title: "Economy Umrah Package",
     price: "£1,299",
     duration: "7 Days / 6 Nights",
     tags: ["Visa", "Hotel", "Transport"],
-    image: "/Images/Image (Ramadan Umrah Premium).png",
+    image: "/Images/Image (Ramadan Umrah Premium).webp",
   },
   {
     title: "Family Umrah Package",
     price: "£4,499",
     duration: "12 Days / 11 Nights",
     tags: ["Visa", "Hotel", "Meals", "Guide"],
-    image: "/Images/Image (Hajj Complete Package).png",
+    image: "/Images/Image (Hajj Complete Package).webp",
   },
   {
     title: "December Umrah Special",
     price: "£2,199",
     duration: "10 Days / 9 Nights",
     tags: ["Visa", "Hotel", "Transport", "Meals"],
-    image: "/Images/Image (5-Star Luxury Umrah).png",
+    image: "/Images/Image (5-Star Luxury Umrah).webp",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function FeaturedPackages() {
   const slicedCards = packages.slice(current, current + 3);
 
   return (
-    <section className="bg-[#ffffff] py-16 px-4 sm:px-6 lg:px-12">
+    <section id="Packages" className="bg-[#ffffff] py-16 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold text-[#1F1F1F] mb-3">

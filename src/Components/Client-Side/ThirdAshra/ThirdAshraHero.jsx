@@ -1,12 +1,36 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+
 export default function ThirdAshraHero() {
+ const [formData, setFormData] = useState({
+     fullName: "",
+     phoneNumber: "",
+     packageType: "",
+     hotelCategory: "",
+     departureDate: "",
+     departureAirport: "",
+     adults: 1,
+     children: 0,
+   });
+ 
+   const handleChange = (e) => {
+     const { name, value } = e.target;
+     setFormData((prev) => ({ ...prev, [name]: value }));
+   };
+ 
+   const handleSubmit = (e) => {
+     e.preventDefault();
+     console.log("Form submitted:", formData);
+   };
+ 
+ 
+ 
   return (
     <section className="relative  overflow-hidden">
       {/* Background Image */}
       <div className="absolute w-full inset-0">
         <img
-          src="/Images/Shifting.jpg"
+          src="/Images/BackGround.webp"
           alt="Hajj background"
           className="h-full w-full  object-cover"
         />
@@ -32,112 +56,161 @@ export default function ThirdAshraHero() {
           </div>
 
           {/* Right Form Card */}
+           {/* Right Form Card */}
           <div className="w-full">
-            <div className="mx-auto w-full max-w-xl rounded-2xl bg-white p-5 shadow-2xl sm:p-7">
-              <h2 className="text-2xl font-bold text-slate-900">
-                Plan Your Perfect Umrah Journey              </h2>
+            <div className="mx-auto w-full max-w-xl rounded-2xl bg-[#ffffff] p-5 shadow-2xl sm:p-7">
+              <h2 className="text-2xl font-bold text-[#101828]">Customize Your Umrah</h2>
 
-              <form className="mt-5 space-y-4">
+              <form onSubmit={handleSubmit} className="mt-5 space-y-4">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Full Name *
-                    </label>
+                    <label className="mb-2 block text-sm font-medium text-[#364153]">Full Name *</label>
                     <input
                       type="text"
+                      name="fullName"
                       placeholder="Ali"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Phone Number *
-                    </label>
+                    <label className="mb-2 block text-sm font-medium text-[#364153]">Phone Number *</label>
                     <input
                       type="text"
+                      name="phoneNumber"
                       placeholder="+44 20 1234 5678"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      value={formData.phoneNumber}
+                      onChange={handleChange}
+                      className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Package Type
-                    </label>
+                    <label className="mb-2 block text-sm font-medium text-[#364153]">Package Type</label>
                     <input
                       type="text"
-                      placeholder="Shifting"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      name="packageType"
+                      placeholder="Second Ashra"
+                      value={formData.packageType}
+                      onChange={handleChange}
+                      className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
-                      Hotel Category
-                    </label>
+                    <label className="mb-2 block text-sm font-medium text-[#364153]">Hotel Category</label>
                     <input
                       type="text"
+                      name="hotelCategory"
                       placeholder="Economy"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      value={formData.hotelCategory}
+                      onChange={handleChange}
+                      className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                    <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
                       Departure Date
                     </label>
                     <input
                       type="date"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      name="departureDate"
+                      value={formData.departureDate}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition text-gray-500"
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                    <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
                       Departure Airport
                     </label>
                     <input
                       type="text"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      name="departureAirport"
+                      placeholder="e.g. Heathrow"
+                      value={formData.departureAirport}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                     />
                   </div>
+                </div>
 
+                {/* Adults + Children */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                    <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
                       Adults
                     </label>
                     <input
                       type="number"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      name="adults"
+                      min="1"
+                      placeholder="1"
+                      value={formData.adults}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                     />
                   </div>
-
                   <div>
-                    <label className="mb-2 block text-sm font-medium text-slate-700">
+                    <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                        <path d="M16 3.13a4 4 0 010 7.75" />
+                      </svg>
                       Children
                     </label>
                     <input
                       type="number"
-                      className="h-12 w-full rounded-xl border border-slate-300 px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+                      name="children"
+                      min="0"
+                      placeholder="0"
+                      value={formData.children}
+                      onChange={handleChange}
+                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition"
                     />
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-2 flex h-12 w-full items-center justify-center rounded-xl bg-[#28439b] px-6 text-base font-semibold text-white transition hover:bg-[#223a88]"
+                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88]"
                 >
-                  <span className="mr-2">✈</span>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
                   Get Free Quote
                 </button>
 
-                <p className="text-center text-xs text-slate-500 sm:text-sm">
+                <p className="text-center text-xs text-[#6A7282] sm:text-sm">
                   No payment required. We&apos;ll send you a personalized quote within 24 hours.
                 </p>
               </form>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </section>

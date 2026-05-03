@@ -1,4 +1,5 @@
 import { Heart, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export default function ThirdAshraCTA() {
   return (
@@ -23,13 +24,12 @@ export default function ThirdAshraCTA() {
         </p>
 
         {/* Button */}
-        <a
-          href="#packages"
+        <Link  href="/#hero"
           className="inline-flex items-center gap-2 bg-white text-[#1C398E] font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl hover:bg-blue-50 active:bg-blue-100 transition-colors duration-150"
         >
           Book Now
           <ChevronRight className="w-4 h-4" />
-        </a>
+        </Link>
 
       </div>
     </section>

@@ -8,7 +8,7 @@ const packages = [
         makkah: "Your Choice",
         madinah: "Your Choice",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
         title: "Group Umrah Package",
@@ -16,7 +16,7 @@ const packages = [
         makkah: "Group Booking",
         madinah: "Group Booking",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
     {
         title: "Group Umrah Package",
@@ -24,7 +24,7 @@ const packages = [
         makkah: "Group Booking",
         madinah: "Group Booking",
         price: "£899",
-        image: "/Images/Image (5-Star Luxury Umrah).png",
+        image: "/Images/Image (5-Star Luxury Umrah).webp",
     },
 ];
 
@@ -48,7 +48,7 @@ export default function CostumSpecial() {
                             className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row"
                         >
                             {/* Image */}
-                            <div className="md:w-72 h-48 md:h-auto flex-shrink-0">
+                            <div className="md:w-72 h-48  flex-shrink-0">
                                 <img
                                     src={pkg.image}
                                     alt={pkg.title}
@@ -100,7 +100,7 @@ export default function CostumSpecial() {
 
                             {/* Right Side - Price + WhatsApp */}
                             <div className="md:w-48 p-5 flex flex-col items-center justify-center gap-3 relative">
-                                <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-gray-500"></div>
+                                <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-[#E5E7EB]"></div>
                                 <p className="text-3xl font-bold text-[#1a3a2a]">{pkg.price}</p>
                                 <button className="w-full flex items-center justify-center gap-2  bg-[#25d366] hover:bg-[#1ebe5d] text-white py-2 px-4 rounded-xl text-sm font-medium transition-colors">
                                     <MessageCircle size={16} /> WhatsApp

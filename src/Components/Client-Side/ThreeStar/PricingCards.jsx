@@ -84,7 +84,7 @@ export default function PricingCards() {
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1C398E]">
             Choose Your Package
           </h1>
-          <p className="text-sm sm:text-base text-gray-600 mt-2 font-medium">
+          <p className="text-sm sm:text-base text-[#1F1F1F] mt-2 font-medium">
             Flexible durations to suit your schedule
           </p>
         </div>
@@ -110,8 +110,8 @@ export default function PricingCards() {
                         borderColor: "rgba(81,162,255,0.45)",
                       }
                     : {
-                        background: "rgba(81,162,255,0.08)",
-                        borderColor: "rgba(81,162,255,0.2)",
+                        background: "#51A2FF26",
+                        borderColor: "#FFFFFF33",
                       }
                 }
               >
@@ -129,7 +129,7 @@ export default function PricingCards() {
                 <div>
 
                   {/* Duration */}
-                  <div className="flex items-center gap-2 text-xs text-gray-500 font-semibold mb-2">
+                  <div className="flex items-center gap-2 text-xs text-[#4A5565] font-semibold mb-2">
                     <ClockIcon />
                     {pkg.duration}
                   </div>
@@ -143,12 +143,10 @@ export default function PricingCards() {
                   <p className="text-3xl md:text-4xl font-extrabold text-[#1C398E] mt-2">
                     {pkg.price}
                   </p>
-                  <p className="text-xs text-gray-500 font-medium mb-4">
+                  <p className="text-xs text-[#1C398E99] font-medium mb-4">
                     per person
                   </p>
 
-                  {/* Divider */}
-                  <div className="h-px w-full bg-blue-200 mb-4" />
 
                   {/* FEATURES */}
                   <ul className="space-y-2 mb-6">
@@ -158,7 +156,7 @@ export default function PricingCards() {
                         className="flex items-center gap-2 text-sm text-[#1447E6] font-medium"
                       >
                         <span className="w-5 h-5 flex items-center justify-center text-[#1447E6]">
-                          <CheckIcon />
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#51A2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
                         </span>
                         {feature}
                       </li>
@@ -168,11 +166,11 @@ export default function PricingCards() {
 
                 {/* BUTTON */}
                 {pkg.featured ? (
-                  <button className="w-full py-3 rounded-xl bg-[#1C398E] text-white font-bold text-sm hover:bg-[#0f1e50] transition shadow-md">
+                  <button className="w-full py-3 rounded-xl bg-[#1C398E] text-[#FFFFFF] font-bold text-sm  transition shadow-md">
                     Select Package
                   </button>
                 ) : (
-                  <button className="w-full py-3 rounded-xl border-2 border-blue-300 text-[#1C398E] font-bold text-sm hover:bg-blue-100 transition">
+                  <button className="w-full py-3 rounded-xl border-2 border-[#FFFFFF4D] text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition">
                     Select Package
                   </button>
                 )}

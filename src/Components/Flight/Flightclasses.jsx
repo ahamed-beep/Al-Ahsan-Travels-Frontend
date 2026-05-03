@@ -32,7 +32,7 @@ export default function FlightClasses() {
                 <div className="bg-[#FFFFFF] mt-5 rounded-2xl overflow-hidden shadow-md flex flex-col">
                     <div className="relative">
                         <img
-                            src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=800&q=80"
+                            src="/Images/Flightpic.webp"
                             alt="Economy Class"
                             className="w-full object-cover"
                             style={{ height: "200px" }}
@@ -67,7 +67,7 @@ export default function FlightClasses() {
                 >
                     <div className="relative">
                         <img
-                            src="https://images.unsplash.com/photo-1540339832862-474599807836?w=800&q=80"
+                            src="/Images/Flightpic.webp"
                             alt="Business Class"
                             className="w-full object-cover"
                             style={{ height: "200px" }}
