@@ -1,6 +1,6 @@
 "use client";
 import { Users } from "lucide-react";
-import { useState,   } from "react";
+import { useState, } from "react";
 
 const socialLinks = [
   {
@@ -90,13 +90,13 @@ export default function HeroSection() {
         <img
           src="/Images/Makkah.webp"
           alt="Makkah"
-          className="hidden md:block w-[55%] lg:w-[60%] xl:w-[55%] ml-45 absolute left-0 top-0 h-full object-cover object-left"
-        />
-        {/* Mobile Image - Full width with opacity */}
-        <img
-          src="/Images/Makkah.webp"
-          alt="Makkah"
-          className="md:hidden w-full h-full object-cover object-center opacity-25"
+          className="
+    w-full h-full object-cover
+    object-center md:object-left
+    opacity-20 md:opacity-20
+    md:absolute md:left-0 md:top-0
+    md:w-[55%] lg:w-[60%] xl:w-[55%]
+  "
         />
         {/* Gradient overlay for better text visibility on all screens */}
         <div className="absolute inset-0  via-white/95 to-white/80 md:via-white/90 md:to-transparent lg:via-white/80" />
@@ -107,21 +107,21 @@ export default function HeroSection() {
       <div className="relative z-10 flex justify-center pt-4 sm:pt-5 md:pt-6 px-3 sm:px-4">
         <div className="flex items-center gap-2 sm:gap-3   rounded-full px-3 sm:px-4 py-1.5 sm:py-2 ">
           {/* Avatar stack */}
-         
-<div className="flex -space-x-2">
-  {[0, 1, 2, 3].map((i) => (
-    <div
-      key={i}
-      className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#1e3a8a] border-2 border-white flex items-center justify-center text-white"
-    >
-      <Users size={12} />
-    </div>
-  ))}
-</div>
-          
+
+          <div className="flex -space-x-2">
+            {[0, 1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#1e3a8a] border-2 border-white flex items-center justify-center text-white"
+              >
+                <Users size={12} />
+              </div>
+            ))}
+          </div>
+
           {/* Trustpilot text */}
           <div className="flex items-center gap-1 sm:gap-1.5">
-            <svg width="14"  sm="16" height="16" viewBox="0 0 24 24" fill="#1C398E">
+            <svg width="14" sm="16" height="16" viewBox="0 0 24 24" fill="#1C398E">
               <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
             </svg>
             <div>
