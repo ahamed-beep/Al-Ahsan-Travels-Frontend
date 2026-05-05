@@ -1,6 +1,6 @@
 "use client";
 
-import { Building, Truck, Check } from "lucide-react";
+import { Building, Car, Check } from "lucide-react";
 
 export default function PackageIncludes() {
   return (
@@ -50,7 +50,7 @@ export default function PackageIncludes() {
           {/* Card 2 */}
           <div className="bg-[#F9FAFB] rounded-2xl p-6 text-left shadow-sm border border-[#E5E7EB]">
             <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#1C398E] text-[#ffffff] mb-4">
-              <Truck size={22} />
+              <Car size={22} />
             </div>
 
             <h3 className="text-lg font-bold text-[#101828] mb-3">

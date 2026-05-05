@@ -1,83 +1,87 @@
 import { useState } from "react";
 import { FaPlane, FaPassport, FaClock, FaPaperPlane } from "react-icons/fa";
+import { Plane , FileText, Clock,Hotel  } from "lucide-react"; 
 
 export default function UmrahPageHeroSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    date: "",
-    airport: "",
-    adults: "",
-    children: "",
-  });
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        date: "",
+        airport: "",
+        adults: "",
+        children: "",
+    });
 
-  const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({});
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const validate = () => {
-    let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Full Name is required";
-    if (!formData.phone.trim()) newErrors.phone = "Phone Number is required";
-    if (!formData.date) newErrors.date = "Departure Date is required";
-    if (!formData.airport.trim()) newErrors.airport = "Airport is required";
-    if (!formData.adults) newErrors.adults = "Enter adults";
-    return newErrors;
-  };
+    const validate = () => {
+        let newErrors = {};
+        if (!formData.name.trim()) newErrors.name = "Full Name is required";
+        if (!formData.phone.trim()) newErrors.phone = "Phone Number is required";
+        if (!formData.date) newErrors.date = "Departure Date is required";
+        if (!formData.airport.trim()) newErrors.airport = "Airport is required";
+        if (!formData.adults) newErrors.adults = "Enter adults";
+        return newErrors;
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setErrors({});
-      console.log("Form Submitted:", formData);
-      alert("Form Submitted Successfully ✅");
-    }
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+        } else {
+            setErrors({});
+            console.log("Form Submitted:", formData);
+            alert("Form Submitted Successfully ✅");
+        }
+    };
 
-  return (
-    <div className="relative w-full min-h-screen flex items-center justify-center overflow-x-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/Images/BackGround.webp"
-          alt="Kaaba"
-          className="w-full h-full object-cover"
-        />
-        
-      </div>
+    return (
+        <div className="relative w-full min-h-screen flex items-center justify-center overflow-x-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <img
+                    src="/Images/BackGround.webp"
+                    alt="Kaaba"
+                    className="w-full h-full object-cover"
+                />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid lg:grid-cols-2 gap-10 items-center">
-        {/* LEFT SIDE */}
-        <div className="text-white space-y-6 px-3 sm:px-4">
-
-
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            Umrah Packages
-          </h1>
-
-          <p className="text-gray-200 ">
-            Explore a range of packages designed for comfort, affordability, and convenience.                   </p>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
-              <FaPlane /> Flights Included
             </div>
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
-              <FaPassport /> Visa Included
-            </div>
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
-              <FaClock /> Flexible Duration
-            </div>
-          </div>
-        </div>
 
-         {/* RIGHT SIDE — Form Card */}
+            {/* Content */}
+            <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid lg:grid-cols-2 gap-10 items-center">
+                {/* LEFT SIDE */}
+                <div className="text-white space-y-6 px-3 sm:px-4">
+
+
+                    <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+                        Umrah Packages
+                    </h1>
+
+                    <p className="text-gray-200 ">
+                        Explore a range of packages designed for comfort, affordability, and convenience.                   </p>
+
+                    <div className="space-y-3">
+                        <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+                            <Plane /> Flights Included
+                        </div>
+                        <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+                            <FileText /> Visa Included
+                        </div>
+                        <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+                            <Clock /> Flexible Duration
+                        </div>
+                        <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+                            <Hotel /> Flexible Duration
+                        </div>
+                    </div>
+                </div>
+
+                {/* RIGHT SIDE — Form Card */}
                 <div className="w-full max-w-md mx-auto lg:ml-auto lg:w-[420px] xl:w-[470px] shrink-0">
                     <div className="bg-[#ffffff] rounded-2xl shadow-xl p-5 sm:p-6 md:p-7">
                         <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#101828] mb-4 sm:mb-5">
@@ -137,7 +141,7 @@ export default function UmrahPageHeroSection() {
                                 <div>
                                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
-                                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
                                         Departure Airport
                                     </label>
                                     <input
@@ -211,7 +215,7 @@ export default function UmrahPageHeroSection() {
                         </form>
                     </div>
                 </div>
-      </div>
-    </div>
-  );
+            </div>
+        </div>
+    );
 }

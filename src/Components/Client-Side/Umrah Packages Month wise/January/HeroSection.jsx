@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaPlane, FaPassport, FaClock, FaPaperPlane } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
+import { Plane, Clock, FileText, Calendar } from "lucide-react";
 
 const monthData = {
   january: { label: "January 2026 Departures", heading: "January Umrah Packages", year: "2026", image: "/Images/BackGround.webp" },
@@ -68,8 +69,9 @@ export default function HeroSection({ month = "january" }) {
         {/* LEFT SIDE */}
         <div className="text-white space-y-6 lg:ml-15 px-3 sm:px-4">
 
-          <span className="inline-block border border-white lg:ml-45 px-4 py-2 rounded-full text-sm">
-            📅 {data.label}
+          <span className="inline-flex items-center gap-2 border border-white lg:ml-45 px-4 py-2 rounded-full text-sm">
+            <Calendar size={14} />
+            {data.label}
           </span>
 
           <h1 className="text-3xl md:text-5xl font-bold leading-tight break-words lg:whitespace-nowrap">
@@ -82,14 +84,14 @@ export default function HeroSection({ month = "january" }) {
           </p>
 
           <div className="space-y-3">
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
-              <FaPlane /> Flights Included
+            <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+              <Plane /> Flights Included
             </div>
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
-              <FaPassport /> Visa Included
+            <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+              <FileText /> Visa Included
             </div>
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
-              <FaClock /> Flexible Duration
+            <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+              <Clock /> Flexible Duration
             </div>
           </div>
         </div>
@@ -119,21 +121,27 @@ export default function HeroSection({ month = "january" }) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="flex items-center text-sm font-medium mb-1 block">
-
+                <label className="flex items-center gap-1 text-sm font-medium mb-1 block">
                   <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />  </svg>
-                  Departure Date *</label>
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  Departure Date *
+                </label>
                 <input type="date" name="date" value={formData.date} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
                 {errors.date && <p className="text-red-500 text-xs">{errors.date}</p>}
               </div>
               <div>
-                <label className="flex items-center text-sm font-medium mb-1 block">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
-                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
-
-                  Departure Airport *</label>
+                <label className="flex items-center gap-1 text-sm font-medium mb-1 block">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Departure Airport *
+                </label>
                 <input type="text" name="airport" value={formData.airport} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
                 {errors.airport && <p className="text-red-500 text-xs">{errors.airport}</p>}
@@ -142,18 +150,19 @@ export default function HeroSection({ month = "january" }) {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="flex items-center text-sm font-medium mb-1 block">
+                <label className="flex items-center gap-1 text-sm font-medium mb-1 block">
                   <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                     <circle cx="12" cy="7" r="4" />
                   </svg>
-                  Adults *</label>
+                  Adults *
+                </label>
                 <input type="number" name="adults" value={formData.adults} onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full" />
                 {errors.adults && <p className="text-red-500 text-xs">{errors.adults}</p>}
               </div>
               <div>
-                <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
+                <label className="flex items-center gap-1 text-sm font-medium mb-1 block">
                   <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
                     <circle cx="9" cy="7" r="4" />

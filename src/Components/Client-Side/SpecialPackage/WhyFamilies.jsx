@@ -46,7 +46,7 @@ export default function WhyFamilies() {
                 <li key={i} className="flex items-start gap-3">
 
                   {/* Icon */}
-                  <span className="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-[#E0E7FF]">
+                  <span className="mt-1 flex items-center justify-center w-5 h-5 rounded-full ">
                     <Check className="w-3.5 h-3.5 text-[#1C398E]" />
                   </span>
 

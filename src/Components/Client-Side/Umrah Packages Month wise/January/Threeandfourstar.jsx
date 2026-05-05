@@ -59,7 +59,7 @@ const packages4Star = [
 
 const Card = ({ item }) => {
   return (
-    <div className="bg-[#ffffff] rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <div className="bg-[#FFFFFF] rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
 
       {/* Image */}
       <div className="relative h-60 w-full">

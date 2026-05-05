@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Plane } from "lucide-react";
 import {
-  FaPlane,
+  
   FaMapMarkerAlt,
   FaRegCalendarAlt,
   FaUserFriends,
@@ -57,8 +58,8 @@ export default function FlightHero() {
         <div className="flex flex-col justify-center items-start text-left gap-5 lg:pl-20">
 
           {/* Badge */}
-          <span className="inline-flex items-center gap-2 bg-gray-200 text-[#1C398E] text-xs sm:text-sm px-3 sm:px-4 py-1.5 rounded-full">
-            <FaPlane className="text-[#60A5FA]" /> Umrah Flight Booking
+          <span className="inline-flex items-center gap-2 bg-[#D7EBFF] text-[#2B7FFFCC] text-xs sm:text-sm px-3 sm:px-4 py-1.5 rounded-full">
+            <Plane className="text-[#2B7FFFCC]" /> Umrah Flight Booking
           </span>
 
           {/* Heading */}
@@ -172,7 +173,7 @@ export default function FlightHero() {
                   onClick={() => setSelectedClass("Business")}
                   className={`py-2 rounded-lg text-xs font-medium border ${
                     selectedClass === "Business"
-                      ? "border-[#1C398E] text-[#243E8B] bg-blue-50"
+                      ? "border-[#1C398E] text-[#243E8B] bg-[#ECFDF5]"
                       : "border-[#E5E7EB] text-gray-500"
                   }`}
                 >

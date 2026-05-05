@@ -1,12 +1,10 @@
-import { HiHome } from "react-icons/hi";
 import { FiRefreshCw, FiTrendingUp } from "react-icons/fi";
-import { MdLocationOn } from "react-icons/md";
-import { FaDollarSign, FaUsers, FaShieldAlt } from "react-icons/fa";
+import { House ,MapPin, DollarSign,Users,Shield   } from "lucide-react";
 
 export default function HajjInfo() {
   const steps = [
     {
-      icon: <HiHome size={28} />,
+      icon: <House size={28} />,
       title: "Stay Near Haram",
       desc: "Begin your journey in comfortable accommodation close to Masjid al-Haram",
     },
@@ -16,7 +14,7 @@ export default function HajjInfo() {
       desc: "Relocate to Azizia district during the main Hajj days (8th–13th Dhul Hijjah)",
     },
     {
-      icon: <MdLocationOn size={28} />,
+      icon: <MapPin  size={28} />,
       title: "Return After Hajj",
       desc: "Come back to your near-Haram accommodation to complete your pilgrimage",
     },
@@ -24,7 +22,7 @@ export default function HajjInfo() {
 
   const benefits = [
     {
-      icon: <FaDollarSign />,
+      icon: <DollarSign  />,
       title: "Lower Cost",
       desc: "Save significantly compared to full-duration near-Haram stays",
     },
@@ -34,12 +32,12 @@ export default function HajjInfo() {
       desc: "Choose from various shifting packages based on your budget",
     },
     {
-      icon: <FaUsers />,
+      icon: <Users />,
       title: "Suitable for Groups",
       desc: "Perfect for families and group travelers seeking affordability",
     },
     {
-      icon: <FaShieldAlt />,
+      icon: <Shield  />,
       title: "Fully Organized",
       desc: "We handle all logistics and accommodation transitions",
     },

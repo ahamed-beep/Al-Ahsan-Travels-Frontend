@@ -1,6 +1,6 @@
 "use client";
 
-import { Building, Truck, Check } from "lucide-react";
+import { Building, Car , Check } from "lucide-react";
 
 export default function PackageIncludes() {
   return (
@@ -50,7 +50,7 @@ export default function PackageIncludes() {
           {/* Card 2 */}
           <div className="bg-[#F9FAFB] rounded-2xl p-6 text-left shadow-sm border border-[#E5E7EB]">
             <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#1C398E] text-[#ffffff] mb-4">
-              <Truck size={22} />
+              <Car  size={22} />
             </div>
 
             <h3 className="text-lg font-bold text-[#101828] mb-3">
@@ -88,22 +88,22 @@ export default function PackageIncludes() {
 
             <ul className="space-y-2 text-[#364153] text-sm">
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Return economy flights (upgrades available)
+                <span className="text-[#1C398E]"></span> Return economy flights (upgrades available)
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Hotel accommodation (twin/family rooms)
+                <span className="text-[#1C398E]"></span> Hotel accommodation (twin/family rooms)
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Saudi Arabia Umrah visas for all
+                <span className="text-[#1C398E]"></span> Saudi Arabia Umrah visas for all
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Ground transportation as per itinerary
+                <span className="text-[#1C398E]"></span> Ground transportation as per itinerary
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Experienced multilingual guide
+                <span className="text-[#1C398E]"></span> Experienced multilingual guide
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Ziyarat tours (selected packages)
+                <span className="text-[#1C398E]"></span> Ziyarat tours (selected packages)
               </li>
             </ul>
           </div>

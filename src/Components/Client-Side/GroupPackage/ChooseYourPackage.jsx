@@ -165,7 +165,7 @@ export default function GroupPackages() {
 
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#101828] mb-3">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#101828] mb-3">
           Choose Your Group Package
         </h2>
         <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">

@@ -1,4 +1,4 @@
-"use client";  // ← yeh add karo
+"use client";  
 
 import React from 'react'
 import Navbar from '../../Home/Navbar'
@@ -7,6 +7,7 @@ import ContantJanuary from './ContantJanuary'
 import Threeandfourstar from './Threeandfourstar'
 import FiveStarPackages from './FiveStar'
 import HeroSection from './HeroSection'
+import QuickComparisonGuide from './QuickComparisonGuide';
 
 const CombineJanuary = () => {
   return (
@@ -16,6 +17,7 @@ const CombineJanuary = () => {
       <ContantJanuary month='january'/>
       <Threeandfourstar month='january'/>
       <FiveStarPackages month='january'/>
+      <QuickComparisonGuide month='january'/>
       <Footer/>
     </div>
   )
