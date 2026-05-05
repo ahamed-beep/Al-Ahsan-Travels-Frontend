@@ -1,19 +1,17 @@
 "use client";
 
-import { FaDollarSign } from "react-icons/fa";
-import { HiHome } from "react-icons/hi";
 import { FiRefreshCw } from "react-icons/fi";
-import { FaUsers } from "react-icons/fa";
+import { DollarSign,House,Users } from "lucide-react";
 
 export default function NonQuickComparison() {
   const cards = [
     {
-      icon: <FaDollarSign size={28} />,
+      icon: <DollarSign size={28} />,
       title: "Cost",
       value: "Lower",
     },
     {
-      icon: <HiHome size={28} />,
+      icon: <House size={28} />,
       title: "Comfort",
       value: "Medium",
     },
@@ -23,7 +21,7 @@ export default function NonQuickComparison() {
       value: "Yes",
     },
     {
-      icon: <FaUsers size={28} />,
+      icon: <Users size={28} />,
       title: "Best For",
       value: "Budget travelers",
     },

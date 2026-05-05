@@ -1,108 +1,110 @@
-import { HiHome } from "react-icons/hi";
-import { FiRefreshCw, FiTrendingUp } from "react-icons/fi";
-import { MdLocationOn } from "react-icons/md";
-import { FaDollarSign, FaUsers, FaShieldAlt } from "react-icons/fa";
+import { DollarSign, TrendingUp, Users, Shield, Lock, Award, ShieldCheck } from "lucide-react";
 
-export default function NonShiftingHajjInfo() {
-  const steps = [
-    {
-      icon: <HiHome size={28} />,
-      title: "Stay Near Haram",
-      desc: "Begin your journey in comfortable accommodation close to Masjid al-Haram",
-    },
-    {
-      icon: <FiRefreshCw size={28} />,
-      title: "Move During Peak Days",
-      desc: "Relocate to Azizia district during the main Hajj days (8th–13th Dhul Hijjah)",
-    },
-    {
-      icon: <MdLocationOn size={28} />,
-      title: "Return After Hajj",
-      desc: "Come back to your near-Haram accommodation to complete your pilgrimage",
-    },
-  ];
+const benefits = [
+  {
+    iconClass: "bg-[#C6D7FC] text-[#1C398E]",
+    icon: <DollarSign size={20} />,
+    title: "Lower Cost",
+    desc: "Save significantly compared to full-duration near-Haram stays",
+  },
+  {
+    iconClass: "bg-[#C6D7FC] text-[#1C398E]",
+    icon: <TrendingUp size={20} />,
+    title: "Flexible Options",
+    desc: "Choose from various shifting packages based on your budget",
+  },
+  {
+    iconClass: "bg-[#C6D7FC] text-[#1C398E]",
+    icon: <Users size={20} />,
+    title: "Suitable for Groups",
+    desc: "Perfect for families and group travelers seeking affordability",
+  },
+  {
+    iconClass: "bg-[#C6D7FC] text-[#1C398E]",
+    icon: <Shield size={20} />,
+    title: "Fully Organized",
+    desc: "We handle all logistics and accommodation transitions",
+  },
+];
 
-  const benefits = [
-    {
-      icon: <FaDollarSign />,
-      title: "Lower Cost",
-      desc: "Save significantly compared to full-duration near-Haram stays",
-    },
-    {
-      icon: <FiTrendingUp />,
-      title: "Flexible Options",
-      desc: "Choose from various shifting packages based on your budget",
-    },
-    {
-      icon: <FaUsers />,
-      title: "Suitable for Groups",
-      desc: "Perfect for families and group travelers seeking affordability",
-    },
-    {
-      icon: <FaShieldAlt />,
-      title: "Fully Organized",
-      desc: "We handle all logistics and accommodation transitions",
-    },
-  ];
+const trust = [
+  {
+    icon: <ShieldCheck size={26} />,
+    title: "ATOL Protected",
+    desc: "Your booking is fully protected",
+  },
+  {
+    icon: <Lock size={26} />,
+    title: "Secure Booking",
+    desc: "Safe and encrypted payment",
+  },
+  {
+    icon: <Award size={26} />,
+    title: "Experienced Staff",
+    desc: "20+ years of Hajj expertise",
+  },
+];
 
+export default function ShiftingHajj() {
   return (
-    <div className="bg-[#FFFFFF] ">
-      {/* ===== Section 1 ===== */}
-      <div className="max-w-6xl mx-auto text-center mb-14  px-4">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#1F1F1F]">
-          How Shifting Hajj Works
-        </h2>
-        <p className="text-xs sm:text-sm text-[#4A5565] mt-2 max-w-xl mx-auto">
-          A simple three-step process designed to give you comfort while keeping costs affordable
-        </p>
+    <div className="bg-[#FAFAFA] font-sans py-12 px-4 sm:px-6 lg:px-8">
+      {/* Why Choose Section */}
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#1F1F1F] tracking-tight">
+            Why Choose Shifting Hajj?
+          </h2>
+          <p className="mt-2 text-[#4A5565] text-base">
+            Key benefits that make this option perfect for smart pilgrims
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-          {steps.map((step, index) => (
-            <div key={index} className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 rounded-full bg-blue-100 text-[#243E8B] flex items-center justify-center font-semibold mb-3">
-                {index + 1}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {benefits.map((b, i) => (
+            <div
+              key={i}
+              className="bg-[#FFFFFF] border-gray-100 rounded-xl p-5 flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-200"
+            >
+              <div
+                className={`w-11 h-11 rounded-lg flex  items-center justify-center ${b.iconClass}`}
+              >
+                {b.icon}
               </div>
-
-              <div className="text-[#243E8B] mb-3">{step.icon}</div>
-
-              <h3 className="text-sm sm:text-base font-semibold text-gray-800">
-                {step.title}
-              </h3>
-
-              <p className="text-xs sm:text-sm text-gray-500 mt-2 max-w-xs">
-                {step.desc}
-              </p>
+              <div>
+                <h3 className="text-sm font-medium text-[#1F1F1F]">{b.title}</h3>
+                <p className="text-sm text-[#4A5565] leading-relaxed mt-1">
+                  {b.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* ===== Section 2 ===== */}
-      <div className="w-full bg-[#FAFAFA] text-center py-12 px-4">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">
-          Why Choose Shifting Hajj?
-        </h2>
-        <p className="text-xs sm:text-sm text-gray-500 mt-2 mb-8">
-          Key benefits that make this option perfect for smart pilgrims
-        </p>
+      
+      
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {benefits.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition p-5 text-left"
-            >
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-100 text-[#243E8B] mb-3">
-                {item.icon}
+      {/* Book with Confidence Section */}
+      <div className="max-w-3xl bg-[#FFFFFF] mt-10 mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-[#1F1F1F] tracking-tight">
+            Book with Confidence
+          </h2>
+          <p className="mt-2 text-[#4A5565] text-base">
+            Your journey is protected and secure
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {trust.map((t, i) => (
+            <div key={i} className="flex flex-col items-center text-center gap-3">
+              <div className="w-[60px] h-[60px] rounded-full bg-[#C6D7FC] flex items-center justify-center text-[#1C398E]">
+                {t.icon}
               </div>
-
-              <h3 className="text-sm font-semibold text-gray-800">
-                {item.title}
-              </h3>
-
-              <p className="text-xs text-gray-500 mt-2">
-                {item.desc}
-              </p>
+              <div>
+                <h4 className="text-sm font-medium text-[#1F1F1F]">{t.title}</h4>
+                <p className="text-sm text-[#4A5565] mt-0.5">{t.desc}</p>
+              </div>
             </div>
           ))}
         </div>

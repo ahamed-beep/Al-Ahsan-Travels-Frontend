@@ -5,6 +5,7 @@ import Navbar from "../../Home/Navbar";
 import ContantJanuary from "../January/ContantJanuary";
 import FiveStarPackages from "../January/FiveStar";
 import HeroSection from "../January/HeroSection";
+import QuickComparisonGuide from "../January/QuickComparisonGuide";
 import Threeandfourstar from "../January/Threeandfourstar";
 
 export default function CombineFebruary() {
@@ -14,6 +15,8 @@ export default function CombineFebruary() {
     <ContantJanuary month="february"/>
     <Threeandfourstar month="february"/>
     <FiveStarPackages month="february"/>
+    <QuickComparisonGuide month='february'/>
     <Footer/>
+    
     </div> ;
 }

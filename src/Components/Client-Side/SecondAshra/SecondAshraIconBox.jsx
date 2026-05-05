@@ -7,7 +7,7 @@ import {
   MapPin,
   UsersRound,
   Sparkles,
-  CheckCircle2,
+  Check,
 } from "lucide-react";
 
 // ─── Section 1 data ───────────────────────────────────────────────
@@ -153,7 +153,7 @@ export default function SecondAshraIconBox() {
           <div className="grid sm:grid-cols-2 gap-x-10 gap-y-4">
             {included.map((item) => (
               <div key={item} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#1C398ECC] mt-0.5" />
+                <Check  className="w-5 h-5  border rounded-full bg-[#1C398ECC] text-[#FFFFFF] mt-0.5" />
                 <span className="text-[#364153] text-sm sm:text-base">
                   {item}
                 </span>

@@ -158,6 +158,9 @@ export default function FiveStar() {
                                     <span>
                                         <span className="font-semibold text-[#364153]">Madinah:</span> {pkg.madinah}
                                     </span>
+                                    <span className="flex items-center gap-1 bg-gray-100  text-xs px-3 py-1 rounded-full">
+                                        <Users  className="h-4 w-4 fill-[#C9A24A] text-[#C9A24A]" /> Guide
+                                    </span>
                                 </div>
 
                                 {/* Tags */}

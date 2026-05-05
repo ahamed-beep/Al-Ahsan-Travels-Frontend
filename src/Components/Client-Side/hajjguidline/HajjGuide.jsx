@@ -193,20 +193,9 @@ export default function HajjGuide() {
                   "Covered with the Kiswa (black silk cloth with gold embroidery)",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-[#1F1F1F] text-sm">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      className="w-5 h-5 text-[#1C398E] flex-shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className=" text-[#1c398e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" />
+                      </svg>
                     {item}
                   </li>
                 ))}

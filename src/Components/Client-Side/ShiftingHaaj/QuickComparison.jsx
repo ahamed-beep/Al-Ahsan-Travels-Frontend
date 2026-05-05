@@ -1,19 +1,17 @@
 "use client";
 
-import { FaDollarSign } from "react-icons/fa";
-import { HiHome } from "react-icons/hi";
 import { FiRefreshCw } from "react-icons/fi";
-import { FaUsers } from "react-icons/fa";
+import { Users,House,DollarSign  } from "lucide-react"; 
 
 export default function QuickComparison() {
   const cards = [
     {
-      icon: <FaDollarSign size={28} />,
+      icon: <DollarSign  size={28} />,
       title: "Cost",
       value: "Lower",
     },
     {
-      icon: <HiHome size={28} />,
+      icon: <House   size={28} />,
       title: "Comfort",
       value: "Medium",
     },
@@ -23,7 +21,7 @@ export default function QuickComparison() {
       value: "Yes",
     },
     {
-      icon: <FaUsers size={28} />,
+      icon: <Users  size={28} />,
       title: "Best For",
       value: "Budget travelers",
     },
@@ -42,7 +40,7 @@ export default function QuickComparison() {
             className="bg-[#ffffff] rounded-2xl p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition"
           >
             <div className="text-[#1C398ECC] mb-3">{card.icon}</div>
-            <p className="text-sm text-[#1C398ECC] mb-1">{card.title}</p>
+            <p className="text-sm text-[#1C398E] mb-1">{card.title}</p>
             <h3 className="text-lg font-bold text-[#1C398E]">
               {card.value}
             </h3>

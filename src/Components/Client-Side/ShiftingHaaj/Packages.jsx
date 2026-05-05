@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
-import { FaPassport, FaBus, FaUtensils, FaUser } from "react-icons/fa";
+import { FaPassport, FaBus, FaStar, FaUtensils, FaUser } from "react-icons/fa";
 
 export default function Packages() {
   const packages = [
@@ -53,7 +53,8 @@ export default function Packages() {
             {/* Popular Badge */}
             {pkg.popular && (
               <div className="bg-[#243E8B] text-[#ffffff] text-[10px] sm:text-xs text-center py-1">
-                ⭐ Most Popular Choice
+                <FaStar className="inline-block mr-1 text-yellow-400 mb-1" size={12} />
+                Most Popular Choice
               </div>
             )}
 
