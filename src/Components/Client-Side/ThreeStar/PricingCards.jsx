@@ -76,7 +76,7 @@ const packages = [
 
 export default function PricingCards() {
   return (
-    <section className="bg-[#EEF2F9] py-14 px-4">
+    <section className="bg-[#F7F7F7] py-14 px-4">
       <div className="max-w-6xl mx-auto">
 
         {/* HEADER */}
@@ -110,7 +110,7 @@ export default function PricingCards() {
                         borderColor: "rgba(81,162,255,0.45)",
                       }
                     : {
-                        background: "#51A2FF26",
+                        background: "#51A2FF26 ",
                         borderColor: "#FFFFFF33",
                       }
                 }
@@ -119,9 +119,9 @@ export default function PricingCards() {
                 {/* ✅ BADGE */}
                 {pkg.badge && (
                   <div className="absolute left-1/2 -translate-x-1/2 -top-4 z-20">
-                    {/* <span className="bg-[#1C398E] text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-lg border-2 border-white whitespace-nowrap">
+                    <span className="bg-[#1C398E] text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-lg  whitespace-nowrap">
                       {pkg.badge}
-                    </span> */}
+                    </span>
                   </div>
                 )}
 
@@ -170,7 +170,7 @@ export default function PricingCards() {
                     Select Package
                   </button>
                 ) : (
-                  <button className="w-full py-3 rounded-xl border-2 border-[#FFFFFF4D] text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition">
+                  <button className="w-full py-3 rounded-xl   text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition">
                     Select Package
                   </button>
                 )}

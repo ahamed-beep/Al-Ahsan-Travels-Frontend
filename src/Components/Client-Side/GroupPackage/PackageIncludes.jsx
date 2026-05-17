@@ -30,19 +30,19 @@ export default function PackageIncludes() {
 
             <ul className="space-y-2 text-[#364153] text-sm">
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Group rooms with interconnecting options
+                <span className="text-[#1C398E] text-base font-bold">›</span> Group rooms with interconnecting options
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Close proximity to Haram for easy access
+                <span className="text-[#1C398E] text-base font-bold">›</span> Close proximity to Haram for easy access
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Clean, comfortable, and well-maintained
+                <span className="text-[#1C398E] text-base font-bold">›</span> Clean, comfortable, and well-maintained
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> On-site dining facilities
+                <span className="text-[#1C398E] text-base font-bold">›</span> On-site dining facilities
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Air-conditioned rooms
+                <span className="text-[#1C398E] text-base font-bold">›</span> Air-conditioned rooms
               </li>
             </ul>
           </div>
@@ -59,19 +59,19 @@ export default function PackageIncludes() {
 
             <ul className="space-y-2 text-[#364153] text-sm">
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Private air-conditioned coaches
+                <span className="text-[#1C398E] text-base font-bold">›</span> Private air-conditioned coaches
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Airport pickup and drop-off
+                <span className="text-[#1C398E] text-base font-bold">›</span> Airport pickup and drop-off
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Makkah to Madinah transfers
+                <span className="text-[#1C398E] text-base font-bold">›</span> Makkah to Madinah transfers
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Ziyarat tour transportation
+                <span className="text-[#1C398E] text-base font-bold">›</span> Ziyarat tour transportation
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Comfortable seating for families
+                <span className="text-[#1C398E] text-base font-bold">›</span> Comfortable seating for families
               </li>
             </ul>
           </div>
@@ -88,22 +88,22 @@ export default function PackageIncludes() {
 
             <ul className="space-y-2 text-[#364153] text-sm">
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Return economy flights (upgrades available)
+                <span className="text-[#1C398E] text-base font-bold">›</span> Return economy flights (upgrades available)
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Hotel accommodation 
+                <span className="text-[#1C398E] text-base font-bold">›</span> Hotel accommodation 
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Saudi Arabia Umrah visas for all
+                <span className="text-[#1C398E] text-base font-bold">›</span> Saudi Arabia Umrah visas for all
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Ground transportation as per itinerary
+                <span className="text-[#1C398E] text-base font-bold">›</span> Ground transportation as per itinerary
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Experienced multilingual guide
+                <span className="text-[#1C398E] text-base font-bold">›</span> Experienced multilingual guide
               </li>
               <li className="flex gap-2">
-                <span className="text-[#1C398E]">›</span> Ziyarat tours (selected packages)
+                <span className="text-[#1C398E] text-base font-bold">›</span> Ziyarat tours (selected packages)
               </li>
             </ul>
           </div>

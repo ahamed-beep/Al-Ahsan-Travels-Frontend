@@ -29,7 +29,7 @@ const lastCellStyle = {
 
 export default function QuickComparisonGuide() {
   return (
-    <div className="w-full px-4 py-10 flex flex-col items-center bg-[#ffffff]">
+    <div className="w-896px px-2 py-5 flex flex-col items-center bg-[#ffffff]">
       <h2 className="text-xl sm:text-2xl font-bold text-[#222222] mb-6">
         Quick Comparison Guide
       </h2>

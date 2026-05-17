@@ -40,26 +40,36 @@ export default function HeroSpecialPackage() {
       <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* LEFT SIDE */}
-        <div className=" ml-10 mb-30 text-center lg:text-left space-y-6">
-          <h1 className="text-3xl text-[#FFFFFF] md:text-4xl font-bold md:whitespace-nowrap">
-            Family Umrah Packages 2025
-          </h1>
-          <p className="text-lg text-center items-center text-[#ffffff] max-w-xl">
-            Create precious memories with your loved ones on a spiritually
-            enriching journey designed for families
-          </p>
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
-            <span className="flex items-center gap-1">
-              <Check className="w-4 h-4 text-[#FFFFFF]" /> Flights + Visa Included
-            </span>
-            <span className="flex items-center gap-1">
-              <Check className="w-4 h-4 text-[#FFFFFF]]" /> Family-Friendly Hotels
-            </span>
-            <span className="flex items-center gap-1">
-              <Check className="w-4 h-4 [#FFFFFF]" /> 24/7 Support
-            </span>
-          </div>
-        </div>
+       <div className="ml-0 lg:ml-10 mb-20 lg:mb-30 text-center lg:text-left space-y-6">
+  
+  <h1 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] md:whitespace-nowrap">
+    Family Umrah Packages 2025
+  </h1>
+
+  <p className="text-base sm:text-lg text-[#ffffff] max-w-xl mx-auto lg:mx-0">
+    Create precious memories with your loved ones on a spiritually
+    enriching journey designed for families
+  </p>
+
+  <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
+    
+    <span className="flex items-center gap-2">
+      <Check className="w-4 h-4 text-[#FFFFFF]" />
+      Flights + Visa Included
+    </span>
+
+    <span className="flex items-center gap-2">
+      <Check className="w-4 h-4 text-[#FFFFFF]" />
+      Family-Friendly Hotels
+    </span>
+
+    <span className="flex items-center gap-2">
+      <Check className="w-4 h-4 text-[#FFFFFF]" />
+      24/7 Support
+    </span>
+
+  </div>
+</div>
 
         {/* RIGHT SIDE — Form Card */}
         <div className="w-full max-w-md mx-auto lg:ml-auto lg:w-[420px] xl:w-[470px] shrink-0">

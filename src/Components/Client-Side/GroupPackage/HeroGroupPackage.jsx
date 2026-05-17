@@ -40,24 +40,33 @@ export default function HeroSpecialPackage() {
       <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
         {/* LEFT SIDE */}
-        <div className=" ml-10 mb-30 text-center lg:text-left space-y-6">
+        <div className="ml-0 lg:ml-10 mb-30 text-center lg:text-left space-y-6">
           <h1 className="text-3xl text-[#FFFFFF] md:text-4xl font-bold md:whitespace-nowrap">
             Group Umrah Packages 2025
           </h1>
-          <p className="text-lg text-center items-center text-[#FFFFFF] max-w-xl">
+
+          <p className="text-lg text-[#FFFFFF] max-w-xl mx-auto lg:mx-0">
             Create precious memories with your loved ones on a spiritually
             enriching journey designed for families
           </p>
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
-            <span className="flex items-center gap-1">
-              <Check className="w-4 h-4 text-[#FFFFFF]" /> Flights + Visa Included
+
+          <div className="flex flex- whitespace-nowrap justify-center lg:justify-start gap-3 text-sm text-white max-w-md mx-auto lg:mx-0">
+
+            <span className="flex items-center gap-2 bg-[#2B7FFF33] px-3 py-1 rounded-full whitespace-nowrap">
+              <Check className="w-4 h-4 text-white" />
+              Flights + Visa Included
             </span>
-            <span className="flex items-center gap-1">
-              <Check className="w-4 h-4 text-[#FFFFFF]]" /> Group-Friendly Hotels
+
+            <span className="flex items-center gap-2 bg-[#2B7FFF33] px-3 py-1 rounded-full whitespace-nowrap">
+              <Check className="w-4 h-4 text-white" />
+              Group-Friendly Hotels
             </span>
-            <span className="flex items-center gap-1">
-              <Check className="w-4 h-4 [#FFFFFF]" /> 24/7 Support
+
+            <span className="flex items-center gap-2 bg-[#2B7FFF33] px-3 py-1 rounded-full whitespace-nowrap">
+              <Check className="w-4 h-4 text-white" />
+              24/7 Support
             </span>
+
           </div>
         </div>
 
@@ -124,7 +133,7 @@ export default function HeroSpecialPackage() {
                 </div>
                 <div>
                   <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
                     Departure Airport
                   </label>
                   <input

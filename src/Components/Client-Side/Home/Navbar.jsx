@@ -6,7 +6,7 @@ import Link from "next/link";
 const navItems = [
     { label: "Home", href: "/" },
     {
-        label: "Hajjj",
+        label: "Hajj",
         href: "#",
         dropdown: [
             { label: "Hajj Guide line", href: "/hajjguidline" },
@@ -54,13 +54,12 @@ const navItems = [
             { label: "Christmas Umrah Packages", href: "/christmasumrahpackage" },
             { label: "Clock Tower Umrah Package", href: "/clocktowerumrahpackage" },
             { label: "Couple Umrah Package", href: "/coupleumrahpackage" },
-            {label: "Easter Umrah Packages", href:"/easterumrahpackage"},
-            {label: "London Umrah package", href:"/londonumrahpackage"},
-            {label: "Manchester Umrah Package", href:"/manchesterumrahpackage"},
-
+            { label: "Easter Umrah Packages", href: "/easterumrahpackage" },
+            { label: "London Umrah package", href: "/londonumrahpackage" },
+            { label: "Manchester Umrah Package", href: "/manchesterumrahpackage" },
         ],
     },
-    { label: "flight", href: "/flight" },
+    { label: "Flight", href: "/flight" },
     { label: "Contact Us", href: "/contactus" },
 ];
 
@@ -202,10 +201,10 @@ function MobileSubLink({ href, children, onClick }) {
 }
 
 /* ── Book Now button ── */
-function BookBtn({ href, onClick, mobile }) {
+function BookBtn({ onClick, mobile }) {
     const { hovered, onMouseEnter, onMouseLeave } = useHover();
     return (
-        <Link href="/#hero"  onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
+        <Link href="/#hero" onClick={onClick} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}
             style={{
                 display: "block", textAlign: "center",
                 padding: mobile ? "12px" : "8px 20px",
@@ -214,7 +213,7 @@ function BookBtn({ href, onClick, mobile }) {
                 borderRadius: mobile ? "12px" : "999px",
                 whiteSpace: "nowrap", textDecoration: "none",
                 transition: "background 0.15s",
-                background:  "#1C398E" ,
+                background: "#1C398E",
                 color: "white",
                 ...(mobile ? { width: "100%" } : {}),
             }}>
@@ -227,15 +226,15 @@ function BookBtn({ href, onClick, mobile }) {
    MAIN NAVBAR
 ══════════════════════════════════════ */
 export default function Navbar() {
-    const [mobileOpen, setMobileOpen] = useState(false);
+    const [drawerOpen, setDrawerOpen] = useState(false);  // ← drawer state yahan hai
     const [openDropdown, setOpenDropdown] = useState(null);
     const [hoveredItem, setHoveredItem] = useState(null);
 
     const toggleMobileDropdown = (label) =>
         setOpenDropdown((prev) => (prev === label ? null : label));
 
-    const closeMobile = () => {
-        setMobileOpen(false);
+    const closeDrawer = () => {
+        setDrawerOpen(false);
         setOpenDropdown(null);
     };
 
@@ -290,19 +289,18 @@ export default function Navbar() {
                         ))}
 
                         <li className="w-px h-5 bg-gray-200 mx-1 shrink-0" />
-
                         <li className="shrink-0">
-                            <BookBtn href="/book" />
+                            <BookBtn />
                         </li>
                     </ul>
 
                     {/* ── Mobile Hamburger ── */}
                     <button
                         className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition"
-                        onClick={() => setMobileOpen((p) => !p)}
+                        onClick={() => setDrawerOpen((p) => !p)}
                         aria-label="Toggle menu"
                     >
-                        {mobileOpen ? (
+                        {drawerOpen ? (
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <line x1="18" y1="6" x2="6" y2="18" />
                                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -318,45 +316,80 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* ── Mobile Menu ── */}
-            <SlideDown open={mobileOpen}>
-                <div className="lg:hidden bg-white border-t border-gray-100 px-4 pb-5">
-                    <ul className="mt-2 space-y-0.5">
-                        {navItems.map((item) => (
-                            <li key={item.label}>
-                                {item.dropdown ? (
-                                    <>
-                                        <MobileDropdownBtn onClick={() => toggleMobileDropdown(item.label)}>
-                                            <span>{item.label}</span>
-                                            <Chevron open={openDropdown === item.label} />
-                                        </MobileDropdownBtn>
+            {/* ── Overlay ── */}
+            {drawerOpen && (
+                <div
+                    onClick={closeDrawer}
+                    style={{
+                        position: "fixed", inset: 0,
+                        background: "rgba(0,0,0,0.4)",
+                        zIndex: 40,
+                    }}
+                />
+            )}
 
-                                        <SlideDown open={openDropdown === item.label}>
-                                            <ul className="ml-3 mb-1 border-l-2 border-[#f0e6cc] pl-3 py-1">
-                                                {item.dropdown.map((sub) => (
-                                                    <li key={sub.label}>
-                                                        <MobileSubLink href={sub.href} onClick={closeMobile}>
-                                                            {sub.label}
-                                                        </MobileSubLink>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </SlideDown>
-                                    </>
-                                ) : (
-                                    <MobileNavLink href={item.href} onClick={closeMobile}>
-                                        {item.label}
-                                    </MobileNavLink>
-                                )}
-                            </li>
-                        ))}
-
-                        <li className="pt-3">
-                            <BookBtn href="/book" onClick={closeMobile} mobile={true} />
-                        </li>
-                    </ul>
+            {/* ── Left Drawer ── */}
+            <div style={{
+                position: "fixed", top: 0, left: 0, bottom: 0,
+                width: "75%", maxWidth: "280px",
+                background: "white", zIndex: 50,
+                transform: drawerOpen ? "translateX(0)" : "translateX(-100%)",
+                transition: "transform 0.32s cubic-bezier(.4,0,.2,1)",
+                overflowY: "auto",
+                boxShadow: drawerOpen ? "4px 0 20px rgba(0,0,0,0.15)" : "none",
+            }}>
+                {/* Drawer Logo */}
+                <div style={{
+                    height: 64, display: "flex", alignItems: "center",
+                    padding: "0 16px", borderBottom: "1px solid #f3f4f6"
+                }}>
+                    <Link href="/" onClick={closeDrawer}>
+                        <img src="/Images/Logo.webp" alt="Al-Ahsan Travels"
+                            style={{ height: 48, objectFit: "contain" }} />
+                    </Link>
                 </div>
-            </SlideDown>
+
+                {/* Drawer Nav Items */}
+                <ul style={{ padding: 8, margin: 0, listStyle: "none" }}>
+                    {navItems.map((item) => (
+                        <li key={item.label}>
+                            {item.dropdown ? (
+                                <>
+                                    <MobileDropdownBtn onClick={() => toggleMobileDropdown(item.label)}>
+                                        <span>{item.label}</span>
+                                        <Chevron open={openDropdown === item.label} />
+                                    </MobileDropdownBtn>
+
+                                    <SlideDown open={openDropdown === item.label}>
+                                        <ul style={{
+                                            marginLeft: 12, marginBottom: 4,
+                                            borderLeft: "2px solid #f0e6cc",
+                                            paddingLeft: 12, paddingTop: 4, paddingBottom: 4,
+                                            listStyle: "none",
+                                        }}>
+                                            {item.dropdown.map((sub) => (
+                                                <li key={sub.label}>
+                                                    <MobileSubLink href={sub.href} onClick={closeDrawer}>
+                                                        {sub.label}
+                                                    </MobileSubLink>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </SlideDown>
+                                </>
+                            ) : (
+                                <MobileNavLink href={item.href} onClick={closeDrawer}>
+                                    {item.label}
+                                </MobileNavLink>
+                            )}
+                        </li>
+                    ))}
+
+                    <li style={{ paddingTop: 12 }}>
+                        <BookBtn onClick={closeDrawer} mobile={true} />
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 }

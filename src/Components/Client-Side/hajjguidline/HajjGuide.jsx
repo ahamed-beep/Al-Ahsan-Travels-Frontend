@@ -104,7 +104,7 @@ export default function HajjGuide() {
             className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-500"
           >
             <X size={18} />
-            
+
           </button>
         </div>
         <div className="flex-1 overflow-y-auto py-2 px-2">
@@ -135,13 +135,14 @@ export default function HajjGuide() {
             <section id="intro" className="bg-white rounded-2xl shadow-sm p-6 sm:p-8">
 
               {/* Mobile Menu Button */}
-              <div className="lg:hidden flex justify-end mb-4">
+              <div className="lg:hidden flex items-center gap-3 mb-4">
                 <button
                   onClick={() => setDrawerOpen(true)}
-                  className="p-2 rounded-lg bg-blue-900 text-white"
+                  className="flex items-center gap-2 p-2 rounded-lg bg-blue-900 text-white text-sm font-medium"
                 >
                   <Menu size={20} />
                 </button>
+                <span className="text-sm font-bold text-[#1C398E]">Menu</span>
               </div>
 
               <h1 className="text-2xl sm:text-3xl bg-[#FFFFFF] font-bold text-[#1F1F1F] mb-4">Introduction to Hajj</h1>
@@ -194,8 +195,8 @@ export default function HajjGuide() {
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-[#1F1F1F] text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className=" text-[#1c398e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" />
-                      </svg>
+                      <path d="M21.801 10A10 10 0 1 1 17 3.335" /><path d="m9 11 3 3L22 4" />
+                    </svg>
                     {item}
                   </li>
                 ))}
@@ -312,7 +313,7 @@ export default function HajjGuide() {
                     <div className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-blue-900 flex items-center justify-center text-[#C9A24A] font-bold text-sm">
                       {step.n}
                     </div>
-                    <div className="flex-1 border border-gray-200 rounded-xl px-4 sm:px-5 py-3 sm:py-4">
+                    <div className="flex-1 border border-[#E5E7EB] bg-[#F9FAFB] rounded-xl px-4 sm:px-5 py-3 sm:py-4">
                       <p className="text-xs font-semibold text-[#C9A24A] mb-1">{step.date}</p>
                       <p className="font-semibold text-[#1F1F1F] text-sm">{step.title}</p>
                       <p className="text-[#1F1F1F] text-sm mt-1">{step.desc}</p>
@@ -381,7 +382,7 @@ export default function HajjGuide() {
                   </div>
                 ))}
               </div>
-              <div className="bg-[#51A2FF33] border-l-4 border-blue-900 rounded-lg p-4 sm:p-5">
+              <div className="bg-[#51A2FF33] border-l-4 mt-5 border-blue-900 rounded-lg p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-3">
                   <svg className="w-5 h-5 text-[#2B7FFF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" strokeWidth="2" />
@@ -447,7 +448,10 @@ export default function HajjGuide() {
               </div>
 
               {/* Quick Summary */}
-              <div className="bg-blue-900 rounded-2xl p-5 sm:p-6 mb-6 ">
+              <div
+                className="rounded-2xl p-5 sm:p-6 mb-6"
+                style={{ background: "linear-gradient(135deg, #1C398E 0%, #1C398ECC 80%)" }}
+              >
                 <h3 className="text-base sm:text-lg text-[#FFFFFF] font-bold mb-4">Quick Summary</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
                   {[
@@ -475,7 +479,7 @@ export default function HajjGuide() {
                 <p className="text-gray-500 text-sm mb-5">
                   Our experienced team is here to guide you through every step of your sacred journey. Book a free consultation to discuss your Hajj plans.
                 </p>
-                <Link href="/#hero"  className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200">
+                <Link href="/#hero" className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200">
                   Book Now
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />

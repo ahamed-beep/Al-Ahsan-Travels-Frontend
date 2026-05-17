@@ -59,7 +59,7 @@ const packages4Star = [
 
 const Card = ({ item }) => {
   return (
-    <div className="bg-[#FFFFFF] rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <div className="bg-[#FFFFFF] rounded-xl  shadow-md overflow-hidden hover:shadow-lg transition">
 
       {/* Image */}
       <div className="relative h-60 w-full">
@@ -135,8 +135,8 @@ export default function Threeandfourstar({ month = "January" }) {
   const monthName = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
 
   return (
-    <div className="bg-gray-100 py-10 px-4 md:px-10">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[#FFFFFF] py-10 px-8 md:px-10">
+      <div className="max-w-7xl px-8 mx-auto">
 
         <Section
           stars="⭐⭐⭐"
