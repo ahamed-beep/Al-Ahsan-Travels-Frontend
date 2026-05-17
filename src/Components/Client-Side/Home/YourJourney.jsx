@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function JourneySection() {
   return (
-    <section className="w-full bg-gray-100 py-16 px-4 md:px-10">
+    <section className="w-full bg-[#FFFFFF] py-16 px-4 md:px-10">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
         {/* LEFT CONTENT */}

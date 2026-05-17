@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
+import { IoLocationOutline } from "react-icons/io5";
 import { FaPassport, FaBus, FaUtensils, FaUser } from "react-icons/fa";
 
 export default function NonShiftingPackages() {
@@ -80,14 +80,20 @@ export default function NonShiftingPackages() {
                       </p>
     
                       {/* Locations */}
-                      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
-                        <div className="flex items-center gap-1">
-                          <MdLocationOn size={16} /> {pkg.makkah}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MdLocationOn size={16} /> {pkg.madinah}
-                        </div>
-                      </div>
+                     <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
+  <div className="flex items-center gap-2">
+    <span className="w-6 h-6 rounded-full bg-[#C6D7FC] flex items-center justify-center flex-shrink-0">
+      <IoLocationOutline size={14} className="text-[#1C398E]" />
+    </span>
+    {pkg.makkah}
+  </div>
+  <div className="flex items-center gap-2">
+    <span className="w-6 h-6 rounded-full bg-[#C6D7FC] flex items-center justify-center flex-shrink-0">
+      <IoLocationOutline size={14} className="text-[#1C398E]" />
+    </span>
+    {pkg.madinah}
+  </div>
+</div>
     
                       {/* Features */}
                       <div className="flex flex-wrap text-[#1F1F1F] gap-2 mb-4">

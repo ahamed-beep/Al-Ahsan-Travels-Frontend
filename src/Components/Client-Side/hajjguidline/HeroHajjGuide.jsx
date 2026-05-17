@@ -9,7 +9,7 @@ export default function HeroHajjGuide() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Images/BackGround.webp"
+          src="/Images/Hajj.webp"
           alt="Hajj Background"
           className="w-full h-full object-cover"
         />
@@ -20,7 +20,7 @@ export default function HeroHajjGuide() {
 
       {/* Content Wrapper */}
       <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 lg:ml-20">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-3 lg:px-4 py-10 sm:py-14 md:py-20">
 
           {/* Breadcrumb */}
           <div className="mb-6 sm:mb-8">

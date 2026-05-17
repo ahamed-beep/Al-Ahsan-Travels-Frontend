@@ -84,13 +84,13 @@ export default function HeroSection({ month = "january" }) {
           </p>
 
           <div className="space-y-3">
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+            <div className="flex items-center gap-3 border-1 tect-[#1C398ECC]  bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
               <Plane /> Flights Included
             </div>
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+            <div className="flex items-center gap-3 border-1 tect-[#1C398ECC] bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
               <FileText /> Visa Included
             </div>
-            <div className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
+            <div className="flex items-center gap-3 border-1 tect-[#1C398ECC] bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit">
               <Clock /> Flexible Duration
             </div>
           </div>

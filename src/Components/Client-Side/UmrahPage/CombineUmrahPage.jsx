@@ -6,6 +6,8 @@ import ThreeStarPackages from './ThreeStarPackage'
 import FourStar from './FourStar'
 import FiveStar from './FiveStar'
 import CostumSpecial from './CostumSpecial'
+import WhatIncluded from './WhatIncluded'
+import PackageCTA from './PackageCTA'
 
 const CombineUmrahPage = () => {
   return (
@@ -16,6 +18,8 @@ const CombineUmrahPage = () => {
         <FourStar/>
         <FiveStar/>
         <CostumSpecial/>
+        <WhatIncluded/>
+        <PackageCTA/>
         <Footer/>
     </div>
   )

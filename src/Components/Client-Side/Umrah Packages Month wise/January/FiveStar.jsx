@@ -93,16 +93,12 @@ export default function FiveStarPackages({ month = "january" }) {
 
   return (
     <section
-      className="w-full py-14 px-4"
-      style={{
-        background:
-          "radial-gradient(100% 100% at 50% 50%, #FFFFFF 5.77%, rgba(81, 162, 255, 0.2) 50%, #FFFFFF 90.38%)",
-      }}
+      className="w-full py-14   bg-[#FFFFFF]"
     >
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="mb-10">
+        <div className="mb-15 px-8">
           <div className="flex text-[#1c398e] text-2xl">
             {[...Array(5)].map((_, i) => (
               <span key={i}>★</span>
@@ -117,7 +113,7 @@ export default function FiveStarPackages({ month = "january" }) {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 px-8 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {packages.map((item) => (
             <Card key={item.id} item={item} />
           ))}

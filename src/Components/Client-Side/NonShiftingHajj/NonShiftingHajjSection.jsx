@@ -34,7 +34,7 @@ export default function NonShiftingHajjSection() {
           alt="Hajj background"
           className="h-full w-full  object-cover"
         />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* Content */}

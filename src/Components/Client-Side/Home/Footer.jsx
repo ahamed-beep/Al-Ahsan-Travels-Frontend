@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/f
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f5f7fb] text-gray-600  px-4 sm:px-6 lg:px-12">
+    <footer className="bg-[#FFFFFF] text-gray-600  pb-8 px-4 sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
 
         {/* Top Section */}
@@ -15,7 +15,7 @@ export default function Footer() {
             <img
               src="/Images/Logo.webp"
               alt="logo"
-              className="w-48 h-50 object-contain"
+              className="w-45 h-48 object-contain"
             />
           </div>
 

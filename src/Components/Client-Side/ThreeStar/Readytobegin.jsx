@@ -12,15 +12,15 @@ const HeadphonesIcon = () => (
 
 export default function ReadyToBegin() {
   return (
-    <div className="bg-[#eef2f9] w-full px-4 py-10">
+    <div className="bg-[#eef2f9] w-full px-3 py-10">
       <div
         className="max-w-4xl mx-auto rounded-3xl px-8 py-14 text-center"
         style={{
-          background: "linear-gradient(135deg, #2B7FFF 100%, #000000 0%)",
+          background: "linear-gradient(135deg, #1C398E 100%, #000000 0%)",
         }}
       >
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-black text-[#FFFFFF] mb-4">
+        <h2 className="text-2xl md:text-4xl font-black text-[#FFFFFF] mb-4">
           Ready to Begin Your Journey?
         </h2>
 

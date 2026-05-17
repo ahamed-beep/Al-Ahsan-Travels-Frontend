@@ -118,7 +118,7 @@ export default function HeroSection() {
         <img
           src="/Images/Makkah.webp"
           alt="Makkah"
-          className="w-full h-full object-cover object-center md:object-left opacity-20 md:opacity-20 md:absolute md:left-0 md:top-0 md:w-[55%] lg:w-[60%] xl:w-[55%]"
+          className="w-full h-full object-cover object-center md:object-left  md:absolute md:left-17 md:top-10 md:w-[55%] lg:w-[60%] xl:w-[55%]"
         />
         <div className="absolute inset-0 via-white/95 to-white/80 md:via-white/90 md:to-transparent lg:via-white/80" />
         <div className="absolute inset-0 md:hidden bg-white/50" />
@@ -154,8 +154,8 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
 
           {/* Left — Headline + Buttons */}
-          <div className="flex-1 text-center mb-45 ml-20 lg:text-left lg:max-w-xl xl:max-w-2xl">
-            <h1 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[52px] font-semibold text-[#1e3a8a] leading-tight tracking-tight">
+          <div className="flex-1 text-center mb-45 ml-15  lg:text-left lg:max-w-xl xl:max-w-2xl">
+            <h1 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[52px] font-bold text-[#1e3a8a] leading-tight tracking-tight">
               Your Journey to the
               <br className="hidden sm:block" />
               Sacred Lands
