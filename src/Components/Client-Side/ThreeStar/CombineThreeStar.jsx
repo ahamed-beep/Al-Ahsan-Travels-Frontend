@@ -11,7 +11,7 @@ const CombineThreeStar = () => {
     <div>
         <Navbar/>
         <ThreeStartHero/>
-        <PricingCards/>
+  <PricingCards category="THREE_STAR" />
         <WhatsIncludedSection/>
         <ReadyToBegin/>
         <Footer/>

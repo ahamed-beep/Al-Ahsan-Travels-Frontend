@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import axiosInstance from "@/lib/axios";
+import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
 
 export default function ShiftingHajjSection() {
   const [formData, setFormData] = useState({
@@ -12,16 +14,39 @@ export default function ShiftingHajjSection() {
     adults: 1,
     children: 0,
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
+    setSuccess("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your submission logic here
+    setLoading(true);
+    setError("");
+    setSuccess("");
+    try {
+      await axiosInstance.post(API_HAJJ_INQUIRY_SUBMIT, {
+        ...formData,
+        adults: Number(formData.adults),
+        children: Number(formData.children),
+      });
+      setSuccess("Quote request submitted! We'll contact you within 24 hours.");
+      setFormData({
+        fullName: "", phoneNumber: "", packageType: "",
+        hotelCategory: "", departureDate: "", departureAirport: "",
+        adults: 1, children: 0,
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Submission failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,51 +94,35 @@ export default function ShiftingHajjSection() {
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Full Name *</label>
                     <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Ali"
-                      value={formData.fullName}
-                      onChange={handleChange}
+                      type="text" name="fullName" placeholder="Ali"
+                      value={formData.fullName} onChange={handleChange} required
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Phone Number *</label>
                     <input
-                      type="text"
-                      name="phoneNumber"
-                      placeholder="+44 20 1234 5678"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
+                      type="text" name="phoneNumber" placeholder="+44 20 1234 5678"
+                      value={formData.phoneNumber} onChange={handleChange} required
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Package Type</label>
                     <input
-                      type="text"
-                      name="packageType"
-                      placeholder="Shifting"
-                      value={formData.packageType}
-                      onChange={handleChange}
+                      type="text" name="packageType" placeholder="Shifting"
+                      value={formData.packageType} onChange={handleChange}
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Hotel Category</label>
                     <input
-                      type="text"
-                      name="hotelCategory"
-                      placeholder="Economy"
-                      value={formData.hotelCategory}
-                      onChange={handleChange}
+                      type="text" name="hotelCategory" placeholder="Economy"
+                      value={formData.hotelCategory} onChange={handleChange}
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                       <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -125,14 +134,11 @@ export default function ShiftingHajjSection() {
                       Departure Date
                     </label>
                     <input
-                      type="date"
-                      name="departureDate"
-                      value={formData.departureDate}
-                      onChange={handleChange}
+                      type="date" name="departureDate"
+                      value={formData.departureDate} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition text-gray-500"
                     />
                   </div>
-
                   <div>
                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -142,11 +148,8 @@ export default function ShiftingHajjSection() {
                       Departure Airport
                     </label>
                     <input
-                      type="text"
-                      name="departureAirport"
-                      placeholder="e.g. Heathrow"
-                      value={formData.departureAirport}
-                      onChange={handleChange}
+                      type="text" name="departureAirport" placeholder="e.g. Heathrow"
+                      value={formData.departureAirport} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                     />
                   </div>
@@ -163,12 +166,8 @@ export default function ShiftingHajjSection() {
                       Adults
                     </label>
                     <input
-                      type="number"
-                      name="adults"
-                      min="1"
-                      placeholder="1"
-                      value={formData.adults}
-                      onChange={handleChange}
+                      type="number" name="adults" min="1" placeholder="1"
+                      value={formData.adults} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                     />
                   </div>
@@ -183,26 +182,31 @@ export default function ShiftingHajjSection() {
                       Children
                     </label>
                     <input
-                      type="number"
-                      name="children"
-                      min="0"
-                      placeholder="0"
-                      value={formData.children}
-                      onChange={handleChange}
+                      type="number" name="children" min="0" placeholder="0"
+                      value={formData.children} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition"
                     />
                   </div>
                 </div>
 
+                {/* Error / Success */}
+                {error && (
+                  <p className="text-sm text-red-500 text-center">{error}</p>
+                )}
+                {success && (
+                  <p className="text-sm text-green-600 text-center">{success}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88]"
+                  disabled={loading}
+                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88] disabled:opacity-60"
                 >
                   <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <line x1="22" y1="2" x2="11" y2="13" />
                     <polygon points="22 2 15 22 11 13 2 9 22 2" />
                   </svg>
-                  Get Free Quote
+                  {loading ? "Submitting..." : "Get Free Quote"}
                 </button>
 
                 <p className="text-center text-xs text-[#6A7282] sm:text-sm">

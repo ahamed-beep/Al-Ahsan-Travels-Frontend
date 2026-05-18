@@ -2,8 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
+import { FaPassport, FaBus, FaUtensils, FaUser } from "react-icons/fa";
 import axiosInstance from "@/lib/axios";
 import { API_SHIFTING_HAJJ, API_SHIFTING_HAJJ_BY_ID } from "@/constants/api";
+
+// ── Enum — backend se match karta hai ─────────────────────────
+const AVAILABLE_TAGS = [
+  { label: "Visa",      value: "Visa",      icon: <FaPassport size={12} /> },
+  { label: "Transport", value: "Transport",  icon: <FaBus size={12} /> },
+  { label: "Meals",     value: "Meals",      icon: <FaUtensils size={12} /> },
+  { label: "Guide",     value: "Guide",      icon: <FaUser size={12} /> },
+];
 
 const DEFAULT = {
   title: "", price: "", currency: "GBP", durationDays: "", durationNights: "",
@@ -11,10 +20,9 @@ const DEFAULT = {
 };
 
 export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
-  const [form, setForm]         = useState(DEFAULT);
-  const [loading, setLoading]   = useState(false);
-  const [error, setError]       = useState("");
-  const [tagInput, setTagInput] = useState("");
+  const [form, setForm]       = useState(DEFAULT);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState("");
   const [locInput, setLocInput] = useState("");
 
   useEffect(() => {
@@ -35,34 +43,32 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
     setError("");
   };
 
-  // ── Tag helpers ───────────────────────────────────────────
-  const addTag = () => {
-    const val = tagInput.trim().replace(/,$/, "");
-    if (val && !form.tags.includes(val)) setForm((p) => ({ ...p, tags: [...p.tags, val] }));
-    setTagInput("");
+  // ── Tag toggle (enum buttons) ─────────────────────────────
+  const toggleTag = (value) => {
+    setForm((p) => ({
+      ...p,
+      tags: p.tags.includes(value)
+        ? p.tags.filter((t) => t !== value)
+        : [...p.tags, value],
+    }));
   };
-  const removeTag = (t) => setForm((p) => ({ ...p, tags: p.tags.filter((x) => x !== t) }));
 
   // ── Location helpers ──────────────────────────────────────
   const addLoc = () => {
     const val = locInput.trim();
-    if (val && !form.locations.includes(val)) setForm((p) => ({ ...p, locations: [...p.locations, val] }));
+    if (val && !form.locations.includes(val))
+      setForm((p) => ({ ...p, locations: [...p.locations, val] }));
     setLocInput("");
   };
-  const removeLoc = (l) => setForm((p) => ({ ...p, locations: p.locations.filter((x) => x !== l) }));
+  const removeLoc = (l) =>
+    setForm((p) => ({ ...p, locations: p.locations.filter((x) => x !== l) }));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Image required for create
-    if (!editData && !form.image) {
-      setError("Image upload karna zaroori hai");
-      return;
-    }
+    if (!editData && !form.image) { setError("Image upload karna zaroori hai"); return; }
 
     setLoading(true);
     setError("");
-
     try {
       const fd = new FormData();
       fd.append("title",          form.title);
@@ -76,13 +82,11 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
       if (form.image)            fd.append("image", form.image);
 
       const headers = { "Content-Type": "multipart/form-data" };
-
       if (editData) {
         await axiosInstance.patch(API_SHIFTING_HAJJ_BY_ID(editData.id ?? editData._id), fd, { headers });
       } else {
         await axiosInstance.post(API_SHIFTING_HAJJ, fd, { headers });
       }
-
       onSuccess();
     } catch (err) {
       setError(err.response?.data?.message || "Kuch ghalat hua");
@@ -113,25 +117,21 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
             </div>
           )}
 
-          {/* Title */}
           <Field label="Title" name="title" value={form.title} onChange={handleChange} required />
 
-          {/* Price + Currency */}
           <div className="grid grid-cols-2 gap-3">
             <Field label="Price" name="price" type="number" value={form.price} onChange={handleChange} required />
             <Field label="Currency" name="currency" value={form.currency} onChange={handleChange} placeholder="GBP" required />
           </div>
 
-          {/* Duration */}
           <div className="grid grid-cols-2 gap-3">
             <Field label="Duration Days"   name="durationDays"   type="number" value={form.durationDays}   onChange={handleChange} required />
             <Field label="Duration Nights" name="durationNights" type="number" value={form.durationNights} onChange={handleChange} required />
           </div>
 
-          {/* Per Person Text */}
           <Field label="Per Person Text" name="perPersonText" value={form.perPersonText} onChange={handleChange} />
 
-          {/* Locations pill input */}
+          {/* Locations */}
           <div>
             <label className="text-sm font-medium text-gray-700">Hotels / Locations</label>
             <div className="mt-1 min-h-[42px] w-full px-3 py-2 border border-gray-300 rounded-lg flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-blue-500">
@@ -154,27 +154,33 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
             <p className="text-xs text-gray-400 mt-1">Enter ya comma dabao add karne ke liye</p>
           </div>
 
-          {/* Tags pill input */}
+          {/* ── Tags — enum toggle buttons ── */}
           <div>
-            <label className="text-sm font-medium text-gray-700">Tags (Includes)</label>
-            <div className="mt-1 min-h-[42px] w-full px-3 py-2 border border-gray-300 rounded-lg flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-blue-500">
-              {form.tags.map((tag) => (
-                <span key={tag} className="flex items-center gap-1 px-2 py-0.5 bg-blue-50 text-blue-600 text-xs rounded-full">
-                  {tag}
-                  <button type="button" onClick={() => removeTag(tag)} className="hover:text-red-500">
-                    <X className="w-3 h-3" />
+            <label className="text-sm font-medium text-gray-700">
+              Tags (Includes)
+            </label>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {AVAILABLE_TAGS.map(({ label, value, icon }) => {
+                const selected = form.tags.includes(value);
+                return (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => toggleTag(value)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+                      selected
+                        ? "bg-[#1C398E] text-white border-[#1C398E]"
+                        : "bg-white text-gray-600 border-gray-300 hover:border-[#1C398E] hover:text-[#1C398E]"
+                    }`}
+                  >
+                    {icon} {label}
                   </button>
-                </span>
-              ))}
-              <input
-                type="text" value={tagInput}
-                onChange={(e) => setTagInput(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter" || e.key === ",") { e.preventDefault(); addTag(); } }}
-                placeholder={form.tags.length === 0 ? "e.g. Visa, Meals" : ""}
-                className="flex-1 min-w-[100px] text-sm outline-none bg-transparent"
-              />
+                );
+              })}
             </div>
-            <p className="text-xs text-gray-400 mt-1">Enter ya comma dabao tag add karne ke liye</p>
+            {form.tags.length === 0 && (
+              <p className="text-xs text-gray-400 mt-1">Koi tag select nahi kiya</p>
+            )}
           </div>
 
           {/* Image */}

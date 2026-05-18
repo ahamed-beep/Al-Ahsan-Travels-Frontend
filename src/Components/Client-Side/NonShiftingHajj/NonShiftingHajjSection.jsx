@@ -1,40 +1,64 @@
 "use client";
 import React, { useState } from "react";
+import axiosInstance from "@/lib/axios";
+import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
 
 export default function NonShiftingHajjSection() {
- 
   const [formData, setFormData] = useState({
-      fullName: "",
-      phoneNumber: "",
-      packageType: "",
-      hotelCategory: "",
-      departureDate: "",
-      departureAirport: "",
-      adults: 1,
-      children: 0,
-    });
-  
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log("Form submitted:", formData);
-      // Add your submission logic here
-    };
-  
+    fullName: "",
+    phoneNumber: "",
+    packageType: "",
+    hotelCategory: "",
+    departureDate: "",
+    departureAirport: "",
+    adults: 1,
+    children: 0,
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError]     = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
+    setSuccess("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+    try {
+      await axiosInstance.post(API_HAJJ_INQUIRY_SUBMIT, {
+        ...formData,
+        adults:   Number(formData.adults),
+        children: Number(formData.children),
+      });
+      setSuccess("Quote request submitted! We'll contact you within 24 hours.");
+      setFormData({
+        fullName: "", phoneNumber: "", packageType: "",
+        hotelCategory: "", departureDate: "", departureAirport: "",
+        adults: 1, children: 0,
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Submission failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="relative  overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute w-full inset-0">
         <img
           src="/Images/BackGround.webp"
           alt="Hajj background"
-          className="h-full w-full  object-cover"
+          className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Content */}
@@ -45,28 +69,22 @@ export default function NonShiftingHajjSection() {
             <h1 className="text-4xl font-bold md:whitespace-nowrap leading-tight sm:text-4xl lg:text-4xl">
               Non Shifting Hajj Packages
             </h1>
-
             <p className="mt-4 text-base md:whitespace-nowrap text-[#ffffff] sm:text-lg">
               Affordable Hajj packages with flexible accommodation arrangements.
             </p>
-
-            <div className="mt-8  space-y-5">
+            <div className="mt-8 space-y-5">
               <div className="inline-flex min-h-[52px] whitespace-nowrap w-[350px] items-center gap-3 rounded-2xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span className="flex  h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">
-                  ✓
-                </span>
+                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">✓</span>
                 <span className="text-[#1C398E]">Includes relocation during peak Hajj days</span>
               </div>
-
               <div className="inline-flex min-h-[52px] whitespace-nowrap w-[320px] items-center gap-3 rounded-2xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">
-                  ✓
-                </span>
+                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">✓</span>
                 <span className="text-[#1C398E]">Ideal for budget-conscious pilgrims</span>
               </div>
             </div>
           </div>
-   {/* Right Form Card */}
+
+          {/* Right Form Card */}
           <div className="w-full">
             <div className="mx-auto w-full max-w-xl rounded-2xl bg-[#ffffff] p-5 shadow-2xl sm:p-7">
               <h2 className="text-2xl font-bold text-[#101828]">Customize Your Hajj</h2>
@@ -76,51 +94,35 @@ export default function NonShiftingHajjSection() {
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Full Name *</label>
                     <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Ali"
-                      value={formData.fullName}
-                      onChange={handleChange}
+                      type="text" name="fullName" placeholder="Ali"
+                      value={formData.fullName} onChange={handleChange} required
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Phone Number *</label>
                     <input
-                      type="text"
-                      name="phoneNumber"
-                      placeholder="+44 20 1234 5678"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
+                      type="text" name="phoneNumber" placeholder="+44 20 1234 5678"
+                      value={formData.phoneNumber} onChange={handleChange} required
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Package Type</label>
                     <input
-                      type="text"
-                      name="packageType"
-                      placeholder="Shifting"
-                      value={formData.packageType}
-                      onChange={handleChange}
+                      type="text" name="packageType" placeholder="Shifting"
+                      value={formData.packageType} onChange={handleChange}
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Hotel Category</label>
                     <input
-                      type="text"
-                      name="hotelCategory"
-                      placeholder="Economy"
-                      value={formData.hotelCategory}
-                      onChange={handleChange}
+                      type="text" name="hotelCategory" placeholder="Economy"
+                      value={formData.hotelCategory} onChange={handleChange}
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
-
                   <div>
                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                       <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -132,14 +134,11 @@ export default function NonShiftingHajjSection() {
                       Departure Date
                     </label>
                     <input
-                      type="date"
-                      name="departureDate"
-                      value={formData.departureDate}
-                      onChange={handleChange}
+                      type="date" name="departureDate"
+                      value={formData.departureDate} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition text-gray-500"
                     />
                   </div>
-
                   <div>
                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -149,11 +148,8 @@ export default function NonShiftingHajjSection() {
                       Departure Airport
                     </label>
                     <input
-                      type="text"
-                      name="departureAirport"
-                      placeholder="e.g. Heathrow"
-                      value={formData.departureAirport}
-                      onChange={handleChange}
+                      type="text" name="departureAirport" placeholder="e.g. Heathrow"
+                      value={formData.departureAirport} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                     />
                   </div>
@@ -170,12 +166,8 @@ export default function NonShiftingHajjSection() {
                       Adults
                     </label>
                     <input
-                      type="number"
-                      name="adults"
-                      min="1"
-                      placeholder="1"
-                      value={formData.adults}
-                      onChange={handleChange}
+                      type="number" name="adults" min="1" placeholder="1"
+                      value={formData.adults} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                     />
                   </div>
@@ -190,26 +182,31 @@ export default function NonShiftingHajjSection() {
                       Children
                     </label>
                     <input
-                      type="number"
-                      name="children"
-                      min="0"
-                      placeholder="0"
-                      value={formData.children}
-                      onChange={handleChange}
+                      type="number" name="children" min="0" placeholder="0"
+                      value={formData.children} onChange={handleChange}
                       className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition"
                     />
                   </div>
                 </div>
 
+                {/* Error / Success */}
+                {error && (
+                  <p className="text-sm text-red-500 text-center">{error}</p>
+                )}
+                {success && (
+                  <p className="text-sm text-green-600 text-center">{success}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88]"
+                  disabled={loading}
+                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88] disabled:opacity-60"
                 >
                   <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <line x1="22" y1="2" x2="11" y2="13" />
                     <polygon points="22 2 15 22 11 13 2 9 22 2" />
                   </svg>
-                  Get Free Quote
+                  {loading ? "Submitting..." : "Get Free Quote"}
                 </button>
 
                 <p className="text-center text-xs text-[#6A7282] sm:text-sm">

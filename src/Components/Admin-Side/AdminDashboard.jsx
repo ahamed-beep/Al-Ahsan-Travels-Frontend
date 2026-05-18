@@ -12,6 +12,10 @@ import PackagesManager from "./HomeFeaturedPackages/PackagesManager";
 import InquiryManagement from "./Inquiries/InquiryManagement";
 import ShiftingHajjManager from "./ShiftingHajjPackage/ShiftingHajjManager";
 import UmrahPackagesManager from "./UmrahPackage/UmrahPackagesManager";
+import GroupFamilyPackagesManager from "./GroupFamilyPackages/GroupFamilyPackagesManager.jsx";
+import NonShiftingHajjManager from "./NonShiftingHajj/NonShiftingHajjManager";
+import HajjInquiryManager from "./HajjInquiry/HajjInquiryManager";
+import PricingPackageManager from "./PricingPackage/PricingPackageManager";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -37,10 +41,11 @@ export default function AdminDashboard() {
    { id: "packages", label: "Home Featured packages", icon: Package },
 { id: "inquiries", label: "Inquiries", icon: MessageSquare },
    { id: "hajj", label: "Shifting Hajj Packages", icon: Package },
+   { id: "nonShiftingHajj", label: "Non-Shifting Hajj Packages", icon: Package },
  { id: "umrahPackages", label: "Umrah Packages", icon: Package },
       { id: "groupFamilyPackages",label: "Group & Family Packages",    icon: Users2 },
-    { id: "announce", label: "Announcements", icon: Megaphone },
-    { id: "security", label: "Security Center", icon: Shield },
+ { id: "hajjInquiries", label: "Hajj Inquiries", icon: MessageSquare },
+    { id: "pricingPackages", label: "Pricing Packages", icon: Package },
     { id: "contact", label: "Contact Us", icon: User },
   ];
 
@@ -49,10 +54,11 @@ export default function AdminDashboard() {
   case "packages": return <PackagesManager />;
      case "inquiries": return <InquiryManagement />;
 case "hajj": return <ShiftingHajjManager />;
+case "nonShiftingHajj": return <NonShiftingHajjManager />;
 case "umrahPackages": return <UmrahPackagesManager />;
   case "groupFamilyPackages": return <GroupFamilyPackagesManager />;
-      case "announce": return <PlaceholderPage title="Announcements" />;
-      case "security": return <PlaceholderPage title="Security Center" />;
+   case "hajjInquiries": return <HajjInquiryManager />;
+    case "pricingPackages": return <PricingPackageManager />;
       case "contact": return <PlaceholderPage title="Contact Us" />;
       default: return <Overview />;
     }
