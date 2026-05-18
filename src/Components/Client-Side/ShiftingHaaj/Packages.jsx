@@ -1,38 +1,36 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaPassport, FaBus, FaStar, FaUtensils, FaUser } from "react-icons/fa";
+import axiosInstance from "@/lib/axios";
+import { API_SHIFTING_HAJJ } from "@/constants/api";
+
+const TAG_ICONS = {
+  Visa:      <FaPassport size={12} />,
+  Transport: <FaBus size={12} />,
+  Meals:     <FaUtensils size={12} />,
+  Guide:     <FaUser size={12} />,
+};
 
 export default function Packages() {
-  const packages = [
-    {
-      title: "Shifting Hajj Economy",
-      days: "21 Days / 20 Nights",
-      makkah: "Swissotel Makkah",
-      madinah: "Oberoi Madinah",
-      price: "£6,999",
-      img: "/Images/Image (5-Star Luxury Umrah).webp",
-      popular: true,
-    },
-    {
-      title: "Shifting Hajj Standard",
-      days: "25 Days / 24 Nights",
-      makkah: "Anjum Hotel Makkah",
-      madinah: "Dar Al Taqwa",
-      price: "£7,999",
-      img: "/Images/Image (Hajj Complete Package).webp",
-    },
-    {
-      title: "Shifting Hajj Plus",
-      days: "28 Days / 27 Nights",
-      makkah: "Raffles Makkah Palace",
-      madinah: "Shaza Al Madinah",
-      price: "£9,999",
-      img: "/Images/Image (Ramadan Umrah Premium).webp",
-    },
-  ];
+  const [packages, setPackages] = useState([]);
+
+  useEffect(() => {
+    axiosInstance
+      .get(API_SHIFTING_HAJJ)
+      .then((res) => {
+        const list = Array.isArray(res.data) ? res.data : (res.data.data ?? []);
+    setPackages(
+  list
+    .filter((p) => p.status === "active")
+    .sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0))
+);
+      })
+      .catch((err) => console.error("Shifting Hajj fetch error:", err));
+  }, []);
 
   return (
     <div className="bg-[#FAFAFA] py-10 sm:py-14 px-3 sm:px-6 flex flex-col items-center">
@@ -45,9 +43,9 @@ export default function Packages() {
       </p>
 
       <div className="w-full max-w-5xl md:px-25 space-y-5 sm:space-y-6">
-        {packages.map((pkg, index) => (
+        {packages.map((pkg) => (
           <div
-            key={index}
+            key={pkg.id ?? pkg._id}
             className="bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-[#E5E7EB]"
           >
             {/* Popular Badge */}
@@ -61,8 +59,8 @@ export default function Packages() {
             <div className="flex flex-col lg:flex-row">
               {/* Image */}
               <div className="w-full lg:w-1/2 h-50 sm:h-52 lg:h-auto relative">
-                <Image
-                  src={pkg.img}
+                <img
+                  src={pkg.imageUrl}
                   alt={pkg.title}
                   fill
                   className="object-cover"
@@ -77,41 +75,32 @@ export default function Packages() {
                   </h3>
 
                   <p className="text-xs sm:text-sm text-[#4A5565] mb-3">
-                    {pkg.days}
+                    {pkg.duration}
                   </p>
 
                   {/* Locations */}
-                   <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-full bg-[#C6D7FC] flex items-center justify-center flex-shrink-0">
-                        <IoLocationOutline size={14} className="text-[#1C398E]" />
-                      </span>
-                      {pkg.makkah}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="w-6 h-6 rounded-full bg-[#C6D7FC] flex items-center justify-center flex-shrink-0">
-                        <IoLocationOutline size={14} className="text-[#1C398E]" />
-                      </span>
-                      {pkg.madinah}
-                    </div>
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
+                    {pkg.locations?.map((loc) => (
+                      <div key={loc} className="flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-full bg-[#C6D7FC] flex items-center justify-center flex-shrink-0">
+                          <IoLocationOutline size={14} className="text-[#1C398E]" />
+                        </span>
+                        {loc}
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Features */}
+                  {/* Tags */}
                   <div className="flex flex-wrap text-[#1F1F1F] gap-2 mb-4">
-                    {["Visa", "Transport", "Meals", "Guide"].map(
-                      (item, i) => (
-                        <span
-                          key={i}
-                          className="flex items-center gap-1 bg-[#C6D7FC] px-2 sm:px-3 py-1 text- sm:text-xs rounded-lg text-[#1C398E]"
-                        >
-                          {item === "Visa" && <FaPassport size={12} />}
-                          {item === "Transport" && <FaBus size={12} />}
-                          {item === "Meals" && <FaUtensils size={12} />}
-                          {item === "Guide" && <FaUser size={12} />}
-                          {item}
-                        </span>
-                      )
-                    )}
+                    {pkg.tags?.map((tag) => (
+                      <span
+                        key={tag}
+                        className="flex items-center gap-1 bg-[#C6D7FC] px-2 sm:px-3 py-1 sm:text-xs rounded-lg text-[#1C398E]"
+                      >
+                        {TAG_ICONS[tag] ?? null}
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
@@ -120,12 +109,12 @@ export default function Packages() {
                   <div>
                     <p className="text-[10px] sm:text-xs text-[#6A7282]">From</p>
                     <h4 className="text-lg sm:text-xl font-bold text-[#1C398E]">
-                      {pkg.price}
+                      {pkg.currency} {pkg.price?.toLocaleString()}
                     </h4>
-                    <p className="text-[10px] sm:text-xs text-[#6A7282]">per person</p>
+                    <p className="text-[10px] sm:text-xs text-[#6A7282]">{pkg.perPersonText}</p>
                   </div>
 
-                  <button className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366]  text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm">
+                  <button className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366] text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm">
                     <FaWhatsapp /> WhatsApp
                   </button>
                 </div>
