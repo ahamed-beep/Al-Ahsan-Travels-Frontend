@@ -11,6 +11,7 @@ import {
 import PackagesManager from "./HomeFeaturedPackages/PackagesManager";
 import InquiryManagement from "./Inquiries/InquiryManagement";
 import ShiftingHajjManager from "./ShiftingHajjPackage/ShiftingHajjManager";
+import UmrahPackagesManager from "./UmrahPackage/UmrahPackagesManager";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -36,8 +37,8 @@ export default function AdminDashboard() {
    { id: "packages", label: "Home Featured packages", icon: Package },
 { id: "inquiries", label: "Inquiries", icon: MessageSquare },
    { id: "hajj", label: "Shifting Hajj Packages", icon: Package },
-    { id: "messages", label: "Messages", icon: MessageSquare },
-    { id: "history", label: "Account History", icon: History },
+ { id: "umrahPackages", label: "Umrah Packages", icon: Package },
+      { id: "groupFamilyPackages",label: "Group & Family Packages",    icon: Users2 },
     { id: "announce", label: "Announcements", icon: Megaphone },
     { id: "security", label: "Security Center", icon: Shield },
     { id: "contact", label: "Contact Us", icon: User },
@@ -48,8 +49,8 @@ export default function AdminDashboard() {
   case "packages": return <PackagesManager />;
      case "inquiries": return <InquiryManagement />;
 case "hajj": return <ShiftingHajjManager />;
-      case "messages": return <PlaceholderPage title="Messages" />;
-      case "history": return <PlaceholderPage title="Account History" />;
+case "umrahPackages": return <UmrahPackagesManager />;
+  case "groupFamilyPackages": return <GroupFamilyPackagesManager />;
       case "announce": return <PlaceholderPage title="Announcements" />;
       case "security": return <PlaceholderPage title="Security Center" />;
       case "contact": return <PlaceholderPage title="Contact Us" />;
