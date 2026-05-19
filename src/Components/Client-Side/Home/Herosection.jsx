@@ -158,7 +158,7 @@ export default function HeroSection() {
             <h1 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[52px] font-bold text-[#1e3a8a] leading-tight tracking-tight">
               Your Journey to the
               <br className="hidden sm:block" />
-              Sacred Lands
+               Sacred Lands
             </h1>
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
               <a
