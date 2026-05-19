@@ -4,12 +4,45 @@ import Image from "next/image";
 import { CheckIcon, Clock, MapPin, MessageCircle } from "lucide-react";
 import { useMonthlyPackages } from "./Usemonthlypackages/Usemonthlypackages";
 
-const Card = ({ item }) => {
+const WA_NUMBER = "447911123456"; // ← apna WhatsApp number yahan daalo
+
+const DEFAULT_FEATURES = ["Flights", "Visa", "Transport", "Hotels"];
+
+// ✅ Component se bahar — har render pe re-create nahi hoga
+function SkeletonCard() {
   return (
-    <div className="bg-[#FFFFFF] rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden animate-pulse">
+      <div className="h-60 bg-gray-200" />
+      <div className="p-4 space-y-3">
+        <div className="h-4 bg-gray-200 rounded w-3/4" />
+        <div className="h-3 bg-gray-200 rounded w-1/2" />
+        <div className="h-3 bg-gray-200 rounded w-2/3" />
+        <div className="h-3 bg-gray-200 rounded w-2/3" />
+        <div className="h-8 bg-gray-200 rounded mt-4" />
+      </div>
+    </div>
+  );
+}
+
+const Card = ({ item }) => {
+  // ✅ Working WhatsApp link
+  const waMessage = encodeURIComponent(`I'm interested in: ${item.title}`);
+  const waLink = `https://wa.me/${WA_NUMBER}?text=${waMessage}`;
+
+  // ✅ Default features Card se bahar nikal ke constant mein
+  const features = item.features?.length ? item.features : DEFAULT_FEATURES;
+
+  return (
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
       <div className="relative h-60 w-full">
-        <Image src={item.image || "/Images/Image (5-Star Luxury Umrah).webp"} alt={item.title} fill className="object-cover" />
-        <div className="absolute top-3 right-3 bg-[#1C398E] text-[#FFFFFF] text-sm font-semibold px-3 py-1 rounded-md">
+        <Image
+          src={item.image || "/Images/Image (5-Star Luxury Umrah).webp"}
+          alt={item.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        <div className="absolute top-3 right-3 bg-[#1C398E] text-white text-sm font-semibold px-3 py-1 rounded-md">
           {item.price}
         </div>
       </div>
@@ -31,25 +64,26 @@ const Card = ({ item }) => {
           <span className="font-bold mr-1">Madinah:</span> {item.madinahHotel}
         </p>
 
-        <hr className="mb-3 border border-[#e5e7eb]" />
+        <hr className="mb-3 border-[#e5e7eb]" />
 
+        {/* ✅ features constant se */}
         <ul className="text-sm text-[#364153] space-y-1 mb-4">
-          {item.features?.length
-            ? item.features.map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <CheckIcon size={14} className="text-[#1C398E]" /> {f}
-                </li>
-              ))
-            : ["Flights", "Visa", "Transport", "Hotels"].map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <CheckIcon size={14} className="text-[#1C398E]" /> {f}
-                </li>
-              ))}
+          {features.map((f) => (
+            <li key={f} className="flex items-center gap-2">
+              <CheckIcon size={14} className="text-[#1C398E]" /> {f}
+            </li>
+          ))}
         </ul>
 
-        <button className="w-full flex items-center justify-center gap-2 bg-[#25d366] text-[#ffffff] py-2 rounded-lg text-sm">
-          <MessageCircle className="text-[#ffffff] w-4 h-4" /> WhatsApp
-        </button>
+        {/* ✅ Working WhatsApp link */}
+        <a
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ebe5d] text-white py-2 rounded-lg text-sm font-medium transition-colors"
+        >
+          <MessageCircle className="w-4 h-4" /> WhatsApp
+        </a>
       </div>
     </div>
   );
@@ -57,48 +91,36 @@ const Card = ({ item }) => {
 
 function Section({ title, subtitle, stars, data, features }) {
   return (
-    <div className="mb-14">
+    <div className="mb-10">
       <div className="mb-6">
-        <div className="flex text-[#1c398e] text-2xl">
-          {Array.from({ length: stars }).map((_, i) => (
-            <span key={i}>★</span>
-          ))}
-          <h2 className="text-2xl text-[#222222] md:text-3xl font-bold">{title}</h2>
+        {/* ✅ Stars aur heading alag — aria-hidden on stars */}
+        <div className="flex items-center gap-2 mb-1">
+          <span aria-hidden="true" className="text-[#1c398e] text-2xl tracking-wide">
+            {"★".repeat(stars)}
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#222222]">{title}</h2>
         </div>
         <p className="text-[#4a5565]">{subtitle}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {data.map((item, i) => (
-          <Card key={i} item={{ ...item, features }} />
+        {/* ✅ item._id ya item.title as key */}
+        {data.map((item) => (
+          <Card key={item._id || item.title} item={{ ...item, features }} />
         ))}
       </div>
     </div>
   );
 }
 
-function SkeletonCard() {
-  return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden animate-pulse">
-      <div className="h-60 bg-gray-200" />
-      <div className="p-4 space-y-3">
-        <div className="h-4 bg-gray-200 rounded w-3/4" />
-        <div className="h-3 bg-gray-200 rounded w-1/2" />
-        <div className="h-3 bg-gray-200 rounded w-2/3" />
-        <div className="h-3 bg-gray-200 rounded w-2/3" />
-        <div className="h-8 bg-gray-200 rounded mt-4" />
-      </div>
-    </div>
-  );
-}
-
 export default function Threeandfourstar({ month = "January" }) {
+  // ✅ Clean capitalize util
   const monthName = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
   const { packages3Star, packages4Star, loading, error } = useMonthlyPackages(month);
 
   if (loading) {
     return (
-      <div className="bg-[#FFFFFF] py-10 px-8 md:px-10">
+      <div className="bg-white py-10 px-8 md:px-10">
         <div className="max-w-7xl px-8 mx-auto">
           {[3, 4].map((star) => (
             <div key={star} className="mb-14">
@@ -115,14 +137,19 @@ export default function Threeandfourstar({ month = "January" }) {
 
   if (error) {
     return (
-      <div className="bg-[#FFFFFF] py-10 px-8 text-center text-red-500">{error}</div>
+      <div className="bg-white py-10 px-8 text-center text-red-500">{error}</div>
     );
   }
 
+  // ✅ Correct empty check — object exist karta hai lekin packages empty ho sakti hain
+  const has3Star = packages3Star?.packages?.length > 0;
+  const has4Star = packages4Star?.packages?.length > 0;
+
   return (
-    <div className="bg-[#FFFFFF] py-10 px-8 md:px-10">
+    <div className="bg-white py-10 px-8 md:px-10">
       <div className="max-w-7xl px-8 mx-auto">
-        {packages3Star && packages3Star.packages?.length > 0 && (
+
+        {has3Star && (
           <Section
             stars={3}
             title={packages3Star.sectionTitle || `3-Star ${monthName} Umrah Packages`}
@@ -132,7 +159,7 @@ export default function Threeandfourstar({ month = "January" }) {
           />
         )}
 
-        {packages4Star && packages4Star.packages?.length > 0 && (
+        {has4Star && (
           <Section
             stars={4}
             title={packages4Star.sectionTitle || `4-Star ${monthName} Umrah Packages`}
@@ -142,11 +169,13 @@ export default function Threeandfourstar({ month = "January" }) {
           />
         )}
 
-        {!packages3Star && !packages4Star && (
+        {/* ✅ Sahi empty check */}
+        {!has3Star && !has4Star && (
           <div className="text-center py-20 text-[#4A5565]">
             {monthName} ke liye abhi koi 3★ / 4★ packages available nahi hain.
           </div>
         )}
+
       </div>
     </div>
   );
