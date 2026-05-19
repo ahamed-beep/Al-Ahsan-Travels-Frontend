@@ -49,10 +49,10 @@ export default function FlightHero() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/55"></div>
+      <div className="absolute inset-0 "></div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-10 sm:py-16 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+      <div className="relative z-10 w-full mt-20 max-w-7xl mx-auto px-4 py-10 sm:py-16 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-center items-start text-left gap-5 lg:pl-20">
@@ -63,7 +63,7 @@ export default function FlightHero() {
           </span>
 
           {/* Heading */}
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#ffffff] leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#ffffff] leading-tight">
             Book Umrah Flights from <br className="hidden sm:block" /> UK
           </h1>
 

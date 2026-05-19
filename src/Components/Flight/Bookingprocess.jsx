@@ -9,7 +9,7 @@ const steps = [
 
 export default function BookingProcess() {
     return (
-        <section className="bg-gray-50 py-16 px-4">
+        <section className="bg-[#F9FAFB] py-16 px-4">
             {/* Header */}
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-[#101828] mb-2">
