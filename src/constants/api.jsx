@@ -43,4 +43,13 @@ export const API_PRICING_PACKAGES             = "/pricing-packages";
 export const API_PRICING_PACKAGES_BY_CATEGORY = (category) => `/pricing-packages/category/${category}`;
 export const API_PRICING_PACKAGE_BY_ID        = (id) => `/pricing-packages/${id}`;
 
+export const API_MONTHLY_UMRAH             = "/monthly-umrah-packages";
+export const API_MONTHLY_UMRAH_BY_ID       = (id) => `/monthly-umrah-packages/${id}`;
+export const API_MONTHLY_UMRAH_TOGGLE      = (id) => `/monthly-umrah-packages/${id}/toggle-active`;
+export const API_MONTHLY_UMRAH_BY_MONTH    = (month) => `/monthly-umrah-packages/month/${month}`;
+
+export const API_ASHRA_PACKAGES            = "/ashra-packages";
+export const API_ASHRA_PACKAGE_BY_ID       = (id) => `/ashra-packages/${id}`;
+export const API_ASHRA_PACKAGES_BY_CATEGORY = (category) => `/ashra-packages/category/${category}`;
+
 export const ROLE_ADMIN = "admin";
