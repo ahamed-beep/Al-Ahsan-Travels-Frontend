@@ -16,6 +16,8 @@ import GroupFamilyPackagesManager from "./GroupFamilyPackages/GroupFamilyPackage
 import NonShiftingHajjManager from "./NonShiftingHajj/NonShiftingHajjManager";
 import HajjInquiryManager from "./HajjInquiry/HajjInquiryManager";
 import PricingPackageManager from "./PricingPackage/PricingPackageManager";
+import MonthlyUmrahPackagesManager from "./Monthlyumrahpackagesmanager/Monthlyumrahpackagesmanager";
+import AshraPackagesManager from "./AshraPackagesManager/AshraPackagesManager";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -46,7 +48,8 @@ export default function AdminDashboard() {
       { id: "groupFamilyPackages",label: "Group & Family Packages",    icon: Users2 },
  { id: "hajjInquiries", label: "Hajj Inquiries", icon: MessageSquare },
     { id: "pricingPackages", label: "Pricing Packages", icon: Package },
-    { id: "contact", label: "Contact Us", icon: User },
+{ id: "monthlyUmrahPackages", label: "Monthly Umrah Packages", icon: Package },
+{ id: "ashraPackages", label: "Ashra Packages", icon: Package },
   ];
 
   const renderContent = () => {
@@ -59,7 +62,9 @@ case "umrahPackages": return <UmrahPackagesManager />;
   case "groupFamilyPackages": return <GroupFamilyPackagesManager />;
    case "hajjInquiries": return <HajjInquiryManager />;
     case "pricingPackages": return <PricingPackageManager />;
-      case "contact": return <PlaceholderPage title="Contact Us" />;
+case "monthlyUmrahPackages": return <MonthlyUmrahPackagesManager />;
+case "ashraPackages": return <AshraPackagesManager />;
+
       default: return <Overview />;
     }
   };

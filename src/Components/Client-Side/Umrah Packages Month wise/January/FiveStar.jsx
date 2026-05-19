@@ -1,53 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { Clock, MapPin, Check, MessageCircle } from "lucide-react";
+import { Check, Clock, MapPin, MessageCircle } from "lucide-react";
+import { useMonthlyPackages } from "./Usemonthlypackages/Usemonthlypackages";
 
-const packages = [
-  {
-    id: 1,
-    price: "£1,899",
-    title: "5-Star Premium 7 Nights",
-    duration: "7 Days / 6 Nights",
-    makkah: "Swissotel Makkah",
-    madinah: "Oberoi Madinah",
-    image: "/Images/Image (Ramadan Umrah Premium).webp",
-  },
-  {
-    id: 2,
-    price: "£2,499",
-    title: "5-Star Premium 10 Nights",
-    duration: "10 Days / 9 Nights",
-    makkah: "Raffles Makkah Palace",
-    madinah: "Pullman Zamzam",
-    image: "/Images/Image (Ramadan Umrah Premium).webp",
-  },
-  {
-    id: 3,
-    price: "£3,299",
-    title: "5-Star Premium 14 Nights",
-    duration: "14 Days / 13 Nights",
-    makkah: "Fairmont Makkah",
-    madinah: "Anantara Madinah",
-    image: "/Images/Image (Ramadan Umrah Premium).webp",
-  },
-];
-
-const features = ["Flights", "Visa", "Transport", "5★ Hotels", "Guide"];
-
-function Card({ item }) {
+function Card({ item, features }) {
   return (
     <div className="bg-[#ffffff] rounded-2xl border border-[#1C398ECC] shadow-[0_6px_20px_rgba(81,162,255,0.25)] overflow-hidden hover:shadow-[0_10px_30px_rgba(81,162,255,0.35)] transition">
-
-      {/* Image */}
       <div className="relative h-56">
-        <Image src={item.image} alt={item.title} fill className="object-cover" />
+        <Image
+          src={item.image || "/Images/Image (Ramadan Umrah Premium).webp"}
+          alt={item.title}
+          fill
+          className="object-cover"
+        />
         <div className="absolute top-3 right-3 bg-[#2B7FFF] text-[#ffffff] text-sm font-semibold px-3 py-1 rounded-md shadow">
           {item.price}
         </div>
       </div>
 
-      {/* Content */}
       <div className="p-5 flex flex-col">
         <h3 className="font-bold text-[#222222] mb-3">{item.title}</h3>
 
@@ -58,18 +29,18 @@ function Card({ item }) {
 
         <div className="flex gap-2 text-sm text-[#364153] mb-1">
           <MapPin size={14} className="text-[#1C398E] mt-1" />
-          <span><span className="font-semibold">Makkah:</span> {item.makkah}</span>
+          <span><span className="font-semibold">Makkah:</span> {item.makkahHotel}</span>
         </div>
 
         <div className="flex gap-2 text-sm text-[#364153] mb-4">
           <MapPin size={14} className="text-[#1C398E] mt-1" />
-          <span><span className="font-semibold">Madinah:</span> {item.madinah}</span>
+          <span><span className="font-semibold">Madinah:</span> {item.madinahHotel}</span>
         </div>
 
         <hr className="mb-4 border-[#E5E7EB]" />
 
         <div className="space-y-2 mb-5">
-          {features.map((f) => (
+          {(features?.length ? features : ["Flights", "Visa", "Transport", "5★ Hotels", "Guide"]).map((f) => (
             <div key={f} className="flex items-center gap-2 text-sm text-[#364153]">
               <Check size={15} className="text-[#2B7FFF]" />
               {f}
@@ -87,38 +58,75 @@ function Card({ item }) {
   );
 }
 
-// ✅ month prop se heading automatically change hogi
+function SkeletonCard() {
+  return (
+    <div className="rounded-2xl border border-gray-200 overflow-hidden animate-pulse">
+      <div className="h-56 bg-gray-200" />
+      <div className="p-5 space-y-3">
+        <div className="h-4 bg-gray-200 rounded w-3/4" />
+        <div className="h-3 bg-gray-200 rounded w-1/2" />
+        <div className="h-3 bg-gray-200 rounded w-2/3" />
+        <div className="h-3 bg-gray-200 rounded w-2/3" />
+        <div className="h-8 bg-gray-200 rounded mt-4" />
+      </div>
+    </div>
+  );
+}
+
 export default function FiveStarPackages({ month = "january" }) {
   const monthName = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
+  const { packages5Star, loading, error } = useMonthlyPackages(month);
+
+  if (loading) {
+    return (
+      <section className="w-full py-14 bg-[#FFFFFF]">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="h-8 bg-gray-200 rounded w-80 mb-4 animate-pulse" />
+          <div className="h-4 bg-gray-200 rounded w-56 mb-10 animate-pulse" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((i) => <SkeletonCard key={i} />)}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="w-full py-14 bg-[#FFFFFF] text-center text-red-500">{error}</section>
+    );
+  }
+
+  if (!packages5Star || !packages5Star.packages?.length) {
+    return (
+      <section className="w-full py-14 bg-[#FFFFFF] text-center text-[#4A5565]">
+        {monthName} ke liye abhi koi 5★ packages available nahi hain.
+      </section>
+    );
+  }
 
   return (
-    <section
-      className="w-full py-14   bg-[#FFFFFF]"
-    >
+    <section className="w-full py-14 bg-[#FFFFFF]">
       <div className="max-w-6xl mx-auto">
-
-        {/* Header */}
         <div className="mb-15 px-8">
           <div className="flex text-[#1c398e] text-2xl">
             {[...Array(5)].map((_, i) => (
               <span key={i}>★</span>
             ))}
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#222222] ml-2">
-              5-Star {monthName} Umrah Packages
+              {packages5Star.sectionTitle || `5-Star ${monthName} Umrah Packages`}
             </h2>
           </div>
           <p className="text-[#4a5565] text-sm">
-            Premium experience near Haram with maximum comfort
+            {packages5Star.sectionSubtitle || "Premium experience near Haram with maximum comfort"}
           </p>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 px-8 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {packages.map((item) => (
-            <Card key={item.id} item={item} />
+          {packages5Star.packages.map((item, i) => (
+            <Card key={i} item={item} features={packages5Star.features} />
           ))}
         </div>
-
       </div>
     </section>
   );
