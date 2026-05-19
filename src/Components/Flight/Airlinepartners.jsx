@@ -12,7 +12,7 @@ const airlines = [
 
 export default function AirlinePartners() {
     return (
-        <section className="bg-gray-50 py-16 px-4">
+        <section className="bg-[#F9FAFB] py-16 px-4">
 
             {/* Header */}
             <div className="text-center mb-10">
