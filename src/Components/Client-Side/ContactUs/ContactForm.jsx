@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Clock, Send, CircleCheckBig } from "lucide-react";
+import axiosInstance from "@/lib/axios";
+import { API_CONTACT_SUBMIT } from "@/constants/api";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -13,6 +15,7 @@ export default function ContactForm() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,9 +24,18 @@ export default function ContactForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError("");
+    
+    try {
+      const response = await axiosInstance.post(API_CONTACT_SUBMIT, form);
+      console.log("Response:", response.data);
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Error:", err);
+      setError(err.response?.data?.message || "Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   const inputClass =
@@ -39,10 +51,10 @@ export default function ContactForm() {
 
   return (
     <section className="bg-[#F9FAFB] py-14 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto   p-4 sm:p-6 lg:p-8">
+      <div className="max-w-5xl mx-auto p-4 sm:p-6 lg:p-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-          {/* ── Left: Form ── */}
+          {/* Left: Form */}
           <div className="bg-[#FFFFFF] rounded-2xl shadow-sm p-6 sm:p-8 flex flex-col">
             <h2 className="text-2xl font-medium text-[#101828] mb-1">Send Us a Message</h2>
             <div className="flex items-center gap-1.5 text-[#1C398E] text-xs font-medium mb-6">
@@ -58,6 +70,7 @@ export default function ContactForm() {
                 <h3 className="text-xl font-bold text-gray-900">Message Sent!</h3>
                 <p className="text-gray-500 text-sm max-w-xs">
                   JazakAllah Khair! We've received your message and will respond within 1-2 hours.
+                  A confirmation email has been sent to your inbox.
                 </p>
                 <button
                   onClick={() => { setSubmitted(false); setForm({ fullName: "", email: "", phone: "", travelDate: "", message: "" }); }}
@@ -68,11 +81,16 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 flex-1">
+                {error && (
+                  <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm">
+                    {error}
+                  </div>
+                )}
 
                 {/* Full Name */}
                 <div>
                   <label className="block text-xs font-semibold text-[#364153] mb-1.5">
-                    Full Name <span className="text-[#364153]">*</span>
+                    Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -89,7 +107,7 @@ export default function ContactForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-[#364153] mb-1.5">
-                      Email Address <span className="text-[#364153]">*</span>
+                      Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="email"
@@ -103,7 +121,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-[#364153] mb-1.5">
-                      Phone Number <span className="text-[#364153]">*</span>
+                      Phone Number <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="tel"
@@ -134,7 +152,7 @@ export default function ContactForm() {
                 {/* Message */}
                 <div className="flex-1">
                   <label className="block text-xs font-semibold text-[#364153] mb-1.5">
-                    Your Message <span className="text-[#364153]">*</span>
+                    Your Message <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -173,10 +191,8 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* ── Right: Image + Why Contact ── */}
+          {/* Right: Image + Why Contact */}
           <div className="flex flex-col gap-5">
-
-            {/* Kaaba Image */}
             <div className="rounded-2xl overflow-hidden h-56 sm:h-64 lg:h-72 w-full">
               <img
                 src="/Images/Contact-kabba.webp"
@@ -185,7 +201,6 @@ export default function ContactForm() {
               />
             </div>
 
-            {/* Why Contact Us */}
             <div className="bg-[#CFE7FF] rounded-2xl p-6 flex flex-col gap-4">
               <h3 className="text-lg font-medium text-[#101828]">Why Contact Us?</h3>
               <ul className="flex flex-col gap-3">
@@ -197,7 +212,6 @@ export default function ContactForm() {
                 ))}
               </ul>
             </div>
-
           </div>
         </div>
       </div>

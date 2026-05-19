@@ -7,6 +7,7 @@ import {
   LogOut, X, PanelLeftOpen, PanelLeftClose, Megaphone,
   ChartColumn, Shield, User,
   Package,
+  Plane,
 } from "lucide-react";
 import PackagesManager from "./HomeFeaturedPackages/PackagesManager";
 import InquiryManagement from "./Inquiries/InquiryManagement";
@@ -18,6 +19,9 @@ import HajjInquiryManager from "./HajjInquiry/HajjInquiryManager";
 import PricingPackageManager from "./PricingPackage/PricingPackageManager";
 import MonthlyUmrahPackagesManager from "./Monthlyumrahpackagesmanager/Monthlyumrahpackagesmanager";
 import AshraPackagesManager from "./AshraPackagesManager/AshraPackagesManager";
+import SpecialPackagesManager from "./Specialpackagesmanager/Specialpackagesmanager";
+import FlightDealsManager from "./FlightDealsManager/FlightDealsManager";
+import ContactInquiriesManager from "./ContactInquiriesManager/ContactInquiriesManager";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -50,6 +54,9 @@ export default function AdminDashboard() {
     { id: "pricingPackages", label: "Pricing Packages", icon: Package },
 { id: "monthlyUmrahPackages", label: "Monthly Umrah Packages", icon: Package },
 { id: "ashraPackages", label: "Ashra Packages", icon: Package },
+{ id: "specialPackages", label: "Special Packages", icon: Package },
+ { id: "flightDeals", label: "Flight Deals", icon: Plane },
+  { id: "contactInquiries", label: "Contact Inquiries", icon: MessageSquare },
   ];
 
   const renderContent = () => {
@@ -64,7 +71,9 @@ case "umrahPackages": return <UmrahPackagesManager />;
     case "pricingPackages": return <PricingPackageManager />;
 case "monthlyUmrahPackages": return <MonthlyUmrahPackagesManager />;
 case "ashraPackages": return <AshraPackagesManager />;
-
+case "specialPackages": return <SpecialPackagesManager />;
+    case "flightDeals": return <FlightDealsManager />;  
+      case "contactInquiries": return <ContactInquiriesManager />;
       default: return <Overview />;
     }
   };
