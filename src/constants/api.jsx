@@ -52,4 +52,24 @@ export const API_ASHRA_PACKAGES            = "/ashra-packages";
 export const API_ASHRA_PACKAGE_BY_ID       = (id) => `/ashra-packages/${id}`;
 export const API_ASHRA_PACKAGES_BY_CATEGORY = (category) => `/ashra-packages/category/${category}`;
 
+export const API_SPECIAL_PACKAGES             = "/special-packages";
+export const API_SPECIAL_PACKAGE_BY_ID        = (id) => `/special-packages/${id}`;
+export const API_SPECIAL_PACKAGE_BY_CATEGORY  = (category) => `/special-packages/category/${category}`;
+export const API_SPECIAL_PACKAGE_TOGGLE_ACTIVE = (id) => `/special-packages/${id}/toggle-active`;
+export const API_SPECIAL_PACKAGE_TOGGLE_POPULAR = (id) => `/special-packages/${id}/toggle-popular`;
+
+export const API_FLIGHT_DEALS = "/flight-deals";
+export const API_FLIGHT_DEAL_BY_ID = (id) => `/flight-deals/${id}`;
+export const API_FLIGHT_DEAL_TOGGLE_ACTIVE = (id) => `/flight-deals/${id}/toggle-active`;
+export const API_FLIGHT_DEAL_TOGGLE_POPULAR = (id) => `/flight-deals/${id}/toggle-popular`;
+
+// constants/api.js - Add these
+
+export const API_CONTACT_SUBMIT = "/contact";
+export const API_CONTACT_INQUIRIES = "/contact";
+export const API_CONTACT_BY_ID = (id) => `/contact/${id}`;
+export const API_CONTACT_MARK_READ = (id) => `/contact/${id}/mark-read`;
+export const API_CONTACT_MARK_REPLIED = (id) => `/contact/${id}/mark-replied`;
+export const API_CONTACT_STATS = "/contact/stats";
+
 export const ROLE_ADMIN = "admin";

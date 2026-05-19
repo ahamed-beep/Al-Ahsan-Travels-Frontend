@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Plane } from "lucide-react";
 import {
-  
   FaMapMarkerAlt,
   FaRegCalendarAlt,
   FaUserFriends,
@@ -11,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { FiChevronRight } from "react-icons/fi";
 
-export default function FlightHero() {
+export default function FlightHero({ onSearch }) {
   const [selectedClass, setSelectedClass] = useState("Economy");
   const [formData, setFormData] = useState({
     from: "",
@@ -24,19 +23,29 @@ export default function FlightHero() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSearch = () => {
-    if (!formData.from || !formData.to) {
-      alert("Please fill in From and To fields!");
-      return;
-    }
-    alert(
-      `Searching flights from ${formData.from} to ${
-        formData.to
-      } on ${formData.departureDate || "any date"} for ${
-        formData.passengers || "1"
-      } passenger(s) in ${selectedClass} class.`
-    );
+ // In FlightHero.jsx - handleSearch function
+
+const handleSearch = () => {
+  if (!formData.from || !formData.to) {
+    alert("Please fill in From and To fields!");
+    return;
+  }
+  
+  const searchData = {
+    from: formData.from,
+    to: formData.to,
+    departureDate: formData.departureDate,
+    passengers: formData.passengers || "1",
+    class: selectedClass
   };
+  
+  console.log("Calling onSearch with:", searchData);
+  
+  // Pass to parent
+  if (onSearch) {
+    onSearch(searchData);
+  }
+};
 
   return (
     <section
@@ -49,7 +58,7 @@ export default function FlightHero() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 "></div>
+      <div className="absolute inset-0"></div>
 
       {/* Content */}
       <div className="relative z-10 w-full mt-20 max-w-7xl mx-auto px-4 py-10 sm:py-16 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
@@ -74,7 +83,10 @@ export default function FlightHero() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full sm:w-auto">
-            <button className="flex items-center justify-center gap-2 bg-[#1C398E] text-[#ffffff] px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold w-full sm:w-auto">
+            <button 
+              onClick={handleSearch}
+              className="flex items-center justify-center gap-2 bg-[#1C398E] text-[#ffffff] px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold w-full sm:w-auto"
+            >
               <FaSearch /> Search Flights
             </button>
 

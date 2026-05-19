@@ -1,6 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Clock, MapPin, MessageCircle, Plane, FileText } from "lucide-react";
+import axiosInstance from "@/lib/axios";
+import { API_SPECIAL_PACKAGES } from "@/constants/api";
 
 function StarRating({ count }) {
   return (
@@ -25,7 +28,32 @@ function FeaturePill({ icon, label }) {
   );
 }
 
-function PackageCard({ stars, title, price, originalPrice, nights, save, makkahHotel, madinahHotel, popular, image }) {
+function PackageCard({ 
+  stars, 
+  title, 
+  price, 
+  originalPrice, 
+  nights, 
+  save, 
+  makkahHotel, 
+  madinahHotel, 
+  popular, 
+  image,
+  badge,
+  features,
+  onSelect 
+}) {
+  // Calculate save if not provided
+  const calculatedSave = save || (originalPrice && price 
+    ? parseInt(originalPrice.replace(/[^0-9]/g, '')) - parseInt(price.replace(/[^0-9]/g, ''))
+    : null);
+  
+  const saveAmount = calculatedSave ? `£${calculatedSave}` : null;
+
+  // Check if Flights and Visa are in features
+  const hasFlights = features?.some(f => f.toLowerCase().includes('flight'));
+  const hasVisa = features?.some(f => f.toLowerCase().includes('visa'));
+
   return (
     <div
       className={[
@@ -45,16 +73,18 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
         </div>
 
         {/* Most Popular Badge - top right */}
-        {popular && (
+        {(popular || badge === "Most Popular") && (
           <div className="absolute top-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
             Most Popular
           </div>
         )}
 
         {/* Save Badge - bottom right */}
-        <div className="absolute bottom-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
-          Save {save}
-        </div>
+        {saveAmount && (
+          <div className="absolute bottom-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
+            Save {saveAmount}
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -74,7 +104,9 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
         <div>
           <div className="flex items-baseline gap-3">
             <p className="text-4xl font-bold text-[#1C398E]">{price}</p>
-            <p className="text-lg text-gray-400 line-through font-medium">{originalPrice}</p>
+            {originalPrice && (
+              <p className="text-lg text-gray-400 line-through font-medium">{originalPrice}</p>
+            )}
           </div>
           <p className="text-sm text-[#9CA3AF] mt-1">per person</p>
         </div>
@@ -101,14 +133,31 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
 
         <hr className="border border-[#E5E7EB]" />
 
-        {/* Feature Pills - only Flights + Visa */}
-        <div className="flex gap-3">
-          <FeaturePill icon={<Plane className="w-4 h-4" />} label="Flights" />
-          <FeaturePill icon={<FileText className="w-4 h-4" />} label="Visa" />
+        {/* Feature Pills - Dynamic based on features */}
+        <div className="flex gap-3 flex-wrap">
+          {(hasFlights || features?.length === 0) && (
+            <FeaturePill icon={<Plane className="w-4 h-4" />} label="Flights" />
+          )}
+          {(hasVisa || features?.length === 0) && (
+            <FeaturePill icon={<FileText className="w-4 h-4" />} label="Visa" />
+          )}
+          {features?.slice(0, 2).map((feature, idx) => {
+            if (feature.toLowerCase().includes('flight') || feature.toLowerCase().includes('visa')) {
+              return null;
+            }
+            return (
+              <FeaturePill 
+                key={idx} 
+                icon={<MessageCircle className="w-4 h-4" />} 
+                label={feature} 
+              />
+            );
+          })}
         </div>
 
         {/* Select Package Button */}
         <button
+          onClick={() => onSelect?.(packageData)}
           className={[
             "mt-auto w-full py-4 rounded-2xl font-bold text-base transition-opacity duration-150 hover:opacity-90",
             popular
@@ -125,44 +174,135 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
 }
 
 export default function ClockTowerCards() {
-  const packages = [
-    {
-      stars: 3,
-      nights: 7,
-      title: "7 Nights  Clock Tower  Package",
-      price: "£795",
-      originalPrice: "£995",
-      save: "£200",
-      makkahHotel: "Dar Al Eiman Royal Hotel",
-      madinahHotel: "Al Aqeeq Hotel",
-      popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).webp",
-    },
-    {
-      stars: 4,
-      nights: 10,
-      title: "10 Nights  Clock Tower  Package",
-      price: "£975",
-      originalPrice: "£1,175",
-      save: "£200",
-      makkahHotel: "Anjum Hotel Makkah",
-      madinahHotel: "Shaza Al Madinah",
-      popular: true,
-      image: "/Images/Image (5-Star Luxury Umrah).webp",
-    },
-    {
-      stars: 5,
-      nights: 14,
-      title: "14 Nights  Clock Tower  Package",
-      price: "£1,160",
-      originalPrice: "£1,450",
-      save: "£290",
-      makkahHotel: "Swissotel Makkah",
-      madinahHotel: "Oberoi Madinah",
-      popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).webp",
-    },
-  ];
+  const [packages, setPackages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchClockTowerPackages();
+  }, []);
+
+  const fetchClockTowerPackages = async () => {
+    setLoading(true);
+    try {
+      const response = await axiosInstance.get(API_SPECIAL_PACKAGES, {
+        params: {
+          category: 'clock_tower',
+          isActive: true,
+          page: 1,
+          limit: 100
+        }
+      });
+      
+      console.log('Clock Tower Packages:', response.data);
+      
+      if (response.data.success && response.data.data) {
+        // Transform backend data to frontend format
+        const transformedPackages = response.data.data.map(pkg => ({
+          id: pkg._id,
+          stars: pkg.stars,
+          nights: pkg.nights,
+          title: pkg.title,
+          price: pkg.price,
+          originalPrice: pkg.originalPrice,
+          save: pkg.discount || calculateSave(pkg.originalPrice, pkg.price),
+          makkahHotel: pkg.hotels?.makkah || "Standard Hotel",
+          madinahHotel: pkg.hotels?.madinah || "Standard Hotel",
+          popular: pkg.isPopular,
+          image: pkg.image || "/Images/default-package.webp",
+          badge: pkg.badge,
+          features: pkg.features || [],
+          isActive: pkg.isActive
+        }));
+        
+        setPackages(transformedPackages);
+      } else {
+        setPackages([]);
+      }
+    } catch (err) {
+      console.error('Error fetching clock tower packages:', err);
+      setError('Failed to load packages. Please try again later.');
+      setPackages([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const calculateSave = (originalPrice, price) => {
+    if (!originalPrice || !price) return null;
+    const original = parseInt(originalPrice.replace(/[^0-9]/g, ''));
+    const current = parseInt(price.replace(/[^0-9]/g, ''));
+    if (isNaN(original) || isNaN(current)) return null;
+    return `£${original - current}`;
+  };
+
+  const handleSelectPackage = (pkg) => {
+    console.log('Selected package:', pkg);
+    // Add your selection logic here
+    // e.g., open inquiry modal, add to cart, etc.
+    alert(`Selected: ${pkg.title}\nPrice: ${pkg.price}\nContact us for booking!`);
+  };
+
+  if (loading) {
+    return (
+      <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
+            Luxury Clock Tower Packages
+          </h2>
+          <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            Experience unparalleled comfort with the closest hotels to the Holy Kaaba
+          </p>
+        </div>
+        <div className="flex justify-center items-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1C398E]"></div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
+            Luxury Clock Tower Packages
+          </h2>
+          <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            Experience unparalleled comfort with the closest hotels to the Holy Kaaba
+          </p>
+        </div>
+        <div className="text-center py-20">
+          <p className="text-red-500 mb-4">{error}</p>
+          <button 
+            onClick={fetchClockTowerPackages}
+            className="px-6 py-2 bg-[#1C398E] text-white rounded-lg hover:bg-[#152d73]"
+          >
+            Try Again
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  if (packages.length === 0) {
+    return (
+      <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
+            Luxury Clock Tower Packages
+          </h2>
+          <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+            Experience unparalleled comfort with the closest hotels to the Holy Kaaba
+          </p>
+        </div>
+        <div className="text-center py-20">
+          <p className="text-gray-500">No packages available at the moment.</p>
+          <p className="text-sm text-gray-400 mt-2">Please check back later.</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
@@ -173,14 +313,18 @@ export default function ClockTowerCards() {
           Luxury Clock Tower Packages
         </h2>
         <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-         Experience unparalleled comfort with the closest hotels to the Holy Kaaba
+          Experience unparalleled comfort with the closest hotels to the Holy Kaaba
         </p>
       </div>
 
-      {/* Cards */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
-        {packages.map((pkg) => (
-          <PackageCard key={pkg.nights} {...pkg} />
+      {/* Cards Grid */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        {packages.map((pkg, index) => (
+          <PackageCard 
+            key={pkg.id || index} 
+            {...pkg} 
+            onSelect={handleSelectPackage}
+          />
         ))}
       </div>
 

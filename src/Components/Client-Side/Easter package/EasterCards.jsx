@@ -1,6 +1,9 @@
 "use client";
 
-import { Clock, MapPin, MessageCircle, Plane, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Clock, MapPin, Plane, FileText } from "lucide-react";
+import { API_SPECIAL_PACKAGES } from "@/constants/api";
+import axiosInstance from "@/lib/axios";
 
 function StarRating({ count }) {
   return (
@@ -35,32 +38,24 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
           : "border border-gray-200 shadow-lg",
       ].join(" ")}
     >
-      {/* Image */}
       <div className="relative h-52 overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover" />
-
-        {/* Stars Badge - top left */}
         <div className="absolute top-4 left-4 bg-white rounded-lg px-3 py-2 shadow-md flex items-center gap-1">
           <StarRating count={stars} />
         </div>
-
-        {/* Most Popular Badge - top right */}
         {popular && (
           <div className="absolute top-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
             Most Popular
           </div>
         )}
-
-        {/* Save Badge - bottom right */}
-        <div className="absolute bottom-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
-          Save {save}
-        </div>
+        {save && (
+          <div className="absolute bottom-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
+            Save {save}
+          </div>
+        )}
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-1 p-6 gap-4">
-
-        {/* Title + Meta */}
         <div>
           <h3 className="text-xl font-extrabold text-[#101828] mb-2">{title}</h3>
           <div className="flex items-center gap-2 text-[#6A7282] text-sm">
@@ -71,18 +66,18 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
           </div>
         </div>
 
-        {/* Price */}
         <div>
           <div className="flex items-baseline gap-3">
             <p className="text-4xl font-bold text-[#1C398E]">{price}</p>
-            <p className="text-lg text-gray-400 line-through font-medium">{originalPrice}</p>
+            {originalPrice && (
+              <p className="text-lg text-gray-400 line-through font-medium">{originalPrice}</p>
+            )}
           </div>
           <p className="text-sm text-[#9CA3AF] mt-1">per person</p>
         </div>
 
         <hr className="border border-[#E5E7EB]" />
 
-        {/* Hotels */}
         <div className="flex flex-col gap-3">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 text-[#1C398E] mt-0.5 shrink-0" />
@@ -102,13 +97,11 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
 
         <hr className="border border-[#E5E7EB]" />
 
-        {/* Feature Pills - only Flights + Visa */}
         <div className="flex gap-3">
           <FeaturePill icon={<Plane className="w-4 h-4" />} label="Flights" />
           <FeaturePill icon={<FileText className="w-4 h-4" />} label="Visa" />
         </div>
 
-        {/* Select Package Button */}
         <button
           className={[
             "mt-auto w-full py-4 rounded-2xl font-bold text-base transition-opacity duration-150 hover:opacity-90",
@@ -119,56 +112,53 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
         >
           Select Package
         </button>
-
       </div>
     </div>
   );
 }
 
 export default function EasterCards() {
-  const packages = [
-    {
-      stars: 3,
-      nights: 7,
-      title: "7 Nights Easter Package",
-      price: "£795",
-      originalPrice: "£995",
-      save: "£200",
-      makkahHotel: "Dar Al Eiman Royal Hotel",
-      madinahHotel: "Al Aqeeq Hotel",
-      popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).webp",
-    },
-    {
-      stars: 4,
-      nights: 10,
-      title: "10 Nights Easter Package",
-      price: "£975",
-      originalPrice: "£1,175",
-      save: "£200",
-      makkahHotel: "Anjum Hotel Makkah",
-      madinahHotel: "Shaza Al Madinah",
-      popular: true,
-      image: "/Images/Image (5-Star Luxury Umrah).webp",
-    },
-    {
-      stars: 5,
-      nights: 14,
-      title: "14 Nights Easter Package",
-      price: "£1,160",
-      originalPrice: "£1,450",
-      save: "£290",
-      makkahHotel: "Swissotel Makkah",
-      madinahHotel: "Oberoi Madinah",
-      popular: false,
-      image: "/Images/Image (5-Star Luxury Umrah).webp",
-    },
-  ];
+  const [packages, setPackages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axiosInstance.get(API_SPECIAL_PACKAGES, {
+          params: { category: "easter", isActive: true, limit: 10 },
+        });
+        setPackages(data.data ?? []);
+      } catch {
+        setPackages([]);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
+
+  const mapped = packages.map((pkg) => ({
+    stars: pkg.stars,
+    nights: pkg.nights,
+    title: pkg.title,
+    price: pkg.price,
+    originalPrice: pkg.originalPrice,
+    save: pkg.discount,
+    makkahHotel: pkg.hotels?.makkah,
+    madinahHotel: pkg.hotels?.madinah,
+    popular: pkg.isPopular,
+    image: pkg.image,
+  }));
+
+  if (loading) {
+    return (
+      <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1C398E]" />
+      </section>
+    );
+  }
 
   return (
     <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-
-      {/* Header */}
       <div className="text-center mb-14">
         <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
           Choose Your Package
@@ -177,14 +167,11 @@ export default function EasterCards() {
           Flexible durations and star ratings to suit every budget and preference
         </p>
       </div>
-
-      {/* Cards */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
-        {packages.map((pkg) => (
-          <PackageCard key={pkg.nights} {...pkg} />
+        {mapped.map((pkg, i) => (
+          <PackageCard key={i} {...pkg} />
         ))}
       </div>
-
     </section>
   );
 }

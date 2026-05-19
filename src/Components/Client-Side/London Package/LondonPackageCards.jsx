@@ -1,44 +1,9 @@
 "use client";
-import { Clock, MapPin, Check, MessageCircle } from "lucide-react";
 
-const packages = [
-  {
-    id: 1,
-    stars: 3,
-    title: "3 Star Umrah Package",
-    price: "£770",
-    nights: 7,
-    image: "/Images/Image (Ramadan Umrah Premium).webp",
-    makkah: "Dar Al Eiman / Al Kiswah Towers",
-    madinah: "Al Aqeeq Hotel",
-    features: ["Return Flights", "Visa", "Transport", "3★ Hotels"],
-  },
-  {
-    id: 2,
-    stars: 4,
-    title: "4 Star Umrah Package",
-    price: "£890",
-    nights: 7,
-    badge: "Best Value",
-    highlight: true,
-    image: "/Images/Image (5-Star Luxury Umrah).webp",
-    makkah: "Elaf Ajyad / Anjum Hotel",
-    madinah: "Shaza Al Madinah",
-    features: ["Return Flights", "Visa", "Transport", "4★ Hotels"],
-  },
-  {
-    id: 3,
-    stars: 5,
-    title: "5 Star Umrah Package",
-    price: "£1,020",
-    nights: 7,
-    badge: "Luxury",
-    image: "/Images/Image (Hajj Complete Package).webp",
-    makkah: "Swissotel / Raffles Makkah",
-    madinah: "Oberoi Madinah",
-    features: ["Return Flights", "Visa", "Transport", "5★ Hotels", "Guide"],
-  },
-];
+import { useState, useEffect } from "react";
+import { Clock, MapPin, Check, MessageCircle } from "lucide-react";
+import axiosInstance from "@/lib/axios";
+import { API_SPECIAL_PACKAGES } from "@/constants/api";
 
 function Stars({ count }) {
   return (
@@ -134,8 +99,8 @@ function Card({ pkg }) {
 
         {/* features */}
         <ul className="space-y-2 text-sm text-[#364153]">
-          {pkg.features.map((f) => (
-            <li key={f} className="flex items-center gap-2">
+          {pkg.features.map((f, idx) => (
+            <li key={idx} className="flex items-center gap-2">
               <Check size={16} className="text-[#1C398E]" />
               {f}
             </li>
@@ -153,6 +118,79 @@ function Card({ pkg }) {
 }
 
 export default function LondonPackageCards() {
+  const [packages, setPackages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchUmrahPackages();
+  }, []);
+
+  const fetchUmrahPackages = async () => {
+    try {
+      const response = await axiosInstance.get(API_SPECIAL_PACKAGES, {
+        params: {
+          category: 'umrah_london',
+          isActive: true,
+          page: 1,
+          limit: 10
+        }
+      });
+      
+      console.log('API Response:', response.data);
+      
+      if (response.data.success && response.data.data) {
+        // Transform backend data to match frontend format (keeping all original fields)
+        const transformedPackages = response.data.data.map((pkg, index) => ({
+          id: pkg._id || index + 1,
+          stars: pkg.stars,
+          title: pkg.title,
+          price: pkg.price,
+          nights: pkg.nights,
+          image: pkg.image,
+          // Use backend hotel data
+          makkah: pkg.hotels?.makkah || "Standard Hotel",
+          madinah: pkg.hotels?.madinah || "Standard Hotel",
+          features: pkg.features || ["Return Flights", "Visa", "Transport"],
+          // Handle badge and highlight based on backend data
+          badge: pkg.badge || (pkg.isPopular ? "Best Value" : null),
+          highlight: pkg.isPopular || pkg.badge === "Best Value",
+          // Preserve original price if exists
+          originalPrice: pkg.originalPrice
+        }));
+        
+        setPackages(transformedPackages);
+      } else {
+        // Fallback to empty array if no data
+        setPackages([]);
+      }
+    } catch (error) {
+      console.error('Error fetching packages:', error);
+      setPackages([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section className="bg-[#F9FAFB] py-16 px-4">
+        <div className="text-center mb-14 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#101828]">
+            Choose Your Umrah Package
+          </h2>
+          <p className="text-[#4A5565] mt-3 text-sm md:text-base">
+            All-inclusive packages departing from London with flexible options
+            for every budget
+          </p>
+        </div>
+        <div className="flex justify-center items-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1C398E]"></div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-[#F9FAFB] py-16 px-4">
       {/* heading */}
