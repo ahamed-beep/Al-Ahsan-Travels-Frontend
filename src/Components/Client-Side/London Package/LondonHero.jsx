@@ -5,53 +5,53 @@ import { useState } from "react";
 import { Plane, FileText, Building } from "lucide-react";
 
 export default function LondonHero() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    phone: "",
-    departureDate: "",
-    departureAirport: "",
-    adults: "",
-    children: "",
-  });
+    const [formData, setFormData] = useState({
+        fullName: "",
+        phone: "",
+        departureDate: "",
+        departureAirport: "",
+        adults: "",
+        children: "",
+    });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    alert("Form Submitted!");
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+        alert("Form Submitted!");
+    };
 
-  return (
-    <div className="relative w-full min-h-screen flex items-center justify-center">
+    return (
+        <div className="relative w-full min-h-screen flex items-center justify-center">
 
-      {/* Background Image */}
-      <img
-        src="/Images/BackGround.webp"
-        alt="Umrah"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+            {/* Background Image */}
+            <img
+                src="/Images/BackGround.webp"
+                alt="Umrah"
+                className="absolute inset-0 w-full h-full object-cover"
+            />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0" />
+            {/* Dark Overlay */}
+            <div className="absolute inset-0" />
 
-      {/* Content */}
-      <div className="relative z-10 ml-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* Content */}
+            <div className="relative z-10 ml-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-        {/* LEFT SIDE */}
-        <div className="lg:ml-10 text-center lg:text-left space-y-6">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#ffffff]">
-           Umrah Packages from London 2026
-          </h1>
+                {/* LEFT SIDE */}
+                <div className="lg:ml-10 text-center lg:text-left space-y-6">
+                    <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#ffffff]">
+                        Umrah Packages from London 2026
+                    </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-white max-w-xl mx-auto lg:mx-0">
-          Complete Umrah travel solutions with flights, visa, hotels, and support from London
-          </p>
+                    <p className="text-sm sm:text-base md:text-lg text-white max-w-xl mx-auto lg:mx-0">
+                        Complete Umrah travel solutions with flights, visa, hotels, and support from London
+                    </p>
 
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs sm:text-sm text-white">
-           <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2B7FFF33] backdrop-blur-md border border-white/30 shadow-sm">
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs sm:text-sm text-white">
+                        <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2B7FFF33] backdrop-blur-md border border-white/30 shadow-sm">
                             <Plane className="w-4 h-4 text-white" />
                             Flights Included
                         </span>
@@ -67,9 +67,9 @@ export default function LondonHero() {
                             <Building className="w-4 h-4 text-white" />
                             Hotels Included
                         </span>
-          </div>
-        </div>
- {/* RIGHT SIDE — Form Card */}
+                    </div>
+                </div>
+                {/* RIGHT SIDE — Form Card */}
                 <div className="w-full max-w-md mx-auto lg:ml-auto lg:w-[420px] xl:w-[470px] shrink-0">
                     <div className="bg-[#ffffff] rounded-2xl shadow-xl p-5 sm:p-6 md:p-7">
                         <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#101828] mb-4 sm:mb-5">
@@ -128,8 +128,10 @@ export default function LondonHero() {
                                 </div>
                                 <div>
                                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
-                                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin">
+                                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
                                         Departure Airport
                                     </label>
                                     <input
@@ -203,7 +205,7 @@ export default function LondonHero() {
                         </form>
                     </div>
                 </div>
-      </div>
-    </div>
-  );
+            </div>
+        </div>
+    );
 }

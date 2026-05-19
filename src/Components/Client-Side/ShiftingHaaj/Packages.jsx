@@ -9,10 +9,10 @@ import axiosInstance from "@/lib/axios";
 import { API_SHIFTING_HAJJ } from "@/constants/api";
 
 const TAG_ICONS = {
-  Visa:      <FaPassport size={12} />,
+  Visa: <FaPassport size={12} />,
   Transport: <FaBus size={12} />,
-  Meals:     <FaUtensils size={12} />,
-  Guide:     <FaUser size={12} />,
+  Meals: <FaUtensils size={12} />,
+  Guide: <FaUser size={12} />,
 };
 
 export default function Packages() {
@@ -23,11 +23,11 @@ export default function Packages() {
       .get(API_SHIFTING_HAJJ)
       .then((res) => {
         const list = Array.isArray(res.data) ? res.data : (res.data.data ?? []);
-    setPackages(
-  list
-    .filter((p) => p.status === "active")
-    .sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0))
-);
+        setPackages(
+          list
+            .filter((p) => p.status === "active")
+            .sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0))
+        );
       })
       .catch((err) => console.error("Shifting Hajj fetch error:", err));
   }, []);
@@ -59,12 +59,10 @@ export default function Packages() {
             <div className="flex flex-col lg:flex-row">
               {/* Image */}
               <div className="w-full lg:w-1/2 h-50 sm:h-52 lg:h-auto relative">
-                <img
-                  src={pkg.imageUrl}
-                  alt={pkg.title}
+                <Image
+                  src={pkg.imageUrl} alt={pkg.title}
                   fill
-                  className="object-cover"
-                />
+                  className="object-cover" />
               </div>
 
               {/* Content */}
