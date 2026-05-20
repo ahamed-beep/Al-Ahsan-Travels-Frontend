@@ -1,38 +1,62 @@
 "use client";
 import React, { useState } from "react";
+import axiosInstance from "@/lib/axios";
+import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
 
 export default function ThirdAshraHero() {
- const [formData, setFormData] = useState({
-     fullName: "",
-     phoneNumber: "",
-     packageType: "",
-     hotelCategory: "",
-     departureDate: "",
-     departureAirport: "",
-     adults: 1,
-     children: 0,
-   });
- 
-   const handleChange = (e) => {
-     const { name, value } = e.target;
-     setFormData((prev) => ({ ...prev, [name]: value }));
-   };
- 
-   const handleSubmit = (e) => {
-     e.preventDefault();
-     console.log("Form submitted:", formData);
-   };
- 
- 
- 
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    packageType: "",
+    hotelCategory: "",
+    departureDate: "",
+    departureAirport: "",
+    adults: 1,
+    children: 0,
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
+    setSuccess("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+    try {
+      await axiosInstance.post(API_HAJJ_INQUIRY_SUBMIT, {
+        ...formData,
+        adults: Number(formData.adults),
+        children: Number(formData.children),
+      });
+      setSuccess("Quote request submitted! We'll contact you within 24 hours.");
+      setFormData({
+        fullName: "", phoneNumber: "", packageType: "",
+        hotelCategory: "", departureDate: "", departureAirport: "",
+        adults: 1, children: 0,
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Submission failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="relative  overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute w-full inset-0">
         <img
           src="/Images/BackGround.webp"
           alt="Hajj background"
-          className="h-full w-full  object-cover"
+          className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/45" />
       </div>
@@ -42,11 +66,13 @@ export default function ThirdAshraHero() {
         <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2">
           {/* Left Content */}
           <div className="max-w-xl text-white">
-            <h1 className="text-4xl font-bold  whitespace-nowrap leading-tight sm:text-5xl lg:text-6xl">
-              Third Ashra Ramadan <br /> <span>Umrah Packages</span>             </h1>
+            <h1 className="text-4xl font-bold whitespace-nowrap leading-tight sm:text-5xl lg:text-6xl">
+              Third Ashra Ramadan <br /> <span>Umrah Packages</span>
+            </h1>
 
             <p className="mt-4 text-base flex items-center justify-center text-white/90 sm:text-lg">
-              Seek forgiveness in the holy cities during the blessed <br /> days of Maghfirah            </p>
+              Seek forgiveness in the holy cities during the blessed <br /> days of Maghfirah
+            </p>
 
             <div className="mt-8 flex items-center justify-center space-y-5">
               <div className="inline-flex min-h-[52px] w-full max-w-[171px] items-center justify-center gap-3 rounded-2xl bg-white px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
@@ -56,7 +82,6 @@ export default function ThirdAshraHero() {
           </div>
 
           {/* Right Form Card */}
-           {/* Right Form Card */}
           <div className="w-full">
             <div className="mx-auto w-full max-w-xl rounded-2xl bg-[#ffffff] p-5 shadow-2xl sm:p-7">
               <h2 className="text-2xl font-bold text-[#101828]">Customize Your Umrah</h2>
@@ -71,6 +96,7 @@ export default function ThirdAshraHero() {
                       placeholder="Ali"
                       value={formData.fullName}
                       onChange={handleChange}
+                      required
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
@@ -83,6 +109,7 @@ export default function ThirdAshraHero() {
                       placeholder="+44 20 1234 5678"
                       value={formData.phoneNumber}
                       onChange={handleChange}
+                      required
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
@@ -92,7 +119,7 @@ export default function ThirdAshraHero() {
                     <input
                       type="text"
                       name="packageType"
-                      placeholder="Second Ashra"
+                      placeholder="Third Ashra"
                       value={formData.packageType}
                       onChange={handleChange}
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
@@ -191,15 +218,24 @@ export default function ThirdAshraHero() {
                   </div>
                 </div>
 
+                {/* Error / Success Messages */}
+                {error && (
+                  <p className="text-sm text-red-500 text-center">{error}</p>
+                )}
+                {success && (
+                  <p className="text-sm text-green-600 text-center">{success}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88]"
+                  disabled={loading}
+                  className="mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1C398E] px-6 text-base font-semibold text-[#ffffff] transition hover:bg-[#223a88] disabled:opacity-60"
                 >
                   <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <line x1="22" y1="2" x2="11" y2="13" />
                     <polygon points="22 2 15 22 11 13 2 9 22 2" />
                   </svg>
-                  Get Free Quote
+                  {loading ? "Submitting..." : "Get Free Quote"}
                 </button>
 
                 <p className="text-center text-xs text-[#6A7282] sm:text-sm">
@@ -208,9 +244,6 @@ export default function ThirdAshraHero() {
               </form>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </section>

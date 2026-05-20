@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-
-import { Plane, FileText, MapPin } from "lucide-react";
+import { useState, useRef } from "react";
+import { Plane, FileText, MapPin, Check, Send } from "lucide-react";
+import axiosInstance from "@/lib/axios";
+import { API_INQUIRY_SUBMIT } from "@/constants/api";
 
 export default function ManchesterHero() {
     const [formData, setFormData] = useState({
@@ -14,14 +15,60 @@ export default function ManchesterHero() {
         children: "",
     });
 
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState("");
+    const successRef = useRef(null);
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setError("");
     };
 
-    const handleSubmit = (e) => {
+    const validate = () => {
+        if (!formData.fullName.trim()) return "Please enter your full name.";
+        if (!formData.phone.trim()) return "Phone number is required.";
+        if (!formData.adults || Number(formData.adults) < 1)
+            return "At least 1 adult is required.";
+        return null;
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
-        alert("Form Submitted!");
+        const validationError = validate();
+        if (validationError) return setError(validationError);
+
+        setLoading(true);
+        setError("");
+        setSuccess(false);
+
+        try {
+            await axiosInstance.post(API_INQUIRY_SUBMIT, {
+                fullName: formData.fullName,
+                phone: formData.phone,
+                departureDate: formData.departureDate || undefined,
+                departureAirport: formData.departureAirport || undefined,
+                adults: Number(formData.adults),
+                children: Number(formData.children) || 0,
+            });
+
+            setSuccess(true);
+            setFormData({
+                fullName: "",
+                phone: "",
+                departureDate: "",
+                departureAirport: "",
+                adults: "",
+                children: "",
+            });
+            successRef.current?.scrollIntoView({ behavior: "smooth" });
+        } catch (err) {
+            const msg =
+                err?.response?.data?.message || "Something went wrong. Please try again.";
+            setError(Array.isArray(msg) ? msg.join(", ") : msg);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -35,7 +82,7 @@ export default function ManchesterHero() {
             />
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0" />
+            <div className="absolute inset-0 bg-black/45" />
 
             {/* Content */}
             <div className="relative z-10 ml-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -77,6 +124,24 @@ export default function ManchesterHero() {
                             Plan Your Perfect Umrah Journey
                         </h2>
 
+                        {/* Success Message */}
+                        {success && (
+                            <div
+                                ref={successRef}
+                                className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm flex items-center gap-2"
+                            >
+                                <Check className="w-4 h-4 shrink-0" />
+                                Your request has been submitted! We'll contact you within 24 hours.
+                            </div>
+                        )}
+
+                        {/* Error Message */}
+                        {error && (
+                            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                                {error}
+                            </div>
+                        )}
+
                         <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
 
                             {/* Row 1 — Full Name + Phone */}
@@ -116,7 +181,11 @@ export default function ManchesterHero() {
                                 <div>
                                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                                         <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />  </svg>
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                            <line x1="16" y1="2" x2="16" y2="6" />
+                                            <line x1="8" y1="2" x2="8" y2="6" />
+                                            <line x1="3" y1="10" x2="21" y2="10" />
+                                        </svg>
                                         Departure Date
                                     </label>
                                     <input
@@ -138,7 +207,7 @@ export default function ManchesterHero() {
                                     <input
                                         type="text"
                                         name="departureAirport"
-                                        placeholder="e.g. Heathrow"
+                                        placeholder="e.g. Manchester"
                                         value={formData.departureAirport}
                                         onChange={handleChange}
                                         className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
@@ -154,7 +223,7 @@ export default function ManchesterHero() {
                                             <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
                                             <circle cx="12" cy="7" r="4" />
                                         </svg>
-                                        Adults
+                                        Adults <span className="text-red-500">*</span>
                                     </label>
                                     <input
                                         type="number"
@@ -163,6 +232,7 @@ export default function ManchesterHero() {
                                         placeholder="1"
                                         value={formData.adults}
                                         onChange={handleChange}
+                                        required
                                         className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                                     />
                                 </div>
@@ -183,25 +253,32 @@ export default function ManchesterHero() {
                                         placeholder="0"
                                         value={formData.children}
                                         onChange={handleChange}
-                                        className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition "
+                                        className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition"
                                     />
                                 </div>
                             </div>
 
-                            {/* Submit */}
+                            {/* Submit Button */}
                             <button
                                 type="submit"
-                                className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#1C398E] text-[#ffffff] text-sm font-semibold rounded-xl  active:scale-[0.98] transition-all duration-150 shadow-md mt-2"
+                                disabled={loading}
+                                className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#1C398E] text-[#ffffff] text-sm font-semibold rounded-xl active:scale-[0.98] transition-all duration-150 shadow-md mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
-                                <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <line x1="22" y1="2" x2="11" y2="13" />
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                                </svg>
-                                Get Free Quote
+                                {loading ? (
+                                    <>
+                                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                        Submitting...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send size={16} />
+                                        Get Free Quote
+                                    </>
+                                )}
                             </button>
 
                             <p className="text-center text-[10px] sm:text-xs text-[#6A7282] mt-2">
-                                No payment required. We&apos;ll send you a personalized quote within 24 hours.
+                                No payment required. We'll send you a personalized quote within 24 hours.
                             </p>
                         </form>
                     </div>

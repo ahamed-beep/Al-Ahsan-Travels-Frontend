@@ -16,13 +16,62 @@ function StarRating({ count }) {
   );
 }
 
+// ✅ "Most Popular" wala card hamesha center (index 1) pe aaye
+// Badge field check karta hai — backend se "Most Popular" badge aata hai
+function sortPackagesPopularCenter(pkgs) {
+  if (!pkgs || pkgs.length === 0) return pkgs;
+  
+  // Agar 3 cards nahi hain to original order return karo
+  if (pkgs.length !== 3) return pkgs;
+
+  // Find popular card (case insensitive check)
+  const popularIndex = pkgs.findIndex(
+    (p) => p.badge && p.badge.toLowerCase().includes("popular")
+  );
+
+  // Agar popular card nahi mila ya already center (index 1) pe hai to return as is
+  if (popularIndex === -1 || popularIndex === 1) return pkgs;
+
+  // Swap popular card with center position
+  const sorted = [...pkgs];
+  [sorted[1], sorted[popularIndex]] = [sorted[popularIndex], sorted[1]];
+  
+  return sorted;
+}
+
+// Apply popular styling to the center card
+function applyPopularStyling(packages) {
+  if (!packages || packages.length !== 3) return packages;
+  
+  return packages.map((pkg, index) => {
+    // Center card (index 1) should have "Most Popular" styling
+    if (index === 1 && pkg.badge?.toLowerCase().includes("popular")) {
+      return {
+        ...pkg,
+        borderColor: "border-[#1C398E]", // Blue border for popular card
+        badgeBg: "bg-[#1C398E]", // Blue badge background
+        isPopular: true
+      };
+    }
+    // Non-popular cards
+    return {
+      ...pkg,
+      borderColor: "border-gray-200",
+      badgeBg: pkg.badgeBg || "bg-[#FF6B6B]", // Default badge color if exists
+      isPopular: false
+    };
+  });
+}
+
 function PackageCard({ pkg }) {
   const whatsappMsg = `I'm interested in the ${pkg.title} (${pkg.price})`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border-2 ${pkg.borderColor || "border-gray-200"} bg-[#ffffff] shadow-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl`}
+      className={`relative flex flex-col rounded-2xl border-2 ${pkg.borderColor || "border-gray-200"} bg-[#ffffff] shadow-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl ${
+        pkg.isPopular ? "ring-2 ring-[#1C398E] ring-offset-2" : ""
+      }`}
     >
       {/* Image */}
       <div className="relative h-48 sm:h-52 w-full overflow-hidden">
@@ -31,7 +80,7 @@ function PackageCard({ pkg }) {
           <StarRating count={pkg.stars} />
         </div>
         {pkg.badge && (
-          <span className={`absolute top-3 right-3 ${pkg.badgeBg} text-white text-xs font-semibold px-3 py-1 rounded-md`}>
+          <span className={`absolute top-3 right-3 ${pkg.badgeBg || "bg-[#FF6B6B]"} text-white text-xs font-semibold px-3 py-1 rounded-md z-10`}>
             {pkg.badge}
           </span>
         )}
@@ -82,7 +131,7 @@ function PackageCard({ pkg }) {
         <hr className="border-[#E5E7EB]" />
 
         <ul className="space-y-1.5">
-          {pkg.features.map((f) => (
+          {pkg.features && pkg.features.map((f) => (
             <li key={f} className="flex items-center gap-2 text-sm text-[#364153]">
               <Check className="w-4 h-4 bg-[#C3D8FA33] text-[#2B7FFFCC] rounded-full shrink-0" />
               {f}
@@ -94,7 +143,7 @@ function PackageCard({ pkg }) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-semibold text-sm py-3 rounded-xl transition-colors duration-150"
+          className="mt-auto flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-semibold text-sm py-3 rounded-xl transition-colors duration-150 hover:bg-[#20b859]"
         >
           <MessageCircle className="w-4 h-4 text-[#FFFFFF]" />
           WhatsApp
@@ -112,7 +161,17 @@ export default function ThirdAshraPackage() {
   useEffect(() => {
     axiosInstance
       .get(API_ASHRA_PACKAGES_BY_CATEGORY("ashra_3"))
-      .then((res) => setPackages(res.data?.data || []))
+      .then((res) => {
+        const raw = res.data?.data || [];
+        
+        // Step 1: Sort to bring "Most Popular" to center (index 1)
+        const sorted = sortPackagesPopularCenter(raw);
+        
+        // Step 2: Apply styling to make center card visually prominent
+        const styledPackages = applyPopularStyling(sorted);
+        
+        setPackages(styledPackages);
+      })
       .catch(() => setError("Failed to load packages."))
       .finally(() => setLoading(false));
   }, []);
@@ -129,18 +188,24 @@ export default function ThirdAshraPackage() {
       </div>
 
       {loading && (
-        <div className="text-center text-[#4A5565] py-20">Loading packages...</div>
+        <div className="text-center text-[#4A5565] py-20">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#1C398E]"></div>
+          <p className="mt-2">Loading packages...</p>
+        </div>
       )}
+      
       {error && (
         <div className="text-center text-red-500 py-20">{error}</div>
       )}
+      
       {!loading && !error && packages.length === 0 && (
         <div className="text-center text-[#4A5565] py-20">No packages available.</div>
       )}
+      
       {!loading && !error && packages.length > 0 && (
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {packages.map((pkg) => (
-            <PackageCard key={pkg.id} pkg={pkg} />
+          {packages.map((pkg, idx) => (
+            <PackageCard key={pkg.id || idx} pkg={pkg} />
           ))}
         </div>
       )}

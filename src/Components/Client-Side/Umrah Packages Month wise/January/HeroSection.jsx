@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Send, Plane, Clock, FileText, Calendar, MapPin, Users, Baby } from "lucide-react";
+import axiosInstance from "@/lib/axios";
+import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
 
 // ✅ Programmatically generate karo — 12 hardcoded entries nahi
 const MONTHS = [
@@ -41,14 +43,17 @@ export default function HeroSection({ month = "january" }) {
     name: "", phone: "", date: "", airport: "", adults: "", children: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors]   = useState({});
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError]     = useState("");
 
   // ✅ Prev state pattern
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
+    setError("");
+    setSuccess("");
   };
 
   const validate = () => {
@@ -63,21 +68,32 @@ export default function HeroSection({ month = "january" }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    // ✅ No console.log / alert — proper async flow
     setLoading(true);
-    setErrors({});
+    setError("");
+    setSuccess("");
+
     try {
-      // API call yahan aayegi — e.g. await axiosInstance.post(...)
-      setSuccess(true);
+      // ✅ NonShiftingHajjSection wali same API + payload structure
+      await axiosInstance.post(API_HAJJ_INQUIRY_SUBMIT, {
+        fullName:         formData.name,
+        phoneNumber:      formData.phone,
+        departureDate:    formData.date,
+        departureAirport: formData.airport,
+        adults:           Number(formData.adults),
+        children:         Number(formData.children) || 0,
+      });
+
+      setSuccess("Quote request submitted! We'll contact you within 24 hours.");
       setFormData({ name: "", phone: "", date: "", airport: "", adults: "", children: "" });
-    } catch {
-      setErrors({ form: "Kuch masla ho gaya. Dobara try karein." });
+    } catch (err) {
+      setError(err.response?.data?.message || "Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -95,7 +111,7 @@ export default function HeroSection({ month = "january" }) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Content */}
@@ -118,7 +134,7 @@ export default function HeroSection({ month = "january" }) {
             Choose the right package for your journey based on comfort and budget.
           </p>
 
-          {/* ✅ Features — array se, typo fix */}
+          {/* ✅ Features — array se */}
           <div className="space-y-3">
             {features.map((f) => {
               const Icon = f.icon;
@@ -136,22 +152,18 @@ export default function HeroSection({ month = "january" }) {
 
         {/* RIGHT SIDE FORM */}
         <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 w-full max-w-md mx-auto">
-          <h2 className="text-xl  text-[#101828] font-semibold mb-6">
+          <h2 className="text-xl text-[#101828] font-semibold mb-6">
             Plan Your Perfect Umrah Journey
           </h2>
 
-          {/* Success */}
+          {/* ✅ Success message — NonShiftingHajjSection style */}
           {success && (
-            <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
-              ✓ Request submit ho gayi! Hum 24 ghantay mein rabta karein gay.
-            </div>
+            <p className="mb-4 text-sm text-green-600 text-center">{success}</p>
           )}
 
-          {/* Global Error */}
-          {errors.form && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-              {errors.form}
-            </div>
+          {/* ✅ Global API error */}
+          {error && (
+            <p className="mb-4 text-sm text-red-500 text-center">{error}</p>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4 text-[#364153]">
@@ -216,12 +228,12 @@ export default function HeroSection({ month = "january" }) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1C398E] hover:bg-blue-900 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition disabled:opacity-70 disabled:cursor-not-allowed font-semibold"
+              className="w-full bg-[#1C398E] hover:bg-blue-900 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition disabled:opacity-60 disabled:cursor-not-allowed font-semibold"
             >
               {loading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Bhej rahe hain...
+                  Submitting...
                 </>
               ) : (
                 <>
