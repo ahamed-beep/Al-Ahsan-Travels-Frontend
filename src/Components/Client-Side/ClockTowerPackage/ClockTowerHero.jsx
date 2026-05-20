@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Eye ,MapPin ,Crown ,Star   } from "lucide-react";
+import { Eye, MapPin, Crown, Star } from "lucide-react";
 
 export default function ClockTowerHero() {
     const [formData, setFormData] = useState({
@@ -42,22 +42,22 @@ export default function ClockTowerHero() {
                 {/* LEFT SIDE */}
                 <div className="flex flex-col items-center justify-center text-center gap-5">
                     <span className="bg-[#D1D5DC8A] px-5 py-2 whitespace-nowrap rounded-full text-sm text-white inline-flex items-center gap-2">
-                        <Crown  className="w-4 h-4 text-[#2B7FFFCC]" /> Luxury Umrah Experience
+                        <Crown className="w-4 h-4 text-[#2B7FFFCC]" /> Luxury Umrah Experience
                     </span><h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
                         <span className="text-white">Clock Tower Umrah Packages</span>
 
                     </h1>
                     <p className="text-gray-200  max-w-xl">
-                        Stay in the iconic Clock Tower hotels with unmatched proximity <br/> to Masjid al-Haram                    </p>
+                        Stay in the iconic Clock Tower hotels with unmatched proximity <br /> to Masjid al-Haram                    </p>
                     <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
                         <span className="flex items-center gap-1">
-                           <Star  className="w-4 h-4 text-[#8EC5FF]" /> 5-Star Luxury
+                            <Star className="w-4 h-4 text-[#8EC5FF]" /> 5-Star Luxury
                         </span>
                         <span className="flex items-center gap-1">
-                            <Eye  className="w-4 h-4 text-[#8EC5FF]" />Kaaba View Rooms
+                            <Eye className="w-4 h-4 text-[#8EC5FF]" />Kaaba View Rooms
                         </span>
                         <span className="flex items-center gap-1">
-                          <MapPin  className="w-4 h-4 text-[#8EC5FF]" /> Direct Haram Access
+                            <MapPin className="w-4 h-4 text-[#8EC5FF]" /> Direct Haram Access
                         </span>
                     </div>
                 </div>
@@ -121,8 +121,10 @@ export default function ClockTowerHero() {
                                 </div>
                                 <div>
                                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
-                                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin">
+                                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
                                         Departure Airport
                                     </label>
                                     <input

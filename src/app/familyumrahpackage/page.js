@@ -2,7 +2,9 @@
 
 import CombineSpecialPackage from "@/Components/Client-Side/SpecialPackage/CombineSpecialPackage";
 
-export default function SpecialPackage (){
+
+
+export default function FamilyUmrahPackage (){
     return (
         <div>
             

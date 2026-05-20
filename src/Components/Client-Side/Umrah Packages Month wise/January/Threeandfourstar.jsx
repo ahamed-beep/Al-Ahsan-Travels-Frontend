@@ -8,7 +8,6 @@ const WA_NUMBER = "447911123456"; // ← apna WhatsApp number yahan daalo
 
 const DEFAULT_FEATURES = ["Flights", "Visa", "Transport", "Hotels"];
 
-// ✅ Component se bahar — har render pe re-create nahi hoga
 function SkeletonCard() {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden animate-pulse">
@@ -25,11 +24,9 @@ function SkeletonCard() {
 }
 
 const Card = ({ item }) => {
-  // ✅ Working WhatsApp link
   const waMessage = encodeURIComponent(`I'm interested in: ${item.title}`);
   const waLink = `https://wa.me/${WA_NUMBER}?text=${waMessage}`;
 
-  // ✅ Default features Card se bahar nikal ke constant mein
   const features = item.features?.length ? item.features : DEFAULT_FEATURES;
 
   return (
@@ -66,16 +63,15 @@ const Card = ({ item }) => {
 
         <hr className="mb-3 border-[#e5e7eb]" />
 
-        {/* ✅ features constant se */}
+        {/* ✅ FIX: key={f} ki jagah key={index} — duplicate strings se error nahi hoga */}
         <ul className="text-sm text-[#364153] space-y-1 mb-4">
-          {features.map((f) => (
-            <li key={f} className="flex items-center gap-2">
+          {features.map((f, index) => (
+            <li key={index} className="flex items-center gap-2">
               <CheckIcon size={14} className="text-[#1C398E]" /> {f}
             </li>
           ))}
         </ul>
 
-        {/* ✅ Working WhatsApp link */}
         <a
           href={waLink}
           target="_blank"
@@ -93,7 +89,6 @@ function Section({ title, subtitle, stars, data, features }) {
   return (
     <div className="mb-10">
       <div className="mb-6">
-        {/* ✅ Stars aur heading alag — aria-hidden on stars */}
         <div className="flex items-center gap-2 mb-1">
           <span aria-hidden="true" className="text-[#1c398e] text-2xl tracking-wide">
             {"★".repeat(stars)}
@@ -104,9 +99,12 @@ function Section({ title, subtitle, stars, data, features }) {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {/* ✅ item._id ya item.title as key */}
-        {data.map((item) => (
-          <Card key={item._id || item.title} item={{ ...item, features }} />
+        {/* ✅ FIX: index fallback add kiya — _id ya title undefined ho toh bhi unique key */}
+        {data.map((item, index) => (
+          <Card
+            key={index}
+            item={{ ...item, features }}
+          />
         ))}
       </div>
     </div>
@@ -114,7 +112,6 @@ function Section({ title, subtitle, stars, data, features }) {
 }
 
 export default function Threeandfourstar({ month = "January" }) {
-  // ✅ Clean capitalize util
   const monthName = month.charAt(0).toUpperCase() + month.slice(1).toLowerCase();
   const { packages3Star, packages4Star, loading, error } = useMonthlyPackages(month);
 
@@ -141,7 +138,6 @@ export default function Threeandfourstar({ month = "January" }) {
     );
   }
 
-  // ✅ Correct empty check — object exist karta hai lekin packages empty ho sakti hain
   const has3Star = packages3Star?.packages?.length > 0;
   const has4Star = packages4Star?.packages?.length > 0;
 
@@ -169,7 +165,6 @@ export default function Threeandfourstar({ month = "January" }) {
           />
         )}
 
-        {/* ✅ Sahi empty check */}
         {!has3Star && !has4Star && (
           <div className="text-center py-20 text-[#4A5565]">
             {monthName} ke liye abhi koi 3★ / 4★ packages available nahi hain.

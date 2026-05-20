@@ -52,14 +52,10 @@ export default function ShiftingHajjSection() {
   return (
     <section className="relative overflow-hidden">
       {/* Background Image */}
-      <div className="absolute w-full inset-0">
-        <img
-          src="/Images/BackGround.webp"
-          alt="Hajj background"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0" />
-      </div>
+  // ORIGINAL - Line 55-57
+<div className="absolute inset-0 w-full h-full">
+  <img src="/Images/BackGround.webp" className="w-full h-full object-cover"/>
+</div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">

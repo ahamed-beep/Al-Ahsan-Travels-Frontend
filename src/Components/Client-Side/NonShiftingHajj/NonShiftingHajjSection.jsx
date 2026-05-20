@@ -53,11 +53,7 @@ export default function NonShiftingHajjSection() {
     <section className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute w-full inset-0">
-        <img
-          src="/Images/BackGround.webp"
-          alt="Hajj background"
-          className="h-full w-full object-cover"
-        />
+        <img src="/Images/BackGround.webp" className="h-full w-full object-cover"/>
         <div className="absolute inset-0" />
       </div>
 

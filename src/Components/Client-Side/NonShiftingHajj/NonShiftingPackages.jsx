@@ -9,10 +9,10 @@ import axiosInstance from "@/lib/axios";
 import { API_NON_SHIFTING_HAJJ } from "@/constants/api";
 
 const TAG_ICONS = {
-  Visa:      <FaPassport size={12} />,
+  Visa: <FaPassport size={12} />,
   Transport: <FaBus size={12} />,
-  Meals:     <FaUtensils size={12} />,
-  Guide:     <FaUser size={12} />,
+  Meals: <FaUtensils size={12} />,
+  Guide: <FaUser size={12} />,
 };
 
 export default function NonShiftingPackages() {
@@ -59,7 +59,7 @@ export default function NonShiftingPackages() {
             <div className="flex flex-col lg:flex-row">
               {/* Image */}
               <div className="w-full lg:w-1/2 h-50 sm:h-52 lg:h-auto relative">
-                <img
+                <Image
                   src={pkg.imageUrl}
                   alt={pkg.title}
                   fill

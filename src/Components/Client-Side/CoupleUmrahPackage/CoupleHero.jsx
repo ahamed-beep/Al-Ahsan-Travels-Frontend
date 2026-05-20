@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Heart ,  } from "lucide-react";
+import { Check, Heart, } from "lucide-react";
 
 export default function CoupleHero() {
     const [formData, setFormData] = useState({
@@ -42,24 +42,24 @@ export default function CoupleHero() {
                 {/* LEFT SIDE */}
                 <div className="flex flex-col items-center justify-center text-center gap-5">
                     <span className="bg-[#FFFFFF] bg-opacity-80 px-5 py-2 whitespace-nowrap rounded-full text-sm border border-[#FFCCD380] text-gray-400 inline-flex items-center gap-2">
-                        <Heart  className="w-4 h-4 text-red-400" /> Designed for Couples
+                        <Heart className="w-4 h-4 text-red-400" /> Designed for Couples
                     </span><h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
                         <span className="text-white">Couple Umrah Packages</span>
 
                     </h1>
                     <p className="text-gray-200  max-w-xl">
-                        Embark on a sacred journey together with packages crafted for comfort and intimacy     </p>          
-                             <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
-                            <span className="flex items-center gap-1">
-                                <Check className="w-4 h-4 text-[#8EC5FF]" /> Flights Included
-                            </span>
-                            <span className="flex items-center gap-1">
-                                <Check className="w-4 h-4 text-[#8EC5FF]" />Visa Included
-                            </span>
-                            <span className="flex items-center gap-1">
-                                <Check className="w-4 h-4 text-[#8EC5FF]" />Private Rooms
-                            </span>
-                        </div>
+                        Embark on a sacred journey together with packages crafted for comfort and intimacy     </p>
+                    <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-[#FFFFFF]">
+                        <span className="flex items-center gap-1">
+                            <Check className="w-4 h-4 text-[#8EC5FF]" /> Flights Included
+                        </span>
+                        <span className="flex items-center gap-1">
+                            <Check className="w-4 h-4 text-[#8EC5FF]" />Visa Included
+                        </span>
+                        <span className="flex items-center gap-1">
+                            <Check className="w-4 h-4 text-[#8EC5FF]" />Private Rooms
+                        </span>
+                    </div>
                 </div>
 
                 {/* RIGHT SIDE — Form Card */}
@@ -121,8 +121,10 @@ export default function CoupleHero() {
                                 </div>
                                 <div>
                                     <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
-                                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin">
+                                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
                                         Departure Airport
                                     </label>
                                     <input
