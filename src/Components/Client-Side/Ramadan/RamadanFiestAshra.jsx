@@ -16,6 +16,28 @@ function StarRating({ count }) {
   );
 }
 
+// ✅ "Most Popular" wala card hamesha center (index 1) pe aaye
+function sortPackagesPopularCenter(pkgs) {
+  if (!pkgs || pkgs.length === 0) return pkgs;
+  
+  // Agar 3 cards nahi hain to original order return karo
+  if (pkgs.length !== 3) return pkgs;
+
+  // Find popular card
+  const popularIndex = pkgs.findIndex(
+    (p) => p.badge && p.badge.toLowerCase().includes("popular")
+  );
+
+  // Agar popular card nahi mila ya already center pe hai to return as is
+  if (popularIndex === -1 || popularIndex === 1) return pkgs;
+
+  // Swap popular card with center position
+  const sorted = [...pkgs];
+  [sorted[1], sorted[popularIndex]] = [sorted[popularIndex], sorted[1]];
+  
+  return sorted;
+}
+
 function PackageCard({ pkg }) {
   const whatsappMsg = `I'm interested in the ${pkg.title} (${pkg.price})`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMsg)}`;
@@ -104,7 +126,7 @@ function PackageCard({ pkg }) {
   );
 }
 
-export default function PackageCards() {
+export default function FirstAshraPackage() {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -112,7 +134,11 @@ export default function PackageCards() {
   useEffect(() => {
     axiosInstance
       .get(API_ASHRA_PACKAGES_BY_CATEGORY("ashra_1"))
-      .then((res) => setPackages(res.data?.data || []))
+      .then((res) => {
+        const raw = res.data?.data || [];
+        // ✅ Sirf sorting - Most Popular center mein
+        setPackages(sortPackagesPopularCenter(raw));
+      })
       .catch(() => setError("Failed to load packages."))
       .finally(() => setLoading(false));
   }, []);
