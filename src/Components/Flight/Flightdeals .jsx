@@ -113,7 +113,7 @@ export default function FlightDeals({ searchParams }) {
 
   if (loading) {
     return (
-      <section className="bg-[#FFFFFF] py-16 px-4">
+      <section  className="bg-[#FFFFFF] py-16 px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#101828] mb-3">
             Featured Flight Deals
@@ -131,7 +131,7 @@ export default function FlightDeals({ searchParams }) {
   }
 
   return (
-    <section className="bg-[#FFFFFF] py-16 px-4">
+    <section id="Flightdeals" className="bg-[#FFFFFF] py-16 px-4 scroll-mt-20">
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-[#101828] mb-3">
