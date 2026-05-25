@@ -6,16 +6,16 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/f
 
 // ─── Config (env ya constants file mein rakhein) ──────────────────────────────
 const SOCIAL_LINKS = [
-  { Icon: FaFacebookF, label: "Facebook",  href: "https://facebook.com/holycompanions"  },
-  { Icon: FaTwitter,   label: "Twitter",   href: "https://twitter.com/holycompanions"   },
+  { Icon: FaFacebookF, label: "Facebook", href: "https://facebook.com/holycompanions" },
+  { Icon: FaTwitter, label: "Twitter", href: "https://twitter.com/holycompanions" },
   { Icon: FaInstagram, label: "Instagram", href: "https://instagram.com/holycompanions" },
-  { Icon: FaLinkedinIn,label: "LinkedIn",  href: "https://linkedin.com/company/holycompanions" },
+  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/company/holycompanions" },
 ];
 
 const CONTACT = {
-  phone:   "+44 20 1234 5678",
+  phone: "+44 20 1234 5678",
   phoneTel: "tel:+442012345678",
-  email:   "info@holycompanions.co.uk",
+  email: "info@holycompanions.co.uk",
   address: "123 High Street, London, UK, E1 1AA",
 };
 
@@ -68,8 +68,15 @@ export default function Footer() {
           {/* Left nav links */}
           <nav aria-label="Main footer links">
             <ul className="space-y-2 text-sm">
-              <li><Link href="/aboutus"            className="text-[#1C398E] hover:underline">About Us</Link></li>
-              <li><Link href="/packages"            className="text-[#1C398E] hover:underline">Packages</Link></li>
+              <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
+              <li>
+                <Link
+                  href="/#FeaturedPackages"
+                  className="text-[#1C398E] hover:underline"
+                >
+                  Packages
+                </Link>
+              </li>
               <li><Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">Services</Link></li>
             </ul>
           </nav>
@@ -77,9 +84,9 @@ export default function Footer() {
           {/* Middle nav links */}
           <nav aria-label="Support footer links">
             <ul className="space-y-2 text-sm">
-              <li><Link href="/contactus"    className="text-[#1C398E] hover:underline">Contact</Link></li>
-              <li><Link href="/faqs"          className="text-[#1C398E] hover:underline">FAQs</Link></li>
-              <li><Link href="/travel-guide"  className="text-[#1C398E] hover:underline">Travel Guide</Link></li>
+              <li><Link href="/contactus" className="text-[#1C398E] hover:underline">Contact</Link></li>
+              <li><Link href="/familyumrahpackage#FAQs" className="text-[#1C398E] hover:underline">FAQs</Link></li>
+              <li><Link href="/flight#Flightdeals" className="text-[#1C398E] hover:underline">Travel Guide</Link></li>
             </ul>
           </nav>
 

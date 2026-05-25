@@ -8,6 +8,7 @@ import Testimonials from './Testimonials'
 import UmrahCTA from './UmrahCTA'
 import Footer from './Footer'
 
+
 const Combine = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const Combine = () => {
       <JourneySection/>
       <Testimonials/>
       <UmrahCTA/>
+      
       <Footer/>
     </div>
   )

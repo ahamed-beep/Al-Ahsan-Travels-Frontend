@@ -3,6 +3,7 @@ import { Users } from "lucide-react";
 import { useState } from "react";
 import axiosInstance from "@/lib/axios";
 import { API_INQUIRY_SUBMIT } from "@/constants/api";
+import Link from 'next/link';
 
 const socialLinks = [
   {
@@ -75,8 +76,8 @@ const DEFAULT_FORM = {
 
 // ── Submit state: idle | loading | success | error
 export default function HeroSection() {
-  const [form, setForm]       = useState(DEFAULT_FORM);
-  const [status, setStatus]   = useState("idle"); // idle | loading | success | error
+  const [form, setForm] = useState(DEFAULT_FORM);
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
@@ -91,12 +92,12 @@ export default function HeroSection() {
 
     try {
       await axiosInstance.post(API_INQUIRY_SUBMIT, {
-        fullName:        form.fullName,
-        phone:           form.phone,
-        departureDate:   form.departureDate   || undefined,
+        fullName: form.fullName,
+        phone: form.phone,
+        departureDate: form.departureDate || undefined,
         departureAirport: form.departureAirport || undefined,
-        adults:          form.adults   ? Number(form.adults)   : undefined,
-        children:        form.children ? Number(form.children) : undefined,
+        adults: form.adults ? Number(form.adults) : undefined,
+        children: form.children ? Number(form.children) : undefined,
       });
 
       setStatus("success");
@@ -158,15 +159,15 @@ export default function HeroSection() {
             <h1 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[52px] font-bold text-[#1e3a8a] leading-tight tracking-tight">
               Your Journey to the
               <br className="hidden sm:block" />
-               Sacred Lands
+              Sacred Lands
             </h1>
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
-              <a
-                href="/packages"
+              <Link
+                href="#FeaturedPackages"
                 className="inline-flex items-center px-5 sm:px-6 py-2 sm:py-2.5 bg-[#1e3a8a] text-white text-[13px] sm:text-[14px] font-semibold rounded-full hover:bg-[#1e40af] transition-colors shadow-md"
               >
                 View All Packages
-              </a>
+              </Link>
               <a
                 href="/contactus"
                 className="inline-flex items-center px-5 sm:px-6 py-2 sm:py-2.5 bg-white text-[#1e3a8a] text-[13px] sm:text-[14px] font-semibold rounded-full hover:bg-[#f0f4ff] transition-colors"

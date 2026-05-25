@@ -40,8 +40,8 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="w-full bg-[#ffffff]">
-      <section className="py-10 px-4 sm:px-6 lg:px-8">
+    <div id="FAQs" className="w-full bg-[#ffffff]">
+      <section  className="py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           
           {/* Heading */}
