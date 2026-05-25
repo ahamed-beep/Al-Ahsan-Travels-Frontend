@@ -197,7 +197,7 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="shrink-0" aria-label="Al-Ahsan Travels — Home">
             <img
-              src="/Images/Logo.webp"
+              src="/Images/Link.png"
               alt="Al-Ahsan Travels — Hajj & Umrah specialists"
               width={120}
               height={58}

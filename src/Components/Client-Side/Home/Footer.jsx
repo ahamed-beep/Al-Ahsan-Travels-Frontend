@@ -53,7 +53,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="mt-5">
           <img
-            src="/Images/Logo.webp"
+            src="/Images/Link.png"
             alt="Holy Companions — Hajj & Umrah Travel Agency"
             className="w-44 h-44 object-contain"   /* FIX: w-45 → w-44 (valid Tailwind) */
             width={176}                              /* FIX: explicit width/height → no CLS */
