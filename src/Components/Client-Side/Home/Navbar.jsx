@@ -373,7 +373,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Drawer Nav Items */}
+
         <ul className="p-2 m-0 list-none">
           {navItems.map((item) => {
             const isOpen = openDropdown === item.label;
