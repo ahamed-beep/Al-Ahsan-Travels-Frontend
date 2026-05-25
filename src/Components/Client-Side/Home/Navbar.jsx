@@ -364,7 +364,7 @@ export default function Navbar() {
         <div className="h-16 flex items-center px-4 border-b border-gray-100">
           <Link href="/" onClick={closeDrawer} aria-label="Al-Ahsan Travels — Home">
             <img
-              src="/Images/Logo.webp"
+              src="/Images/Link.png"
               alt="Al-Ahsan Travels"
               width={96}
               height={48}
