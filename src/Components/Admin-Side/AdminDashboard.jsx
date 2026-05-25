@@ -171,17 +171,11 @@ case "specialPackages": return <SpecialPackagesManager />;
 
 // ─── Overview Page ───────────────────────────────────────────────────────────
 function Overview() {
-  const stats = [
-    { label: "Total Users",    value: "1,240",  color: "bg-blue-50 text-blue-600" },
-    { label: "Total Revenue",  value: "$48,200", color: "bg-green-50 text-green-600" },
-    { label: "Messages",       value: "320",     color: "bg-purple-50 text-purple-600" },
-    { label: "Active Today",   value: "87",      color: "bg-orange-50 text-orange-600" },
-    
-  ];
+
 
   return (
     <div className="space-y-6">
-     
+     <h1>Dashboard Overview</h1>
     </div>
   );
 }
