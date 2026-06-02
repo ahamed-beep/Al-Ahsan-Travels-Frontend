@@ -36,7 +36,7 @@ export default function WhyTrustUs() {
           <div className="w-full">
             <div className="rounded-2xl overflow-hidden ">
               <Image
-                src="/Images/Image (Mosque).png"
+                src="/Images/Hajj.webp"
                 alt="Kaaba"
                 width={560}
                 height={350}

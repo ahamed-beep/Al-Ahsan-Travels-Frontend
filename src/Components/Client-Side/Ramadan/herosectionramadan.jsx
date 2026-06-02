@@ -66,7 +66,7 @@ export default function RamadanHajjSection() {
         <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2">
           {/* Left Content */}
           <div className="max-w-xl text-white">
-            <h1 className="text-4xl font-bold whitespace-nowrap leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold  leading-tight sm:text-5xl lg:text-6xl">
               First Ashra Ramadan <br /> <span>Umrah Packages</span>
             </h1>
 

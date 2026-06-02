@@ -23,13 +23,13 @@ export default function PlanUmrahCTA() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mt-2">
           <Link
-            href="/contact"
+            href="/contactus"
             className="px-8 py-3 bg-[#ffffff] text-[#1e3a8a] font-semibold text-sm rounded-lg hover:bg-blue-50 transition duration-300"
           >
             Contact Us
           </Link>
           <Link
-            href="/packages"
+            href="/shiftinghajj#Packages"
             className="px-8 py-3 border-2 border-white text-white font-semibold text-sm rounded-lg hover:bg-white hover:text-[#1e3a8a] transition duration-300"
           >
             View Packages

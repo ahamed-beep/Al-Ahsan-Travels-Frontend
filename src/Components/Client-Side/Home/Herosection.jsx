@@ -105,7 +105,7 @@ export default function HeroSection() {
     } catch (err) {
       setErrorMsg(
         err?.response?.data?.message ||
-        "Kuch ghalat hua. Dobara koshish karein."
+       "Something went wrong. Please try again."
       );
       setStatus("error");
     }
@@ -192,7 +192,7 @@ export default function HeroSection() {
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <p className="text-base font-semibold text-gray-800">Quote Request Bhej Di!</p>
+                  <p className="text-base font-semibold text-gray-800">Quote Submited Successfully</p>
                   <p className="text-xs text-gray-500">
                     We will contact you within 24 hours with your personalized quote.
                   </p>
@@ -200,7 +200,7 @@ export default function HeroSection() {
                     onClick={() => setStatus("idle")}
                     className="mt-2 px-5 py-2 bg-[#1e3a8a] text-white text-sm font-semibold rounded-xl hover:bg-[#1e40af] transition"
                   >
-                    Dobara Submit karo
+                    Again Submit
                   </button>
                 </div>
               ) : (
@@ -311,7 +311,7 @@ export default function HeroSection() {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                         </svg>
-                        Bhej rahe hain...
+                        Submitting...
                       </>
                     ) : (
                       <>

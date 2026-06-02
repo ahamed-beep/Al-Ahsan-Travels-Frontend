@@ -52,7 +52,7 @@ export default function HeroSpecialPackage() {
     } catch (err) {
       const msg =
         err?.response?.data?.message ||
-        "Kuch masla ho gaya. Dobara try karein.";
+        "Something went wrong. Please try again.";
       setError(Array.isArray(msg) ? msg.join(", ") : msg);
     } finally {
       setLoading(false);
@@ -114,7 +114,7 @@ export default function HeroSpecialPackage() {
             {success && (
               <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm flex items-center gap-2">
                 <Check className="w-4 h-4 shrink-0" />
-                Aap ki request submit ho gayi! Hum 24 ghantay mein rabta karein gay.
+               Your Request Submited Successfully. We will contact you within 24 hours .
               </div>
             )}
 
@@ -250,7 +250,7 @@ export default function HeroSpecialPackage() {
                 {loading ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Bhej rahe hain...
+                    Submitting...
                   </>
                 ) : (
                   <>

@@ -6,7 +6,6 @@ import { Send, Plane, Clock, FileText, Calendar, MapPin, Users, Baby } from "luc
 import axiosInstance from "@/lib/axios";
 import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
 
-// ✅ Programmatically generate karo — 12 hardcoded entries nahi
 const MONTHS = [
   "january", "february", "march", "april", "may", "june",
   "july", "august", "september", "october", "november", "december",
@@ -24,7 +23,6 @@ const monthData = Object.fromEntries(
   ])
 );
 
-// ✅ Features array — component se bahar
 const features = [
   { icon: Plane,    label: "Flights Included" },
   { icon: FileText, label: "Visa Included" },
@@ -48,7 +46,6 @@ export default function HeroSection({ month = "january" }) {
   const [success, setSuccess] = useState("");
   const [error, setError]     = useState("");
 
-  // ✅ Prev state pattern
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
@@ -80,7 +77,6 @@ export default function HeroSection({ month = "january" }) {
     setSuccess("");
 
     try {
-      // ✅ NonShiftingHajjSection wali same API + payload structure
       await axiosInstance.post(API_HAJJ_INQUIRY_SUBMIT, {
         fullName:         formData.name,
         phoneNumber:      formData.phone,
@@ -102,7 +98,7 @@ export default function HeroSection({ month = "january" }) {
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center overflow-x-hidden">
 
-      {/* ✅ next/image + dark overlay */}
+      {/* Background image + overlay */}
       <div className="absolute inset-0">
         <Image
           src={data.image}
@@ -111,124 +107,175 @@ export default function HeroSection({ month = "january" }) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0" />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid lg:grid-cols-2 gap-10 items-center">
+      {/* Main content grid */}
+      <div className="relative z-10 max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
-        {/* LEFT SIDE */}
-        <div className="text-white space-y-6 ml-8 px-3 sm:px-4">
+        {/* ── LEFT SIDE ── */}
+        <div className="text-white space-y-5 sm:space-y-6 text-center lg:text-left">
 
-          <span className="inline-flex items-center gap-2 border ml-30 border-white px-4 py-2 rounded-full text-sm w-fit">
+          {/* Badge */}
+          <span className="inline-flex items-center gap-2 border border-white/70 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-xs sm:text-sm w-fit mx-auto lg:mx-0">
             <Calendar size={14} />
             {data.label}
           </span>
 
-          <h1 className="text-3xl md:text-4xl ml-10 font-bold leading-tight">
+          {/* Heading */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             {data.heading}
-            <span className="block items-center mt-1">{data.year}</span>
+            <span className="block mt-1">{data.year}</span>
           </h1>
 
-          <p className="text-[#F3F4F6] whitespace-nowrap max-w-md">
+          {/* Subtext — removed whitespace-nowrap so it wraps on mobile */}
+          <p className="text-[#F3F4F6] text-sm sm:text-base max-w-sm mx-auto lg:mx-0">
             Choose the right package for your journey based on comfort and budget.
           </p>
 
-          {/* ✅ Features — array se */}
-          <div className="space-y-3">
+          {/* Feature pills */}
+          <div className="flex flex-col items-center lg:items-start gap-2 sm:gap-3">
             {features.map((f) => {
               const Icon = f.icon;
               return (
                 <div
                   key={f.label}
-                  className="flex items-center gap-3 bg-[#c6d7fc] text-[#1C398E] px-4 py-2 rounded-lg w-fit"
+                  className="flex items-center gap-2 sm:gap-3 bg-[#c6d7fc] text-[#1C398E] px-3 sm:px-4 py-2 rounded-lg text-sm font-medium w-fit"
                 >
-                  <Icon size={18} /> {f.label}
+                  <Icon size={16} className="shrink-0" />
+                  {f.label}
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* RIGHT SIDE FORM */}
-        <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 w-full max-w-md mx-auto">
-          <h2 className="text-xl text-[#101828] font-semibold mb-6">
+        {/* ── RIGHT SIDE — FORM ── */}
+        <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
+          <h2 className="text-lg sm:text-xl text-[#101828] font-semibold mb-5 sm:mb-6">
             Plan Your Perfect Umrah Journey
           </h2>
 
-          {/* ✅ Success message — NonShiftingHajjSection style */}
           {success && (
-            <p className="mb-4 text-sm text-green-600 text-center">{success}</p>
+            <p className="mb-4 text-sm text-green-600 bg-green-50 border border-green-200 rounded-lg px-3 py-2 text-center">
+              {success}
+            </p>
           )}
 
-          {/* ✅ Global API error */}
           {error && (
-            <p className="mb-4 text-sm text-red-500 text-center">{error}</p>
+            <p className="mb-4 text-sm text-red-500 bg-red-50 border border-red-200 rounded-lg px-3 py-2 text-center">
+              {error}
+            </p>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4 text-[#364153]">
 
             {/* Row 1 — Name + Phone */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className={labelClass}>Full Name <span className="text-red-500">*</span></label>
-                <input type="text" name="name" placeholder="Ali Khan"
-                  value={formData.name} onChange={handleChange} className={inputClass} />
+                <label className={labelClass}>
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Ali Khan"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={inputClass}
+                />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
               <div>
-                <label className={labelClass}>Phone Number <span className="text-red-500">*</span></label>
-                <input type="tel" name="phone" placeholder="+44 20 1234 5678"
-                  value={formData.phone} onChange={handleChange} className={inputClass} />
+                <label className={labelClass}>
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+44 20 1234 5678"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={inputClass}
+                />
                 {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
             </div>
 
             {/* Row 2 — Date + Airport */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className={labelClass}>
-                  <Calendar size={12} /> Departure Date <span className="text-red-500">*</span>
+                  <Calendar size={12} className="shrink-0" />
+                  Departure Date <span className="text-red-500">*</span>
                 </label>
-                <input type="date" name="date"
-                  value={formData.date} onChange={handleChange}
-                  className={`${inputClass} text-gray-500`} />
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className={`${inputClass} text-gray-500`}
+                />
                 {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date}</p>}
               </div>
               <div>
                 <label className={labelClass}>
-                  <MapPin size={12} /> Departure Airport <span className="text-red-500">*</span>
+                  <MapPin size={12} className="shrink-0" />
+                  Departure Airport <span className="text-red-500">*</span>
                 </label>
-                <input type="text" name="airport" placeholder="e.g. Heathrow"
-                  value={formData.airport} onChange={handleChange} className={inputClass} />
+                <input
+                  type="text"
+                  name="airport"
+                  placeholder="e.g. Heathrow"
+                  value={formData.airport}
+                  onChange={handleChange}
+                  className={inputClass}
+                />
                 {errors.airport && <p className="text-red-500 text-xs mt-1">{errors.airport}</p>}
               </div>
             </div>
 
             {/* Row 3 — Adults + Children */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className={labelClass}>
-                  <Users size={12} /> Adults <span className="text-red-500">*</span>
+                  <Users size={12} className="shrink-0" />
+                  Adults <span className="text-red-500">*</span>
                 </label>
-                <input type="number" name="adults" min="1" placeholder="1"
-                  value={formData.adults} onChange={handleChange} className={inputClass} />
+                <input
+                  type="number"
+                  name="adults"
+                  min="1"
+                  placeholder="1"
+                  value={formData.adults}
+                  onChange={handleChange}
+                  className={inputClass}
+                />
                 {errors.adults && <p className="text-red-500 text-xs mt-1">{errors.adults}</p>}
               </div>
               <div>
                 <label className={labelClass}>
-                  <Baby size={12} /> Children
+                  <Baby size={12} className="shrink-0" />
+                  Children
                 </label>
-                <input type="number" name="children" min="0" placeholder="0"
-                  value={formData.children} onChange={handleChange} className={inputClass} />
+                <input
+                  type="number"
+                  name="children"
+                  min="0"
+                  placeholder="0"
+                  value={formData.children}
+                  onChange={handleChange}
+                  className={inputClass}
+                />
               </div>
             </div>
 
-            {/* Submit */}
+            {/* Submit button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1C398E] hover:bg-blue-900 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition disabled:opacity-60 disabled:cursor-not-allowed font-semibold"
+              className="w-full bg-[#1C398E] hover:bg-blue-900 active:bg-blue-950 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition disabled:opacity-60 disabled:cursor-not-allowed font-semibold text-sm sm:text-base"
             >
               {loading ? (
                 <>
@@ -242,7 +289,7 @@ export default function HeroSection({ month = "january" }) {
               )}
             </button>
 
-            <p className="text-xs text-gray-500 text-center">
+            <p className="text-xs text-gray-500 text-center leading-relaxed">
               No payment required. We&apos;ll send you a personalized quote within 24 hours.
             </p>
 

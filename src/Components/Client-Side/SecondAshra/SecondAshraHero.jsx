@@ -66,7 +66,7 @@ export default function SecondAshraHero() {
         <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2">
           {/* Left Content */}
           <div className="max-w-xl text-[#FFFFFF]">
-            <h1 className="text-4xl font-bold whitespace-nowrap leading-tight sm:text-5xl lg:text-5xl">
+            <h1 className="text-4xl font-bold  leading-tight sm:text-5xl lg:text-5xl">
               Second Ashra Ramadan <br /> <span>Umrah Packages</span>
             </h1>
             <p className="mt-4 text-base flex items-center justify-center text-white/90 sm:text-lg">

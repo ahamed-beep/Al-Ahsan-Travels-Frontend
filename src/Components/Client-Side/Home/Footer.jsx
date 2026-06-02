@@ -129,7 +129,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
           <p className="text-sm text-[#1C398E] text-center md:text-left">
-            © {new Date().getFullYear()} Holy Companions. All rights reserved.
+            © {new Date().getFullYear()} Al-Ahsan-Travels
           </p>
 
           {/* FIX: Social icons → proper <a> links with aria-label */}
