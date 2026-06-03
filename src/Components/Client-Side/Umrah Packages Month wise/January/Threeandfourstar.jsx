@@ -167,7 +167,7 @@ export default function Threeandfourstar({ month = "January" }) {
 
         {!has3Star && !has4Star && (
           <div className="text-center py-20 text-[#4A5565]">
-            {monthName} ke liye abhi koi 3★ / 4★ packages available nahi hain.
+            {monthName} Not Available 3★ / 4★ packages .
           </div>
         )}
 

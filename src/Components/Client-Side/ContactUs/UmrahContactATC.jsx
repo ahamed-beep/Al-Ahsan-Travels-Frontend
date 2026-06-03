@@ -38,7 +38,7 @@ export default function UmrahContactCTA() {
           </button>
 
           <Link
-            href="/contact"
+            href="/contactus"
             className="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold px-7 py-3.5 rounded-2xl transition-colors duration-150 text-sm sm:text-base"
           >
             Contact Us

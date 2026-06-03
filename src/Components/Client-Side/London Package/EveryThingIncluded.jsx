@@ -62,32 +62,32 @@ const features = [
 
 export default function EverythingIncluded() {
   return (
-    <section className="w-full bg-[] py-14 px-4">
-      <div className="max-w-5xl bg-[#F9FAFB] mx-auto">
+    <section className="w-full py-14 px-4">
+      <div className="max-w-5xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#101828] tracking-tight mb-2">
             Everything You Need Included
           </h2>
-          <p className="text-[#4A5565] text-base sm:text-lg">
+          <p className="text-[#4A5565] text-sm sm:text-base lg:text-lg">
             Comprehensive packages with complete travel support
           </p>
         </div>
 
         {/* Card */}
-        <div className="bg-[#f4f6fb] rounded-2xl px-6 py-10 sm:px-10 sm:py-12">
-          <div className="flex flex-row justify-between items-start gap-4">
+        <div className="bg-[#f4f6fb] rounded-2xl px-5 py-8 sm:px-10 sm:py-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
             {features.map((feature, i) => (
-              <div key={i} className="flex flex-col items-center text-center gap-4 flex-1">
+              <div key={i} className="flex flex-col items-center text-center gap-3">
 
                 {/* Icon Box */}
                 <div
                   style={{
                     backgroundColor: "#E8ECFB",
                     borderRadius: "16px",
-                    width: "62px",
-                    height: "62px",
+                    width: "58px",
+                    height: "58px",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

@@ -100,7 +100,7 @@ export default function FiveStarPackages({ month = "january" }) {
   if (!packages5Star || !packages5Star.packages?.length) {
     return (
       <section className="w-full py-14 bg-[#FFFFFF] text-center text-[#4A5565]">
-        {monthName} ke liye abhi koi 5★ packages available nahi hain.
+        {monthName} Not Available 5★ packages  
       </section>
     );
   }

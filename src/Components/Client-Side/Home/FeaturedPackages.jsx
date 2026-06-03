@@ -111,7 +111,7 @@ export default function FeaturedPackages() {
       } catch (err) {
         if (err.name !== "CanceledError" && err.name !== "AbortError") {
           console.error("Packages load nahi hue:", err);
-          setError("Packages load karne mein masla hua. Dobara koshish karein.");
+          setError("No Package Available");
         }
       } finally {
         setLoading(false);
@@ -161,7 +161,7 @@ export default function FeaturedPackages() {
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             aria-busy="true"
-            aria-label="Packages load ho rahe hain"
+            aria-label="Package In Process"
           >
             {[1, 2, 3].map((i) => <SkeletonCard key={i} />)}
           </div>
@@ -178,14 +178,14 @@ export default function FeaturedPackages() {
               onClick={() => { setError(null); setLoading(true); }}
               className="bg-[#1C398E] text-white px-4 py-2 rounded-full text-sm hover:bg-[#162d70] transition"
             >
-              Dobara koshish karein
+              Try Again
             </button>
           </div>
         )}
 
         {/* Empty state */}
         {!loading && !error && total === 0 && (
-          <p className="text-gray-400 py-10">Abhi koi package available nahi hai</p>
+          <p className="text-gray-400 py-10">No Package Available</p>
         )}
 
         {/* Show All grid */}

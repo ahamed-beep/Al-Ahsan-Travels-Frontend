@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function NonHajjBanner() {
   const [hovered, setHovered] = useState(false);
@@ -63,41 +64,45 @@ export default function NonHajjBanner() {
           </p>
 
           {/* CTA Button */}
-          <button
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            className="inline-flex items-center gap-2 font-semibold rounded-full border-0 cursor-pointer transition-all duration-200"
-            style={{
-              background: hovered ? "#f0f4ff" : "#ffffff",
-              color: "#1e3a8a",
-              padding: "0.65rem 1.8rem",
-              fontSize: "clamp(0.85rem, 2vw, 0.97rem)",
-              boxShadow: hovered
-                ? "0 8px 32px rgba(30,58,138,0.22)"
-                : "0 2px 12px rgba(0,0,0,0.10)",
-              transform: hovered ? "translateY(-2px) scale(1.03)" : "translateY(0) scale(1)",
-              letterSpacing: "0.01em",
-            }}
-          >
-            View All Packages
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{
-                transition: "transform 0.2s",
-                transform: hovered ? "translateX(3px)" : "translateX(0)",
-              }}
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
+          <Link
+  href="#packages"
+  onMouseEnter={() => setHovered(true)}
+  onMouseLeave={() => setHovered(false)}
+  className="inline-flex items-center gap-2 font-semibold rounded-full border-0 cursor-pointer transition-all duration-200"
+  style={{
+    background: hovered ? "#f0f4ff" : "#ffffff",
+    color: "#1e3a8a",
+    padding: "0.65rem 1.8rem",
+    fontSize: "clamp(0.85rem, 2vw, 0.97rem)",
+    boxShadow: hovered
+      ? "0 8px 32px rgba(30,58,138,0.22)"
+      : "0 2px 12px rgba(0,0,0,0.10)",
+    transform: hovered
+      ? "translateY(-2px) scale(1.03)"
+      : "translateY(0) scale(1)",
+    letterSpacing: "0.01em",
+  }}
+>
+  View All Packages
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{
+      transition: "transform 0.2s",
+      transform: hovered ? "translateX(3px)" : "translateX(0)",
+    }}
+  >
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+</Link>
         </div>
       </div>
     </div>
