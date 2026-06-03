@@ -171,46 +171,11 @@ case "specialPackages": return <SpecialPackagesManager />;
 
 // ─── Overview Page ───────────────────────────────────────────────────────────
 function Overview() {
-  const stats = [
-    { label: "Total Users",    value: "1,240",  color: "bg-blue-50 text-blue-600" },
-    { label: "Total Revenue",  value: "$48,200", color: "bg-green-50 text-green-600" },
-    { label: "Messages",       value: "320",     color: "bg-purple-50 text-purple-600" },
-    { label: "Active Today",   value: "87",      color: "bg-orange-50 text-orange-600" },
-    
-  ];
+
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold text-gray-800">Welcome back, Admin 👋</h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {stats.map((s) => (
-          <div key={s.label} className={`rounded-xl p-5 ${s.color}`}>
-            <p className="text-sm font-medium opacity-75">{s.label}</p>
-            <p className="text-2xl font-bold mt-1">{s.value}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <h3 className="font-semibold text-gray-700 mb-4">Recent Activity</h3>
-        <ul className="divide-y divide-gray-100">
-          {[
-            { user: "Ali Hassan",    action: "New registration",   time: "2 min ago" },
-            { user: "Sara Khan",     action: "Withdrawal request", time: "15 min ago" },
-            { user: "Ahmed Raza",    action: "Package upgraded",   time: "1 hr ago" },
-            { user: "Fatima Malik",  action: "New registration",   time: "3 hr ago" },
-          ].map((item, i) => (
-            <li key={i} className="flex items-center justify-between py-3">
-              <div>
-                <p className="text-sm font-medium text-gray-800">{item.user}</p>
-                <p className="text-xs text-gray-500">{item.action}</p>
-              </div>
-              <span className="text-xs text-gray-400">{item.time}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+     <h1>Dashboard Overview</h1>
     </div>
   );
 }

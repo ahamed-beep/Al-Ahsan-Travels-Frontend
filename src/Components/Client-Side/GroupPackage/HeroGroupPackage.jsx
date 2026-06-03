@@ -85,7 +85,7 @@ export default function HeroSpecialPackage() {
             enriching journey designed for families
           </p>
 
-          <div className="flex flex- whitespace-nowrap justify-center lg:justify-start gap-3 text-sm text-white max-w-md mx-auto lg:mx-0">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-2 text-sm text-white max-w-md mx-auto lg:mx-0">
             <span className="flex items-center gap-2 bg-[#2B7FFF33] px-3 py-1 rounded-full whitespace-nowrap">
               <Check className="w-4 h-4 text-white" />
               Flights + Visa Included

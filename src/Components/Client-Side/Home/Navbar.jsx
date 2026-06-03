@@ -197,7 +197,7 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="shrink-0" aria-label="Al-Ahsan Travels — Home">
             <img
-              src="/Images/Logo.webp"
+              src="/Images/Link.png"
               alt="Al-Ahsan Travels — Hajj & Umrah specialists"
               width={120}
               height={58}
@@ -364,7 +364,7 @@ export default function Navbar() {
         <div className="h-16 flex items-center px-4 border-b border-gray-100">
           <Link href="/" onClick={closeDrawer} aria-label="Al-Ahsan Travels — Home">
             <img
-              src="/Images/Logo.webp"
+              src="/Images/Link.png"
               alt="Al-Ahsan Travels"
               width={96}
               height={48}
@@ -373,7 +373,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Drawer Nav Items */}
+
         <ul className="p-2 m-0 list-none">
           {navItems.map((item) => {
             const isOpen = openDropdown === item.label;

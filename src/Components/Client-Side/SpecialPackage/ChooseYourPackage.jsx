@@ -162,7 +162,7 @@ export default function FamilyPackages() {
       </div>
 
       {packages.length === 0 ? (
-        <div className="text-center text-gray-400 py-20">Koi package available nahi hai.</div>
+        <div className="text-center text-gray-400 py-20">No Package Available</div>
       ) : (
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {packages.map((pkg) => (

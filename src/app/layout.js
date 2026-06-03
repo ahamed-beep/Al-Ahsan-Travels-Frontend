@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Al-Ahsan Travels",
-  description: "Al-Ahsan Travels - Your trusted travel partner for Hajj, Umrah, and worldwide tours",
+  description: "Hajj & Umrah Specialists",
 };
 
 export default function RootLayout({ children }) {
