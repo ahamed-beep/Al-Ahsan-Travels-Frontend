@@ -142,8 +142,8 @@ export default function Threeandfourstar({ month = "January" }) {
   const has4Star = packages4Star?.packages?.length > 0;
 
   return (
-    <div className="bg-white py-10 px-8 md:px-10">
-      <div className="max-w-7xl px-8 mx-auto">
+    <div className="bg-white py-10 px-2 md:px-10">
+      <div className="max-w-7xl px-4 mx-auto">
 
         {has3Star && (
           <Section

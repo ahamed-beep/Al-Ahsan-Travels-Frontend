@@ -81,8 +81,6 @@ export default function FourStarHero() {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/45" />
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">

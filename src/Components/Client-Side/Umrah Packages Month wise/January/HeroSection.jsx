@@ -108,7 +108,7 @@ export default function HeroSection({ month = "january" }) {
           className="object-cover"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* Main content grid */}
@@ -135,7 +135,7 @@ export default function HeroSection({ month = "january" }) {
           </p>
 
           {/* Feature pills */}
-          <div className="flex flex-col items-center lg:items-start gap-2 sm:gap-3">
+          <div className="flex flex-col items-start lg:items-start gap-2 sm:gap-3">
             {features.map((f) => {
               const Icon = f.icon;
               return (

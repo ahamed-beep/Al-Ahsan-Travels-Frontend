@@ -48,7 +48,7 @@ export default function NonHajjBanner() {
               textShadow: "0 2px 12px rgba(0,0,0,0.18)",
             }}
           >
-            Find the Right Package for Your Budget
+            Choose Comfort for Your Sacred Journey
           </h2>
 
           {/* Subtitle */}
@@ -60,7 +60,7 @@ export default function NonHajjBanner() {
               letterSpacing: "0.01em",
             }}
           >
-            Explore all our Hajj packages and choose what works best for you
+            Let us handle the details while you focus on your spiritual experience
           </p>
 
           {/* CTA Button */}

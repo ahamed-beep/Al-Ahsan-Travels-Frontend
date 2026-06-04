@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axiosInstance from "@/lib/axios";
 import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
+import Link from "next/link"
 
 export default function SecondAshraHero() {
   const [formData, setFormData] = useState({
@@ -58,7 +59,7 @@ export default function SecondAshraHero() {
           alt="Hajj background"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 " />
       </div>
 
       {/* Content */}
@@ -69,13 +70,13 @@ export default function SecondAshraHero() {
             <h1 className="text-4xl font-bold  leading-tight sm:text-5xl lg:text-5xl">
               Second Ashra Ramadan <br /> <span>Umrah Packages</span>
             </h1>
-            <p className="mt-4 text-base flex items-center justify-center text-white/90 sm:text-lg">
+            <p className="mt-4 text-base flex items-center justify-start text-white/90 sm:text-lg">
               Seek forgiveness in the holy cities during the blessed <br /> days of Maghfirah
             </p>
-            <div className="mt-8 flex items-center justify-center space-y-5">
-              <div className="inline-flex min-h-[52px] w-full max-w-[171px] items-center justify-center gap-3 rounded-2xl bg-white px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span>Get Quote</span>
-              </div>
+            <div className="mt-8 flex items-center justify-start md:justify-start space-y-5">
+              <Link href="/#hero" className="inline-flex min-h-[52px] w-full max-w-[171px] items-center justify-center gap-3 rounded-2xl bg-white px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
+  <span>Get Quote</span>
+</Link>
             </div>
           </div>
 

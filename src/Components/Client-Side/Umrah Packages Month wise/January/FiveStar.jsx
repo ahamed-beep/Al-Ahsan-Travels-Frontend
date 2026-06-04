@@ -106,9 +106,9 @@ export default function FiveStarPackages({ month = "january" }) {
   }
 
   return (
-    <section className="w-full py-14 bg-[#FFFFFF]">
+    <section className="w-full px-2 bg-[#FFFFFF]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-15 px-8">
+        <div className="mb-15 px-2">
           <div className="flex text-[#1c398e] text-2xl">
             {[...Array(5)].map((_, i) => (
               <span key={i}>★</span>
@@ -122,7 +122,7 @@ export default function FiveStarPackages({ month = "january" }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 px-8 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 px-4 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {packages5Star.packages.map((item, i) => (
             <Card key={i} item={item} features={packages5Star.features} />
           ))}

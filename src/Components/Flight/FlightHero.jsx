@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plane } from "lucide-react";
+import Link from "next/link"
 import {
   FaMapMarkerAlt,
   FaRegCalendarAlt,
@@ -90,9 +91,9 @@ const handleSearch = () => {
               <FaSearch /> Search Flights
             </button>
 
-            <button className="flex items-center justify-center gap-2 border border-[#1C398E] text-[#2B7FFF] bg-[#ffffff] px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold w-full sm:w-auto">
-              Get Quote <FiChevronRight />
-            </button>
+            <Link href="/#hero" className="flex items-center justify-center gap-2 border border-[#1C398E] text-[#2B7FFF] bg-[#ffffff] px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold w-full sm:w-auto">
+  Get Quote <FiChevronRight />
+</Link>
           </div>
         </div>
 

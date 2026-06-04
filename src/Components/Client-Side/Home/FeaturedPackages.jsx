@@ -146,7 +146,7 @@ export default function FeaturedPackages() {
 
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
-    <section id="FeaturedPackages" className="bg-white py-16 px-4 sm:px-6 lg:px-12">
+    <section id="FeaturedPackages" className="bg-white py-16  sm:px-6 lg:px-12">
       <div className="max-w-7xl mx-auto text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold text-[#1F1F1F] mb-3">

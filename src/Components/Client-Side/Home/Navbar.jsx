@@ -191,7 +191,7 @@ export default function Navbar() {
       aria-label="Main navigation"
       className="w-full bg-white border-b border-gray-100 shadow-sm relative z-50"
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="w-full sm:px-2 lg:px-1">
         <div className="flex items-center justify-between h-16 sm:h-[70px]">
 
           {/* ── Logo ── */}
@@ -200,8 +200,8 @@ export default function Navbar() {
               src="/Images/Link.png"
               alt="Al-Ahsan Travels — Hajj & Umrah specialists"
               width={120}
-              height={58}
-              className="h-[58px] w-auto object-contain"
+              height={60}
+              className="h-[60px] w-auto object-contain"
               loading="eager"
             />
           </Link>

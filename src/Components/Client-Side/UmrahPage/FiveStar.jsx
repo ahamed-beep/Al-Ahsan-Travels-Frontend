@@ -124,7 +124,7 @@ function PackageSection({ title, subtitle, category, starLabel }) {
       {error && <p className="text-red-500 text-sm">{error}</p>}
 
       {!loading && !error && packages.length === 0 && (
-        <p className="text-[#4A5565] text-sm">Is waqt koi package available nahi hai.</p>
+        <p className="text-[#4A5565] text-sm">No package Available .</p>
       )}
 
       {!loading && !error && packages.length > 0 && (

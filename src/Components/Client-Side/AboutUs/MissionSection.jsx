@@ -46,7 +46,7 @@ export default function MissionSection() {
           <div className="w-full">
             <div className="rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="Images/Contact-kabba.webp" // 👈 apni image path lagao
+                src="Images/Contact-kabba.webp" 
                 alt="Kaaba"
                 className="w-full h-[536px] object-cover"
               />
