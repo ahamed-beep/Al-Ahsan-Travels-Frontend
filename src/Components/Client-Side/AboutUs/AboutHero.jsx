@@ -27,7 +27,7 @@ export default function AboutHero() {
   );
 
   return (
-    <section className="bg-white min-h-screen flex flex-col items-center justify-center py-16 sm:py-20">
+    <section className="bg-white min-h-screen flex flex-col items-center justify-center py-8 sm:py-8">
       <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 w-full flex flex-col gap-8">
 
         {/* TRUSTPILOT — top center on desktop, left on mobile */}

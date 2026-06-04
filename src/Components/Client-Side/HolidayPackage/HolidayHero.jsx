@@ -82,7 +82,7 @@ export default function HolidayHero() {
             />
 
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/45" />
+            <div className="absolute inset-0 " />
 
             {/* Content */}
             <div className="relative z-10 max-w-7xl w-full px-4 py-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">

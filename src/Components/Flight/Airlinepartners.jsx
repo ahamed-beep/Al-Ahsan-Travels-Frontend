@@ -10,11 +10,12 @@ const airlines = [
     { id: 7, name: "Pegasus" },
 ];
 
+const AIRLINE_IMAGE = "/images/airline-logo.png";
+
 export default function AirlinePartners() {
     return (
         <section className="bg-[#F9FAFB] py-16 px-4">
 
-            {/* Header */}
             <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold text-[#101828] mb-2">
                     Our Airline Partners
@@ -24,7 +25,6 @@ export default function AirlinePartners() {
                 </p>
             </div>
 
-            {/* Cards Row */}
             <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-4">
                 {airlines.map((airline) => (
                     <div
@@ -32,9 +32,11 @@ export default function AirlinePartners() {
                         className="bg-[#FFFFFF] rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col items-center justify-center gap-3 p-5"
                         style={{ width: "110px", minHeight: "100px" }}
                     >
-                        {/* Icon */}
-                        <div className="text-2xl">✈️</div>
-                        {/* Name */}
+                        <img
+                            src="/Flightpage.webp"
+                            alt={airline.name}
+                            className="w-10 h-10 object-contain"
+                        />
                         <span className="text-xs whitespace-nowrap text-[#364153] font-medium text-center leading-tight">
                             {airline.name}
                         </span>

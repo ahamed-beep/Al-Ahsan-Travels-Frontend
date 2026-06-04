@@ -31,7 +31,6 @@ export default function BestTimeToBook() {
     <section className="w-full bg-white py-14 px-4">
       <div className="max-w-4xl mx-auto">
 
-        {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] tracking-tight mb-2">
             Best Time to Book from London
@@ -41,21 +40,17 @@ export default function BestTimeToBook() {
           </p>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
           {months.map((month, i) => (
             <div key={i} className="bg-blue-100 rounded-2xl px-8 py-10 flex flex-col items-center text-center gap-5">
 
-              {/* Icon — top center */}
               <div className="w-12 h-12 rounded-full bg-[#1C398E] flex items-center justify-center shrink-0">
                 <CalendarIcon />
               </div>
 
-              {/* Month Name */}
               <h3 className="text-xl font-bold text-[#101828]">{month.name}</h3>
 
-              {/* Price & Crowds */}
-              <div className="flex flex-col gap-2 text-sm ml-20 text-[#101828] w-full text-left">
+              <div className="flex flex-col gap-2 text-sm text-[#101828] items-center">
                 <p className="flex items-center gap-1">
                   <TrendDownIcon />
                   <span className="font-semibold">Price:</span>&nbsp;
@@ -72,7 +67,6 @@ export default function BestTimeToBook() {
           ))}
         </div>
 
-        {/* Footer note */}
         <p className="text-center text-[#4A5565] text-sm">
           Book during January–March for the best value and peaceful experience
         </p>

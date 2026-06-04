@@ -72,7 +72,7 @@ export default function LoginPage() {
       router.replace("/admin-dashboard");
 
     } catch (err) {
-      setError(err.response?.data?.message || "Login fail hua. Credentials check karein.");
+      setError(err.response?.data?.message || "Login failed , Please Try Again");
     } finally {
       setLoading(false);
     }
@@ -83,7 +83,7 @@ export default function LoginPage() {
       <div className="bg-white shadow-md rounded-2xl w-full max-w-sm p-8">
 
         <h2 className="text-2xl font-semibold text-center mb-1">Admin Login</h2>
-        <p className="text-gray-500 text-sm text-center mb-6">Apni details enter karein</p>
+        <p className="text-gray-500 text-sm text-center mb-6">Enter your details </p>
 
         {error && (
           <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
@@ -128,7 +128,7 @@ export default function LoginPage() {
               loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
             }`}
           >
-            {loading ? "Login ho raha hai..." : "Login"}
+            {loading ? "Please Wait..." : "Login"}
           </button>
         </form>
       </div>

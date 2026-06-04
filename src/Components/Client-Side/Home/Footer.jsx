@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
-// ─── Config (env ya constants file mein rakhein) ──────────────────────────────
 const SOCIAL_LINKS = [
   { Icon: FaFacebookF, label: "Facebook", href: "https://facebook.com/holycompanions" },
   { Icon: FaTwitter, label: "Twitter", href: "https://twitter.com/holycompanions" },
@@ -19,7 +18,6 @@ const CONTACT = {
   address: "123 High Street, London, UK, E1 1AA",
 };
 
-// ─── JSON-LD structured data (SEO boost — LocalBusiness schema) ───────────────
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
@@ -37,12 +35,10 @@ const structuredData = {
   sameAs: SOCIAL_LINKS.map((s) => s.href),
 };
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-600 pb-8 px-4 sm:px-6 lg:px-12">
+    <footer className="bg-white text-gray-600 pb-8 px-4 sm:px- lg:px-12">
 
-      {/* FIX: Structured data for Google */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -50,22 +46,20 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto">
 
-        {/* Logo */}
-        <div className="mt-5">
+        <div  className="me-10">
           <img
             src="/Images/Link.png"
             alt="Holy Companions — Hajj & Umrah Travel Agency"
-            className="w-44 h-44 object-contain"   /* FIX: w-45 → w-44 (valid Tailwind) */
-            width={176}                              /* FIX: explicit width/height → no CLS */
-            height={176}
-            loading="eager"                          /* logo above-fold hai, eager rakhein */
+            className="w-80 h-80 object-contain "  
+            width={186}                              
+            height={186}
+            loading="eager"                          
           />
         </div>
 
         {/* Top grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
 
-          {/* Left nav links */}
           <nav aria-label="Main footer links">
             <ul className="space-y-2 text-sm">
               <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
@@ -81,7 +75,6 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Middle nav links */}
           <nav aria-label="Support footer links">
             <ul className="space-y-2 text-sm">
               <li><Link href="/contactus" className="text-[#1C398E] hover:underline">Contact</Link></li>
@@ -90,11 +83,9 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Contact info */}
           <address className="not-italic">
             <ul className="space-y-4 text-sm">
 
-              {/* FIX: tel: link — mobile pe tap-to-call chalega */}
               <li className="flex items-center gap-2 text-[#1C398E]">
                 <Phone size={16} aria-hidden="true" />
                 <a href={CONTACT.phoneTel} className="hover:underline">
@@ -102,7 +93,6 @@ export default function Footer() {
                 </a>
               </li>
 
-              {/* FIX: mailto: link */}
               <li className="flex items-center gap-2 text-[#1C398E]">
                 <Mail size={16} aria-hidden="true" />
                 <a href={`mailto:${CONTACT.email}`} className="hover:underline">
@@ -122,21 +112,18 @@ export default function Footer() {
           </address>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-gray-300 my-8 mb-5" />
 
-        {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
           <p className="text-sm text-[#1C398E] text-center md:text-left">
             © {new Date().getFullYear()} Al-Ahsan-Travels
           </p>
 
-          {/* FIX: Social icons → proper <a> links with aria-label */}
           <div className="flex items-center gap-3" aria-label="Social media links">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
               <a
-                key={label}                        /* FIX: index key → stable string key */
+                key={label}                        
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"

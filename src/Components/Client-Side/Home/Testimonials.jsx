@@ -17,22 +17,38 @@ export default function Testimonials() {
       name: "Ali Khan",
       initials: "AK",
       review:
-        "Excellent service from start to finish. Hotels were amazing and everything was smooth.",
+        "Excellent service from start to finish. Hotels were amazing and everything was smooth. Highly recommend Al-Ahsan Travel to anyone planning Umrah.",
       location: "Karachi, PK",
       package: "Umrah Package",
       date: "1 month ago",
+    },
+    {
+      name: "Fatima Malik",
+      initials: "FM",
+      review:
+        "As a first-time pilgrim, I was nervous about the journey. Al-Ahsan Travel made every step easy and stress-free. The guides were knowledgeable and always available.",
+      location: "Birmingham, UK",
+      package: "Standard Umrah Package",
+      date: "3 weeks ago",
+    },
+    {
+      name: "Usman Siddiqui",
+      initials: "US",
+      review:
+        "We travelled as a family of six including elderly parents. The team arranged everything with great care — wheelchair assistance, close hotels, and constant support throughout.",
+      location: "Manchester, UK",
+      package: "Family Umrah Package",
+      date: "2 months ago",
     },
   ];
 
   const [current, setCurrent] = useState(0);
 
-  const prevSlide = () => {
+  const prevSlide = () =>
     setCurrent((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
 
-  const nextSlide = () => {
+  const nextSlide = () =>
     setCurrent((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
 
   const t = testimonials[current];
 
@@ -49,11 +65,11 @@ export default function Testimonials() {
         </p>
 
         {/* Card */}
-        <div className="mt-10 bg-[#FFFFFF] rounded-2xl shadow-lg p-8 md:p-10 relative">
+        <div className="mt-10 bg-white rounded-2xl shadow-lg p-8 md:p-10">
 
           {/* Avatar */}
           <div className="flex justify-center">
-            <div className="w-16 h-16 rounded-full bg-[#2b4c9a] text-[#ffffff] flex items-center justify-center text-lg font-bold">
+            <div className="w-16 h-16 rounded-full bg-[#2b4c9a] text-white flex items-center justify-center text-lg font-bold">
               {t.initials}
             </div>
           </div>
@@ -72,32 +88,28 @@ export default function Testimonials() {
           <p className="text-[#364153] italic mt-4 text-sm md:text-base max-w-2xl mx-auto">
             "{t.review}"
           </p>
+
           {/* Footer Info */}
-          <div className="mt-6 ml-20 text-xs text-gray-500 flex flex-wrap  gap-3">
+          <div className="mt-6 text-xs text-gray-500 flex flex-wrap justify-center gap-3">
             <span className="bg-[#51A2FF33] text-[#1C398E] px-2 py-1 rounded-full text-[10px]">
               ✓ Verified
             </span>
             <span className="text-[#6A7282]">{t.date}</span>
           </div>
-          <div className="mt-2 ml-20 text-xs text-gray-500 flex flex-wrap gap-3">
+          <div className="mt-2 text-xs text-gray-500 flex flex-wrap justify-center gap-3">
             <span className="text-[#4A5565]">Completed {t.package}</span>
-            <span className="cursor-pointer" style={{ color: "#155DFC" }}>
-              {t.package} </span>    
             <span>{t.location}</span>
-          </div>        </div>
+          </div>
+        </div>
 
         {/* Controls */}
         <div className="flex justify-center items-center gap-4 mt-6">
-
-          {/* Prev */}
           <button
             onClick={prevSlide}
             className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-200"
           >
             <ChevronLeft size={20} />
           </button>
-
-          {/* Next */}
           <button
             onClick={nextSlide}
             className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-200"
@@ -111,11 +123,10 @@ export default function Testimonials() {
           {testimonials.map((_, index) => (
             <div
               key={index}
-              className={`h-2 rounded-full ${index === current
-                ? "w-6 bg-[#2b4c9a]"
-                : "w-2 bg-gray-300"
-                }`}
-            ></div>
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === current ? "w-6 bg-[#2b4c9a]" : "w-2 bg-gray-300"
+              }`}
+            />
           ))}
         </div>
 
