@@ -28,10 +28,10 @@ function FeaturePill({ icon, label }) {
 }
 
 function PackageCard({ pkg }) {
-  function handleWhatsApp() {
-    const url = "https://wa.me/?text=" + encodeURIComponent("I'm interested in the " + pkg.title + " (" + pkg.price + ")");
-    window.open(url, "_blank");
-  }
+ function handleWhatsApp() {
+  const url = "https://wa.me/447440064066?text=" + encodeURIComponent("I'm interested in the " + pkg.title + " (" + pkg.price + ")");
+  window.open(url, "_blank");
+}
 
   return (
     <div

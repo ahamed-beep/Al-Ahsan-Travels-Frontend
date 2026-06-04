@@ -4,12 +4,12 @@ import { Phone, MessageCircle, Users, Mail, Headphones } from "lucide-react";
 
 export default function HeroContactUs() {
   function handleCall() {
-    window.location.href = "tel:+441234567890";
+    window.location.href = "tel:+447440064066";
   }
 
   function handleWhatsApp() {
     const url =
-      "https://wa.me/441234567890?text=" +
+      "https://wa.me/447440064066?text=" +
       encodeURIComponent(
         "Assalamu Alaikum, I would like to inquire about Umrah packages."
       );
@@ -17,7 +17,7 @@ export default function HeroContactUs() {
   }
 
   function handleEmail() {
-    window.location.href = "mailto:info@ihsantravels.com";
+    window.location.href = "mailto:info@alahsantravels.co.uk.";
   }
 
   return (

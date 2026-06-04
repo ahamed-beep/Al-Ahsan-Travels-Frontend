@@ -63,9 +63,8 @@ function StarRating({ count }) {
 }
 
 function PackageCard({ pkg }) {
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(pkg.whatsappMsg)}`;
+  const whatsappUrl = `https://wa.me/447440064066?text=${encodeURIComponent(pkg.whatsappMsg)}`;
   const isPopular = !!pkg.badge;
-
   return (
     <div
       className={`relative flex flex-col rounded-2xl border-2 ${pkg.borderColor} bg-[#ffffff] shadow-md overflow-hidden transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl`}

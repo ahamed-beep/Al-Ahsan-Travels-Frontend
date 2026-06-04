@@ -49,7 +49,10 @@ function Card({ item, features }) {
         </div>
 
         <div className="mt-auto">
-          <button className="w-full bg-[#25D366] flex items-center justify-center gap-2 text-[#FFFFFF] py-2 rounded-lg text-sm">
+          <button
+            onClick={() => window.open("https://wa.me/447440064066", "_blank")}
+            className="w-full bg-[#25D366] flex items-center justify-center gap-2 text-[#FFFFFF] py-2 rounded-lg text-sm"
+          >
             <MessageCircle className="text-[#ffffff] w-4 h-4" /> WhatsApp
           </button>
         </div>
@@ -100,7 +103,7 @@ export default function FiveStarPackages({ month = "january" }) {
   if (!packages5Star || !packages5Star.packages?.length) {
     return (
       <section className="w-full py-14 bg-[#FFFFFF] text-center text-[#4A5565]">
-        {monthName} Not Available 5★ packages  
+        {monthName} Not Available 5★ packages
       </section>
     );
   }

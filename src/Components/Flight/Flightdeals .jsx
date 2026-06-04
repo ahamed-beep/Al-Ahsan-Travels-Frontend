@@ -49,26 +49,26 @@ export default function FlightDeals({ searchParams }) {
   useEffect(() => {
     console.log("Search Params received:", searchParams);
     console.log("All Flights:", allFlights);
-    
+
     if (allFlights.length > 0) {
       let filtered = [...allFlights];
-      
+
       // Filter by FROM city
       if (searchParams?.from && searchParams.from.trim() !== "") {
-        filtered = filtered.filter(flight => 
+        filtered = filtered.filter(flight =>
           flight.from?.toLowerCase() === searchParams.from.toLowerCase()
         );
         console.log("Filtered by FROM:", searchParams.from, filtered.length);
       }
-      
+
       // Filter by TO city
       if (searchParams?.to && searchParams.to.trim() !== "") {
-        filtered = filtered.filter(flight => 
+        filtered = filtered.filter(flight =>
           flight.to?.toLowerCase() === searchParams.to.toLowerCase()
         );
         console.log("Filtered by TO:", searchParams.to, filtered.length);
       }
-      
+
       setFilteredFlights(filtered);
     } else {
       setFilteredFlights([]);
@@ -84,9 +84,9 @@ export default function FlightDeals({ searchParams }) {
           limit: 50
         }
       });
-      
+
       console.log('All Flights from API:', response.data.data);
-      
+
       if (response.data.success && response.data.data) {
         setAllFlights(response.data.data);
         setFilteredFlights(response.data.data);
@@ -113,7 +113,7 @@ export default function FlightDeals({ searchParams }) {
 
   if (loading) {
     return (
-      <section  className="bg-[#FFFFFF] py-16 px-4">
+      <section className="bg-[#FFFFFF] py-16 px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#101828] mb-3">
             Featured Flight Deals
@@ -141,7 +141,7 @@ export default function FlightDeals({ searchParams }) {
           Compare affordable flights from major UK cities to Jeddah with our
           trusted airline partners
         </p>
-        
+
         {/* Show active filters */}
         {(searchParams?.from || searchParams?.to) && (
           <div className="mt-4 inline-flex flex-wrap items-center justify-center gap-2">
@@ -168,11 +168,11 @@ export default function FlightDeals({ searchParams }) {
           <Plane className="w-16 h-16 text-gray-300 mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-700 mb-2">No Flights Found</h3>
           <p className="text-gray-500">
-            {searchParams?.from || searchParams?.to 
+            {searchParams?.from || searchParams?.to
               ? `No flights available from "${searchParams.from || 'any'}" to "${searchParams.to || 'any'}"`
               : "No flight deals available at the moment"}
           </p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             className="mt-4 text-blue-600 hover:underline"
           >
@@ -244,7 +244,7 @@ export default function FlightDeals({ searchParams }) {
                   </div>
 
                   <button
-                    onClick={() => handleBookFlight(flight)}
+                    onClick={() => window.open("https://wa.me/447440064066", "_blank")}
                     className="bg-[#1C398E] text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-[#152d73] transition-colors flex items-center gap-2"
                   >
                     Book Flight

@@ -19,11 +19,10 @@ function Card({ pkg }) {
   return (
     <div
       className={`rounded-2xl bg-[#F9FAFB] overflow-hidden flex flex-col transition-all duration-300
-      ${
-        pkg.highlight
+      ${pkg.highlight
           ? "border-2 border-blue-600 shadow-xl scale-[1.03]"
           : "border border-gray-200 shadow-md hover:shadow-lg"
-      }`}
+        }`}
     >
       <div className="relative h-52">
         <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover" />
@@ -86,7 +85,10 @@ function Card({ pkg }) {
           ))}
         </ul>
 
-        <button className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium">
+        <button
+          onClick={() => window.open("https://wa.me/447440064066", "_blank")}
+          className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium"
+        >
           <MessageCircle size={16} />
           WhatsApp
         </button>

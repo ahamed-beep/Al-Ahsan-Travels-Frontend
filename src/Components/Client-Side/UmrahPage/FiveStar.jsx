@@ -4,7 +4,7 @@ import { MessageCircle, Plane, Car, Users, Hotel, FileText, Clock, MapPin } from
 import { API_UMRAH_PACKAGES_BY_CATEGORY } from "@/constants/api";
 import axiosInstance from "@/lib/axios";
 
-const WA_NUMBER = "447911123456"; // ← apna WhatsApp number yahan daalo
+const WA_NUMBER = "447440064066"; // ← apna WhatsApp number yahan daalo
 
 const formatPrice = (price) =>
   typeof price === "number" ? `£${price.toLocaleString("en-GB")}` : price;

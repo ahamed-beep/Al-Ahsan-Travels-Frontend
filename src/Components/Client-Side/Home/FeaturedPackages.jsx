@@ -6,7 +6,7 @@ import axiosInstance from "@/lib/axios";
 import { API_PACKAGES } from "@/constants/api";
 
 // ─── Config ───────────────────────────────────────────────────────────────────
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "923001234567";
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "447440064066";
 const CARDS_PER_PAGE  = 3;
 
 // ─── PackageCard ──────────────────────────────────────────────────────────────
