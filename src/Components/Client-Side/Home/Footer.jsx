@@ -43,13 +43,13 @@ export default function Footer() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto">
 
         <div  className="flex justify-start">
           <img
             src="/Images/Link.png"
             alt="Holy Companions — Hajj & Umrah Travel Agency"
-            className="w-80 h-80 object-contain "  
+            className="w-70 h-70 object-contain "  
             width={186}                              
             height={186}
             loading="eager"                          
