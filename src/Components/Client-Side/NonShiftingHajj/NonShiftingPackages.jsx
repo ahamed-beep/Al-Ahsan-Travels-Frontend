@@ -114,7 +114,10 @@ export default function NonShiftingPackages() {
                     <p className="text-[10px] sm:text-xs text-[#6A7282]">{pkg.perPersonText}</p>
                   </div>
 
-                  <button className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366] text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm">
+                  <button
+                    onClick={() => window.open(`https://wa.me/447440064066`, "_blank")}
+                    className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366] text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm"
+                  >
                     <FaWhatsapp /> WhatsApp
                   </button>
                 </div>

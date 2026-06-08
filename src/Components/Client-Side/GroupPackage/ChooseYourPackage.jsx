@@ -46,9 +46,9 @@ function PackageCard({ pkg }) {
   ].filter(Boolean);
 
   function handleWhatsApp() {
-    const url = "https://wa.me/?text=" + encodeURIComponent("I'm interested in the " + title + " (" + price + ")");
-    window.open(url, "_blank");
-  }
+  const url = "https://wa.me/447440064066?text=" + encodeURIComponent("I'm interested in the " + pkg.title + " (" + pkg.price + ")");
+  window.open(url, "_blank");
+}
 
   return (
     <div

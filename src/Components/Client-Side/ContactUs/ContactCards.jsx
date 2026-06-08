@@ -13,7 +13,7 @@ const cards = [
     subtitle: "Speak to our team",
     lines: ["0203 097 1507", "0741 835 0475"],
     actionLabel: "Call Now",
-    onAction: () => { window.location.href = "tel:02030971507"; },
+    onAction: () => { window.location.href = "tel:+447440064066"; },
   },
   {
     icon: <Mail className="w-5 h-5" />,
@@ -25,7 +25,7 @@ const cards = [
     subtitle: "Send us a message",
     lines: ["sales@ihsantravels.com"],
     actionLabel: "Send Email",
-    onAction: () => { window.location.href = "mailto:sales@ihsantravels.com"; },
+    onAction: () => { window.location.href = "mailto:info@alahsantravels.co.uk."; },
   },
   {
     icon: <MessageCircle className="w-5 h-5" />,
@@ -39,7 +39,7 @@ const cards = [
     actionLabel: "Open WhatsApp",
     onAction: () => {
       window.open(
-        "https://wa.me/441234567890?text=" +
+        "https://wa.me/447440064066?text=" +
           encodeURIComponent("Assalamu Alaikum, I would like to inquire about Umrah packages."),
         "_blank"
       );
@@ -56,7 +56,7 @@ const cards = [
     lines: ["Manchester", "Burnley"],
     actionLabel: "Get Directions",
     onAction: () => {
-      window.open("https://maps.google.com?q=Manchester,UK", "_blank");
+      window.open("https://maps.google.com/?q=156+Great+Charles+Street+Queensway+Birmingham+B3+3HN+United+Kingdom", "_blank");
     },
   },
 ];

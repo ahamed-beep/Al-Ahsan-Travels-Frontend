@@ -115,11 +115,16 @@ export default function PricingCards({ category }) {
                 </div>
 
                 {pkg.featured ? (
-                  <button className="w-full py-3 rounded-xl bg-[#1C398E] text-white font-bold text-sm transition shadow-md">
+                 <button
+                    onClick={() => window.open('https://wa.me/447440064066', '_blank')}
+                    style={{ boxShadow: '0 8px 20px #2B7FFF80' }}
+                    className="w-full py-3 rounded-xl bg-[#1C398E] text-white font-bold text-sm transition"                  >
                     Select Package
                   </button>
                 ) : (
-                  <button className="w-full py-3 rounded-xl text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition">
+                  <button
+                    onClick={() => window.open('https://wa.me/447440064066', '_blank')}
+                    className="w-full py-3 rounded-xl border border-white/30 text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition"                  >
                     Select Package
                   </button>
                 )}

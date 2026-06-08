@@ -13,7 +13,6 @@ const Combine = () => {
     <div>
         <Navbar/>
       <RamadanHajjSection/>
-      <RamadanFirstAshra/>
       <PackageCard/>
       <WhyChooseFirstAshra/>
       <RamadanCTA/>

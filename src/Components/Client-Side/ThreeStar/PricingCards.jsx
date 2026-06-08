@@ -62,21 +62,20 @@ export default function PricingCards({ category }) {
           {packages.map((pkg, i) => (
             <div key={pkg._id || i} className="flex">
               <div
-                className={`relative overflow-visible w-full rounded-2xl border flex flex-col justify-between transition-all duration-300 ${
-                  pkg.featured
-                    ? "shadow-xl scale-[1.03] pt-8 p-6"
-                    : "p-6 hover:shadow-lg"
-                }`}
+                className={`relative overflow-visible w-full rounded-2xl border flex flex-col justify-between transition-all duration-300 ${pkg.featured
+                  ? "shadow-xl scale-[1.03] pt-8 p-6"
+                  : "p-6 hover:shadow-lg"
+                  }`}
                 style={
                   pkg.featured
                     ? {
-                        background: "linear-gradient(135deg, rgba(81,162,255,0.25), rgba(28,57,142,0.18))",
-                        borderColor: "rgba(81,162,255,0.45)",
-                      }
+                      background: "linear-gradient(135deg, rgba(81,162,255,0.25), rgba(28,57,142,0.18))",
+                      borderColor: "rgba(81,162,255,0.45)",
+                    }
                     : {
-                        background: "#51A2FF26",
-                        borderColor: "#FFFFFF33",
-                      }
+                      background: "#51A2FF26",
+                      borderColor: "#FFFFFF33",
+                    }
                 }
               >
                 {pkg.badge && (
@@ -115,11 +114,16 @@ export default function PricingCards({ category }) {
                 </div>
 
                 {pkg.featured ? (
-                  <button className="w-full py-3 rounded-xl bg-[#1C398E] text-white font-bold text-sm transition shadow-md">
+                  <button
+                    onClick={() => window.open('https://wa.me/447440064066', '_blank')}
+                    style={{ boxShadow: '0 8px 20px #2B7FFF80' }}
+                    className="w-full py-3 rounded-xl bg-[#1C398E] text-white font-bold text-sm transition"                  >
                     Select Package
                   </button>
                 ) : (
-                  <button className="w-full py-3 rounded-xl text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition">
+                  <button
+                    onClick={() => window.open('https://wa.me/447440064066', '_blank')}
+                    className="w-full py-3 rounded-xl border border-white/30 text-[#1C398E] font-bold text-sm bg-[#FFFFFF1A] transition"                  >
                     Select Package
                   </button>
                 )}

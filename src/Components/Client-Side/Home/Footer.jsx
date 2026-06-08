@@ -2,34 +2,33 @@
 
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaTiktok, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const SOCIAL_LINKS = [
-  { Icon: FaFacebookF, label: "Facebook", href: "https://facebook.com/holycompanions" },
-  { Icon: FaTwitter, label: "Twitter", href: "https://twitter.com/holycompanions" },
-  { Icon: FaInstagram, label: "Instagram", href: "https://instagram.com/holycompanions" },
-  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/company/holycompanions" },
+  { Icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1QeAP2yNs3/" },
+{ Icon: FaTiktok, label: "TikTok", href: "https://www.tiktok.com/@alahsantravelsuk?_r=1&_t=ZS-96vm8oGdDkm" },  { Icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/alahsantravelsuk?utm_source=qr&igsh=M3dqN2M2dnNhaGg5" },
+  { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/al-ahsan-travels/" },
 ];
 
 const CONTACT = {
-  phone: "+44 20 1234 5678",
-  phoneTel: "tel:+442012345678",
-  email: "info@holycompanions.co.uk",
-  address: "123 High Street, London, UK, E1 1AA",
+  phone: "+447440064066",
+  phoneTel: "tel:+447440064066",
+  email: "info@alahsantravels.co.uk",
+  address: "156 Great Charles Street, Queensway, Birmingham, B3 3HN, United Kingdom",
 };
 
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "TravelAgency",
-  name: "Holy Companions",
-  url: "https://holycompanions.co.uk",
+  name: "Al-Ahsan Travels",
+  url: "https://alahsantravels.co.uk",
   telephone: CONTACT.phone,
   email: CONTACT.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "123 High Street",
-    addressLocality: "London",
-    postalCode: "E1 1AA",
+    streetAddress: "156 Great Charles Street, Queensway",
+    addressLocality: "Birmingham",
+    postalCode: "B3 3HN",
     addressCountry: "GB",
   },
   sameAs: SOCIAL_LINKS.map((s) => s.href),
@@ -44,13 +43,13 @@ export default function Footer() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto">
 
-        <div  className="me-10">
+        <div  className="flex justify-start">
           <img
             src="/Images/Link.png"
             alt="Holy Companions — Hajj & Umrah Travel Agency"
-            className="w-80 h-80 object-contain "  
+            className="w-70 h-70 object-contain "  
             width={186}                              
             height={186}
             loading="eager"                          
@@ -103,8 +102,7 @@ export default function Footer() {
               <li className="flex items-start gap-2 text-[#1C398E]">
                 <MapPin size={16} className="mt-1 flex-shrink-0" aria-hidden="true" />
                 <span>
-                  123 High Street<br />
-                  London, UK, E1 1AA
+                 156 Great Charles <br/>street ueensway Birmingham B3 3HN,United kingdom
                 </span>
               </li>
 

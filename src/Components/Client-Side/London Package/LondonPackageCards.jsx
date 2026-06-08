@@ -108,10 +108,13 @@ function Card({ pkg }) {
         </ul>
 
         {/* button */}
-        <button className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium">
-          <MessageCircle size={16} />
-          WhatsApp
-        </button>
+        <button
+  onClick={() => window.open("https://wa.me/447440064066", "_blank")}
+  className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium"
+>
+  <MessageCircle size={16} />
+  WhatsApp
+</button>
       </div>
     </div>
   );

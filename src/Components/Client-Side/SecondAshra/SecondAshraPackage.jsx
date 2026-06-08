@@ -65,7 +65,7 @@ function applyPopularStyling(packages) {
 
 function PackageCard({ pkg }) {
   const whatsappMsg = `I'm interested in the ${pkg.title} (${pkg.price})`;
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappMsg)}`;
+  const whatsappUrl = `https://wa.me/447440064066?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
     <div
