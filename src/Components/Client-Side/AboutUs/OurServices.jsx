@@ -55,11 +55,11 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section id="our-services"  className="py-16 px-4 sm:px-6 lg:px-12 bg-[#ffffff]">
-      <div className="max-w-6xl mx-auto  px-6 py-12 sm:px-10">
+    <section id="our-services"  className="  md:py-16 px-4 sm:px-6 lg:px-12 bg-[#ffffff]">
+      <div className=" mx-auto  px-1   md:py-12 sm:px-10">
 
         {/* Heading */}
-        <h2 className="text-center text-2xl sm:text-3xl font- font-medium text-[#101828] mb-3">
+        <h2 className="text-center text-3xl sm:text-4xl font- font-medium text-[#101828] mb-3">
           Our Services
         </h2>
         <p className="text-center text-sm sm:text-base text-[#4A5565] mb-10">

@@ -3,19 +3,12 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 
 const offices = [
-  {
-    city: "Manchester",
-    address: "123 Wilmslow Road, Manchester, M14 5AN",
+{
+    city: "Birmingham",
+    address: "156 Great Charles Street Queensway, Birmingham, B3 3HN",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM",
-    phone: "0203 097 1507",
-    mapsUrl: "https://maps.google.com?q=123+Wilmslow+Road+Manchester+M14+5AN",
-  },
-  {
-    city: "Burnley",
-    address: "45 Yorkshire Street, Burnley, BB11 3BH",
-    hours: "Mon - Sat: 9:00 AM - 6:00 PM",
-    phone: "0741 835 0475",
-    mapsUrl: "https://maps.google.com?q=45+Yorkshire+Street+Burnley+BB11+3BH",
+    phone: "+447440064066",
+    mapsUrl: "https://maps.google.com?q=156+Great+Charles+Street+Queensway+Birmingham+B3+3HN",
   },
 ];
 
@@ -34,7 +27,7 @@ export default function VisitOffices() {
       </div>
 
       {/* Cards */}
-      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-1 gap-5">
         {offices.map((office) => (
           <div
             key={office.city}

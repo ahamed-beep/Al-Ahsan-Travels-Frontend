@@ -4,24 +4,24 @@ import { Plane, FileText, Car, Users } from "lucide-react";
 
 const features = [
   {
-    icon: <Plane className="w-6 h-6 text-[#1C398E]" />,
+    icon: <Plane className="w-8 h-8 text-[#1C398E]" />,
     title: "Flights Included",
-    desc: "Return flights from major UK airports for the whole group",
+    desc: "Return flights from major UK airports",
   },
   {
-    icon: <FileText className="w-6 h-6 text-[#1C398E]" />,
-    title: "Visa Included",
-    desc: "Complete visa processing for all group members",
+    icon: <FileText className="w-8 h-8 text-[#1C398E]" />,
+    title: "Visa Processing",
+    desc: "Complete visa assistance for all members",
   },
   {
-    icon: <Car className="w-6 h-6 text-[#1C398E]" />,
-    title: "Transport Included",
-    desc: "Comfortable ground transportation throughout your journey",
+    icon: <Car className="w-8 h-8 text-[#1C398E]" />,
+    title: "Group Transport",
+    desc: "Comfortable coaches for the entire group",
   },
   {
-    icon: <Users className="w-6 h-6 text-[#1C398E]" />,
-    title: "group-Friendly Stay",
-    desc: "Spacious group rooms designed for comfort and privacy",
+    icon: <Users className="w-8 h-8 text-[#1C398E]" />,
+    title: "Guided Support",
+    desc: "Experienced tour leaders throughout",
   },
 ];
 
@@ -32,11 +32,11 @@ export default function GroupNeeds() {
 
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] mb-3">
-          Everything Your group Needs
+   What's Included in Every Package
         </h2>
 
         <p className="text-[#4A5565] text-sm sm:text-base mb-14">
-          Comprehensive packages designed for group comfort and convenience
+        Comprehensive group travel services for a worry-free pilgrimage
         </p>
 
         {/* Grid */}

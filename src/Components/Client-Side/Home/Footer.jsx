@@ -6,7 +6,8 @@ import { FaFacebookF, FaTiktok, FaInstagram, FaLinkedinIn } from "react-icons/fa
 
 const SOCIAL_LINKS = [
   { Icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1QeAP2yNs3/" },
-{ Icon: FaTiktok, label: "TikTok", href: "https://www.tiktok.com/@alahsantravelsuk?_r=1&_t=ZS-96vm8oGdDkm" },  { Icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/alahsantravelsuk?utm_source=qr&igsh=M3dqN2M2dnNhaGg5" },
+  { Icon: FaTiktok, label: "TikTok", href: "https://www.tiktok.com/@alahsantravelsuk?_r=1&_t=ZS-96vm8oGdDkm" },
+  { Icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/alahsantravelsuk?utm_source=qr&igsh=M3dqN2M2dnNhaGg5" },
   { Icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/al-ahsan-travels/" },
 ];
 
@@ -36,23 +37,23 @@ const structuredData = {
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-600 pb-8 px-4 sm:px- lg:px-12">
+    <footer className="bg-white text-gray-600 pb-8 px-4 sm:px-6 lg:px-10">
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className=" mx-auto">
+      <div className="mx-auto">
 
-        <div  className="flex justify-start">
+        {/* Logo */}
+        <div className="flex mb-10 mt-6 justify-start">
           <img
             src="/Images/Link.png"
-            alt="Holy Companions — Hajj & Umrah Travel Agency"
-            className="w-70 h-70 object-contain "  
-            width={186}                              
-            height={186}
-            loading="eager"                          
+            alt="Al-Ahsan Travels — Hajj & Umrah Travel Agency"
+            className="object-contain"
+style={{ width: "320px", height: "auto" }}
+            loading="eager"
           />
         </div>
 
@@ -63,10 +64,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
               <li>
-                <Link
-                  href="/#FeaturedPackages"
-                  className="text-[#1C398E] hover:underline"
-                >
+                <Link href="/#FeaturedPackages" className="text-[#1C398E] hover:underline">
                   Packages
                 </Link>
               </li>
@@ -84,28 +82,18 @@ export default function Footer() {
 
           <address className="not-italic">
             <ul className="space-y-4 text-sm">
-
               <li className="flex items-center gap-2 text-[#1C398E]">
                 <Phone size={16} aria-hidden="true" />
-                <a href={CONTACT.phoneTel} className="hover:underline">
-                  {CONTACT.phone}
-                </a>
+                <a href={CONTACT.phoneTel} className="hover:underline">{CONTACT.phone}</a>
               </li>
-
               <li className="flex items-center gap-2 text-[#1C398E]">
                 <Mail size={16} aria-hidden="true" />
-                <a href={`mailto:${CONTACT.email}`} className="hover:underline">
-                  {CONTACT.email}
-                </a>
+                <a href={`mailto:${CONTACT.email}`} className="hover:underline">{CONTACT.email}</a>
               </li>
-
               <li className="flex items-start gap-2 text-[#1C398E]">
                 <MapPin size={16} className="mt-1 flex-shrink-0" aria-hidden="true" />
-                <span>
-                 156 Great Charles <br/>street ueensway Birmingham B3 3HN,United kingdom
-                </span>
+                <span>156 Great Charles Street, Queensway, Birmingham B3 3HN, United Kingdom</span>
               </li>
-
             </ul>
           </address>
         </div>
@@ -113,26 +101,23 @@ export default function Footer() {
         <div className="border-t border-gray-300 my-8 mb-5" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-
           <p className="text-sm text-[#1C398E] text-center md:text-left">
             © {new Date().getFullYear()} Al-Ahsan-Travels
           </p>
-
           <div className="flex items-center gap-3" aria-label="Social media links">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
               <a
-                key={label}                        
+                key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Holy Companions on ${label}`}   /* FIX: aria-label */
+                aria-label={`Al-Ahsan Travels on ${label}`}
                 className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-[#1C398E] hover:bg-blue-600 hover:text-white transition duration-300"
               >
                 <Icon size={14} aria-hidden="true" />
               </a>
             ))}
           </div>
-
         </div>
       </div>
     </footer>

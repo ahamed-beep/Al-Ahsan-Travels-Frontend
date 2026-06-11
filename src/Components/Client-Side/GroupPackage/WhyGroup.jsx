@@ -3,18 +3,18 @@
 import { Check } from "lucide-react";
 
 const points = [
-  "Specialized in group Umrah packages for over 20 years",
-  "Child-friendly hotels with group room configurations",
-  "Flexible itineraries to accommodate group needs",
+  "Cost-effective travel with group discounts",
+  "Shared experiences with fellow pilgrims",
+  "Professional coordination and scheduling",
+  "Experienced guides fluent in English and Arabic",
   "24/7 support throughout your journey",
-  "Experienced guides familiar with group travel",
   "ATOL protected bookings for peace of mind",
 ];
 
 export default function WhyGroup() {
   return (
     <section className="bg-[#F9FAFB] py-16">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className=" mx-auto px-5 md:px-20">
 
         {/* Grid */}
         <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -31,13 +31,11 @@ export default function WhyGroup() {
           {/* Right Content */}
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-4">
-              Why Families Choose Us
+       Why Choose Group Umrah?
             </h2>
 
             <p className="text-[#4A5565] text-sm sm:text-base mb-6 leading-relaxed">
-              We understand the unique needs of families traveling together for Umrah.
-              Our packages are carefully designed to ensure comfort, convenience,
-              and peace of mind for every group member.
+           Traveling in a group offers unique benefits that enhance your Umrah experience. From cost savings to shared spiritual moments, discover why thousands choose our group packages each year.
             </p>
 
             {/* Points */}
@@ -46,8 +44,8 @@ export default function WhyGroup() {
                 <li key={i} className="flex items-start gap-3">
 
                   {/* Icon */}
-                  <span className="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-[#E0E7FF]">
-                    <Check className="w-3.5 h-3.5 text-[#1C398E]" />
+                  <span className="mt-1 flex items-center justify-center w-5 h-5 rounded-full bg-[#1C398E]">
+                    <Check className="w-3.5 h-3.5 text-[#FFFFFF]" />
                   </span>
 
                   {/* Text */}

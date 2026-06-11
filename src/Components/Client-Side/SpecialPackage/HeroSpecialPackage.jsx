@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_INQUIRY_SUBMIT } from "@/constants/api";
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 export default function HeroSpecialPackage() {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ export default function HeroSpecialPackage() {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError(""); // error clear karo jab user type kare
+    setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -114,7 +115,7 @@ export default function HeroSpecialPackage() {
             {success && (
               <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm flex items-center gap-2">
                 <Check className="w-4 h-4 shrink-0" />
-               Your Request Submited Successfully. We will contact you within 24 hours .
+                Your Request Submited Successfully. We will contact you within 24 hours.
               </div>
             )}
 
@@ -187,13 +188,11 @@ export default function HeroSpecialPackage() {
                     </svg>
                     Departure Airport
                   </label>
-                  <input
-                    type="text"
+                  <AirportSearch
                     name="departureAirport"
-                    placeholder="e.g. Heathrow"
                     value={formData.departureAirport}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                    placeholder="e.g. Heathrow"
                   />
                 </div>
               </div>

@@ -102,7 +102,7 @@ export default function CustomSpecial() {
         const data = res.data;
         setPackages(Array.isArray(data) ? data : (data.data ?? []));
       })
-      .catch(() => setError("Packages load nahi ho sake. Dobara try karein."))
+.catch(() => setError("Failed to load packages. Please try again."))
       .finally(() => setLoading(false));
   }, []);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Building, Car , Check } from "lucide-react";
+import { Building, Car , Check, ChevronRight } from "lucide-react";
 
 export default function PackageIncludes() {
   return (
@@ -29,20 +29,20 @@ export default function PackageIncludes() {
             </h3>
 
             <ul className="space-y-2 text-[#364153] text-sm">
-  <li className="flex gap-2">
-    <span className="text-[#1C398E] text-base font-bold">›</span> Family rooms with interconnecting options
+  <li className="flex gap-1">
+    <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Family rooms with interconnecting options
   </li>
   <li className="flex gap-2">
-    <span className="text-[#1C398E] text-base font-bold">›</span> Close proximity to Haram for easy access
+    <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Close proximity to Haram for easy access
   </li>
   <li className="flex gap-2">
-    <span className="text-[#1C398E] text-base font-bold">›</span> Clean, comfortable, and well-maintained
+    <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Clean, comfortable, and well-maintained
   </li>
   <li className="flex gap-2">
-    <span className="text-[#1C398E] text-base font-bold">›</span> On-site dining facilities
+    <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> On-site dining facilities
   </li>
   <li className="flex gap-2">
-    <span className="text-[#1C398E] text-base font-bold">›</span> Air-conditioned rooms
+    <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Air-conditioned rooms
   </li>
 </ul>
           </div>
@@ -58,20 +58,20 @@ export default function PackageIncludes() {
             </h3>
 
             <ul className="space-y-2 text-[#364153] text-sm">
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Private air-conditioned coaches
+              <li className="flex gap-1">
+                <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Private air-conditioned coaches
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Airport pickup and drop-off
+              <li className="flex gap-1">
+                <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Airport pickup and drop-off
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Makkah to Madinah transfers
+              <li className="flex gap-1">
+                <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Makkah to Madinah transfers
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Ziyarat tour transportation
+              <li className="flex gap-1">
+                <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Ziyarat tour transportation
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Comfortable seating for families
+              <li className="flex gap-1">
+                <span className="text-[#1C398E] text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Comfortable seating for families
               </li>
             </ul>
           </div>
@@ -87,23 +87,23 @@ export default function PackageIncludes() {
             </h3>
 
             <ul className="space-y-2 text-[#364153] text-sm">
-              <li className="flex gap-2">
-                <span className="text-[#1C398E]  text-base font-bold">›</span> Return economy flights (upgrades available)
+              <li className="flex gap-1">
+                <span className="text-[#1C398E]  text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Return economy flights (upgrades available)
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E]  text-base font-bold">›</span> Hotel accommodation (twin/family rooms)
+              <li className="flex gap-1">
+                <span className="text-[#1C398E]  text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Hotel accommodation (twin/family rooms)
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E]  text-base font-bold">›</span> Saudi Arabia Umrah visas for all
+              <li className="flex gap-1">
+                <span className="text-[#1C398E]  text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Saudi Arabia Umrah visas for all
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E]  text-base font-bold">›</span> Ground transportation as per itinerary
+              <li className="flex gap-1">
+                <span className="text-[#1C398E]  text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Ground transportation as per itinerary
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E]  text-base font-bold">›</span> Experienced multilingual guide
+              <li className="flex gap-1">
+                <span className="text-[#1C398E]  text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Experienced multilingual guide
               </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E]  text-base font-bold">›</span> Ziyarat tours (selected packages)
+              <li className="flex gap-1">
+                <span className="text-[#1C398E]  text-base font-bold"><ChevronRight className="w-4 mt-0.5 h-4" /></span> Ziyarat tours (selected packages)
               </li>
             </ul>
           </div>

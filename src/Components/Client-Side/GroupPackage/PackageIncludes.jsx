@@ -1,18 +1,18 @@
 "use client";
 
-import { Building, Car, Check } from "lucide-react";
+import { Building, Car, Check, MapPin, Users } from "lucide-react";
 
 export default function PackageIncludes() {
   return (
-    <section className="bg-[#FFFFFF] py-16 px-4">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-[#FFFFFF] py-16 px-5 md:px-20">
+      <div className=" mx-auto text-center">
         
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-bold text-[#101828]">
-          What's Included in Your Package
+   Additional Services & Support
         </h2>
         <p className="text-[#4A5565] mt-3">
-          Comprehensive details of our group packages
+      Extra care and convenience throughout your journey
         </p>
 
         {/* Cards */}
@@ -21,91 +21,46 @@ export default function PackageIncludes() {
           {/* Card 1 */}
           <div className="bg-[#F9FAFB] rounded-2xl p-6 text-left shadow-sm border border-[#E5E7EB]">
             <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#1C398E] text-[#ffffff] mb-4">
-              <Building size={22} />
+              <Car size={22} />
             </div>
 
             <h3 className="text-lg font-bold text-[#101828] mb-3">
-              Hotels
+          Free Shuttle Service
             </h3>
 
-            <ul className="space-y-2 text-[#364153] text-sm">
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Group rooms with interconnecting options
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Close proximity to Haram for easy access
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Clean, comfortable, and well-maintained
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> On-site dining facilities
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Air-conditioned rooms
-              </li>
-            </ul>
+            <p className="  text-[#364153] text-sm">
+         Complimentary transport between hotel and Haram
+            </p>
           </div>
 
           {/* Card 2 */}
           <div className="bg-[#F9FAFB] rounded-2xl p-6 text-left shadow-sm border border-[#E5E7EB]">
             <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#1C398E] text-[#ffffff] mb-4">
-              <Car size={22} />
+            <MapPin size={22} />
             </div>
 
             <h3 className="text-lg font-bold text-[#101828] mb-3">
-              Transport
+         Close to Haram
             </h3>
 
-            <ul className="space-y-2 text-[#364153] text-sm">
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Private air-conditioned coaches
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Airport pickup and drop-off
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Makkah to Madinah transfers
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Ziyarat tour transportation
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Comfortable seating for families
-              </li>
-            </ul>
+                <p className="space-y-2 text-[#364153] text-sm">
+  Hotels within walking distance or short shuttle ride
+            </p>
           </div>
 
           {/* Card 3 */}
           <div className="bg-[#F9FAFB] rounded-2xl p-6 text-left shadow-sm border border-[#E5E7EB]">
             <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-[#1C398E] text-[#ffffff] mb-4">
-              <Check size={22} />
+          <Users size={22} />
             </div>
 
             <h3 className="text-lg font-bold text-[#101828] mb-3">
-              Inclusions
+      Family & Elder Friendly
             </h3>
 
-            <ul className="space-y-2 text-[#364153] text-sm">
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Return economy flights (upgrades available)
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Hotel accommodation 
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Saudi Arabia Umrah visas for all
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Ground transportation as per itinerary
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Experienced multilingual guide
-              </li>
-              <li className="flex gap-2">
-                <span className="text-[#1C398E] text-base font-bold">›</span> Ziyarat tours (selected packages)
-              </li>
-            </ul>
+                 <p className="space-y-2 text-[#364153] text-sm">
+    Special assistance for families and elderly pilgrims
+            </p>
           </div>
 
         </div>

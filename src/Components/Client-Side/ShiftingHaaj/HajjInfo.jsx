@@ -46,7 +46,7 @@ export default function HajjInfo() {
   return (
     <div className="bg-[#FFFFFF] ">
       {/* ===== Section 1 ===== */}
-      <div className="max-w-6xl mx-auto text-center mb-14  px-4">
+      <div className=" mx-auto text-center pt-10 mb-14  px-4">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#1F1F1F]">
           How Shifting Hajj Works
         </h2>

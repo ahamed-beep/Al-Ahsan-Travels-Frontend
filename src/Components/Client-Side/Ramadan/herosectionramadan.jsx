@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import axiosInstance from "@/lib/axios";
 import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
-import Link from "next/link"
+import Link from "next/link";
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 export default function RamadanHajjSection() {
   const [formData, setFormData] = useState({
@@ -59,7 +60,7 @@ export default function RamadanHajjSection() {
           alt="Hajj background"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Content */}
@@ -67,7 +68,7 @@ export default function RamadanHajjSection() {
         <div className="grid w-full grid-cols-1 items-center gap-10 lg:grid-cols-2">
           {/* Left Content */}
           <div className="max-w-xl text-white">
-            <h1 className="text-4xl font-bold  leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               First Ashra Ramadan <br /> <span>Umrah Packages</span>
             </h1>
 
@@ -77,8 +78,8 @@ export default function RamadanHajjSection() {
 
             <div className="mt-8 flex items-center justify-start md:justify-start space-y-5">
               <Link href="/#hero" className="inline-flex min-h-[52px] w-full max-w-[171px] items-center justify-center gap-3 rounded-2xl bg-white px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-  <span>Get Quote</span>
-</Link>
+                <span>Get Quote</span>
+              </Link>
             </div>
           </div>
 
@@ -166,13 +167,11 @@ export default function RamadanHajjSection() {
                       </svg>
                       Departure Airport
                     </label>
-                    <input
-                      type="text"
+                    <AirportSearch
                       name="departureAirport"
-                      placeholder="e.g. Heathrow"
                       value={formData.departureAirport}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                      placeholder="e.g. Heathrow"
                     />
                   </div>
                 </div>
@@ -219,13 +218,8 @@ export default function RamadanHajjSection() {
                   </div>
                 </div>
 
-                {/* Error / Success Messages */}
-                {error && (
-                  <p className="text-sm text-red-500 text-center">{error}</p>
-                )}
-                {success && (
-                  <p className="text-sm text-green-600 text-center">{success}</p>
-                )}
+                {error && <p className="text-sm text-red-500 text-center">{error}</p>}
+                {success && <p className="text-sm text-green-600 text-center">{success}</p>}
 
                 <button
                   type="submit"

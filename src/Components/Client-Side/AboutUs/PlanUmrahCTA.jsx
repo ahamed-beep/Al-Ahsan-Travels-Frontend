@@ -3,8 +3,8 @@ import { Heart } from "lucide-react";
 
 export default function PlanUmrahCTA() {
   return (
-    <section className="bg-[#1C398E] py-20 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-6">
+    <section className="bg-[#1C398E] py-10 md:py-20 px-4 sm:px-6 lg:px-12">
+      <div className=" mx-auto flex flex-col items-center text-center gap-6">
 
         {/* Icon */}
         <Heart className="w-10 h-10 text-[#FFFFFF]" strokeWidth={1.5} />

@@ -46,12 +46,23 @@ export default function Packages() {
         {packages.map((pkg) => (
           <div
             key={pkg.id ?? pkg._id}
-            className="bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-[#E5E7EB]"
+            className={`bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border-2 ${
+              pkg.popular ? "border-[#1C398E]" : "border-[#E5E7EB]"
+            }`}
           >
             {/* Popular Badge */}
             {pkg.popular && (
-              <div className="bg-[#243E8B] text-[#ffffff] text-[10px] sm:text-xs text-center py-1">
-                <FaStar className="inline-block mr-1 text-yellow-400 mb-1" size={12} />
+              <div
+                className="text-[#ffffff] text-[10px] sm:text-xs text-center py-1"
+                style={{
+                  background: "linear-gradient(90deg, #1C398E, #1C398E)",
+                }}
+              >
+                <img
+                  src="/Images/star.webp"
+                  alt="Star"
+                  className="inline-block mr-1 h-3 mb-1"
+                />
                 Most Popular Choice
               </div>
             )}
@@ -60,9 +71,11 @@ export default function Packages() {
               {/* Image */}
               <div className="w-full lg:w-1/2 h-50 sm:h-52 lg:h-auto relative">
                 <Image
-                  src={pkg.imageUrl} alt={pkg.title}
+                  src={pkg.imageUrl}
+                  alt={pkg.title}
                   fill
-                  className="object-cover" />
+                  className="object-cover"
+                />
               </div>
 
               {/* Content */}
@@ -106,14 +119,18 @@ export default function Packages() {
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-3">
                   <div>
                     <p className="text-[10px] sm:text-xs text-[#6A7282]">From</p>
-                    <h4 className="text-lg sm:text-xl font-bold text-[#1C398E]">
+                    <h4 className="text-lg md:whitespace-nowrap sm:text-xl font-bold text-[#1C398E]">
                       {pkg.currency} {pkg.price?.toLocaleString()}
                     </h4>
-                    <p className="text-[10px] sm:text-xs text-[#6A7282]">{pkg.perPersonText}</p>
+                    <p className="text-[10px] sm:text-xs text-[#6A7282]">
+                      {pkg.perPersonText}
+                    </p>
                   </div>
 
                   <button
-                    onClick={() => window.open(`https://wa.me/447440064066`, "_blank")}
+                    onClick={() =>
+                      window.open(`https://wa.me/447440064066`, "_blank")
+                    }
                     className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366] text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm"
                   >
                     <FaWhatsapp /> WhatsApp

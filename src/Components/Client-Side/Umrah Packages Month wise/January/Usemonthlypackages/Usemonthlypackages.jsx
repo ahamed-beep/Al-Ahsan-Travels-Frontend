@@ -28,7 +28,7 @@ export function useMonthlyPackages(month) {
         setPackages4Star(list.find((p) => p.starCategory === 4) ?? null);
         setPackages5Star(list.find((p) => p.starCategory === 5) ?? null);
       } catch {
-        setError("Packages load nahi ho sake.");
+     setError("Failed to load packages.");
       } finally {
         setLoading(false);
       }

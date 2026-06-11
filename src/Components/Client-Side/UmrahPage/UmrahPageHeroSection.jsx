@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Plane, FileText, Clock, Hotel, Check, Calendar, MapPin, Users, Baby, Send } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_INQUIRY_SUBMIT } from "@/constants/api";
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 const features = [
   { icon: <Plane size={18} />, label: "Flights Included" },
@@ -87,7 +88,7 @@ export default function UmrahPageHeroSection() {
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center overflow-x-hidden">
 
-      {/* ✅ Background with overlay */}
+      {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/Images/BackGround.webp"
@@ -111,7 +112,6 @@ export default function UmrahPageHeroSection() {
             Explore a range of packages designed for comfort, affordability, and convenience.
           </p>
 
-          {/* ✅ Features — array se render */}
           <div className="space-y-3">
             {features.map((f, i) => (
               <div
@@ -131,14 +131,14 @@ export default function UmrahPageHeroSection() {
               Plan Your Perfect Umrah Journey
             </h2>
 
-            {/* ✅ Success */}
+            {/* Success */}
             {success && (
               <div
                 ref={successRef}
                 className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm flex items-center gap-2"
               >
                 <Check className="w-4 h-4 shrink-0" />
-               Quote Submited Successfully. We will contact you within 24 hours with your personalized quote.
+                Quote Submited Successfully. We will contact you within 24 hours with your personalized quote.
               </div>
             )}
 
@@ -185,9 +185,12 @@ export default function UmrahPageHeroSection() {
                   <label className={labelClass}>
                     <MapPin size={12} /> Departure Airport
                   </label>
-                  <input type="text" name="departureAirport" placeholder="e.g. Heathrow"
-                    value={formData.departureAirport} onChange={handleChange}
-                    className={inputClass} />
+                  <AirportSearch
+                    name="departureAirport"
+                    value={formData.departureAirport}
+                    onChange={handleChange}
+                    placeholder="e.g. Heathrow"
+                  />
                 </div>
               </div>
 

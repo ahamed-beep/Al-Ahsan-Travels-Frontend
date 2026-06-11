@@ -147,7 +147,7 @@ export default function FeaturedPackages() {
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
     <section id="FeaturedPackages" className="bg-white py-16  sm:px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto text-center">
+      <div className=" mx-auto text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold text-[#1F1F1F] mb-3">
           Featured Packages
@@ -167,7 +167,6 @@ export default function FeaturedPackages() {
           </div>
         )}
 
-        {/* FIX: Error state UI */}
         {!loading && error && (
           <div
             role="alert"
@@ -198,7 +197,7 @@ export default function FeaturedPackages() {
         {/* Carousel */}
         {!loading && !error && total > 0 && !showAll && (
           <div
-            className="flex items-center gap-2 sm:gap-3"
+            className="flex items-center  sm:gap-3"
             role="region"
             aria-label="Package carousel"
           >
@@ -206,7 +205,7 @@ export default function FeaturedPackages() {
               {current > 0 && (
                 <button
                   onClick={prev}
-                  aria-label="Previous packages"   // ← FIX: accessibility
+                  aria-label="Previous packages"   
                   className="bg-white border border-gray-200 shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-[#1C398E] hover:text-white transition"
                 >
                   <ChevronLeft size={18} aria-hidden="true" />
@@ -222,7 +221,7 @@ export default function FeaturedPackages() {
               {current + CARDS_PER_PAGE < total && (
                 <button
                   onClick={next}
-                  aria-label="Next packages"       // ← FIX: accessibility
+                  aria-label="Next packages"      
                   className="bg-white border border-gray-200 shadow-md rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-[#1C398E] hover:text-white transition"
                 >
                   <ChevronRight size={18} aria-hidden="true" />
