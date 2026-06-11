@@ -5,30 +5,29 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "What age range is suitable for group Umrah packages?",
+    question: "What is included in the group package price?",
     answer:
-      "Our group Umrah packages are suitable for all age groups including children, adults, and senior citizens. We also provide family-friendly arrangements for maximum comfort.",
+      "Our group packages include return flights from UK airports, hotel accommodation, Saudi Arabia Umrah visa, ground transportation, airport transfers, and Ziyarat tours. Meals are not included but can be arranged.",
   },
   {
-    question: "Are meals included in the group packages?",
+    question: "How large are the groups?",
     answer:
-      "Yes, selected group packages include daily breakfast and some also provide lunch and dinner depending on the hotel and package type.",
+      "Our groups typically range from 20 to 50 people. We keep group sizes manageable to ensure every pilgrim receives personal attention and support throughout the journey.",
   },
   {
-    question: "Can we customize the duration of our stay?",
+    question: "Can I join a group if traveling alone?",
     answer:
-      "Absolutely. We can customize your stay duration according to your travel plans and preferences, subject to flight and hotel availability.",
+      "Yes, many of our pilgrims travel solo and join our group packages. It is a great way to meet fellow Muslims and perform Umrah in a supportive community.",
   },
   {
-    question: "What facilities are available for children?",
+    question: "What if I need to cancel?",
     answer:
-      "We provide family rooms, child-friendly accommodations, and assistance to ensure a comfortable and safe journey for children.",
+      "We have a flexible cancellation policy. Cancellations made well in advance may be eligible for a full or partial refund. Please contact us directly to discuss your specific situation.",
   },
   {
-    question:
-      "What happens if a group member needs medical attention?",
+    question: "Are group leaders available 24/7?",
     answer:
-      "Our support team is available 24/7 to assist in emergencies and help arrange medical support or hospital visits if needed during the trip.",
+      "Yes, our experienced group leaders and support staff are available around the clock throughout your journey to assist with any queries, emergencies, or spiritual guidance.",
   },
 ];
 

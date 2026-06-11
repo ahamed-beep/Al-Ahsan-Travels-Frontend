@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { FaPlane, FaPassport, FaClock, FaPaperPlane } from "react-icons/fa";
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 export default function UmrahFebruary() {
   const [formData, setFormData] = useState({
@@ -21,20 +22,17 @@ export default function UmrahFebruary() {
 
   const validate = () => {
     let newErrors = {};
-
     if (!formData.name.trim()) newErrors.name = "Full Name is required";
     if (!formData.phone.trim()) newErrors.phone = "Phone Number is required";
     if (!formData.date) newErrors.date = "Departure Date is required";
     if (!formData.airport.trim()) newErrors.airport = "Airport is required";
     if (!formData.adults) newErrors.adults = "Enter adults";
-
     return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
-
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
@@ -62,7 +60,6 @@ export default function UmrahFebruary() {
 
         {/* LEFT SIDE */}
         <div className="text-white space-y-6 lg:ml-15 px-3 sm:px-4">
-
           <span className="inline-block border border-white lg:ml-45 px-4 py-2 rounded-full text-sm">
             📅 February 2026 Departures
           </span>
@@ -80,11 +77,9 @@ export default function UmrahFebruary() {
             <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
               <FaPlane /> Flights Included
             </div>
-
             <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
               <FaPassport /> Visa Included
             </div>
-
             <div className="flex items-center gap-3 bg-[#c6d7fc] text-black px-4 py-2 rounded-lg w-fit">
               <FaClock /> Flexible Duration
             </div>
@@ -102,9 +97,7 @@ export default function UmrahFebruary() {
             {/* Row 1 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-1 block">
-                  Full Name *
-                </label>
+                <label className="text-sm font-medium mb-1 block">Full Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -114,11 +107,8 @@ export default function UmrahFebruary() {
                 />
                 {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
               </div>
-
               <div>
-                <label className="text-sm font-medium mb-1 block">
-                  Phone Number *
-                </label>
+                <label className="text-sm font-medium mb-1 block">Phone Number *</label>
                 <input
                   type="text"
                   name="phone"
@@ -133,9 +123,7 @@ export default function UmrahFebruary() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-1 block">
-                  Departure Date *
-                </label>
+                <label className="text-sm font-medium mb-1 block">Departure Date *</label>
                 <input
                   type="date"
                   name="date"
@@ -145,30 +133,22 @@ export default function UmrahFebruary() {
                 />
                 {errors.date && <p className="text-red-500 text-xs">{errors.date}</p>}
               </div>
-
               <div>
-                <label className="text-sm font-medium mb-1 block">
-                  Departure Airport *
-                </label>
-                <input
-                  type="text"
+                <label className="text-sm font-medium mb-1 block">Departure Airport *</label>
+                <AirportSearch
                   name="airport"
                   value={formData.airport}
                   onChange={handleChange}
-                  className="border rounded-lg px-3 py-2 w-full"
+                  placeholder="e.g. Heathrow"
                 />
-                {errors.airport && (
-                  <p className="text-red-500 text-xs">{errors.airport}</p>
-                )}
+                {errors.airport && <p className="text-red-500 text-xs">{errors.airport}</p>}
               </div>
             </div>
 
             {/* Row 3 */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-1 block">
-                  Adults *
-                </label>
+                <label className="text-sm font-medium mb-1 block">Adults *</label>
                 <input
                   type="number"
                   name="adults"
@@ -176,15 +156,10 @@ export default function UmrahFebruary() {
                   onChange={handleChange}
                   className="border rounded-lg px-3 py-2 w-full"
                 />
-                {errors.adults && (
-                  <p className="text-red-500 text-xs">{errors.adults}</p>
-                )}
+                {errors.adults && <p className="text-red-500 text-xs">{errors.adults}</p>}
               </div>
-
               <div>
-                <label className="text-sm font-medium mb-1 block">
-                  Children
-                </label>
+                <label className="text-sm font-medium mb-1 block">Children</label>
                 <input
                   type="number"
                   name="children"

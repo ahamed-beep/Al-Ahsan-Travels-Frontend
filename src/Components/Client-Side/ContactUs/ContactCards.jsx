@@ -3,7 +3,7 @@
 import { Phone, Mail, MessageCircle, MapPin, ChevronRight } from "lucide-react";
 
 const cards = [
-  {
+{
     icon: <Phone className="w-5 h-5" />,
     iconBg: "bg-[#D0FAE5]",
     iconColor: "text-[#009966]",
@@ -11,9 +11,9 @@ const cards = [
     linkColor: "text-green-600 hover:text-green-700",
     title: "Call Us",
     subtitle: "Speak to our team",
-    lines: ["0203 097 1507", "0741 835 0475"],
+    lines: ["+447440064066"],
     actionLabel: "Call Now",
-    onAction: () => { window.location.href = "tel:+447440064066"; },
+    onAction: () => { window.location.href = "tel:+447440064066"; },  // ✅ same
   },
   {
     icon: <Mail className="w-5 h-5" />,
@@ -23,9 +23,9 @@ const cards = [
     linkColor: "text-blue-500 hover:text-blue-600",
     title: "Email Us",
     subtitle: "Send us a message",
-    lines: ["sales@ihsantravels.com"],
+    lines: ["info@alahsantravels.co.uk"],                             // ✅ updated
     actionLabel: "Send Email",
-    onAction: () => { window.location.href = "mailto:info@alahsantravels.co.uk."; },
+    onAction: () => { window.location.href = "mailto:info@alahsantravels.co.uk"; },  // ✅ updated
   },
   {
     icon: <MessageCircle className="w-5 h-5" />,
@@ -53,7 +53,7 @@ const cards = [
     linkColor: "text-yellow-600 hover:text-yellow-700",
     title: "Visit Office",
     subtitle: "Come see us",
-    lines: ["Manchester", "Burnley"],
+    lines: ["156 Great Charles Street Queensway", "Birmingham, B3 3HN"],  // ✅ updated
     actionLabel: "Get Directions",
     onAction: () => {
       window.open("https://maps.google.com/?q=156+Great+Charles+Street+Queensway+Birmingham+B3+3HN+United+Kingdom", "_blank");

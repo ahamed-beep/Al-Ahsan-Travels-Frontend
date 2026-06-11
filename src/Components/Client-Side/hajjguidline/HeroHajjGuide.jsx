@@ -19,8 +19,8 @@ export default function HeroHajjGuide() {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 flex items-center h-full px-4 sm:px-6 lg:px-8 lg:ml-20">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-3 lg:px-4 py-10 sm:py-14 md:py-20">
+      <div className="relative z-10 flex items-center h-full px-1 sm:px-6 lg:px-8 lg:ml-8">
+        <div className=" mx-auto w-full px-4 sm:px-3 lg:px-4 py-10 sm:py-14 md:py-20">
 
           {/* Breadcrumb */}
           <div className="mb-6 sm:mb-8">
@@ -72,7 +72,7 @@ export default function HeroHajjGuide() {
             <div className="inline-flex items-center gap-2 px-4 py-2 ">
 
               <svg
-                className="w-4 h-4 text-white"
+                className="w-5 h-5 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

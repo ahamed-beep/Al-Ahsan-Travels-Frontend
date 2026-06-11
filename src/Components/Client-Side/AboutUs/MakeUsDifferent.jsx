@@ -42,8 +42,8 @@ const features = [
 
 export default function MakeUsDifferent() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-12 bg-[#ffffff]">
-      <div className="max-w-6xl mx-auto  px-6 py-12 sm:px-10">
+    <section className=" py-0 md:py-16 md:px-4 sm:px-6 lg:px-12 bg-[#ffffff]">
+      <div className=" mx-auto px-3  md:px-6 py-12 sm:px-10">
 
         {/* Heading */}
         <h2 className="text-center text-2xl sm:text-3xl font- font-medium text-[#101828] mb-3">

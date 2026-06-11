@@ -51,7 +51,7 @@ function PackageCard({ pkg }) {
         />
         <div className="absolute top-4 left-0 w-full px-4 flex justify-between z-10">
           <div className="bg-white text-[#1C398E] rounded-lg px-4 py-2 shadow-md flex items-center gap-1">
-            <StarRating count={pkg.starRating} />
+            <StarRating   count={pkg.starRating} />
           </div>
           {pkg.popular && (
             <div className="bg-[#1C398E] text-white text-xs font-bold px-4 py-2 rounded-lg">

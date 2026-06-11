@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axiosInstance from "@/lib/axios";
 import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 export default function NonShiftingHajjSection() {
   const [formData, setFormData] = useState({
@@ -70,11 +71,11 @@ export default function NonShiftingHajjSection() {
             </p>
             <div className="mt-8 space-y-5">
               <div className="inline-flex min-h-[52px] whitespace-nowrap w-[350px] items-center gap-3 rounded-2xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">✓</span>
+                   <img src="/Images/arrow.png" className="h-2.5" />
                 <span className="text-[#1C398E]">Includes relocation during peak Hajj days</span>
               </div>
               <div className="inline-flex min-h-[52px] whitespace-nowrap w-[320px] items-center gap-3 rounded-2xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">✓</span>
+                    <img src="/Images/arrow.png" className="h-2.5" />
                 <span className="text-[#1C398E]">Ideal for budget-conscious pilgrims</span>
               </div>
             </div>
@@ -106,7 +107,7 @@ export default function NonShiftingHajjSection() {
                   <div>
                     <label className="mb-2 block text-sm font-medium text-[#364153]">Package Type</label>
                     <input
-                      type="text" name="packageType" placeholder="Shifting"
+                      type="text" name="packageType" placeholder="Non Shifting"
                       value={formData.packageType} onChange={handleChange}
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
@@ -143,10 +144,11 @@ export default function NonShiftingHajjSection() {
                       </svg>
                       Departure Airport
                     </label>
-                    <input
-                      type="text" name="departureAirport" placeholder="e.g. Heathrow"
-                      value={formData.departureAirport} onChange={handleChange}
-                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                    <AirportSearch
+                      name="departureAirport"
+                      value={formData.departureAirport}
+                      onChange={handleChange}
+                      placeholder="e.g. Heathrow"
                     />
                   </div>
                 </div>

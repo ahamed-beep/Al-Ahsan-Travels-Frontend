@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Send, Plane, Clock, FileText, Calendar, MapPin, Users, Baby } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
+import AirportSearch from "../../AirportSearch/AirportSearch";
 
 const MONTHS = [
   "january", "february", "march", "april", "may", "june",
@@ -107,34 +108,29 @@ export default function HeroSection({ month = "january" }) {
           priority
           className="object-cover"
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0" />
       </div>
 
       {/* Main content grid */}
       <div className="relative z-10 max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
 
-        {/* ── LEFT SIDE ── */}
+        {/* LEFT SIDE */}
         <div className="text-white space-y-5 sm:space-y-6 text-center lg:text-left">
 
-          {/* Badge */}
           <span className="inline-flex items-center gap-2 border border-white/70 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-xs sm:text-sm w-fit mx-auto lg:mx-0">
             <Calendar size={14} />
             {data.label}
           </span>
 
-          {/* Heading */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold leading-tight">
             {data.heading}
             <span className="block mt-1">{data.year}</span>
           </h1>
 
-          {/* Subtext — removed whitespace-nowrap so it wraps on mobile */}
           <p className="text-[#F3F4F6] text-sm sm:text-base max-w-sm mx-auto lg:mx-0">
             Choose the right package for your journey based on comfort and budget.
           </p>
 
-          {/* Feature pills */}
           <div className="flex flex-col items-start lg:items-start gap-2 sm:gap-3">
             {features.map((f) => {
               const Icon = f.icon;
@@ -151,7 +147,7 @@ export default function HeroSection({ month = "january" }) {
           </div>
         </div>
 
-        {/* ── RIGHT SIDE — FORM ── */}
+        {/* RIGHT SIDE — FORM */}
         <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
           <h2 className="text-lg sm:text-xl text-[#101828] font-semibold mb-5 sm:mb-6">
             Plan Your Perfect Umrah Journey
@@ -224,13 +220,11 @@ export default function HeroSection({ month = "january" }) {
                   <MapPin size={12} className="shrink-0" />
                   Departure Airport <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
+                <AirportSearch
                   name="airport"
-                  placeholder="e.g. Heathrow"
                   value={formData.airport}
                   onChange={handleChange}
-                  className={inputClass}
+                  placeholder="e.g. Heathrow"
                 />
                 {errors.airport && <p className="text-red-500 text-xs mt-1">{errors.airport}</p>}
               </div>

@@ -70,7 +70,7 @@ export default function HajjBanner() {
   href="#packages"
   onMouseEnter={() => setHovered(true)}
   onMouseLeave={() => setHovered(false)}
-  className="inline-flex items-center gap-2 font-semibold rounded-full border-0 cursor-pointer transition-all duration-200"
+  className="inline-flex items-center gap-2 font-semibold rounded-lg border-0 cursor-pointer transition-all duration-200"
   style={{
     background: hovered ? "#f0f4ff" : "#ffffff",
     color: "#1e3a8a",
@@ -97,8 +97,10 @@ export default function HajjBanner() {
     strokeWidth="2.5"
     strokeLinecap="round"
     strokeLinejoin="round"
+    className="mt-1"
     style={{
       transition: "transform 0.2s",
+      
       transform: hovered ? "translateX(3px)" : "translateX(0)",
     }}
   >

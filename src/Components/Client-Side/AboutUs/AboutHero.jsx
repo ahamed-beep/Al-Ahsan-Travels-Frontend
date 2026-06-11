@@ -1,71 +1,98 @@
 "use client";
 
-import { Users } from "lucide-react";
+import { Phone, MessageCircle, Users, Mail, Headphones, Heart } from "lucide-react";
 
 export default function AboutHero() {
+
+
   const TrustpilotBadge = () => (
-    <div className="flex items-center gap-3">
-      <div className="flex -space-x-2">
+    <div className="flex items-center gap-1 px-3.5 py-1.5 whitespace-nowrap">
+      <div className="flex">
         {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-blue-900 border-2 border-white flex items-center justify-center shadow-sm"
+            className="w-[30px] h-[30px] rounded-full bg-[#1C398E] border-2 border-white -ml-2 first:ml-0 flex items-center justify-center text-white"
           >
-            <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
+            <Users size={14} />
           </div>
         ))}
       </div>
-      <div>
-        <div className="flex items-center gap-1">
-          <span className="text-sm font-semibold text-[#1C398E]">
-            ★ Trustpilot
-          </span>
+      <div className="flex ml-1">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#1C398E">
+          <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+        </svg>
+        <div>
+          <p className="text-sm font-bold text-[#1C398E] leading-none">Trustpilot</p>
+          <p className="text-sm text-[#1C398E] leading-none mt-0.5">Trusted by 40+ clients</p>
         </div>
-        <p className="text-xs text-gray-500">Trusted by 40+ clients</p>
       </div>
     </div>
   );
 
   return (
-    <section className="bg-white min-h-screen flex flex-col items-center justify-center py-8 sm:py-8">
-      <div className="max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 w-full flex flex-col gap-8">
+    <section className="relative mt-5 md:mt-10 bg-white overflow-hidden ">
 
-        {/* TRUSTPILOT — top center on desktop, left on mobile */}
-        <div className="flex justify-center lg:justify-center">
-          <TrustpilotBadge />
+      {/* Desktop Trustpilot */}
+      <div className="hidden lg:flex absolute top-6 right-65 -translate-x-1/2 z-20">
+        <TrustpilotBadge />
+      </div>
+
+      {/* Desktop Layout */}
+      <div className="hidden lg:grid grid-cols-2 min-h-screen">
+        <div className="flex flex-col gap-4 items-center justify-center px-16 mb-50">
+          <div className="inline-flex  items-center gap-2 bg-[#364153] text-[#FFFFFF] font-inter text-sm font-medium px-4 py-2 rounded-full">
+          <Heart className="w-4 h-4" />
+           Trusted Umrah & Hajj Travel Partner
+          </div>
+          <h1 className="text-5xl  text-[#101828] font-inter leading-tight">
+          About Al-Ahsan Travel
+          </h1>
+          <p className="text-[#364153]  text-center font-inter text-base leading-relaxed max-w-sm">
+          Making your spiritual journey peaceful and hassle-free with honest service, expert guidance, and unwavering commitment.
+          </p>
+   
         </div>
-
-        {/* MAIN GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
-          {/* LEFT SIDE */}
-          <div className="flex flex-col justify-center gap-5 sm:gap-6 text-center lg:text-left items-center lg:items-start">
-
-            <div className="inline-flex items-center gap-2 bg-[#364153] text-white text-xs px-4 py-2 rounded-full">
-              Trusted Umrah & Hajj Travel Partner
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-[#101828] leading-tight">
-              About Al-Ahsan <br /> Travel
-            </h1>
-
-            <p className="text-[#364153] text-sm sm:text-base leading-relaxed max-w-md">
-              Making your spiritual journey peaceful and hassle-free with honest
-              service, expert guidance, and unwavering commitment.
-            </p>
-          </div>
-
-          {/* RIGHT SIDE */}
-          <div className="flex justify-center items-center">
-            <img
-              src="/Images/Makkah.webp"
-              alt="Makkah"
-              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-contain"
-            />
-          </div>
-
+        <div className="flex items-center justify-center h-screen">
+          <img
+            src="/Images/ContactusorAbout.png"
+            alt="Masjid al-Haram Makkah"
+            style={{ transform: "scale(1.16)", transformOrigin: "center center" }}
+            className="w-full h-full object-contain"
+          />
         </div>
       </div>
+
+      {/* Mobile Layout */}
+      <div className="flex flex-col lg:hidden">
+
+        {/* Mobile Image — full width, no padding */}
+        <div className="relative w-full h-full">
+          <div className="absolute  left-40 -translate-x-1/2 z-10">
+            <TrustpilotBadge />
+          </div>
+          <img
+            src="/Images/ContactusorAbout.png"
+            alt="Masjid al-Haram Makkah"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Mobile Text */}
+        <div className="flex flex-col gap-4 items-center text-center px-6 ">
+          <div className="inline-flex items-center gap-2 bg-[#364153] text-[#FFFFFF] text-sm font-medium px-4 py-2 rounded-full">
+            <Heart className="w-4 h-4" />
+      Trusted Umrah & Hajj Travel Partner
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-semibold text-[#101828] leading-tight">
+        About Al-Ahsan Travel
+          </h1>
+          <p className="text-[#4A5565] text-sm sm:text-base leading-relaxed max-w-sm">
+          Making your spiritual journey peaceful and hassle-free with honest service, expert guidance, and unwavering commitment.
+          </p>
+       
+        </div>
+      </div>
+
     </section>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import axiosInstance from "@/lib/axios";
 import { API_INQUIRY_SUBMIT } from "@/constants/api";
 import Link from 'next/link';
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 const socialLinks = [
   {
@@ -26,15 +27,15 @@ const socialLinks = [
       </svg>
     ),
   },
- {
-  label: "TikTok",
-  href: "https://www.tiktok.com/@alahsantravelsuk?_r=1&_t=ZS-96vm8oGdDkm",
-  icon: (
-    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z" />
-    </svg>
-  ),
-},
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@alahsantravelsuk?_r=1&_t=ZS-96vm8oGdDkm",
+    icon: (
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z" />
+      </svg>
+    ),
+  },
   {
     label: "Phone",
     href: "tel:+447440064066",
@@ -74,10 +75,9 @@ const DEFAULT_FORM = {
   children: "",
 };
 
-// ── Submit state: idle | loading | success | error
 export default function HeroSection() {
   const [form, setForm] = useState(DEFAULT_FORM);
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
@@ -105,7 +105,7 @@ export default function HeroSection() {
     } catch (err) {
       setErrorMsg(
         err?.response?.data?.message ||
-       "Something went wrong. Please try again."
+        "Something went wrong. Please try again."
       );
       setStatus("error");
     }
@@ -114,20 +114,18 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative w-full min-h-screen sm:min-h-[580px] lg:min-h-[600px] overflow-hidden bg-[#FFFFFF]">
 
-      {/* ── Background Hero Image ── */}
       <div className="absolute inset-0 z-0">
         <img
           src="/Images/Makkah.webp"
           alt="Makkah"
-          className="w-full h-full object-cover object-center md:object-left  md:absolute md:left-17 md:top-10 md:w-[55%] lg:w-[60%] xl:w-[55%]"
+          className="w-full h-full object-cover object-center md:object-left md:absolute md:left-17 md:top-10 md:w-[55%] lg:w-[60%] xl:w-[55%]"
         />
         <div className="absolute inset-0 via-white/95 to-white/80 md:via-white/90 md:to-transparent lg:via-white/80" />
         <div className="absolute inset-0 md:hidden bg-white/50" />
       </div>
 
-      {/* ── Trustpilot Badge ── */}
       <div className="relative z-10 flex justify-center pt-4 sm:pt-5 md:pt-6 px-3 sm:px-4">
-        <div className="flex items-center gap-2 sm:gap-3 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+        <div className="flex items-center gap-2 sm:gap-0 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
           <div className="flex -space-x-2">
             {[0, 1, 2, 3].map((i) => (
               <div
@@ -138,7 +136,7 @@ export default function HeroSection() {
               </div>
             ))}
           </div>
-          <div className="flex items-center gap-1 sm:gap-1.5">
+          <div className="flex  gap-1 ">
             <svg width="14" height="16" viewBox="0 0 24 24" fill="#1C398E">
               <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
             </svg>
@@ -150,12 +148,10 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── Main content row ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10 lg:py-12">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12">
 
-          {/* Left — Headline + Buttons */}
-          <div className="flex-1 text-center mb-45 ml-15  lg:text-left lg:max-w-xl xl:max-w-2xl">
+          <div className="flex-1 text-center mb-45 ml-15 lg:text-left lg:max-w-xl xl:max-w-2xl">
             <h1 className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[44px] xl:text-[52px] font-bold text-[#1e3a8a] leading-tight tracking-tight">
               Your Journey to the
               <br className="hidden sm:block" />
@@ -177,14 +173,12 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — Form Card */}
           <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-[420px] xl:w-[470px] shrink-0">
             <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-7">
               <h2 className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-gray-900 mb-4 sm:mb-5">
                 Plan Your Perfect Umrah Journey
               </h2>
 
-              {/* ── Success State ── */}
               {status === "success" ? (
                 <div className="flex flex-col items-center justify-center py-8 text-center gap-3">
                   <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center">
@@ -206,14 +200,12 @@ export default function HeroSection() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
 
-                  {/* Error Banner */}
                   {status === "error" && (
                     <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-xs">
                       {errorMsg}
                     </div>
                   )}
 
-                  {/* Row 1 — Full Name + Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="block text-[11px] sm:text-[12px] font-medium text-gray-600 mb-1">
@@ -237,7 +229,6 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Row 2 — Departure Date + Airport */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="flex items-center gap-1 text-[11px] sm:text-[12px] font-medium text-gray-600 mb-1">
@@ -260,15 +251,15 @@ export default function HeroSection() {
                         </svg>
                         Departure Airport
                       </label>
-                      <input
-                        type="text" name="departureAirport" placeholder="e.g. Heathrow"
-                        value={form.departureAirport} onChange={handleChange}
-                        className="w-full px-3 py-2 sm:py-2.5 text-[12px] sm:text-[13px] border border-gray-200 rounded-lg focus:outline-none focus:border-[#1e3a8a] focus:ring-1 focus:ring-[#1e3a8a] transition placeholder-gray-400"
+                      <AirportSearch
+                        name="departureAirport"
+                        value={form.departureAirport}
+                        onChange={handleChange}
+                        placeholder="e.g. Heathrow"
                       />
                     </div>
                   </div>
 
-                  {/* Row 3 — Adults + Children */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="flex items-center gap-1 text-[11px] sm:text-[12px] font-medium text-gray-600 mb-1">
@@ -299,7 +290,6 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     disabled={status === "loading"}
@@ -334,20 +324,18 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── WhatsApp floating button (left) ── */}
       <a
         href="https://wa.me/447440064066"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed left-0 top-1/2 -translate-y-1/2 z-50 w-10 h-10 bg-[#1e3a8a] rounded-r-lg flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-  aria-label="WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-50 w-10 h-10 bg-[#1e3a8a] rounded-r-lg flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+        aria-label="WhatsApp"
       >
         <svg className="w-5 h-5" fill="white" viewBox="0 0 24 24">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
       </a>
 
-      {/* ── Right side social bar ── */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-1 sm:gap-2">
         {socialLinks.map((s) => (
           <a

@@ -49,12 +49,12 @@ export default function FlexibleOptions() {
                         }}
                         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.15)")}
                         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}
-                        onClick={() =>
-                            window.open(
-                                "https://wa.me/447XXXXXXXXX?text=Hello%2C%20I%20want%20to%20learn%20more%20about%20your%20Umrah%20packages",
-                                "_blank"
-                            )
-                        }
+                      onClick={() =>
+    window.open(
+        "https://api.whatsapp.com/send/?phone=447440064066&text&type=phone_number&app_absent=0",
+        "_blank"
+    )
+}
                     >
                         Learn More
                         <svg width="14" height="14" fill="none" stroke="#2B7FFF" strokeWidth={2.5} viewBox="0 0 24 24">

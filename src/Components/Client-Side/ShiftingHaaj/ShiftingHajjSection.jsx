@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axiosInstance from "@/lib/axios";
+import AirportSearch from "../AirportSearch/AirportSearch";
 import { API_HAJJ_INQUIRY_SUBMIT } from "@/constants/api";
 
 export default function ShiftingHajjSection() {
@@ -51,11 +52,10 @@ export default function ShiftingHajjSection() {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Background Image */}
-  // ORIGINAL - Line 55-57
-<div className="absolute inset-0 w-full h-full">
-  <img src="/Images/BackGround.webp" className="w-full h-full object-cover"/>
-</div>
+
+      <div className="absolute inset-0 w-full h-full">
+        <img src="/Images/BackGround.webp" className="w-full h-full object-cover" />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
@@ -69,12 +69,12 @@ export default function ShiftingHajjSection() {
               Affordable Hajj packages with flexible accommodation arrangements.
             </p>
             <div className="mt-8 space-y-5">
-              <div className="inline-flex min-h-[52px] whitespace-nowrap w-[350px] items-center gap-3 rounded-2xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">✓</span>
+              <div className="inline-flex min-h-[52px] whitespace-nowrap w-[350px] items-center gap-3 rounded-xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
+                <img src="/Images/arrow.png" className="h-2.5" />
                 <span className="text-[#1C398E]">Includes relocation during peak Hajj days</span>
               </div>
-              <div className="inline-flex min-h-[52px] whitespace-nowrap w-[320px] items-center gap-3 rounded-2xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full text-[#1C398E]">✓</span>
+              <div className="inline-flex min-h-[52px] whitespace-nowrap w-[320px] items-center gap-3 rounded-xl bg-[#F7F7F7] px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
+                <img src="/Images/arrow.png" className="h-2.5" />
                 <span className="text-[#1C398E]">Ideal for budget-conscious pilgrims</span>
               </div>
             </div>
@@ -143,10 +143,11 @@ export default function ShiftingHajjSection() {
                       </svg>
                       Departure Airport
                     </label>
-                    <input
-                      type="text" name="departureAirport" placeholder="e.g. Heathrow"
-                      value={formData.departureAirport} onChange={handleChange}
-                      className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
+                    <AirportSearch
+                      name="departureAirport"
+                      value={formData.departureAirport}
+                      onChange={handleChange}
+                      placeholder="e.g. Heathrow"
                     />
                   </div>
                 </div>

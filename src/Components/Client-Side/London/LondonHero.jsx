@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { Plane, FileText, Building2 } from "lucide-react";
+import AirportSearch from "../AirportSearch/AirportSearch";
 
 export default function LondonHero() {
   const [formData, setFormData] = useState({
@@ -14,9 +15,11 @@ export default function LondonHero() {
     children: "",
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setError("");
+};;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -131,14 +134,12 @@ export default function LondonHero() {
                   <label className="flex items-center gap-1 text-xs font-medium text-[#364153] mb-1">
                     Departure Airport
                   </label>
-                  <input
-                    type="text"
-                    name="departureAirport"
-                    placeholder="e.g. Heathrow"
-                    value={formData.departureAirport}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg"
-                  />
+              <AirportSearch
+  name="departureAirport"
+  value={formData.departureAirport}
+  onChange={handleChange}
+  placeholder="e.g. Heathrow"
+/>
                 </div>
               </div>
 

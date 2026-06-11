@@ -3,44 +3,80 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      name: "Mohammed Ahmed",
-      initials: "MA",
-      review:
-        "The most spiritually fulfilling experience of my life. Everything was perfectly organized, and the team's care and attention made our journey truly blessed.",
-      location: "London, UK",
-      package: "Ramadan Umrah Package",
-      date: "2 weeks ago",
-    },
-    {
-      name: "Ali Khan",
-      initials: "AK",
-      review:
-        "Excellent service from start to finish. Hotels were amazing and everything was smooth. Highly recommend Al-Ahsan Travel to anyone planning Umrah.",
-      location: "Karachi, PK",
-      package: "Umrah Package",
-      date: "1 month ago",
-    },
-    {
-      name: "Fatima Malik",
-      initials: "FM",
-      review:
-        "As a first-time pilgrim, I was nervous about the journey. Al-Ahsan Travel made every step easy and stress-free. The guides were knowledgeable and always available.",
-      location: "Birmingham, UK",
-      package: "Standard Umrah Package",
-      date: "3 weeks ago",
-    },
-    {
-      name: "Usman Siddiqui",
-      initials: "US",
-      review:
-        "We travelled as a family of six including elderly parents. The team arranged everything with great care — wheelchair assistance, close hotels, and constant support throughout.",
-      location: "Manchester, UK",
-      package: "Family Umrah Package",
-      date: "2 months ago",
-    },
-  ];
+const testimonials = [
+  {
+    name: "Omar Al-Farouqi",
+    initials: "OA",
+    review:
+      "The most spiritually fulfilling experience of my life. Everything was perfectly organized, and the team's care and attention made our journey truly blessed. From the moment we landed in Jeddah to our final tawaf, every detail was handled with love and professionalism.",
+    location: "London, UK",
+    package: "Ramadan Umrah Package",
+    date: "2 weeks ago",
+  },
+  {
+    name: "Yusuf Okonkwo",
+    initials: "YO",
+    review:
+      "Excellent service from start to finish. Hotels were amazing, just a few minutes walk from Masjid al-Haram, and everything ran perfectly on schedule. The group was well-managed and the guides were always patient and helpful. Highly recommend Al-Ahsan Travel to anyone planning Umrah.",
+    location: "Lagos, Nigeria",
+    package: "Umrah Package",
+    date: "1 month ago",
+  },
+  {
+    name: "Fatima Al-Rashidi",
+    initials: "FA",
+    review:
+      "As a first-time pilgrim, I was nervous about the journey. Al-Ahsan Travel made every step easy and stress-free. The guides were knowledgeable, always available, and answered every question with patience. I returned home with a heart full of peace and gratitude. Already planning my next visit.",
+    location: "Birmingham, UK",
+    package: "Standard Umrah Package",
+    date: "3 weeks ago",
+  },
+  {
+    name: "Ibrahim Bouazza",
+    initials: "IB",
+    review:
+      "We travelled as a family of six including elderly parents. The team arranged everything with great care — wheelchair assistance, close hotels, and constant support throughout. My mother was emotional seeing the Kaaba for the first time and the team made sure she had everything she needed. Truly a five-star experience.",
+    location: "Paris, France",
+    package: "Family Umrah Package",
+    date: "2 months ago",
+  },
+  {
+    name: "Aisha Dermott",
+    initials: "AD",
+    review:
+      "I reverted to Islam two years ago and always dreamed of performing Umrah. Al-Ahsan Travel not only arranged the trip but also provided a dedicated guide who helped me understand every ritual with patience and care. It was a deeply emotional and life-changing journey. I cannot thank the team enough.",
+    location: "Dublin, Ireland",
+    package: "Standard Umrah Package",
+    date: "1 week ago",
+  },
+  {
+    name: "Tariq Benali",
+    initials: "TB",
+    review:
+      "Third time travelling with Al-Ahsan and every experience gets better. The accommodation in Madinah was beautiful and the ziyarat tours were incredibly well organized. Their attention to detail and genuine care for pilgrims sets them apart from every other travel agency I have used.",
+    location: "Amsterdam, Netherlands",
+    package: "Ramadan Umrah Package",
+    date: "3 weeks ago",
+  },
+  {
+    name: "Maryam Sesay",
+    initials: "MS",
+    review:
+      "Travelling solo as a woman, I had concerns about safety and support. Al-Ahsan Travel put all my worries to rest immediately. There was always a female group leader available and the entire team was respectful and professional. The experience was beyond anything I had imagined.",
+    location: "Toronto, Canada",
+    package: "Women's Umrah Package",
+    date: "5 days ago",
+  },
+  {
+    name: "Hassan Kohistani",
+    initials: "HK",
+    review:
+      "Booked last minute and was amazed at how smoothly everything came together. Visa, flights, hotel — all sorted within days. The staff kept us informed at every stage. Performed Umrah with complete peace of mind knowing the logistics were in safe hands. Absolutely outstanding service.",
+    location: "Melbourne, Australia",
+    package: "Umrah Package",
+    date: "2 weeks ago",
+  },
+];
 
   const [current, setCurrent] = useState(0);
 

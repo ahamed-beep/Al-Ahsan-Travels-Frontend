@@ -46,12 +46,22 @@ export default function NonShiftingPackages() {
         {packages.map((pkg) => (
           <div
             key={pkg.id ?? pkg._id}
-            className="bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border border-[#E5E7EB]"
+       className={`bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border-2 ${
+              pkg.popular ? "border-[#1C398E]" : "border-[#E5E7EB]"
+            }`}
           >
             {/* Popular Badge */}
             {pkg.popular && (
-              <div className="bg-[#243E8B] text-[#ffffff] text-[10px] sm:text-xs text-center py-1">
-                <FaStar className="inline-block mr-1 text-yellow-400 mb-1" size={12} />
+              <div
+                  style={{
+                  background: "linear-gradient(90deg, #1C398E, #1C398E)",
+                }}
+               className=" text-[#ffffff] text-[10px] sm:text-xs text-center py-1">
+       <img
+                  src="/Images/star.webp"
+                  alt="Star"
+                  className="inline-block mr-1 h-3 mb-1"
+                />
                 Most Popular Choice
               </div>
             )}

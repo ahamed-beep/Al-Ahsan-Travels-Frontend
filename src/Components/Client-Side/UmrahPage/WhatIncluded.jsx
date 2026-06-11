@@ -38,7 +38,7 @@ export default function WhatIncluded() {
             return (
               <div
                 key={item.title}
-                className="bg-white rounded-2xl border border-[#51A2FF33] p-6"
+                className="bg-white rounded-2xl shadow-md border border-[#51A2FF33] p-6"
               >
                 <div className="w-14 h-14 rounded-2xl bg-[#C6D7FC85] flex items-center justify-center">
                   <Icon className="w-7 h-7 text-[#1C398E]" />

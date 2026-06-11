@@ -191,7 +191,7 @@ export default function Navbar() {
       aria-label="Main navigation"
       className="w-full bg-white border-b border-gray-100 shadow-sm relative z-50"
     >
-      <div className="w-full sm:px-2 lg:px-1">
+      <div className="w-full px-2.5 py-1 lg:px-4">
         <div className="flex items-center justify-between h-16 sm:h-[70px]">
 
           {/* ── Logo ── */}
