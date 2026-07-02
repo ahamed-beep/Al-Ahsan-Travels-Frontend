@@ -36,16 +36,16 @@ export default function JourneySection() {
           <div className="flex gap-12 mt-10">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-[#2b4c9a]">
-                10,000+
+                6K+
               </h3>
               <p className="text-gray-500 text-sm mt-1">
-                Pilgrims Served
+                Visitors Served
               </p>
             </div>
 
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-[#2b4c9a]">
-                15+
+                10K+
               </h3>
               <p className="text-gray-500 text-sm mt-1">
                 Years Experience

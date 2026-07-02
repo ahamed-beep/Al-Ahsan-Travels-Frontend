@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { FaFacebookF, FaTiktok, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaTiktok, FaInstagram, FaLinkedinIn, FaWhatsapp, FaCcVisa, FaCcMastercard } from "react-icons/fa";
 
 const SOCIAL_LINKS = [
   { Icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1QeAP2yNs3/" },
@@ -12,8 +12,10 @@ const SOCIAL_LINKS = [
 ];
 
 const CONTACT = {
-  phone: "+447440064066",
-  phoneTel: "tel:+447440064066",
+  phone: "01216670366",
+  phoneTel: "tel:01216670366",
+  whatsapp: "447440064066",
+  whatsappLink: "https://wa.me/447440064066",
   email: "info@alahsantravels.co.uk",
   address: "156 Great Charles Street, Queensway, Birmingham, B3 3HN, United Kingdom",
 };
@@ -83,6 +85,17 @@ style={{ width: "320px", height: "auto" }}
           <address className="not-italic">
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-2 text-[#1C398E]">
+                <FaWhatsapp size={16} aria-hidden="true" />
+                <a
+                  href={CONTACT.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
+                  {CONTACT.whatsapp}
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-[#1C398E]">
                 <Phone size={16} aria-hidden="true" />
                 <a href={CONTACT.phoneTel} className="hover:underline">{CONTACT.phone}</a>
               </li>
@@ -117,6 +130,27 @@ style={{ width: "320px", height: "auto" }}
                 <Icon size={14} aria-hidden="true" />
               </a>
             ))}
+
+            {/* Divider between social icons and payment icons */}
+            <span className="w-px h-6 bg-gray-300 mx-1" aria-hidden="true" />
+
+            {/* Payment method icons */}
+            <div className="flex items-center gap-3" aria-label="Accepted payment methods">
+              <span
+                title="Visa accepted"
+                aria-label="Visa accepted"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-[#1A1F71]"
+              >
+                <FaCcVisa size={20} aria-hidden="true" />
+              </span>
+              <span
+                title="Mastercard accepted"
+                aria-label="Mastercard accepted"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-[#EB001B]"
+              >
+                <FaCcMastercard size={20} aria-hidden="true" />
+              </span>
+            </div>
           </div>
         </div>
       </div>
