@@ -18,15 +18,15 @@ export default function UmrahCTA() {
         </p>
 
         {/* ✅ Fixed Button */}
-        <Link
-          href="/#hero"
-          scroll={true}
-          aria-label="Book a free Umrah consultation"
-          className="inline-flex items-center gap-2 bg-[#1C398E] text-white  transition-all duration-300 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl font-medium"
-        >
-          <span className="text-sm sm:text-base font-medium">Book Now</span>
-          <ArrowRight size={18} />
-        </Link>
+        <a href="https://wa.me/447440064066"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Book a free Umrah consultation on WhatsApp"
+  className="inline-flex items-center gap-2 bg-[#1C398E] text-white  transition-all duration-300 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl font-medium"
+>
+  <span className="text-sm sm:text-base font-medium">Book Now</span>
+  <ArrowRight size={18} />
+</a>
 
       </div>
     </section>
