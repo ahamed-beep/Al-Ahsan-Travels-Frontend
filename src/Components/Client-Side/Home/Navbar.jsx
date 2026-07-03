@@ -17,34 +17,55 @@ const navItems = [
   {
     label: "Umrah",
     href: "#",
-    dropdown: [
-      { label: "Umrah packages",           href: "/umrahpage"        },
-      { label: "Family Umrah package",     href: "/familyumrahpackage"   },
-      { label: "Group Umrah package",      href: "/grouppackage"     },
-      { label: "Three-star Umrah package", href: "/threestarpackage" },
-      { label: "Four-star Umrah package",  href: "/fourstarpackage"  },
-      { label: "Five-star Umrah package",  href: "/fivestarpackage"  },
-      { label: "January Umrah packages",   href: "/umrahjanuary"     },
-      { label: "February Umrah packages",  href: "/umrahfebruary"    },
-      { label: "March Umrah packages",     href: "/umrahmarch"       },
-      { label: "April Umrah packages",     href: "/umrahapril"       },
-      { label: "May Umrah packages",       href: "/umrahmay"         },
-      { label: "June Umrah packages",      href: "/umrahjune"        },
-      { label: "July Umrah packages",      href: "/umrahjuly"        },
-      { label: "August Umrah packages",    href: "/umrahaugust"      },
-      { label: "September Umrah packages", href: "/umrahseptember"   },
-      { label: "October Umrah packages",   href: "/umrahoctober"     },
-      { label: "November Umrah packages",  href: "/umrahnovember"    },
-      { label: "December Umrah packages",  href: "/umrahdecember"    },
+    // Mega-menu: multiple columns, each with its own heading
+    columns: [
+      {
+        heading: "Umrah packages 2026",
+        links: [
+          { label: "Umrah packages",           href: "/umrahpage"      },
+          { label: "June Umrah packages",      href: "/umrahjune"      },
+          { label: "July Umrah packages",      href: "/umrahjuly"      },
+          { label: "August Umrah packages",    href: "/umrahaugust"    },
+          { label: "September Umrah packages", href: "/umrahseptember" },
+          { label: "October Umrah packages",   href: "/umrahoctober"   },
+          { label: "November Umrah packages",  href: "/umrahnovember"  },
+          { label: "December Umrah packages",  href: "/umrahdecember"  },
+        ],
+      },
+      {
+        heading: "Umrah packages 2027",
+        links: [
+          { label: "January Umrah packages",  href: "/umrahjanuary"  },
+          { label: "February Umrah packages", href: "/umrahfebruary" },
+          { label: "March Umrah packages",    href: "/umrahmarch"    },
+          { label: "April Umrah packages",    href: "/umrahapril"    },
+          { label: "May Umrah packages",      href: "/umrahmay"      },
+        ],
+      },
+      {
+        heading: "Family & group",
+        links: [
+          { label: "Family Umrah package", href: "/familyumrahpackage" },
+          { label: "Group Umrah package",  href: "/grouppackage"       },
+        ],
+      },
+      {
+        heading: "Star categories",
+        links: [
+          { label: "Three-star Umrah package", href: "/threestarpackage" },
+          { label: "Four-star Umrah package",  href: "/fourstarpackage"  },
+          { label: "Five-star Umrah package",  href: "/fivestarpackage"  },
+        ],
+      },
     ],
   },
   {
     label: "Ramadan",
     href: "#",
     dropdown: [
-      { label: "1st Ashra Ramzan", href: "/ramadanhajj" },
-      { label: "2nd Ashra Ramzan", href: "/secondashra" },
-      { label: "3rd Ashra Ramzan", href: "/thirdashra"  },
+      { label: "First Ashra", href: "/ramadanhajj" },
+      { label: "Second Ashra", href: "/secondashra" },
+      { label: "Third Ashra", href: "/thirdashra"  },
     ],
   },
   {
@@ -56,7 +77,7 @@ const navItems = [
       { label: "Couple Umrah package",      href: "/coupleumrahpackage"     },
       { label: "Easter Umrah packages",     href: "/easterumrahpackage"     },
       { label: "London Umrah package",      href: "/londonumrahpackage"     },
-      { label: "Manchester Umrah package",  href: "/manchesterumrahpackage" },
+      { label: "Women Umrah package",  href: "/manchesterumrahpackage" },
     ],
   },
   { label: "Flight",     href: "/flight"    },
@@ -120,6 +141,13 @@ const dropdownLinkCls =
   "block px-3 py-[9px] text-[13px] rounded-[7px] no-underline " +
   "text-gray-700 hover:text-[#1C398E] hover:bg-[#f5f0e8] transition-colors duration-150";
 
+const megaLinkCls =
+  "block py-[12px] text-[13.5px] no-underline leading-normal whitespace-nowrap " +
+  "text-gray-700 hover:text-[#1C398E] hover:translate-x-[2px] transition-all duration-150";
+
+const megaHeadingCls =
+  "text-[11.5px] font-bold uppercase tracking-wide text-[#1C398E] mb-3 pb-3 border-b border-gray-100 whitespace-nowrap";
+
 const mobileLinkCls =
   "block px-3 py-3 text-[15px] font-medium rounded-lg no-underline " +
   "text-gray-700 hover:text-[#1C398E] hover:bg-[#f5f0e8] transition-colors duration-150";
@@ -131,6 +159,9 @@ const mobileSubLinkCls =
 const mobileDropdownBtnCls =
   "w-full flex items-center justify-between px-3 py-3 text-[15px] font-medium rounded-lg border-0 cursor-pointer bg-transparent " +
   "text-gray-700 hover:text-[#1C398E] hover:bg-[#f5f0e8] transition-colors duration-150";
+
+const mobileColumnHeadingCls =
+  "text-[12px] font-bold uppercase tracking-wide text-[#1C398E] mt-3 mb-1 first:mt-0";
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  MAIN NAVBAR
@@ -211,10 +242,12 @@ export default function Navbar() {
             {navItems.map((item) => {
               const dropdownId = `dd-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
               const isOpen = openDropdown === item.label;
+              const isMega = Boolean(item.columns);
+              const hasMenu = Boolean(item.dropdown) || isMega;
 
               return (
-                <li key={item.label} className="relative">
-                  {item.dropdown ? (
+                <li key={item.label} className={isMega ? "static" : "relative"}>
+                  {hasMenu ? (
                     <>
                       {/* Trigger button */}
                       <button
@@ -244,47 +277,105 @@ export default function Navbar() {
                         </svg>
                       </button>
 
-                      {/*
-                        FIX: Wrapper div mein pt-2 (padding-top) hai —
-                        yeh invisible bridge ka kaam karta hai.
-                        Mouse jab button se dropdown tak jaata hai toh
-                        is gap mein bhi mouseenter fire hota hai
-                        aur cancelClose() call hoti hai.
-                      */}
-                      <div
-                        id={dropdownId}
-                        onMouseEnter={cancelClose}
-                        onMouseLeave={scheduleClose}
-                        style={{
-                          position: "absolute",
-                          top: "100%",
-                          left: 0,
-                          paddingTop: "6px", // ← bridge gap
-                          zIndex: 50,
-                          // Visibility
-                          opacity: isOpen ? 1 : 0,
-                          visibility: isOpen ? "visible" : "hidden",
-                          transform: isOpen ? "translateY(0)" : "translateY(-6px)",
-                          transition: "opacity 0.15s ease, transform 0.15s ease, visibility 0.15s",
-                          pointerEvents: isOpen ? "auto" : "none",
-                        }}
-                      >
+                      {isMega ? (
+                        // ── Mega-menu: absolute + centered relative to the whole navbar,
+                        // so it always opens right below the navbar (works even if a
+                        // top bar/announcement bar sits above the navbar) ──
                         <div
-                          role="menu"
-                          className="bg-white border border-gray-100 rounded-xl shadow-lg min-w-[200px] p-1.5"
+                          id={dropdownId}
+                          onMouseEnter={cancelClose}
+                          onMouseLeave={scheduleClose}
+                          style={{
+                            position: "absolute",
+                            top: "100%",
+                            left: "50%",
+                            paddingTop: "6px", // bridge gap so hover doesn't drop
+                            zIndex: 50,
+                            opacity: isOpen ? 1 : 0,
+                            visibility: isOpen ? "visible" : "hidden",
+                            transform: isOpen
+                              ? "translate(-50%, 0)"
+                              : "translate(-50%, -8px)",
+                            transition:
+                              "opacity 0.18s ease, transform 0.18s ease, visibility 0.18s",
+                            pointerEvents: isOpen ? "auto" : "none",
+                          }}
                         >
-                          {item.dropdown.map((sub) => (
-                            <Link
-                              key={sub.label}
-                              href={sub.href}
-                              role="menuitem"
-                              className={dropdownLinkCls}
+                          <div
+                            role="menu"
+                            className="bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden w-[95vw] sm:w-[92vw] max-w-[1050px] max-h-[85vh] overflow-y-auto"
+                            style={{ marginTop: "-6px" }}
+                          >
+                            {/* Accent top bar */}
+                            <div className="h-[3px] bg-gradient-to-r from-[#1C398E] via-[#3b5fc4] to-[#1C398E]" />
+
+                            <div
+                              className="grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-9 p-8 sm:p-10"
+                              style={{ gridTemplateColumns: "repeat(4, minmax(200px, 1fr))" }}
                             >
-                              {sub.label}
-                            </Link>
-                          ))}
+                              {item.columns.map((col) => (
+                                <div key={col.heading} className="min-w-0">
+                                  <div className={megaHeadingCls}>{col.heading}</div>
+                                  <div className="flex flex-col">
+                                    {col.links.map((sub) => (
+                                      <Link
+                                        key={sub.label}
+                                        href={sub.href}
+                                        role="menuitem"
+                                        className={megaLinkCls}
+                                      >
+                                        {sub.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      ) : (
+                        /*
+                          FIX: Wrapper div mein pt-2 (padding-top) hai —
+                          yeh invisible bridge ka kaam karta hai.
+                          Mouse jab button se dropdown tak jaata hai toh
+                          is gap mein bhi mouseenter fire hota hai
+                          aur cancelClose() call hoti hai.
+                        */
+                        <div
+                          id={dropdownId}
+                          onMouseEnter={cancelClose}
+                          onMouseLeave={scheduleClose}
+                          style={{
+                            position: "absolute",
+                            top: "100%",
+                            left: 0,
+                            paddingTop: "6px", // ← bridge gap
+                            zIndex: 50,
+                            opacity: isOpen ? 1 : 0,
+                            visibility: isOpen ? "visible" : "hidden",
+                            transform: isOpen ? "translateY(0)" : "translateY(-6px)",
+                            transition: "opacity 0.15s ease, transform 0.15s ease, visibility 0.15s",
+                            pointerEvents: isOpen ? "auto" : "none",
+                          }}
+                        >
+                          {/* ── Simple dropdown ── */}
+                          <div
+                            role="menu"
+                            className="bg-white border border-gray-100 rounded-xl shadow-lg min-w-[200px] p-1.5"
+                          >
+                            {item.dropdown.map((sub) => (
+                              <Link
+                                key={sub.label}
+                                href={sub.href}
+                                role="menuitem"
+                                className={dropdownLinkCls}
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </>
                   ) : (
                     <Link href={item.href} className={linkCls}>
@@ -378,10 +469,12 @@ export default function Navbar() {
           {navItems.map((item) => {
             const isOpen = openDropdown === item.label;
             const subId  = `mob-dd-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+            const isMega = Boolean(item.columns);
+            const hasMenu = Boolean(item.dropdown) || isMega;
 
             return (
               <li key={item.label}>
-                {item.dropdown ? (
+                {hasMenu ? (
                   <>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
@@ -394,7 +487,7 @@ export default function Navbar() {
                     </button>
 
                     <SlideDown open={isOpen} id={subId}>
-                      <ul
+                      <div
                         style={{
                           marginLeft: 12,
                           marginBottom: 4,
@@ -402,21 +495,44 @@ export default function Navbar() {
                           paddingLeft: 12,
                           paddingTop: 4,
                           paddingBottom: 4,
-                          listStyle: "none",
                         }}
                       >
-                        {item.dropdown.map((sub) => (
-                          <li key={sub.label}>
-                            <Link
-                              href={sub.href}
-                              onClick={closeDrawer}
-                              className={mobileSubLinkCls}
-                            >
-                              {sub.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                        {isMega ? (
+                          // ── Mega-menu: grouped headings on mobile ──
+                          item.columns.map((col) => (
+                            <div key={col.heading}>
+                              <div className={mobileColumnHeadingCls}>{col.heading}</div>
+                              <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                                {col.links.map((sub) => (
+                                  <li key={sub.label}>
+                                    <Link
+                                      href={sub.href}
+                                      onClick={closeDrawer}
+                                      className={mobileSubLinkCls}
+                                    >
+                                      {sub.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))
+                        ) : (
+                          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                            {item.dropdown.map((sub) => (
+                              <li key={sub.label}>
+                                <Link
+                                  href={sub.href}
+                                  onClick={closeDrawer}
+                                  className={mobileSubLinkCls}
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                     </SlideDown>
                   </>
                 ) : (

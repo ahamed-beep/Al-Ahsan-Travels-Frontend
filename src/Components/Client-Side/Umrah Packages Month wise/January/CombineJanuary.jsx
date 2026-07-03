@@ -8,10 +8,12 @@ import Threeandfourstar from './Threeandfourstar'
 import FiveStarPackages from './FiveStar'
 import HeroSection from './HeroSection'
 import QuickComparisonGuide from './QuickComparisonGuide';
+import TopBar from '../../Home/Topbar';
 
 const CombineJanuary = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
       <HeroSection month='january'/>
       <ContantJanuary month='january'/>

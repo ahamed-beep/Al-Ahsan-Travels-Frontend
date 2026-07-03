@@ -6,12 +6,14 @@ import RamadanSecondAshra from "./RamadanSecondAshra"
 import SecondAshraPackage from "./SecondAshraPackage"
 import SecondAshraIconBox from "./SecondAshraIconBox"
 import SecondAshraCTA from "./SecondAshraCTA"
+import TopBar from "../Home/Topbar"
 
 
 
 const CombineSecondAshra = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <SecondAshraHero/>
         <RamadanSecondAshra/>

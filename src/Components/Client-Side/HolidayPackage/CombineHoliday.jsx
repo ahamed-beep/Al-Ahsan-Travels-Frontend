@@ -4,10 +4,12 @@ import HolidayHero from './HolidayHero'
 import Footer from '../Home/Footer'
 import WhyBookChristmasUmrah from './Whybookchristmasumrah'
 import HolidayCards from './HolidayCards'
+import TopBar from '../Home/Topbar'
 
 const CombineHoliday = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <HolidayHero/>
         <WhyBookChristmasUmrah/>

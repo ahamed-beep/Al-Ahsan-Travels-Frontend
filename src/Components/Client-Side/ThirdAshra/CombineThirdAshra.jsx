@@ -6,6 +6,7 @@ import ThirdAshraIconBox from "./ThirdAshraIconBox"
 import ThirdAshraPackage from "./ThirdAshraPackage"
 import RamadanThirdAshra from "./RamadanThirdAshra"
 import ThirdAshraHero from "./ThirdAshraHero"
+import TopBar from "../Home/Topbar"
 
 
 
@@ -13,6 +14,7 @@ import ThirdAshraHero from "./ThirdAshraHero"
 const CombineThirdAshra = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <ThirdAshraHero/>
         <RamadanThirdAshra/>

@@ -6,6 +6,7 @@ import NonShiftingPackages from "./NonShiftingPackages";
 import NonShiftingHajjInfo from "./NonShiftingInfoHajj";
 import NonHajjBanner from "./NonHajjBanner";
 import Footer from "../Home/Footer";
+import TopBar from "../Home/Topbar";
 
 
 
@@ -13,6 +14,7 @@ import Footer from "../Home/Footer";
 const NonShiftingCombine = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
         <NonShiftingHajjSection/>
         <NonQuickComparison/>

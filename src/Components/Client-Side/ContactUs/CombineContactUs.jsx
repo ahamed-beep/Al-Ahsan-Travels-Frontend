@@ -8,6 +8,7 @@ import ContactForm from "./ContactForm";
 import VisitOffices from "./VisitOffices";
 import BookWithConfidence from "./BookWithConfidence";
 import UmrahContactCTA from "./UmrahContactATC";
+import TopBar from "../Home/Topbar";
 
 
 
@@ -15,6 +16,7 @@ import UmrahContactCTA from "./UmrahContactATC";
 const CombineContactUs = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
     <HeroContactUs/>
     <ContactCards/>

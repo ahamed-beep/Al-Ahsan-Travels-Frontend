@@ -10,6 +10,7 @@ import OurServices from "./OurServices";
 import CertifiedTrusted from "./CertifiedTrusted";
 import WhyChooseUs from "./WhyChooseUs";
 import PlanUmrahCTA from "./PlanUmrahCTA";
+import TopBar from "../Home/Topbar";
 
 
 
@@ -17,6 +18,7 @@ import PlanUmrahCTA from "./PlanUmrahCTA";
 const CombineAboutUs = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
     <AboutHero/>
     <StatsSection/>

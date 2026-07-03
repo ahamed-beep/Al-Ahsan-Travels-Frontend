@@ -6,10 +6,12 @@ import WhatsIncluded from './WhatsIncluded'
 import WhyTravelEaster from './WhyTravelEaster'
 import Footer from '../Home/Footer'
 import BookCTA from './BookCTA'
+import TopBar from '../Home/Topbar'
 
 const CombineEaster = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <EasterHero/>
         <EasterCards/>

@@ -5,11 +5,13 @@ import CoupleHero from './CoupleHero'
 import WhyBookCoupleUmrah from './WhybookCoupleumrah'
 import CoupleCards from './CoupleCards'
 import WhyCouplesChooseUs from './Whycoupleschooseus'
+import TopBar from '../Home/Topbar'
 
 
 const CombineCouple = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <CoupleHero/>
         <WhyBookCoupleUmrah/>

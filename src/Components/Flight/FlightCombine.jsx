@@ -11,6 +11,7 @@ import BookingProcess from "./Bookingprocess";
 import FlexibleOptions from "./Flexibleoptions";
 import FlightCTA from "./Flightcta";
 import FlightClasses from "./Flightclasses";
+import TopBar from "../Client-Side/Home/Topbar";
 
 const FlightCombine = () => {
   const [searchCriteria, setSearchCriteria] = useState({
@@ -43,6 +44,7 @@ const FlightCombine = () => {
 
   return (
     <div>
+      <TopBar/>
       <Navbar />
       <FlightHero onSearch={handleSearch} />
       

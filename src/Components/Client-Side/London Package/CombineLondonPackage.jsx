@@ -9,10 +9,12 @@ import FAQLondon from './FAQLondon'
 import BookCTA from './BookCTA'
 import Footer from '../Home/Footer'
 import EverythingIncluded from './EveryThingIncluded'
+import TopBar from '../Home/Topbar'
 
 const CombineLondonPackage = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <LondonHero/>
         <LondonPackageCards/>

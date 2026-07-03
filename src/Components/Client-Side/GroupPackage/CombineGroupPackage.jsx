@@ -9,12 +9,14 @@ import UmrahCTA from "./Umrahcta ";
 import GroupPackages from "./ChooseYourPackage";
 import GroupNeeds from "./GroupNeeds";
 import WhyGroup from "./WhyGroup";
+import TopBar from "../Home/Topbar";
 
 
 
 const CombineGroupPackage = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
    <HeroSpecialPackage/>
    <GroupPackages/>
