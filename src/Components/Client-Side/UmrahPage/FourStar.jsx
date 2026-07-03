@@ -23,7 +23,7 @@ function PackageCard({ pkg, starLabel }) {
     <div className="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col md:flex-row">
 
       {/* ✅ next/image */}
-      <div className="relative md:w-72 h-48 flex-shrink-0">
+      <div className="relative md:w-72 h-48 ">
         <Image
           src={pkg.imageUrl}
           alt={pkg.title}

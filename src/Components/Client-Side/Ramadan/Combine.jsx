@@ -6,11 +6,13 @@ import RamadanFirstAshra from "./RamadanFiestAshra"
 import PackageCard from "./PackageCard"
 import WhyChooseFirstAshra from "./IconBox"
 import RamadanCTA from "./RamadanCTA"
+import TopBar from "../Home/Topbar"
 
 
 const Combine = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
       <RamadanHajjSection/>
       <PackageCard/>

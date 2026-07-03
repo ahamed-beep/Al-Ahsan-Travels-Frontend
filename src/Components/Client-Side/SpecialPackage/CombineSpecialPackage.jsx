@@ -9,12 +9,14 @@ import WhyFamilies from "./WhyFamilies";
 import PackageIncludes from "./PackageIncludes";
 import FAQSection from "./FAQSection";
 import UmrahCTA from "./Umrahcta ";
+import TopBar from "../Home/Topbar";
 
 
 
 const CombineSpecialPackage = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
    <HeroSpecialPackage/>
    <FamilyPackages/>

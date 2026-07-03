@@ -10,10 +10,12 @@ import FAQManchester from './FAQManchester'
 import BookCTAManchester from './BookCTA'
 import PackageFeatures from './PackagesFeatures'
 import PricingFeatures from './PricingFeatures'
+import TopBar from '../Home/Topbar'
 
 const CombineManchesterPackage = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <ManchesterHero/>
         <ManchesterPackageCards/>

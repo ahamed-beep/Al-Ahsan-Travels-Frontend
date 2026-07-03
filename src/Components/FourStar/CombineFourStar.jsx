@@ -5,10 +5,12 @@ import Footer from '../Client-Side/Home/Footer'
 import PricingCards from './PricingCards'
 import WhatsIncludedSection from './Whatsincludedsection'
 import ReadyToBegin from './Readytobegin'
+import TopBar from '../Client-Side/Home/Topbar'
 
 const CombineFourStar = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <FourStarHero/>
         <PricingCards category="FOUR_STAR" />

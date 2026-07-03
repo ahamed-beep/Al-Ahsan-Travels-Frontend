@@ -7,6 +7,7 @@ import EasterCards from "./EasterCards"
 import WhatsIncluded from "./WhatsIncluded"
 import WhyTravelEaster from "./WhyTravelEaster"
 import BookCTA from "./BookCTA"
+import TopBar from "../Client-Side/Home/Topbar"
 
 
 
@@ -15,6 +16,7 @@ import BookCTA from "./BookCTA"
 const EasterCombine = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
        <EasterHero/>
        <EasterCards/>

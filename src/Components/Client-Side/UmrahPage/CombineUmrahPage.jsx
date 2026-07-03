@@ -8,10 +8,12 @@ import FiveStar from './FiveStar'
 import CostumSpecial from './CostumSpecial'
 import WhatIncluded from './WhatIncluded'
 import PackageCTA from './PackageCTA'
+import TopBar from '../Home/Topbar'
 
 const CombineUmrahPage = () => {
   return (
     <div>
+      <TopBar/>
         <Navbar/>
         <UmrahPageHeroSection/>
         <ThreeStarPackages/>

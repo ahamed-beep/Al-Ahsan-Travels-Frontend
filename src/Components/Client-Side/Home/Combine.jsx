@@ -7,11 +7,13 @@ import JourneySection from './YourJourney'
 import Testimonials from './Testimonials'
 import UmrahCTA from './UmrahCTA'
 import Footer from './Footer'
+import TopBar from './Topbar'
 
 
 const Combine = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
       <Herosection/>
       <FeaturedPackages/>

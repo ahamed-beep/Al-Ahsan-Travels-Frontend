@@ -6,12 +6,14 @@ import Packages from "./Packages";
 import HajjInfo from "./HajjInfo";
 import HajjBanner from "./HajjBanner";
 import Footer from "../Home/Footer";
+import TopBar from "../Home/Topbar";
 
 
 
 const CombineShiftingHajj = () => {
   return (
     <div>
+      <TopBar/>
       <Navbar/>
       <ShiftingHajjSection/>
       <QuickComparison/>
