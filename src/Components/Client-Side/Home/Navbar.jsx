@@ -230,8 +230,8 @@ export default function Navbar() {
             <img
               src="/Images/Link.png"
               alt="Al-Ahsan Travels — Hajj & Umrah specialists"
-              width={120}
-              height={60}
+              width={140}
+              height={80}
               className="h-[60px] w-auto object-contain"
               loading="eager"
             />
