@@ -208,7 +208,7 @@ export default function InquiryManagement() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-[#1F1F1F]">Inquiries</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Quote requests manage karo</p>
+        <p className="text-sm text-gray-500 mt-0.5">Manage quote requests</p>
         </div>
         <button
           onClick={fetchInquiries}
@@ -251,7 +251,7 @@ export default function InquiryManagement() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Naam, phone, airport se search karo..."
+      placeholder="Search by name, phone, or airport..."
           className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-xl bg-white focus:outline-none focus:ring-2 focus:ring-[#1C398E] shadow-sm"
         />
       </div>
@@ -275,8 +275,8 @@ export default function InquiryManagement() {
       {/* Shared DeleteModal */}
       {deleteItem && (
         <DeleteModal
-          title="Inquiry delete karna chahte ho?"
-          message={`"${deleteItem.fullName}" ki inquiry permanently delete ho jaegi.`}
+        title="Delete this inquiry?"
+          message={`"${deleteItem.fullName}" will be permanently deleted`}
           loading={deleteLoading}
           onConfirm={handleDelete}
           onClose={() => setDeleteItem(null)}

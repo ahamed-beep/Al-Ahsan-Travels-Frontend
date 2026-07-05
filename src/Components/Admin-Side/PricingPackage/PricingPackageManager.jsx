@@ -113,7 +113,7 @@ export default function PricingPackageManager() {
       setFormOpen(false);
       fetchPackages(activeCategory);
     } catch (err) {
-      setFormError(err.response?.data?.message || "Kuch ghalat ho gaya");
+     setFormError(err.response?.data?.message || "Something went wrong");
     } finally {
       setFormLoading(false);
     }
@@ -300,7 +300,7 @@ export default function PricingPackageManager() {
               {/* Features */}
               <div>
                 <label className="block text-xs font-medium text-gray-600 mb-1">
-                  Features * <span className="text-gray-400">(har feature alag line mein)</span>
+                 Features * <span className="text-gray-400">(each feature on a new line)</span>
                 </label>
                 <textarea
                   name="features" required value={formData.features} onChange={handleChange}
@@ -372,8 +372,8 @@ export default function PricingPackageManager() {
       {/* ── Delete Modal ── */}
       {deleteItem && (
         <DeleteModal
-          title="Package delete karna chahte ho?"
-          message={`"${deleteItem.title}" hamesha ke liye delete ho jayega.`}
+         title="Delete this package?"
+        message={`"${deleteItem.title}" will be permanently deleted`}
           onConfirm={handleDelete}
           onClose={() => setDeleteItem(null)}
           loading={deleteLoading}

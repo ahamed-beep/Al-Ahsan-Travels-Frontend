@@ -37,7 +37,7 @@ export default function AdminDashboard() {
   }, []);
 
   const handleLogout = () => {
-    if (!window.confirm("Logout karna chahte ho?")) return;
+if (!window.confirm("Are you sure you want to log out?")) return;
     setLoggingOut(true);
     localStorage.clear();
     router.replace("/login");
@@ -186,7 +186,7 @@ function PlaceholderPage({ title }) {
     <div className="flex items-center justify-center h-full">
       <div className="text-center">
         <h2 className="text-2xl font-semibold text-gray-700">{title}</h2>
-        <p className="text-gray-400 mt-2">Yeh section abhi under development hai</p>
+     <p className="text-gray-400 mt-2">This section is still under development</p>
       </div>
     </div>
   );

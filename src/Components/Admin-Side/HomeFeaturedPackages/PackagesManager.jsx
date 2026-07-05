@@ -29,7 +29,7 @@ export default function PackagesManager() {
       const res = await axiosInstance.get(API_PACKAGES);
       setPackages(res.data);
     } catch {
-      console.error("Packages load nahi hue");
+  console.error("Failed to load packages");
     } finally {
       setLoading(false);
     }
@@ -44,7 +44,7 @@ export default function PackagesManager() {
       setDeleteItem(null);
       fetchPackages();
     } catch {
-      console.error("Delete fail hua");
+  console.error("Failed to delete");
     } finally {
       setDeleting(false);
     }
@@ -56,7 +56,7 @@ export default function PackagesManager() {
       await axiosInstance.patch(API_PACKAGE_TOGGLE(pkg.id));
       fetchPackages();
     } catch {
-      console.error("Toggle fail hua");
+console.error("Toggle fail hua");
     } finally {
       setToggling(null);
     }
@@ -115,7 +115,6 @@ export default function PackagesManager() {
       label: "Actions",
       render: (row) => (
         <div className="flex items-center gap-2">
-          {/* View */}
           <button
             onClick={() => setViewItem(row)}
             className="p-1.5 rounded hover:bg-gray-100 text-gray-500"
@@ -124,7 +123,6 @@ export default function PackagesManager() {
             <Eye className="w-4 h-4" />
           </button>
 
-          {/* Edit */}
           <button
             onClick={() => { setEditItem(row); setShowForm(true); }}
             className="p-1.5 rounded hover:bg-blue-50 text-blue-500"
@@ -133,7 +131,6 @@ export default function PackagesManager() {
             <Pencil className="w-4 h-4" />
           </button>
 
-          {/* Toggle Status */}
           <button
             onClick={() => handleToggle(row)}
             disabled={toggling === row.id}
@@ -146,7 +143,6 @@ export default function PackagesManager() {
             }
           </button>
 
-          {/* Delete */}
           <button
             onClick={() => setDeleteItem(row)}
             className="p-1.5 rounded hover:bg-red-50 text-red-500"
@@ -162,7 +158,6 @@ export default function PackagesManager() {
   return (
     <div className="space-y-4">
 
-      {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-gray-800">Packages</h2>
         <button
@@ -174,10 +169,8 @@ export default function PackagesManager() {
         </button>
       </div>
 
-      {/* Table */}
       <DataTable columns={columns} data={packages} loading={loading} />
 
-      {/* View Modal */}
       {viewItem && (
         <ViewModal title="Package Detail" onClose={() => setViewItem(null)}>
           <div className="space-y-4">
@@ -195,10 +188,6 @@ export default function PackagesManager() {
               <Detail label="Created"  value={new Date(viewItem.createdAt).toLocaleDateString()} />
             </div>
             <div>
-              <p className="text-xs text-gray-400 mb-1">Description</p>
-              <p className="text-sm text-gray-700">{viewItem.description}</p>
-            </div>
-            <div>
               <p className="text-xs text-gray-400 mb-2">Tags</p>
               <div className="flex flex-wrap gap-2">
                 {viewItem.tags.map((tag) => (
@@ -212,18 +201,16 @@ export default function PackagesManager() {
         </ViewModal>
       )}
 
-      {/* Delete Modal */}
       {deleteItem && (
         <DeleteModal
-          title="Package delete karna chahte ho?"
-          message={`"${deleteItem.title}" permanently delete ho jayega.`}
+        title="Delete this package?"
+          message={`"${deleteItem.title}" will be permanently deleted.`}
           onConfirm={handleDelete}
           onClose={() => setDeleteItem(null)}
           loading={deleting}
         />
       )}
 
-      {/* Add / Edit Form */}
       {showForm && (
         <PackageForm
           editData={editItem}

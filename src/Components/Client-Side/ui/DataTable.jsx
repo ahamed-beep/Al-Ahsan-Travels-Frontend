@@ -12,7 +12,7 @@ export default function DataTable({ columns, data, loading }) {
   if (!data?.length) {
     return (
       <div className="text-center py-20 text-gray-400">
-        Koi data nahi mila
+        No data found
       </div>
     );
   }

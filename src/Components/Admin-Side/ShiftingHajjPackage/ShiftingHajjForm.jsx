@@ -65,7 +65,7 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!editData && !form.image) { setError("Image upload karna zaroori hai"); return; }
+    if (!editData && !form.image) { setError("Image upload is required"); return; }
 
     setLoading(true);
     setError("");
@@ -89,7 +89,7 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
       }
       onSuccess();
     } catch (err) {
-      setError(err.response?.data?.message || "Kuch ghalat hua");
+   setError(err.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -102,7 +102,7 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
           <h2 className="font-semibold text-gray-800">
-            {editData ? "Package Edit karo" : "Naya Shifting Hajj Package"}
+          {editData ? "Edit Package" : "New Shifting Hajj Package"}
           </h2>
           <button onClick={onClose} className="p-1 rounded hover:bg-gray-100">
             <X className="w-5 h-5 text-gray-500" />
@@ -151,7 +151,7 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
                 className="flex-1 min-w-[140px] text-sm outline-none bg-transparent"
               />
             </div>
-            <p className="text-xs text-gray-400 mt-1">Enter ya comma dabao add karne ke liye</p>
+          <p className="text-xs text-gray-400 mt-1">Press Enter or comma to add</p>
           </div>
 
           {/* ── Tags — enum toggle buttons ── */}
@@ -179,7 +179,7 @@ export default function ShiftingHajjForm({ editData, onClose, onSuccess }) {
               })}
             </div>
             {form.tags.length === 0 && (
-              <p className="text-xs text-gray-400 mt-1">Koi tag select nahi kiya</p>
+           <p className="text-xs text-gray-400 mt-1">No tags selected</p>
             )}
           </div>
 
