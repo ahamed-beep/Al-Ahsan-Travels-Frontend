@@ -8,7 +8,6 @@ import DeleteModal from "@/Components/Client-Side/ui/DeleteModal";
 import DataTable from "@/Components/Client-Side/ui/DataTable";
 import ViewModal from "@/Components/Client-Side/ui/ViewModal";
 
-
 const CATEGORIES = [
   { value: "THREE_STAR_WITH_FLIGHT",    label: "3-Star With Flight" },
   { value: "THREE_STAR_WITHOUT_FLIGHT", label: "3-Star Without Flight" },
@@ -24,6 +23,15 @@ const STAR_RATINGS = [
   { value: 3, label: "3★" },
   { value: 4, label: "4★" },
   { value: 5, label: "5★" },
+];
+
+const FEATURES = [
+  { key: "includesFlight",    label: "Flight" },
+  { key: "includesVisa",      label: "Visa" },
+  { key: "includesTransport", label: "Transport" },
+  { key: "includesGuide",     label: "Guide" },
+  { key: "isVip",             label: "VIP" },
+  { key: "isCustom",          label: "Custom" },
 ];
 
 const EMPTY_FORM = {
@@ -45,7 +53,7 @@ const EMPTY_FORM = {
 export default function UmrahPackagesManager() {
   const [packages, setPackages]     = useState([]);
   const [loading, setLoading]       = useState(true);
-  const [modalMode, setModalMode]   = useState(null); 
+  const [modalMode, setModalMode]   = useState(null);
   const [selected, setSelected]     = useState(null);
   const [form, setForm]             = useState(EMPTY_FORM);
   const [imageFile, setImageFile]   = useState(null);
@@ -65,7 +73,7 @@ export default function UmrahPackagesManager() {
       const { data } = await axiosInstance.get(API_UMRAH_PACKAGES, { params });
       setPackages(data);
     } catch {
-      setError("Packages load nahi ho sake.");
+  setError("Failed to load packages.");
     } finally {
       setLoading(false);
     }
@@ -134,7 +142,7 @@ export default function UmrahPackagesManager() {
     const required = ["title","duration","makkahHotel","madinahHotel","price","category"];
     for (const key of required) {
       if (!form[key]?.toString().trim()) {
-        setError(`${key} required hai.`);
+        setError(`${key} is required .`);
         return;
       }
     }
@@ -158,9 +166,25 @@ export default function UmrahPackagesManager() {
       await fetchPackages();
       closeModal();
     } catch (err) {
-      setError(err.response?.data?.message || "Kuch ghalat ho gaya.");
+    setError(err.response?.data?.message || "Something went wrong.");
     } finally {
       setSubmitting(false);
+    }
+  }
+
+  async function handleFeatureToggle(pkg, key) {
+    const nextValue = !pkg[key];
+    setPackages((prev) =>
+      prev.map((p) => (p._id === pkg._id ? { ...p, [key]: nextValue } : p))
+    );
+    try {
+      await axiosInstance.patch(`${API_UMRAH_PACKAGE_BY_ID(pkg._id)}/features`, {
+        [key]: nextValue,
+      });
+    } catch {
+      setPackages((prev) =>
+        prev.map((p) => (p._id === pkg._id ? { ...p, [key]: pkg[key] } : p))
+      );
     }
   }
 
@@ -171,7 +195,7 @@ export default function UmrahPackagesManager() {
       await fetchPackages();
       closeModal();
     } catch {
-      setError("Delete nahi ho saka.");
+      setError("Failed to delete.");
     } finally {
       setSubmitting(false);
     }
@@ -226,6 +250,27 @@ export default function UmrahPackagesManager() {
       ),
     },
     {
+      key: "features",
+      label: "Features",
+      render: (row) => (
+        <div className="flex flex-wrap gap-1">
+          {FEATURES.map(({ key, label }) => (
+            <button
+              key={key}
+              onClick={() => handleFeatureToggle(row, key)}
+              className={`text-[10px] px-2 py-0.5 rounded-full font-medium transition-colors ${
+                row[key]
+                  ? "bg-green-50 text-green-600"
+                  : "bg-gray-100 text-gray-400"
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      ),
+    },
+    {
       key: "actions",
       label: "Actions",
       render: (row) => (
@@ -240,7 +285,6 @@ export default function UmrahPackagesManager() {
 
   return (
     <div className="space-y-5">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold text-gray-800">Umrah Packages</h2>
@@ -278,7 +322,6 @@ export default function UmrahPackagesManager() {
 
       <DataTable columns={columns} data={packages} loading={loading} />
 
-      {/* Create / Edit Modal */}
       {(modalMode === "create" || modalMode === "edit") && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
@@ -296,7 +339,6 @@ export default function UmrahPackagesManager() {
                 <div className="bg-red-50 text-red-600 text-sm px-4 py-2 rounded-lg">{error}</div>
               )}
 
-              {/* Image Upload */}
               <div>
                 <label className="block text-xs font-medium text-gray-600 mb-1">Image</label>
                 <div
@@ -308,14 +350,13 @@ export default function UmrahPackagesManager() {
                   ) : (
                     <div className="flex flex-col items-center justify-center h-40 gap-2 text-gray-400">
                       <Upload className="w-6 h-6" />
-                      <span className="text-xs">Image upload karo</span>
+                 <span className="text-xs">Upload image</span>
                     </div>
                   )}
                 </div>
                 <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
               </div>
 
-              {/* Text Fields */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { key: "title",       label: "Title",          placeholder: "3-Star Umrah 7 Days" },
@@ -335,7 +376,6 @@ export default function UmrahPackagesManager() {
                   </div>
                 ))}
 
-                {/* Star Rating */}
                 <div>
                   <label className="block text-xs font-medium text-gray-600 mb-1">Star Rating</label>
                   <select
@@ -349,7 +389,6 @@ export default function UmrahPackagesManager() {
                   </select>
                 </div>
 
-                {/* Category */}
                 <div className="sm:col-span-2">
                   <label className="block text-xs font-medium text-gray-600 mb-1">Category</label>
                   <select
@@ -364,18 +403,10 @@ export default function UmrahPackagesManager() {
                 </div>
               </div>
 
-              {/* Toggles */}
               <div>
                 <label className="block text-xs font-medium text-gray-600 mb-2">Included Features</label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {[
-                    { key: "includesFlight",    label: "Flight" },
-                    { key: "includesVisa",      label: "Visa" },
-                    { key: "includesTransport", label: "Transport" },
-                    { key: "includesGuide",     label: "Guide" },
-                    { key: "isVip",             label: "VIP" },
-                    { key: "isCustom",          label: "Custom" },
-                  ].map(({ key, label }) => (
+                  {FEATURES.map(({ key, label }) => (
                     <button
                       key={key}
                       type="button"
@@ -416,7 +447,6 @@ export default function UmrahPackagesManager() {
         </div>
       )}
 
-      {/* View Modal */}
       {modalMode === "view" && selected && (
         <ViewModal title={selected.title} onClose={closeModal}>
           <div className="space-y-4">
@@ -440,14 +470,7 @@ export default function UmrahPackagesManager() {
               ))}
             </div>
             <div className="flex flex-wrap gap-2">
-              {[
-                { key: "includesFlight",    label: "Flight" },
-                { key: "includesVisa",      label: "Visa" },
-                { key: "includesTransport", label: "Transport" },
-                { key: "includesGuide",     label: "Guide" },
-                { key: "isVip",             label: "VIP" },
-                { key: "isCustom",          label: "Custom" },
-              ].map(({ key, label }) => (
+              {FEATURES.map(({ key, label }) => (
                 <span
                   key={key}
                   className={`text-xs px-3 py-1 rounded-full font-medium ${
@@ -464,11 +487,10 @@ export default function UmrahPackagesManager() {
         </ViewModal>
       )}
 
-      {/* Delete Modal */}
       {modalMode === "delete" && selected && (
         <DeleteModal
-          title="Package delete karna chahte ho?"
-          message={`"${selected.title}" permanently delete ho jayega.`}
+        title="Delete this package?"
+          message={`"${selected.title}" will be permanently deleted.`}
           onConfirm={handleDelete}
           onClose={closeModal}
           loading={submitting}

@@ -110,7 +110,7 @@ async function handleDelete() {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-semibold text-gray-800">Monthly Umrah Packages</h2>
-          <p className="text-sm text-gray-400">3, 4, 5 star packages — har month ke liye</p>
+         <p className="text-sm text-gray-400">3, 4, 5 star packages — for every month</p>
         </div>
         <button
           onClick={() => { setEditTarget(null); setShowForm(true); }}
@@ -167,8 +167,8 @@ async function handleDelete() {
       {/* Delete Modal */}
       {deleteTarget && (
         <DeleteModal
-          title="Package Delete karo"
-          message={`"${deleteTarget.sectionTitle}" permanently delete ho jayega.`}
+      title="Package Delete karo"
+          message={`"${deleteTarget.sectionTitle}"will be permanently deleted.`}
           onConfirm={handleDelete}
           onClose={() => setDeleteTarget(null)}
           loading={deleteLoading}

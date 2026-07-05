@@ -350,8 +350,8 @@ export default function ShiftingHajjManager() {
       {/* Delete Modal */}
       {deleteItem && (
         <DeleteModal
-          title="Package delete karna chahte ho?"
-          message={`"${deleteItem.title}" permanently delete ho jaega.`}
+         title="Delete this package?"
+          message={`"${deleteItem.title}" will be permanently deleted`}
           loading={deleteLoading}
           onConfirm={handleDelete}
           onClose={() => setDeleteItem(null)}

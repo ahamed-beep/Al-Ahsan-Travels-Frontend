@@ -7,7 +7,7 @@ import { API_PACKAGES, API_PACKAGE_BY_ID } from "@/constants/api";
 
 const DEFAULT = {
   title: "", price: "", currency: "", durationDays: "",
-  durationNights: "", description: "", perPersonText: "per person",
+  durationNights: "", perPersonText: "per person",
   tags: [], image: null,
 };
 
@@ -37,7 +37,6 @@ export default function PackageForm({ editData, onClose, onSuccess }) {
     setError("");
   };
 
-  // Tag add karo — Enter ya comma pe
   const handleTagKeyDown = (e) => {
     if (e.key === "Enter" || e.key === ",") {
       e.preventDefault();
@@ -65,9 +64,8 @@ export default function PackageForm({ editData, onClose, onSuccess }) {
       formData.append("currency",       form.currency);
       formData.append("durationDays",   form.durationDays);
       formData.append("durationNights", form.durationNights);
-      formData.append("description",    form.description);
       formData.append("perPersonText",  form.perPersonText);
-formData.append("tags", form.tags.join(","));
+      formData.append("tags", form.tags.join(","));
       if (form.image) formData.append("image", form.image);
 
       if (editData) {
@@ -82,7 +80,7 @@ formData.append("tags", form.tags.join(","));
 
       onSuccess();
     } catch (err) {
-      setError(err.response?.data?.message || "Kuch ghalat hua");
+    setError(err.response?.data?.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -94,7 +92,7 @@ formData.append("tags", form.tags.join(","));
 
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
           <h2 className="font-semibold text-gray-800">
-            {editData ? "Package Edit karo" : "Naya Package Add karo"}
+            {editData ? "Edit Package" : "Add New Package"}
           </h2>
           <button onClick={onClose} className="p-1 rounded hover:bg-gray-100">
             <X className="w-5 h-5 text-gray-500" />
@@ -113,8 +111,6 @@ formData.append("tags", form.tags.join(","));
 
           <div className="grid grid-cols-2 gap-3">
             <Field label="Price" name="price" type="number" value={form.price} onChange={handleChange} required />
-
-            {/* ✅ Currency free text */}
             <Field label="Currency (e.g. GBP, USD)" name="currency" value={form.currency} onChange={handleChange} placeholder="GBP" required />
           </div>
 
@@ -125,16 +121,6 @@ formData.append("tags", form.tags.join(","));
 
           <Field label="Per Person Text" name="perPersonText" value={form.perPersonText} onChange={handleChange} />
 
-          <div>
-            <label className="text-sm font-medium text-gray-700">Description</label>
-            <textarea
-              name="description" value={form.description} onChange={handleChange}
-              rows={3}
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
-            />
-          </div>
-
-          {/* ✅ Tags pill input */}
           <div>
             <label className="text-sm font-medium text-gray-700">Tags</label>
             <div className="mt-1 min-h-[42px] w-full px-3 py-2 border border-gray-300 rounded-lg flex flex-wrap gap-2 focus-within:ring-2 focus-within:ring-blue-500">
@@ -158,11 +144,11 @@ formData.append("tags", form.tags.join(","));
                 value={tagInput}
                 onChange={(e) => setTagInput(e.target.value)}
                 onKeyDown={handleTagKeyDown}
-                placeholder={form.tags.length === 0 ? "Type karo, Enter dabao" : ""}
+            placeholder={form.tags.length === 0 ? "Type and press Enter" : ""}
                 className="flex-1 min-w-[100px] text-sm outline-none bg-transparent"
               />
             </div>
-            <p className="text-xs text-gray-400 mt-1">Enter ya comma dabao tag add karne ke liye</p>
+            <p className="text-xs text-gray-400 mt-1">Press Enter or comma to add a tag</p>
           </div>
 
           <div>

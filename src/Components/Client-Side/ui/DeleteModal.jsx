@@ -10,11 +10,11 @@ export default function DeleteModal({ title, message, onConfirm, onClose, loadin
           <div className="p-2 bg-red-50 rounded-full">
             <Trash2 className="w-5 h-5 text-red-500" />
           </div>
-          <h2 className="font-semibold text-gray-800">{title || "Delete karna chahte ho?"}</h2>
+<h2 className="font-semibold text-gray-800">{title || "Delete this item?"}</h2>
         </div>
-        <p className="text-sm text-gray-500 mb-6">
-          {message || "Yeh action undo nahi ho sakta."}
-        </p>
+       <p className="text-sm text-gray-500 mb-6">
+  {message || "This action cannot be undone."}
+</p>
         <div className="flex gap-3">
           <button
             onClick={onClose}

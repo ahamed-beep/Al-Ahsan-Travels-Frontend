@@ -94,7 +94,7 @@ export default function NonShiftingHajjManager() {
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600" />
         </div>
       ) : packages.length === 0 ? (
-        <div className="text-center py-20 text-gray-400">Koi package nahi mila</div>
+  <div className="text-center py-20 text-gray-400">No packages found</div>
       ) : (
         <div className="overflow-x-auto rounded-xl border border-gray-200">
           <table className="w-full text-sm">
@@ -219,8 +219,8 @@ export default function NonShiftingHajjManager() {
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-sm p-6">
-            <h2 className="font-semibold text-gray-800 mb-2">Delete karna chahte ho?</h2>
-            <p className="text-sm text-gray-500 mb-6">Yeh action undo nahi ho sakta.</p>
+           <h2 className="font-semibold text-gray-800 mb-2">Delete this package?</h2>
+           <p className="text-sm text-gray-500 mb-6">This action cannot be undone.</p>
             <div className="flex gap-3">
               <button
                 onClick={() => setDeleteId(null)}

@@ -236,8 +236,8 @@ export default function AshraPackagesManager() {
 
       {deleteItem && (
         <DeleteModal
-          title="Package delete karna chahte ho?"
-          message={`"${deleteItem.title}" permanently delete ho jayega.`}
+       title="Delete this package?"
+message={`"${deleteItem.title}" will be permanently deleted.`}
           onConfirm={handleDelete}
           onClose={() => setDeleteItem(null)}
           loading={deleteLoading}
@@ -279,7 +279,7 @@ export default function AshraPackagesManager() {
           <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl max-h-[90vh] flex flex-col">
             <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
               <h2 className="font-semibold text-gray-800">
-                {editItem ? "Package Edit Karo" : "Naya Package Add Karo"}
+           {editItem ? "Edit Package" : "Add New Package"}
               </h2>
               <button onClick={closeForm} className="p-1 rounded hover:bg-gray-100 text-gray-500">
                 <X className="w-5 h-5" />
@@ -296,7 +296,7 @@ export default function AshraPackagesManager() {
                 ) : (
                   <div className="flex flex-col items-center gap-2 text-gray-400">
                     <Upload className="w-6 h-6" />
-                    <span className="text-sm">Image upload karo</span>
+                  <span className="text-sm">Upload image</span>
                   </div>
                 )}
                 <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
@@ -359,7 +359,7 @@ export default function AshraPackagesManager() {
                   Cancel
                 </button>
                 <button type="submit" disabled={formLoading} className="flex-1 py-2.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50">
-                  {formLoading ? "Saving..." : editItem ? "Update Karo" : "Add Karo"}
+                 {formLoading ? "Saving..." : editItem ? "Update" : "Add"}
                 </button>
               </div>
             </form>

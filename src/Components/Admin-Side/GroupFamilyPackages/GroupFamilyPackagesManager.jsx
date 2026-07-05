@@ -103,7 +103,7 @@ export default function GroupFamilyPackagesManager() {
 
  const handleSubmit = async () => {
   if (!form.title || !form.duration || !form.makkahHotel || !form.madinahHotel || !form.price || !form.hotelLabel) {
-    alert("Saare required fields fill karo");
+alert("Please fill all required fields");
     return;
   }
   setSubmitting(true);
@@ -128,13 +128,15 @@ export default function GroupFamilyPackagesManager() {
     }
 
     let res;
-    if (editingId) {
-      console.log("=== PATCH URL ===", API_GROUP_FAMILY_PACKAGE_BY_ID(editingId));
-      res = await axiosInstance.patch(API_GROUP_FAMILY_PACKAGE_BY_ID(editingId), fd);
-    } else {
-      console.log("=== POST URL ===", API_GROUP_FAMILY_PACKAGES);
-      res = await axiosInstance.post(API_GROUP_FAMILY_PACKAGES, fd);
-    }
+ if (editingId) {
+  res = await axiosInstance.patch(API_GROUP_FAMILY_PACKAGE_BY_ID(editingId), fd, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+} else {
+  res = await axiosInstance.post(API_GROUP_FAMILY_PACKAGES, fd, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+}
 
     // ✅ DEBUG: Server se kya aaya
     console.log("=== SERVER RESPONSE ===", res.data);
@@ -252,7 +254,7 @@ export default function GroupFamilyPackagesManager() {
           <div className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-20 text-gray-400">Koi package nahi mila</div>
+        <div className="text-center py-20 text-gray-400">No packages found</div>
       ) : (
         <div className="overflow-x-auto rounded-xl border border-gray-200">
           <table className="w-full text-sm">
@@ -371,7 +373,7 @@ export default function GroupFamilyPackagesManager() {
           <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <h2 className="text-lg font-bold text-gray-900">
-                {editingId ? "Package Edit Karo" : "Naya Package Add Karo"}
+               {editingId ? "Edit Package" : "Add New Package"}
               </h2>
               <button onClick={() => setModalOpen(false)} className="p-2 rounded-lg hover:bg-gray-100 transition-colors">
                 <X size={18} />
@@ -391,7 +393,7 @@ export default function GroupFamilyPackagesManager() {
                   ) : (
                     <>
                       <Upload size={24} className="text-gray-400 mb-2" />
-                      <span className="text-sm text-gray-500">Image upload karo</span>
+                    <span className="text-sm text-gray-500">Upload image</span>
                     </>
                   )}
                 </div>
@@ -549,7 +551,7 @@ export default function GroupFamilyPackagesManager() {
                 disabled={submitting}
                 className="flex-1 px-4 py-2.5 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {submitting ? "Saving..." : editingId ? "Update Karo" : "Create Karo"}
+               {submitting ? "Saving..." : editingId ? "Update" : "Create"}
               </button>
             </div>
           </div>
@@ -563,8 +565,8 @@ export default function GroupFamilyPackagesManager() {
             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Trash2 size={20} className="text-red-500" />
             </div>
-            <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Package Delete Karo?</h3>
-            <p className="text-sm text-gray-500 text-center mb-6">Yeh action undo nahi ho sakta</p>
+        <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Delete Package?</h3>
+            <p className="text-sm text-gray-500 text-center mb-6">This action cannot be undone</p>
             <div className="flex gap-3">
               <button
                 onClick={() => setDeleteId(null)}
