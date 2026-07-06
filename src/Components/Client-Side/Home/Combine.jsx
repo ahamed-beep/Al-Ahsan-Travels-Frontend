@@ -8,6 +8,8 @@ import Testimonials from './Testimonials'
 import UmrahCTA from './UmrahCTA'
 import Footer from './Footer'
 import TopBar from './Topbar'
+import Patnerspage from './Patnerspage'
+import SingleVideoPage from './SingleVideoPage'
 
 
 const Combine = () => {
@@ -16,10 +18,12 @@ const Combine = () => {
       <TopBar/>
       <Navbar/>
       <Herosection/>
+      <SingleVideoPage/>
       <FeaturedPackages/>
       <WhyTrustUs/>
       <JourneySection/>
       <Testimonials/>
+      <Patnerspage/>
       <UmrahCTA/>
       
       <Footer/>
