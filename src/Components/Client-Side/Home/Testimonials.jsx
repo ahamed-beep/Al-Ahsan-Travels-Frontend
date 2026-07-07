@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight,Users, Star } from "lucide-react";
 
 export default function Testimonials() {
 const testimonials = [
@@ -77,6 +77,27 @@ const testimonials = [
     date: " 3/12/2025",
   },
 ];
+const TrustpilotBadge = () => (
+    <div className="flex items-center gap-3 px-3.5 py-1.5 whitespace-nowrap">
+      <div className="flex">
+        {[0, 1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="w-[42px] h-[42px] rounded-full bg-[#1C398E] border-2 border-white -ml-3 first:ml-0 flex items-center justify-center text-white"
+          >
+            <Users size={20} />
+          </div>
+        ))}
+      </div>
+      <div>
+        <div className="flex items-center gap-1.5">
+          <Star size={18} className="text-[#1C398E] fill-[#1C398E]" />
+          <p className="text-base font-bold text-[#1C398E] leading-none">Trustpilot</p>
+        </div>
+        <p className="text-sm text-[#1C398E] leading-none mt-1">Trusted by 40+ clients</p>
+      </div>
+    </div>
+  );
 
   const [current, setCurrent] = useState(0);
 
@@ -165,6 +186,16 @@ const testimonials = [
             />
           ))}
         </div>
+
+        {/* Trustpilot Badge - below testimonials, linked to Trustpilot page */}
+        <a
+          href="https://www.trustpilot.com/review/alahsantravels.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=" lg:flex justify-center mt-8"
+        >
+          <TrustpilotBadge />
+        </a>
 
       </div>
     </section>
