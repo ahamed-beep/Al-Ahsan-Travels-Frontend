@@ -1,14 +1,14 @@
 export default function SingleVideoPage() {
   return (
-    <div className="min-h-screen w-full bg-black flex items-center justify-center p-4">
+    <div className="w-full h-screen pt-20 bg-white">
       <video
-        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        src="https://res.cloudinary.com/ddhxxqkpc/video/upload/v1783509698/WhatsApp_Video_2026-07-08_at_4.17.41_PM_bmxrcd.mp4"
         controls
         autoPlay
         loop
         muted
         playsInline
-        className="w-full max-w-4xl rounded-xl shadow-lg"
+        className="w-full h-full object-cover"
       />
     </div>
   );

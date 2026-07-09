@@ -36,7 +36,7 @@ export default function JourneySection() {
           <div className="flex gap-12 mt-10">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-[#2b4c9a]">
-                6K+
+                7K+
               </h3>
               <p className="text-gray-500 text-sm mt-1">
                 Visitors Served
@@ -45,7 +45,7 @@ export default function JourneySection() {
 
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-[#2b4c9a]">
-                10K+
+                9+
               </h3>
               <p className="text-gray-500 text-sm mt-1">
                 Years Experience
@@ -58,7 +58,7 @@ export default function JourneySection() {
         <div className="w-full">
           <div className="rounded-2xl overflow-hidden ">
             <Image
-              src="/Images/Image (Medina).webp" // 👈 same image
+              src="Images/IMG_0715.JPG.jpeg" // 👈 same image
               alt="Kaaba"
               width={600}
               height={500}

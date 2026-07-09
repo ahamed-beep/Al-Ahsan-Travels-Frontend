@@ -17,7 +17,6 @@ const navItems = [
   {
     label: "Umrah",
     href: "#",
-    // Mega-menu: multiple columns, each with its own heading
     columns: [
       {
         heading: "Umrah packages 2026",
@@ -229,7 +228,7 @@ export default function Navbar() {
           <Link href="/" className="shrink-0" aria-label="Al-Ahsan Travels — Home">
             <img
               src="/Images/Link.png"
-              alt="Al-Ahsan Travels — Hajj & Umrah specialists"
+              alt="Al Ahsan Travels — Hajj & Umrah specialists"
               width={140}
               height={80}
               className="h-[60px] w-auto object-contain"
