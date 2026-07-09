@@ -1,100 +1,100 @@
 "use client";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight,Users, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Star } from "lucide-react";
 
 export default function Testimonials() {
-const testimonials = [
-  {
-    name: "Ibrahim Khalid",
-    initials: "IK",
-    review:
-      "Had an amazing Umrah trip with Besam and Al Ahsan Travels. Everyone was super helpful throughout the journey and took care of all the details. Highly recommended if you want a peaceful trip.",
-    location: "London, UK",
-    package: "Ramadan Umrah Package",
-    date: "7/01/2026",
-  },
-  {
-    name: "Abdul Haadi",
-    initials: "AH",
-    review:
-      "Booked my Umrah package through Abdul Rauf and Al Ahsan Travels, and it was a great decision. Hotels and transport were super comfortable, and everything went exactly as planned.",
-    location: "Manchester",
-    package: "Umrah Package",
-    date: "10/02/2026",
-  },
-  {
-    name: "Muhammad Muaz",
-    initials: "MM",
-    review:
-      "Had a brilliant experience with Abdul Rauf and Al Ahsan Travels. The guidance provided throughout the Umrah was excellent, and everything was handled with great responsibility.",
-    location: "Edinburgh",
-    package: "Standard Umrah Package",
-    date: "1/03/2026",
-  },
-  {
-    name: "Noor ul Eeman",
-    initials: "NE",
-    review:
-      "Choosing Besam for my Umrah was the best decision. The team is genuinely helpful and took great care of us throughout the blessed journey. May Allah reward them.",
-    location: "Bristol",
-    package: "Family Umrah Package",
-    date: "11/03/2026",
-  },
-  {
-    name: "Zara Anfal",
-    initials: "ZA",
-    review:
-      "Thank you to Sohaib for making my Umrah trip so easy and memorable. The hospitality and support throughout the trip were exceptional.",
-    location: "Glasgow",
-    package: "Standard Umrah Package",
-    date: "22/02/2026",
-  },
-  {
-    name: "Minahil Hayat",
-    initials: "MH",
-    review:
-      "Highly recommend Besam and Al Ahsan Travels for Hajj. They delivered exactly what they promised, keeping our comfort a priority throughout the holy rituals. A big thank you to the whole team!",
-    location: "Liverpool",
-    package: "Hajj Package",
-    date: "18/05/2026",
-  },
-  {
-    name: "Ahmad Saeed",
-    initials: "AS",
-    review:
-      "Had a great Umrah trip! Everything from airport pickups to the local Ziyarat tours in Makkah and Madinah was handled perfectly by Abdul Rauf. Very well coordinated.",
-    location: "Belfast",
-    package: "Ziyarat tours",
-    date: " 3/04/2026",
-  },
-  {
-    name: "Rayan Shafique",
-    initials: "RS",
-    review:
-      "The team at Al Ahsan Travels was incredibly cooperative throughout our Umrah. Any time we had a question or needed help with local transport, they responded instantly. Exceptional service!",
-    location: "London",
-    package: "Umrah Package",
-    date: " 3/12/2025",
-  },
-];
-const TrustpilotBadge = () => (
-    <div className="flex items-center gap-3 px-3.5 py-1.5 whitespace-nowrap">
+  const testimonials = [
+    {
+      name: "Ibrahim Khalid",
+      initials: "IK",
+      review:
+        "Had an amazing Umrah trip with Besam and Al Ahsan Travels. Everyone was super helpful throughout the journey and took care of all the details. Highly recommended if you want a peaceful trip.",
+      location: "London, UK",
+      package: "Ramadan Umrah Package",
+      date: "7/01/2026",
+    },
+    {
+      name: "Abdul Haadi",
+      initials: "AH",
+      review:
+        "Booked my Umrah package through Abdul Rauf and Al Ahsan Travels, and it was a great decision. Hotels and transport were super comfortable, and everything went exactly as planned.",
+      location: "Manchester",
+      package: "Umrah Package",
+      date: "10/02/2026",
+    },
+    {
+      name: "Muhammad Muaz",
+      initials: "MM",
+      review:
+        "Had a brilliant experience with Abdul Rauf and Al Ahsan Travels. The guidance provided throughout the Umrah was excellent, and everything was handled with great responsibility.",
+      location: "Edinburgh",
+      package: "Standard Umrah Package",
+      date: "1/03/2026",
+    },
+    {
+      name: "Noor ul Eeman",
+      initials: "NE",
+      review:
+        "Choosing Besam for my Umrah was the best decision. The team is genuinely helpful and took great care of us throughout the blessed journey. May Allah reward them.",
+      location: "Bristol",
+      package: "Family Umrah Package",
+      date: "11/03/2026",
+    },
+    {
+      name: "Zara Anfal",
+      initials: "ZA",
+      review:
+        "Thank you to Sohaib for making my Umrah trip so easy and memorable. The hospitality and support throughout the trip were exceptional.",
+      location: "Glasgow",
+      package: "Standard Umrah Package",
+      date: "22/02/2026",
+    },
+    {
+      name: "Minahil Hayat",
+      initials: "MH",
+      review:
+        "Highly recommend Besam and Al Ahsan Travels for Hajj. They delivered exactly what they promised, keeping our comfort a priority throughout the holy rituals. A big thank you to the whole team!",
+      location: "Liverpool",
+      package: "Hajj Package",
+      date: "18/05/2026",
+    },
+    {
+      name: "Ahmad Saeed",
+      initials: "AS",
+      review:
+        "Had a great Umrah trip! Everything from airport pickups to the local Ziyarat tours in Makkah and Madinah was handled perfectly by Abdul Rauf. Very well coordinated.",
+      location: "Belfast",
+      package: "Ziyarat tours",
+      date: " 3/04/2026",
+    },
+    {
+      name: "Rayan Shafique",
+      initials: "RS",
+      review:
+        "The team at Al Ahsan Travels was incredibly cooperative throughout our Umrah. Any time we had a question or needed help with local transport, they responded instantly. Exceptional service!",
+      location: "London",
+      package: "Umrah Package",
+      date: " 3/12/2025",
+    },
+  ];
+  const TrustpilotBadge = () => (
+    <div className="flex items-center gap-2 sm:gap-3 px-3.5 py-1.5 flex-wrap justify-center">
       <div className="flex">
         {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
-            className="w-[42px] h-[42px] rounded-full bg-[#1C398E] border-2 border-white -ml-3 first:ml-0 flex items-center justify-center text-white"
+            className="w-[32px] h-[32px] sm:w-[42px] sm:h-[42px] rounded-full bg-[#1C398E] border-2 border-white -ml-3 first:ml-0 flex items-center justify-center text-white"
           >
-            <Users size={20} />
+            <Users size={16} className="sm:w-5 sm:h-5" />
           </div>
         ))}
       </div>
       <div>
         <div className="flex items-center gap-1.5">
-          <Star size={18} className="text-[#1C398E] fill-[#1C398E]" />
-          <p className="text-base font-bold text-[#1C398E] leading-none">Trustpilot</p>
+          <Star size={16} className="sm:w-[18px] sm:h-[18px] text-[#1C398E] fill-[#1C398E]" />
+          <p className="text-sm sm:text-base font-bold text-[#1C398E] leading-none">Trustpilot</p>
         </div>
-        <p className="text-sm text-[#1C398E] leading-none mt-1">Trusted by 40+ clients</p>
+        <p className="text-xs sm:text-sm text-[#1C398E] leading-none mt-1">Trusted by 40+ clients</p>
       </div>
     </div>
   );
@@ -180,9 +180,8 @@ const TrustpilotBadge = () => (
           {testimonials.map((_, index) => (
             <div
               key={index}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === current ? "w-6 bg-[#2b4c9a]" : "w-2 bg-gray-300"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${index === current ? "w-6 bg-[#2b4c9a]" : "w-2 bg-gray-300"
+                }`}
             />
           ))}
         </div>
@@ -192,7 +191,7 @@ const TrustpilotBadge = () => (
           href="https://www.trustpilot.com/review/alahsantravels.co.uk"
           target="_blank"
           rel="noopener noreferrer"
-          className=" lg:flex justify-center mt-8"
+          className="flex justify-center mt-8"
         >
           <TrustpilotBadge />
         </a>

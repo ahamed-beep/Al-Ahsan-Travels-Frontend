@@ -88,6 +88,13 @@ export default function HeroSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!/^\d{11}$/.test(form.phone)) {
+      setStatus("error");
+      setErrorMsg("Phone number must be exactly 11 digits.");
+      return;
+    }
+
     setStatus("loading");
     setErrorMsg("");
 
@@ -137,7 +144,7 @@ export default function HeroSection() {
               <span className="text-[#4ade80]">Sacred Lands</span>
             </h1>
 
-            
+
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
               <Link
@@ -161,7 +168,7 @@ export default function HeroSection() {
               <h2 className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-white mb-1">
                 Plan Your Perfect Umrah Journey
               </h2>
-              
+
 
               {status === "success" ? (
                 <div className="flex flex-col items-center justify-center py-8 text-center gap-3">
@@ -205,9 +212,27 @@ export default function HeroSection() {
                       <label className="block text-[11px] sm:text-[12px] font-medium text-gray-300 mb-1 uppercase tracking-wide">
                         Phone <span className="text-red-400">*</span>
                       </label>
+
                       <input
-                        type="tel" name="phone" placeholder="Phone Number"
-                        value={form.phone} onChange={handleChange} required
+                        type="text"
+                        name="phone"
+                        placeholder="Phone Number"
+                        value={form.phone}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, "");
+
+                          if (value.length <= 11) {
+                            handleChange({
+                              target: {
+                                name: "phone",
+                                value,
+                              },
+                            });
+                          }
+                        }}
+                        required
+                        maxLength={11}
+                        inputMode="numeric"
                         className="w-full px-3 py-2 sm:py-2.5 text-[12px] sm:text-[13px] bg-white/10 border border-white/15 text-white rounded-lg focus:outline-none focus:border-[#4ade80] focus:ring-1 focus:ring-[#4ade80] transition placeholder-gray-400"
                       />
                     </div>
@@ -293,7 +318,7 @@ export default function HeroSection() {
                           <line x1="22" y1="2" x2="11" y2="13" />
                           <polygon points="22 2 15 22 11 13 2 9 22 2" />
                         </svg>
-                        Request Price
+                         Submit
                       </>
                     )}
                   </button>
