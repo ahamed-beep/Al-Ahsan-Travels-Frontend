@@ -21,22 +21,28 @@ export default function ContactForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    
-    try {
-      const response = await axiosInstance.post(API_CONTACT_SUBMIT, form);
-      console.log("Response:", response.data);
-      setSubmitted(true);
-    } catch (err) {
-      console.error("Error:", err);
-      setError(err.response?.data?.message || "Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  if (form.phone.length < 11) {
+    setError("Phone number must be at least 11 digits.");
+    return;
   }
+
+  setLoading(true);
+  setError("");
+  
+  try {
+    const response = await axiosInstance.post(API_CONTACT_SUBMIT, form);
+    console.log("Response:", response.data);
+    setSubmitted(true);
+  } catch (err) {
+    console.error("Error:", err);
+    setError(err.response?.data?.message || "Failed to send message. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+}
 
   const inputClass =
     "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-150 bg-white";
@@ -119,20 +125,27 @@ export default function ContactForm() {
                       className={inputClass}
                     />
                   </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-[#364153] mb-1.5">
-                      Phone Number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={form.phone}
-                      onChange={handleChange}
-                      placeholder="07XXX XXXXXX"
-                      required
-                      className={inputClass}
-                    />
-                  </div>
+             <div>
+  <label className="block text-xs font-semibold text-[#364153] mb-1.5">
+    Phone Number <span className="text-red-500">*</span>
+  </label>
+  <input
+    type="tel"
+    name="phone"
+    value={form.phone}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, "");
+      if (value.length <= 11) {
+        handleChange({ target: { name: "phone", value } });
+      }
+    }}
+    placeholder="07XXX XXXXXX"
+    required
+    maxLength={11}
+    inputMode="numeric"
+    className={inputClass}
+  />
+</div>
                 </div>
 
                 {/* Travel Date */}
