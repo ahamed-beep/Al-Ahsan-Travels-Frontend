@@ -21,8 +21,14 @@ const handleChange = (e) => {
     setError("");
 };;
 
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (formData.phone.length < 11) {
+      setError("Phone number must be at least 11 digits.");
+      return;
+    }
+
     console.log(formData);
     alert("Form Submitted!");
   };

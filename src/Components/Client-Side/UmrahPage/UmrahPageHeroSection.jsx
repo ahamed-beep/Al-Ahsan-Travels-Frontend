@@ -39,9 +39,10 @@ export default function UmrahPageHeroSection() {
     setError("");
   };
 
-  const validate = () => {
+const validate = () => {
     if (!formData.fullName.trim()) return "Apna pura naam darain.";
     if (!formData.phone.trim()) return "Phone number daalna zaroori hai.";
+    if (formData.phone.length < 11) return "Phone number must be at least 11 digits.";
     if (!formData.adults || Number(formData.adults) < 1)
       return "Kam az kam 1 adult hona chahiye.";
     return null;
