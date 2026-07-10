@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Users, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Star, CalendarDays } from "lucide-react";
 
 export default function Testimonials() {
   const testimonials = [
@@ -11,7 +11,8 @@ export default function Testimonials() {
         "Had an amazing Umrah trip with Besam and Al Ahsan Travels. Everyone was super helpful throughout the journey and took care of all the details. Highly recommended if you want a peaceful trip.",
       location: "London, UK",
       package: "Ramadan Umrah Package",
-      date: "7/01/2026",
+      date: "2 Weeks Ago",
+      travelDate: "March 2025",
     },
     {
       name: "Abdul Haadi",
@@ -20,7 +21,8 @@ export default function Testimonials() {
         "Booked my Umrah package through Abdul Rauf and Al Ahsan Travels, and it was a great decision. Hotels and transport were super comfortable, and everything went exactly as planned.",
       location: "Manchester",
       package: "Umrah Package",
-      date: "10/02/2026",
+      date: "3 Weeks Ago",
+      travelDate: "February 2025",
     },
     {
       name: "Muhammad Muaz",
@@ -29,7 +31,8 @@ export default function Testimonials() {
         "Had a brilliant experience with Abdul Rauf and Al Ahsan Travels. The guidance provided throughout the Umrah was excellent, and everything was handled with great responsibility.",
       location: "Edinburgh",
       package: "Standard Umrah Package",
-      date: "1/03/2026",
+      date: "1 Weeks Ago",
+      travelDate: "April 2025",
     },
     {
       name: "Noor ul Eeman",
@@ -38,7 +41,8 @@ export default function Testimonials() {
         "Choosing Besam for my Umrah was the best decision. The team is genuinely helpful and took great care of us throughout the blessed journey. May Allah reward them.",
       location: "Bristol",
       package: "Family Umrah Package",
-      date: "11/03/2026",
+      date: "2 Months Ago",
+      travelDate: "January 2025",
     },
     {
       name: "Zara Anfal",
@@ -47,7 +51,8 @@ export default function Testimonials() {
         "Thank you to Sohaib for making my Umrah trip so easy and memorable. The hospitality and support throughout the trip were exceptional.",
       location: "Glasgow",
       package: "Standard Umrah Package",
-      date: "22/02/2026",
+      date: "3 Months Ago",
+      travelDate: "December 2024",
     },
     {
       name: "Minahil Hayat",
@@ -56,7 +61,8 @@ export default function Testimonials() {
         "Highly recommend Besam and Al Ahsan Travels for Hajj. They delivered exactly what they promised, keeping our comfort a priority throughout the holy rituals. A big thank you to the whole team!",
       location: "Liverpool",
       package: "Hajj Package",
-      date: "18/05/2026",
+      date: "6 Months Ago",
+      travelDate: "June 2024",
     },
     {
       name: "Ahmad Saeed",
@@ -65,7 +71,8 @@ export default function Testimonials() {
         "Had a great Umrah trip! Everything from airport pickups to the local Ziyarat tours in Makkah and Madinah was handled perfectly by Abdul Rauf. Very well coordinated.",
       location: "Belfast",
       package: "Ziyarat tours",
-      date: " 3/04/2026",
+      date: "5 Months Ago",
+      travelDate: "August 2024",
     },
     {
       name: "Rayan Shafique",
@@ -74,7 +81,8 @@ export default function Testimonials() {
         "The team at Al Ahsan Travels was incredibly cooperative throughout our Umrah. Any time we had a question or needed help with local transport, they responded instantly. Exceptional service!",
       location: "London",
       package: "Umrah Package",
-      date: " 3/12/2025",
+      date: "1 Month Ago",
+      travelDate: "May 2025",
     },
   ];
   const TrustpilotBadge = () => (
@@ -122,7 +130,13 @@ export default function Testimonials() {
         </p>
 
         {/* Card */}
-        <div className="mt-10 bg-white rounded-2xl shadow-lg p-8 md:p-10">
+        <div className="relative mt-10 bg-white rounded-2xl shadow-lg p-8 md:p-10">
+
+          {/* Travel Date Badge - top left */}
+          <span className="absolute top-4 left-4 sm:top-5 sm:left-5 inline-flex items-center gap-1 bg-[#51A2FF33] text-[#1C398E] px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-medium">
+            <CalendarDays size={12} />
+            {t.travelDate}
+          </span>
 
           {/* Avatar */}
           <div className="flex justify-center">

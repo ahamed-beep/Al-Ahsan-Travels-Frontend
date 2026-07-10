@@ -76,8 +76,8 @@ export default function SecondAshraHero() {
             </p>
             <div className="mt-8 flex items-center justify-start md:justify-start space-y-5">
               <Link href="/#hero" className="inline-flex min-h-[52px] w-full max-w-[171px] items-center justify-center gap-3 rounded-2xl bg-white px-5 py-4 text-sm font-medium text-[#163a8a] shadow-lg sm:text-base">
-  <span>Get Quote</span>
-</Link>
+                <span>Get Quote</span>
+              </Link>
             </div>
           </div>
 
@@ -108,8 +108,20 @@ export default function SecondAshraHero() {
                       name="phoneNumber"
                       placeholder="+44 20 1234 5678"
                       value={formData.phoneNumber}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, ""); 
+                        if (value.length <= 11) {
+                          handleChange({
+                            target: {
+                              name: "phoneNumber",
+                              value,
+                            },
+                          });
+                        }
+                      }}
                       required
+                      maxLength={11}
+                      inputMode="numeric"
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
                   </div>
@@ -165,12 +177,12 @@ export default function SecondAshraHero() {
                       </svg>
                       Departure Airport
                     </label>
-                 <AirportSearch
-  name="departureAirport"
-  value={formData.departureAirport}
-  onChange={handleChange}
-  placeholder="e.g. Heathrow"
-/>
+                    <AirportSearch
+                      name="departureAirport"
+                      value={formData.departureAirport}
+                      onChange={handleChange}
+                      placeholder="e.g. Heathrow"
+                    />
                   </div>
                 </div>
 

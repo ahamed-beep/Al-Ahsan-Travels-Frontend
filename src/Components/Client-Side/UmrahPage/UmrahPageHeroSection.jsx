@@ -165,9 +165,22 @@ export default function UmrahPageHeroSection() {
                   <label className={labelClass}>
                     Phone Number <span className="text-red-500">*</span>
                   </label>
-                  <input type="tel" name="phone" placeholder="+44 20 1234 5678"
-                    value={formData.phone} onChange={handleChange}
-                    required className={inputClass} />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="+44 20 1234 5678"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, "");
+                      if (value.length <= 11) {
+                        handleChange({ target: { name: "phone", value } });
+                      }
+                    }}
+                    required
+                    maxLength={11}
+                    inputMode="numeric"
+                    className={inputClass}
+                  />
                 </div>
               </div>
 

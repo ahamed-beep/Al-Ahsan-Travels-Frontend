@@ -183,20 +183,27 @@ export default function HeroSection({ month = "january" }) {
                 />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
-              <div>
-                <label className={labelClass}>
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="+44 20 1234 5678"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={inputClass}
-                />
-                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
-              </div>
+             <div>
+  <label className={labelClass}>
+    Phone Number <span className="text-red-500">*</span>
+  </label>
+  <input
+    type="tel"
+    name="phone"
+    placeholder="03001234567"
+    value={formData.phone}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, ""); // sirf numbers allow
+      if (value.length <= 11) {
+        handleChange({ target: { name: "phone", value } });
+      }
+    }}
+    maxLength={11}
+    inputMode="numeric"
+    className={inputClass}
+  />
+  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+</div>
             </div>
 
             {/* Row 2 — Date + Airport */}

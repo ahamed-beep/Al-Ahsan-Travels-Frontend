@@ -9,8 +9,8 @@ const navItems = [
     label: "Hajj",
     href: "#",
     dropdown: [
-      { label: "Hajj guideline",    href: "/hajjguidline"    },
-      { label: "Shifting Hajj",     href: "/shiftinghajj"    },
+      { label: "Hajj guideline", href: "/hajjguidline" },
+      { label: "Shifting Hajj", href: "/shiftinghajj" },
       { label: "Non-Shifting Hajj", href: "/nonshiftinghajj" },
     ],
   },
@@ -21,39 +21,39 @@ const navItems = [
       {
         heading: "Umrah packages 2026",
         links: [
-          { label: "Umrah packages",           href: "/umrahpage"      },
-          { label: "June Umrah packages",      href: "/umrahjune"      },
-          { label: "July Umrah packages",      href: "/umrahjuly"      },
-          { label: "August Umrah packages",    href: "/umrahaugust"    },
+          { label: "Umrah packages", href: "/umrahpage" },
+          { label: "June Umrah packages", href: "/umrahjune" },
+          { label: "July Umrah packages", href: "/umrahjuly" },
+          { label: "August Umrah packages", href: "/umrahaugust" },
           { label: "September Umrah packages", href: "/umrahseptember" },
-          { label: "October Umrah packages",   href: "/umrahoctober"   },
-          { label: "November Umrah packages",  href: "/umrahnovember"  },
-          { label: "December Umrah packages",  href: "/umrahdecember"  },
+          { label: "October Umrah packages", href: "/umrahoctober" },
+          { label: "November Umrah packages", href: "/umrahnovember" },
+          { label: "December Umrah packages", href: "/umrahdecember" },
         ],
       },
       {
         heading: "Umrah packages 2027",
         links: [
-          { label: "January Umrah packages",  href: "/umrahjanuary"  },
+          { label: "January Umrah packages", href: "/umrahjanuary" },
           { label: "February Umrah packages", href: "/umrahfebruary" },
-          { label: "March Umrah packages",    href: "/umrahmarch"    },
-          { label: "April Umrah packages",    href: "/umrahapril"    },
-          { label: "May Umrah packages",      href: "/umrahmay"      },
+          { label: "March Umrah packages", href: "/umrahmarch" },
+          { label: "April Umrah packages", href: "/umrahapril" },
+          { label: "May Umrah packages", href: "/umrahmay" },
         ],
       },
       {
         heading: "Family & group",
         links: [
           { label: "Family Umrah package", href: "/familyumrahpackage" },
-          { label: "Group Umrah package",  href: "/grouppackage"       },
+          { label: "Group Umrah package", href: "/grouppackage" },
         ],
       },
       {
         heading: "Star categories",
         links: [
           { label: "Three-star Umrah package", href: "/threestarpackage" },
-          { label: "Four-star Umrah package",  href: "/fourstarpackage"  },
-          { label: "Five-star Umrah package",  href: "/fivestarpackage"  },
+          { label: "Four-star Umrah package", href: "/fourstarpackage" },
+          { label: "Five-star Umrah package", href: "/fivestarpackage" },
         ],
       },
     ],
@@ -64,22 +64,22 @@ const navItems = [
     dropdown: [
       { label: "First Ashra", href: "/ramadanhajj" },
       { label: "Second Ashra", href: "/secondashra" },
-      { label: "Third Ashra", href: "/thirdashra"  },
+      { label: "Third Ashra", href: "/thirdashra" },
     ],
   },
   {
     label: "Special packages",
     href: "#",
     dropdown: [
-      { label: "Christmas Umrah packages",  href: "/christmasumrahpackage"  },
+      { label: "Christmas Umrah packages", href: "/christmasumrahpackage" },
       { label: "Clock Tower Umrah package", href: "/clocktowerumrahpackage" },
-      { label: "Couple Umrah package",      href: "/coupleumrahpackage"     },
-      { label: "Easter Umrah packages",     href: "/easterumrahpackage"     },
-      { label: "London Umrah package",      href: "/londonumrahpackage"     },
-      { label: "Women Umrah package",  href: "/manchesterumrahpackage" },
+      { label: "Couple Umrah package", href: "/coupleumrahpackage" },
+      { label: "Easter Umrah packages", href: "/easterumrahpackage" },
+      { label: "London Umrah package", href: "/londonumrahpackage" },
+      { label: "Women Umrah package", href: "/manchesterumrahpackage" },
     ],
   },
-  { label: "Flight",     href: "/flight"    },
+  { label: "Flight", href: "/flight" },
   { label: "Contact us", href: "/contactus" },
 ];
 
@@ -166,11 +166,11 @@ const mobileColumnHeadingCls =
 //  MAIN NAVBAR
 // ══════════════════════════════════════════════════════════════════════════════
 export default function Navbar() {
-  const [drawerOpen, setDrawerOpen]     = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   // FIX: closeTimer ref — setTimeout ID store karta hai
-  const closeTimer   = useRef(null);
+  const closeTimer = useRef(null);
   const mobileDrawerId = useId();
 
   // ── Helpers ──────────────────────────────────────────────────────────────
@@ -227,17 +227,17 @@ export default function Navbar() {
           {/* ── Logo ── */}
           <Link href="/" className="shrink-0" aria-label="Al-Ahsan Travels — Home">
             <img
-              src="/Images/Link.png"
+              src="Images/Al Ahsan Logo.png"
               alt="Al Ahsan Travels — Hajj & Umrah specialists"
-              width={140}
-              height={80}
-              className="h-[60px] w-auto object-contain"
+              width={220}
+              height={70}
+              className="w-[140px] sm:w-[180px] md:w-[220px] lg:w-[240px] h-auto object-contain"
               loading="eager"
             />
           </Link>
 
           {/* ── Desktop Nav ── */}
-          <ul className="hidden lg:flex whitespace-nowrap items-center gap-0.5 xl:gap-1 list-none m-0 p-0">
+          <ul className="hidden lg:flex whitespace-nowrap items-center gap-6 xl:gap-7 list-none m-0 p-0">
             {navItems.map((item) => {
               const dropdownId = `dd-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
               const isOpen = openDropdown === item.label;
@@ -467,7 +467,7 @@ export default function Navbar() {
         <ul className="p-2 m-0 list-none">
           {navItems.map((item) => {
             const isOpen = openDropdown === item.label;
-            const subId  = `mob-dd-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+            const subId = `mob-dd-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
             const isMega = Boolean(item.columns);
             const hasMenu = Boolean(item.dropdown) || isMega;
 
