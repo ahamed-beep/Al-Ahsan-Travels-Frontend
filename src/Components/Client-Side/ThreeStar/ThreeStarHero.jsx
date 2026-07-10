@@ -154,8 +154,15 @@ export default function ThreeStarHero() {
                     name="phone"
                     placeholder="+44 20 1234 5678"
                     value={formData.phone}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, ""); // sirf numbers allow
+                      if (value.length <= 11) {
+                        handleChange({ target: { name: "phone", value } });
+                      }
+                    }}
                     required
+                    maxLength={11}
+                    inputMode="numeric"
                     className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                   />
                 </div>
