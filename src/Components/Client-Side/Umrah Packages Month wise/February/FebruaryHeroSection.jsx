@@ -107,17 +107,24 @@ export default function UmrahFebruary() {
                 />
                 {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
               </div>
-              <div>
-                <label className="text-sm font-medium mb-1 block">Phone Number *</label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="border rounded-lg px-3 py-2 w-full"
-                />
-                {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
-              </div>
+           <div>
+  <label className="text-sm font-medium mb-1 block">Phone Number *</label>
+  <input
+    type="text"
+    name="phone"
+    value={formData.phone}
+    onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, "");
+      if (value.length <= 11) {
+        setFormData({ ...formData, phone: value });
+      }
+    }}
+    maxLength={11}
+    inputMode="numeric"
+    className="border rounded-lg px-3 py-2 w-full"
+  />
+  {errors.phone && <p className="text-red-500 text-xs">{errors.phone}</p>}
+</div>
             </div>
 
             {/* Row 2 */}

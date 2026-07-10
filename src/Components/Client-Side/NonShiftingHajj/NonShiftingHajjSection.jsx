@@ -26,11 +26,17 @@ export default function NonShiftingHajjSection() {
     setSuccess("");
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError("");
     setSuccess("");
+
+    if (formData.phoneNumber.length < 11) {
+      setError("Phone number must be at least 11 digits.");
+      return;
+    }
+
+    setLoading(true);
     try {
       await axiosInstance.post(API_HAJJ_INQUIRY_SUBMIT, {
         ...formData,

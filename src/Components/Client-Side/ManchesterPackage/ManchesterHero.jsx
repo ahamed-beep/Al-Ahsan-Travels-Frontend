@@ -27,13 +27,14 @@ export default function ManchesterHero() {
     setError("");
 };
 
-    const validate = () => {
-        if (!formData.fullName.trim()) return "Please enter your full name.";
-        if (!formData.phone.trim()) return "Phone number is required.";
-        if (!formData.adults || Number(formData.adults) < 1)
-            return "At least 1 adult is required.";
-        return null;
-    };
+ const validate = () => {
+    if (!formData.fullName.trim()) return "Please enter your full name.";
+    if (!formData.phone.trim()) return "Phone number is required.";
+    if (formData.phone.length < 10) return "Phone number must be at least 10 digits.";
+    if (!formData.adults || Number(formData.adults) < 1)
+        return "At least 1 adult is required.";
+    return null;
+};
 
     const handleSubmit = async (e) => {
         e.preventDefault();

@@ -25,8 +25,14 @@ export default function HeroSpecialPackage() {
     setError("");
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.phone.length < 11) {
+      setError("Phone number must be at least 11 digits.");
+      return;
+    }
+
     setLoading(true);
     setError("");
     setSuccess(false);
