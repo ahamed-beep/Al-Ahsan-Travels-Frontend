@@ -4,7 +4,7 @@
 const PHONE_DISPLAY   = "0121 667 0366";      // shown to user
 const PHONE_TEL        = "01216670366";       // used in tel: link (with country code)
 const WHATSAPP_NUMBER  = "447440064066";      // used in wa.me link (no + , no spaces)
-const EMAIL_ADDRESS    = "sales@yourdomain.co.uk";
+const EMAIL_ADDRESS    = "info@alahsantravels.co.uk";
 // ─────────────────────────────────────────────────────────────────────────
 
 function PhoneIcon() {
