@@ -1,28 +1,35 @@
 import CombineAboutUs from "@/Components/Client-Side/AboutUs/CombineAboutUs";
 
 export const metadata = {
-  title: "About Us | Your Company Name",
-  description: "Learn more about our company, our mission, vision, and the team behind our success.",
-  keywords: ["about us", "our company", "our mission", "our team"],
+  title: "About Us | Al Ahsan Travels",
+  description:
+    "Learn more about Al Ahsan Travels — our mission, vision, and the dedicated team behind our trusted Umrah, Hajj, and holiday travel services.",
+  keywords: [
+    "About Al Ahsan Travels",
+    "Al Ahsan Travels team",
+    "Umrah travel agency UK",
+    "Hajj and Umrah company",
+    "Our mission",
+    "Travel agency about us",
+  ],
+  metadataBase: new URL("https://alahsantravels.co.uk"),
+  alternates: {
+    canonical: "https://alahsantravels.co.uk/about-us",
+  },
   openGraph: {
-    title: "About Us | Your Company Name",
-    description: "Learn more about our company, our mission, vision, and the team behind our success.",
-    url: "https://yourwebsite.com/about-us",
-    siteName: "Your Company Name",
-    images: [
-      {
-        url: "https://yourwebsite.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
+    title: "About Us | Al Ahsan Travels",
+    description:
+      "Learn more about Al Ahsan Travels — our mission, vision, and the dedicated team behind our trusted Umrah, Hajj, and holiday travel services.",
+    url: "https://alahsantravels.co.uk/about-us",
+    siteName: "Al Ahsan Travels",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us | Your Company Name",
-    description: "Learn more about our company, our mission, vision, and the team behind our success.",
-    images: ["https://yourwebsite.com/og-image.jpg"],
+    title: "About Us | Al Ahsan Travels",
+    description:
+      "Learn more about Al Ahsan Travels — our mission, vision, and the dedicated team behind our trusted travel services.",
   },
 };
 

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { MessageCircle, Plane, Car, Hotel, FileText, Clock, MapPin } from "lucide-react";
 import { API_UMRAH_PACKAGES_BY_CATEGORY } from "@/constants/api";
