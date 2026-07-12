@@ -78,7 +78,7 @@ export default function CoupleHero() {
 
             {/* Background Image */}
             <img
-                src="/Images/BackGround.webp"
+                src="Images/IMG_0722.JPG.webp"
                 alt="Umrah"
                 className="absolute inset-0 w-full h-full object-cover"
             />

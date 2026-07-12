@@ -48,7 +48,7 @@ export default function UmrahFebruary() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="/Images/Shifting.jpg"
+          src="Images/IMG_0722.JPG.webp"
           alt="Kaaba"
           className="w-full h-full object-cover"
         />

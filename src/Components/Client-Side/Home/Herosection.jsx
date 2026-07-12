@@ -265,6 +265,7 @@ export default function HeroSection() {
                         value={form.departureAirport}
                         onChange={handleChange}
                         placeholder="e.g. Heathrow"
+                        className="text-white"
                       />
                     </div>
                   </div>

@@ -19,7 +19,7 @@ const monthData = Object.fromEntries(
       label: `${m.charAt(0).toUpperCase() + m.slice(1)} 2026 Departures`,
       heading: `${m.charAt(0).toUpperCase() + m.slice(1)} Umrah Packages`,
       year: "2026",
-      image: "/Images/BackGround.webp",
+      image: "Images/IMG_0722.JPG.webp",
     },
   ])
 );
@@ -85,7 +85,7 @@ const validate = () => {
         departureDate:    formData.date,
         departureAirport: formData.airport,
         adults:           Number(formData.adults),
-        children:         Number(formData.children) || 0,
+        children:         Number(formData.children) || "",
       });
 
       setSuccess("Quote request submitted! We'll contact you within 24 hours.");

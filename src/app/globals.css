@@ -46,3 +46,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+#hero input[name="departureAirport"] {
+  color: white !important;
+}
+
+#hero input[name="departureAirport"]::placeholder {
+  color: #9ca3af !important;
+}
