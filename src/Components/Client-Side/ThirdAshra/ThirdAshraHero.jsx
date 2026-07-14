@@ -32,8 +32,8 @@ export default function ThirdAshraHero() {
     setError("");
     setSuccess("");
 
-    if (formData.phoneNumber.length < 13) {
-      setError("Phone number must be at least 13 digits.");
+if (formData.phoneNumber.length < 10 || formData.phoneNumber.length > 13) {
+      setError("Phone number must be between 10 and 13 digits.");
       return;
     }
 

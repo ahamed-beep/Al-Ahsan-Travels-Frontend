@@ -1,17 +1,16 @@
-import { Award, ShieldCheck, Globe } from "lucide-react";
 import Image from "next/image";
 
 const certifications = [
   {
-    icon: <Award className="w-6 h-6 text-[#ffffff]" />,
+    icon: "/Images/icon1.jpeg",
     label: "Ministry of Hajj Approved",
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-[#ffffff]" />,
+    icon: "/Images/icon2.jpeg",
     label: "ATOL Protected",
   },
   {
-    icon: <Globe className="w-6 h-6 text-[#ffffff]" />,
+    icon: "/Images/icon3.jpeg",
     label: "IATA Certified",
   },
 ];
@@ -36,8 +35,12 @@ export default function CertifiedTrusted() {
               key={index}
               className="bg-[#1C398E] rounded-2xl py-10 px-6 flex flex-col items-center gap-4"
             >
-              <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center">
-                {cert.icon}
+              <div className=" h-35  flex items-center justify-center overflow-hidden p-2">
+                <img
+                  src={cert.icon}
+                  alt={cert.label}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-[#FFFFFF] font-semibold text-base text-center">
                 {cert.label}

@@ -23,14 +23,22 @@ export default function ClockTowerHero() {
 
    const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "phone") {
+        const digitsOnly = value.replace(/\D/g, "").slice(0, 13);
+        setFormData((prev) => ({ ...prev, phone: digitsOnly }));
+    } else {
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+
     setError("");
 };
 
  const validate = () => {
     if (!formData.fullName.trim()) return "Please enter your full name.";
     if (!formData.phone.trim()) return "Phone number is required.";
-    if (formData.phone.length < 13) return "Phone number must be at least 13 digits.";
+    if (formData.phone.length < 10) return "Phone number must be at least 10 digits.";
+    if (formData.phone.length > 13) return "Phone number must not exceed 13 digits.";
     if (!formData.adults || Number(formData.adults) < 1)
         return "At least 1 adult is required.";
     return null;
@@ -164,10 +172,12 @@ export default function ClockTowerHero() {
                                     <input
                                         type="tel"
                                         name="phone"
-                                        placeholder="+44 20 1234 5678"
+                                        placeholder="e.g. 447440064066"
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
+                                        inputMode="numeric"
+                                        maxLength={13}
                                         className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                                     />
                                 </div>
