@@ -1,3 +1,4 @@
+import WhatsAppButton from "@/Components/Client-Side/WhatsAppButton/WhatsAppButton";
 import "./globals.css";
 
 export const metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning={true}>
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
