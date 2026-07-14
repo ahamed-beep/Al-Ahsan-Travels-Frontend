@@ -6,7 +6,7 @@ import Image from "next/image";
 const baseLogos = [
   {
     name: "Hilton",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.02 AM.jpeg",
+    src: "/Images/Hilton.png",
   },
   {
     name: "Mövenpick",
@@ -43,6 +43,10 @@ const baseLogos = [
   {
     name: "Royal Jordanian",
     src: "/Images/WhatsApp Image 2026-07-02 at 3.08.06 AM.jpeg",
+  },
+   {
+    name: "Royal Jordanian",
+    src: "/Images/new.jpeg",
   },
 ];
 
