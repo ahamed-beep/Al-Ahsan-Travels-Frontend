@@ -135,22 +135,23 @@ style={{ width: "320px", height: "auto" }}
             <span className="w-px h-6 bg-gray-300 mx-1" aria-hidden="true" />
 
             {/* Payment method icons */}
-            <div className="flex items-center gap-3" aria-label="Accepted payment methods">
-              <span
-                title="Visa accepted"
-                aria-label="Visa accepted"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-[#1A1F71]"
-              >
-                <FaCcVisa size={20} aria-hidden="true" />
-              </span>
-              <span
-                title="Mastercard accepted"
-                aria-label="Mastercard accepted"
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 text-[#EB001B]"
-              >
-                <FaCcMastercard size={20} aria-hidden="true" />
-              </span>
-            </div>
+         {/* Payment method icons */}
+<div className="flex items-center gap-2" aria-label="Accepted payment methods">
+  <span
+    title="Visa accepted"
+    aria-label="Visa accepted"
+    className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#1A1F71] shadow-sm"
+  >
+    <FaCcVisa size={28} aria-hidden="true" />
+  </span>
+  <span
+    title="Mastercard accepted"
+    aria-label="Mastercard accepted"
+    className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
+  >
+    <FaCcMastercard size={28} aria-hidden="true" />
+  </span>
+</div>
           </div>
         </div>
       </div>
