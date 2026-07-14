@@ -47,7 +47,13 @@ export default function HeroContactUs() {
 
       {/* Desktop Trustpilot */}
       <div className="hidden lg:flex absolute top-6 right-65 -translate-x-1/2 z-20">
-        <TrustpilotBadge />
+        <a
+          href="https://www.trustpilot.com/review/alahsantravels.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center mt-8"
+        > <TrustpilotBadge /></a>
+       
       </div>
 
       {/* Desktop Layout */}
