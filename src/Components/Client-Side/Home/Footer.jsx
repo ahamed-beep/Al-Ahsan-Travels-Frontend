@@ -149,7 +149,7 @@ style={{ width: "320px", height: "auto" }}
     aria-label="Mastercard accepted"
     className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
   >
-    <FaCcMastercard size={28} aria-hidden="true" />
+   <img src="/Images/Mastercard_logo.webp" alt="" />
   </span>
 </div>
           </div>

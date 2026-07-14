@@ -14,12 +14,27 @@ export default function EasterHero() {
     children: "",
   });
 
+  const [phoneError, setPhoneError] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handlePhoneChange = (e) => {
+    const value = e.target.value.replace(/[^\d+]/g, "");
+    setFormData({ ...formData, phone: value });
+    if (phoneError) setPhoneError("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const digitsOnly = formData.phone.replace(/\D/g, "");
+    if (digitsOnly.length < 13) {
+      setPhoneError("Phone number must be at least 13 digits.");
+      return;
+    }
+
     console.log(formData);
     alert("Form Submitted!");
   };
@@ -98,10 +113,18 @@ export default function EasterHero() {
                     name="phone"
                     placeholder="+44 20 1234 5678"
                     value={formData.phone}
-                    onChange={handleChange}
+                    onChange={handlePhoneChange}
                     required
-                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800"
+                    inputMode="tel"
+                    className={`w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border rounded-lg focus:outline-none focus:ring-1 ${
+                      phoneError
+                        ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                        : "border-[#D1D5DC] focus:border-blue-800 focus:ring-blue-800"
+                    }`}
                   />
+                  {phoneError && (
+                    <p className="text-red-500 text-[10px] sm:text-xs mt-1">{phoneError}</p>
+                  )}
                 </div>
               </div>
 

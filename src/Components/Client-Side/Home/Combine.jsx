@@ -10,7 +10,7 @@ import Footer from './Footer'
 import TopBar from './Topbar'
 import Patnerspage from './Patnerspage'
 import SingleVideoPage from './SingleVideoPage'
-
+import SocialSidebar from './SocialSidebar/SocialSidebar'
 
 const Combine = () => {
   return (
@@ -25,8 +25,8 @@ const Combine = () => {
       <Testimonials/>
       <Patnerspage/>
       <UmrahCTA/>
-      
       <Footer/>
+      <SocialSidebar/>
     </div>
   )
 }

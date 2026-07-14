@@ -32,8 +32,8 @@ const handleSubmit = async (e) => {
     setError("");
     setSuccess("");
 
-    if (formData.phoneNumber.length < 11) {
-      setError("Phone number must be at least 11 digits.");
+    if (formData.phoneNumber.length < 13) {
+      setError("Phone number must be at least 13 digits.");
       return;
     }
 
@@ -118,7 +118,7 @@ const handleSubmit = async (e) => {
                       value={formData.phoneNumber}
                       onChange={(e) => {
                         const value = e.target.value.replace(/\D/g, ""); // sirf numbers allow
-                        if (value.length <= 11) {
+                        if (value.length <= 13) {
                           handleChange({
                             target: {
                               name: "phoneNumber",
@@ -128,7 +128,7 @@ const handleSubmit = async (e) => {
                         }
                       }}
                       required
-                      maxLength={11}
+                      maxLength={13}
                       inputMode="numeric"
                       className="h-12 w-full rounded-xl border border-[#D1D5DC] px-4 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
                     />
