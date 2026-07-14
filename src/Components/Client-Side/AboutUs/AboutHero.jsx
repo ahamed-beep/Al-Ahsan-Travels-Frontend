@@ -68,7 +68,14 @@ export default function AboutHero() {
         {/* Mobile Image — full width, no padding */}
         <div className="relative w-full h-full">
           <div className="absolute  left-40 -translate-x-1/2 z-10">
-            <TrustpilotBadge />
+
+          
+              <a
+          href="https://www.trustpilot.com/review/alahsantravels.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center mt-8"
+        > <TrustpilotBadge /></a>
           </div>
           <img
             src="/Images/ContactusorAbout.png"
