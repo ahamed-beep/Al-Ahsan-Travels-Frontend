@@ -79,6 +79,7 @@ export default function HeroSection() {
   const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [hoveredSocial, setHoveredSocial] = useState(null);
+  const [waPulse, setWaPulse] = useState(false);
 
   const airportInputRef = useRef(null);
   const airportAutocompleteRef = useRef(null);
@@ -121,6 +122,18 @@ export default function HeroSection() {
         window.google.maps.event.clearInstanceListeners(airportAutocompleteRef.current);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const runPulse = () => {
+      setWaPulse(true);
+      setTimeout(() => setWaPulse(false), 2000);
+    };
+
+    runPulse();
+    const interval = setInterval(runPulse, 6000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -379,7 +392,9 @@ export default function HeroSection() {
         aria-label="WhatsApp"
       >
         <span
-          className="ml-4 group-hover:ml-2 max-w-0 group-hover:max-w-xs opacity-0 group-hover:opacity-100 overflow-hidden whitespace-nowrap bg-[#25D366] text-white text-sm font-medium px-0 group-hover:px-3 py-2 rounded-r-lg shadow-lg transition-all duration-300 order-2"
+          className={`ml-4 group-hover:ml-2 max-w-0 group-hover:max-w-xs opacity-0 group-hover:opacity-100 overflow-hidden whitespace-nowrap bg-[#25D366] text-white text-sm font-medium px-0 group-hover:px-3 py-2 rounded-r-lg shadow-lg transition-all duration-300 order-2 ${
+            waPulse ? "!ml-2 !max-w-xs !opacity-100 !px-3" : ""
+          }`}
         >
           +44 7440 064066
         </span>
