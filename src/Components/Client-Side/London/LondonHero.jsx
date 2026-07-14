@@ -14,18 +14,19 @@ export default function LondonHero() {
     adults: "",
     children: "",
   });
+  const [error, setError] = useState("");
 
 const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError("");
+      setError("");
 };;
 
-   const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formData.phone.length < 13) {
-      setError("Phone number must be at least 13 digits.");
+    if (formData.phone.length < 10 || formData.phone.length > 13) {
+      setError("Phone number must be between 10 and 13 digits.");
       return;
     }
 
@@ -114,7 +115,13 @@ const handleChange = (e) => {
                     name="phone"
                     placeholder="+44 20 1234 5678"
                     value={formData.phone}
-                    onChange={handleChange}
+                 onChange={(e) => {
+      const value = e.target.value.replace(/\D/g, "");
+      if (value.length <= 13) {
+        handleChange({ target: { name: "phone", value } });
+      }
+    }}
+     maxLength={13}
                     required
                     className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800"
                   />

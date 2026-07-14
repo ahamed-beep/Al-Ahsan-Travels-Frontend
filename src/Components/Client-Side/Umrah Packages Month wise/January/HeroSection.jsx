@@ -58,7 +58,8 @@ const validate = () => {
     const newErrors = {};
     if (!formData.name.trim())    newErrors.name    = "Full Name is required";
     if (!formData.phone.trim())   newErrors.phone   = "Phone Number is required";
-    else if (formData.phone.length < 13) newErrors.phone = "Phone number must be at least 13 digits";
+    else if (formData.phone.length < 10 || formData.phone.length > 13)
+      newErrors.phone = "Phone number must be between 10 and 13 digits";
     if (!formData.date)           newErrors.date    = "Departure Date is required";
     if (!formData.airport.trim()) newErrors.airport = "Airport is required";
     if (!formData.adults)         newErrors.adults  = "Enter number of adults";

@@ -28,8 +28,8 @@ export default function HeroSpecialPackage() {
 const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (formData.phone.length < 13) {
-      setError("Phone number must be at least 13 digits.");
+   if (formData.phone.length < 10 || formData.phone.length > 13) {
+      setError("Phone number must be between 10 and 13 digits.");
       return;
     }
 

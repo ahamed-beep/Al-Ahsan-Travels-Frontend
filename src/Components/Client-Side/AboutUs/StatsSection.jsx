@@ -6,12 +6,12 @@ export default function StatsSection() {
   const stats = [
     {
       icon: Users,
-      value: "5000+",
+      value: "7k+",
       label: "Happy Clients",
     },
     {
       icon: TrendingUp,
-      value: "10+",
+      value: "9+",
       label: "Years Experience",
     },
     {

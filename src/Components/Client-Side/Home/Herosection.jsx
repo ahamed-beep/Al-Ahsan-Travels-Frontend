@@ -65,9 +65,9 @@ export default function HeroSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!/^\d{13}$/.test(form.phone)) {
+  if (!/^\d{10,13}$/.test(form.phone)) {
       setStatus("error");
-      setErrorMsg("Phone number must be exactly 13 digits.");
+      setErrorMsg("Phone number must be between 10 and 13 digits.");
       return;
     }
 

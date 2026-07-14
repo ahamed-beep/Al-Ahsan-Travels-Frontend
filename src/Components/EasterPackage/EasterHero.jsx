@@ -26,12 +26,12 @@ export default function EasterHero() {
     if (phoneError) setPhoneError("");
   };
 
-  const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault();
 
     const digitsOnly = formData.phone.replace(/\D/g, "");
-    if (digitsOnly.length < 13) {
-      setPhoneError("Phone number must be at least 13 digits.");
+    if (digitsOnly.length < 10 || digitsOnly.length > 13) {
+      setPhoneError("Phone number must be between 10 and 13 digits.");
       return;
     }
 

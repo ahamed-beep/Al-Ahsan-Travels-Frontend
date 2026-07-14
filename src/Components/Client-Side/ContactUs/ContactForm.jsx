@@ -24,20 +24,18 @@ export default function ContactForm() {
 async function handleSubmit(e) {
   e.preventDefault();
 
-  if (form.phone.length < 11) {
-    setError("Phone number must be at least 11 digits.");
+  if (form.phone.length < 10 || form.phone.length > 13) {
+    setError("Phone number must be between 10 and 13 digits.");
     return;
   }
 
   setLoading(true);
   setError("");
-  
+
   try {
     const response = await axiosInstance.post(API_CONTACT_SUBMIT, form);
-    console.log("Response:", response.data);
     setSubmitted(true);
   } catch (err) {
-    console.error("Error:", err);
     setError(err.response?.data?.message || "Failed to send message. Please try again.");
   } finally {
     setLoading(false);
@@ -125,7 +123,7 @@ async function handleSubmit(e) {
                       className={inputClass}
                     />
                   </div>
-             <div>
+ <div>
   <label className="block text-xs font-semibold text-[#364153] mb-1.5">
     Phone Number <span className="text-red-500">*</span>
   </label>
@@ -135,13 +133,13 @@ async function handleSubmit(e) {
     value={form.phone}
     onChange={(e) => {
       const value = e.target.value.replace(/\D/g, "");
-      if (value.length <= 11) {
+      if (value.length <= 13) {
         handleChange({ target: { name: "phone", value } });
       }
     }}
     placeholder="07XXX XXXXXX"
     required
-    maxLength={11}
+    maxLength={13}
     inputMode="numeric"
     className={inputClass}
   />

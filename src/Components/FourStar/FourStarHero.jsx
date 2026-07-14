@@ -29,7 +29,8 @@ export default function FourStarHero() {
 const validate = () => {
     if (!formData.fullName.trim()) return "Please enter your full name.";
     if (!formData.phone.trim()) return "Phone number is required.";
-    if (formData.phone.length < 13) return "Phone number must be at least 13 digits.";
+    if (formData.phone.length < 10 || formData.phone.length > 13)
+      return "Phone number must be between 10 and 13 digits.";
     if (!formData.adults || Number(formData.adults) < 1)
       return "At least 1 adult is required.";
     return null;

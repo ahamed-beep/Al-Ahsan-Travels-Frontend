@@ -2,18 +2,18 @@ import { Shield, Award, Lock } from "lucide-react";
 
 const badges = [
   {
-    icon: <Shield className="w-6 h-6 text-[#1C398E]" />,
+    icon: <img src="/Images/icon2.jpeg" alt="ATOL Protected"   className=" h-30 " />,
     title: "ATOL Protected",
     desc: "Your bookings are fully protected",
   },
   {
-    icon: <Award className="w-6 h-6 text-[#1C398E]" />,
+    icon: <img src="/Images/icon3.jpeg" alt="IATA Certified" className=" h-30 " />,
     title: "IATA Certified",
     desc: "Internationally recognized standards",
   },
   {
-    icon: <Lock className="w-6 h-6 text-[#1C398E]" />,
-    title: "Secure Payments",
+    icon: <img src="/Images/icon1.jpeg" alt="Secure Payments" className=" h-30 " />,
+    title: "Ministry of Hajj Approved",
     desc: "Safe and encrypted transactions",
   },
 ];
@@ -40,7 +40,7 @@ export default function BookWithConfidence() {
             className="bg-[#FFFFFF] border border-gray-100 rounded-2xl shadow-sm px-8 py-10 flex flex-col items-center text-center gap-4 hover:shadow-md transition-shadow duration-200"
           >
             {/* Icon */}
-            <div className="w-14 h-14 rounded-full bg-[#D7EBFF] flex items-center justify-center">
+            <div className=" h-35  flex items-center justify-center">
               {badge.icon}
             </div>
 
