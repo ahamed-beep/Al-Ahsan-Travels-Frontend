@@ -58,7 +58,7 @@ const validate = () => {
     const newErrors = {};
     if (!formData.name.trim())    newErrors.name    = "Full Name is required";
     if (!formData.phone.trim())   newErrors.phone   = "Phone Number is required";
-    else if (formData.phone.length < 11) newErrors.phone = "Phone number must be at least 11 digits";
+    else if (formData.phone.length < 13) newErrors.phone = "Phone number must be at least 13 digits";
     if (!formData.date)           newErrors.date    = "Departure Date is required";
     if (!formData.airport.trim()) newErrors.airport = "Airport is required";
     if (!formData.adults)         newErrors.adults  = "Enter number of adults";
@@ -195,11 +195,11 @@ const validate = () => {
     value={formData.phone}
     onChange={(e) => {
       const value = e.target.value.replace(/\D/g, ""); // sirf numbers allow
-      if (value.length <= 11) {
+      if (value.length <= 13) {
         handleChange({ target: { name: "phone", value } });
       }
     }}
-    maxLength={11}
+    maxLength={13}
     inputMode="numeric"
     className={inputClass}
   />

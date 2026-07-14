@@ -42,7 +42,7 @@ export default function UmrahPageHeroSection() {
 const validate = () => {
     if (!formData.fullName.trim()) return "Apna pura naam darain.";
     if (!formData.phone.trim()) return "Phone number daalna zaroori hai.";
-    if (formData.phone.length < 11) return "Phone number must be at least 11 digits.";
+    if (formData.phone.length < 13) return "Phone number must be at least 13 digits.";
     if (!formData.adults || Number(formData.adults) < 1)
       return "Kam az kam 1 adult hona chahiye.";
     return null;
@@ -173,12 +173,12 @@ const validate = () => {
                     value={formData.phone}
                     onChange={(e) => {
                       const value = e.target.value.replace(/\D/g, "");
-                      if (value.length <= 11) {
+                      if (value.length <= 13) {
                         handleChange({ target: { name: "phone", value } });
                       }
                     }}
                     required
-                    maxLength={11}
+                    maxLength={13}
                     inputMode="numeric"
                     className={inputClass}
                   />

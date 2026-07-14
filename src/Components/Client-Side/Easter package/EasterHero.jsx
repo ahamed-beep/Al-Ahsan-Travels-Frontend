@@ -171,7 +171,7 @@ export default function EasterHero() {
                                             }
                                         }}
                                         required
-                                        maxLength={11}
+                                        maxLength={13}
                                         inputMode="numeric"
                                         className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm border border-[#D1D5DC] rounded-lg focus:outline-none focus:border-blue-800 focus:ring-1 focus:ring-blue-800 transition placeholder-gray-400"
                                     />
