@@ -13,8 +13,8 @@ export default function RamadanHajjSection() {
     hotelCategory: "",
     departureDate: "",
     departureAirport: "",
-    adults: 1,
-    children: 0,
+    adults: "",
+    children: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -62,7 +62,7 @@ const handleSubmit = async (e) => {
       {/* Background Image */}
       <div className="absolute w-full inset-0">
         <img
-          src="/Images/BackGround.webp"
+          src="Images/IMG_0722.JPG.webp"
           alt="Hajj background"
           className="h-full w-full object-cover"
         />

@@ -52,7 +52,7 @@ const handleChange = (e) => {
                 departureDate: formData.departureDate || undefined,
                 departureAirport: formData.departureAirport || undefined,
                 adults: Number(formData.adults),
-                children: Number(formData.children) || 0,
+                children: Number(formData.children) || "",
             });
 
             setSuccess(true);
@@ -79,7 +79,7 @@ const handleChange = (e) => {
 
             {/* Background Image */}
             <img
-                src="/Images/BackGround.webp"
+                src="Images/IMG_0722.JPG.webp"
                 alt="Umrah"
                 className="absolute inset-0 w-full h-full object-cover"
             />

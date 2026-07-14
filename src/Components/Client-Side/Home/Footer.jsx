@@ -51,7 +51,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="flex mb-10 mt-6 justify-start">
           <img
-            src="/Images/Link.png"
+            src="/Images/Al Ahsan Logo.png"
             alt="Al-Ahsan Travels — Hajj & Umrah Travel Agency"
             className="object-contain"
 style={{ width: "320px", height: "auto" }}
@@ -115,7 +115,7 @@ style={{ width: "320px", height: "auto" }}
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-[#1C398E] text-center md:text-left">
-            © {new Date().getFullYear()} Al-Ahsan-Travels
+            © {new Date().getFullYear()} Al Ahsan Travels
           </p>
           <div className="flex items-center gap-3" aria-label="Social media links">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (

@@ -118,7 +118,7 @@ export default function PartnersCarousel() {
   }, [index, total]);
 
   return (
-    <section className="w-full bg-white py-14 px-4">
+    <section className="w-full bg-[#F7F7F7] py-14 px-4">
       {/* Heading */}
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">

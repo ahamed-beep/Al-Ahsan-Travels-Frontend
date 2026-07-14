@@ -92,7 +92,7 @@ const validate = () => {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/Images/BackGround.webp"
+          src="Images/IMG_0722.JPG.webp"
           alt="Kaaba Sharif Makkah"
           fill
           priority

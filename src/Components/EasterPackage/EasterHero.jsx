@@ -29,7 +29,7 @@ export default function EasterHero() {
 
       {/* Background Image */}
       <img
-        src="/Images/Shifting.jpg"
+        src="Images/IMG_0722.JPG.webp"
         alt="Umrah"
         className="absolute inset-0 w-full h-full object-cover"
       />

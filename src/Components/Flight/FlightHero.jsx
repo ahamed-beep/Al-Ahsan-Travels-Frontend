@@ -36,7 +36,7 @@ const handleSearch = () => {
     from: formData.from,
     to: formData.to,
     departureDate: formData.departureDate,
-    passengers: formData.passengers || "1",
+    passengers: formData.passengers || "",
     class: selectedClass
   };
   
@@ -52,7 +52,7 @@ const handleSearch = () => {
     <section
       className="relative min-h-screen w-full overflow-hidden"
       style={{
-        backgroundImage: "url('/Images/BackGround.webp')",
+        backgroundImage: "url('Images/IMG_0722.JPG.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

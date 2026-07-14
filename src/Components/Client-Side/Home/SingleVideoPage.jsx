@@ -8,7 +8,7 @@ export default function SingleVideoPage() {
         loop
         muted
         playsInline
-        className="w-full h-full object-cover"
+        className="w-full h-full px-20 object-cover"
       />
     </div>
   );

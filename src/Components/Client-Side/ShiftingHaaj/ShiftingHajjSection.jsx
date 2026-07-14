@@ -12,8 +12,8 @@ export default function ShiftingHajjSection() {
     hotelCategory: "",
     departureDate: "",
     departureAirport: "",
-    adults: 1,
-    children: 0,
+    adults: " ",
+    children: " ",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -59,7 +59,7 @@ const handleSubmit = async (e) => {
     <section className="relative overflow-hidden">
 
       <div className="absolute inset-0 w-full h-full">
-        <img src="/Images/BackGround.webp" className="w-full h-full object-cover" />
+        <img src="Images/IMG_0722.JPG.webp" className="w-full h-full object-cover" />
       </div>
 
       {/* Content */}

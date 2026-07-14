@@ -60,7 +60,7 @@ export default function WhyCouplesChooseUs() {
           <h2 className="text-3xl md:text-4xl font-black text-[#1C398E] mb-3">
             Why Couples Choose Us
           </h2>
-          <p className="text-sm md:text-base text-[#E5E7EB]  font-medium">
+          <p className="text-sm md:text-base text-gray-500 font-medium">
             Everything you need for a comfortable spiritual journey together
           </p>
         </div>

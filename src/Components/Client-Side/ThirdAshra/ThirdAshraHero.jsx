@@ -13,8 +13,8 @@ export default function ThirdAshraHero() {
     hotelCategory: "",
     departureDate: "",
     departureAirport: "",
-    adults: 1,
-    children: 0,
+    adults: "",
+    children: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -48,7 +48,7 @@ export default function ThirdAshraHero() {
       setFormData({
         fullName: "", phoneNumber: "", packageType: "",
         hotelCategory: "", departureDate: "", departureAirport: "",
-        adults: 1, children: 0,
+        adults: "", children: "",
       });
     } catch (err) {
       setError(err.response?.data?.message || "Submission failed. Please try again.");
@@ -62,7 +62,7 @@ export default function ThirdAshraHero() {
       {/* Background Image */}
       <div className="absolute w-full inset-0">
         <img
-          src="/Images/BackGround.webp"
+          src="Images/IMG_0722.JPG.webp"
           alt="Hajj background"
           className="h-full w-full object-cover"
         />

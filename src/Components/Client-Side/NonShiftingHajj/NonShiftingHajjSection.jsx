@@ -12,8 +12,8 @@ export default function NonShiftingHajjSection() {
     hotelCategory: "",
     departureDate: "",
     departureAirport: "",
-    adults: 1,
-    children: 0,
+    adults: "",
+    children: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -60,7 +60,7 @@ export default function NonShiftingHajjSection() {
     <section className="relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute w-full inset-0">
-        <img src="/Images/BackGround.webp" className="h-full w-full object-cover"/>
+        <img src="Images/IMG_0722.JPG.webp" className="h-full w-full object-cover"/>
         <div className="absolute inset-0" />
       </div>
 
