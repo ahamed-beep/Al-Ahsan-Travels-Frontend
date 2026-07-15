@@ -1,36 +1,36 @@
 import CombineHoliday from "@/Components/Client-Side/HolidayPackage/CombineHoliday";
 
 export const metadata = {
-  title: "Umrah Packages | Al Ahsan Travels",
+  title: "Christmas Umrah Packages UK 2026",
   description:
-    "Book affordable and premium Umrah packages with Al Ahsan Travels. Enjoy comfortable flights, top-rated hotels near Haram, and complete visa assistance for a peaceful spiritual journey.",
+    "Spend your Christmas holidays performing Umrah. Special festive-season packages with flights and hotels included.",
   keywords: [
-    "Umrah packages",
+    "Christmas Umrah packages",
     "Umrah packages UK",
-    "cheap Umrah packages",
+    "Festive season Umrah",
     "Al Ahsan Travels",
-    "Umrah booking UK",
-    "Hajj and Umrah",
+    "Umrah booking December",
+    "Hajj and Umrah packages",
     "Umrah visa UK",
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/holiday-umrah",
+    canonical: "https://alahsantravels.co.uk/christmasumrahpackage",
   },
   openGraph: {
-    title: "Umrah Packages | Al Ahsan Travels",
+    title: "Christmas Umrah Packages UK 2026",
     description:
-      "Explore our exclusive Umrah packages with flights, hotels, and visa support. Travel with comfort and peace of mind.",
-    url: "https://alahsantravels.co.uk/holiday-umrah",
+      "Spend your Christmas holidays performing Umrah. Special festive-season packages with flights and hotels included.",
+    url: "https://alahsantravels.co.uk/christmasumrahpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Umrah Packages | Al Ahsan Travels",
+    title: "Christmas Umrah Packages UK 2026",
     description:
-      "Book your Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Spend your Christmas holidays performing Umrah with special festive-season packages.",
   },
 };
 

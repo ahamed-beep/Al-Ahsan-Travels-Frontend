@@ -1,9 +1,9 @@
 import CombineShiftingHajj from "@/Components/Client-Side/ShiftingHaaj/CombineHajjPackage";
 
 export const metadata = {
-  title: "Shifting Hajj Packages | Al Ahsan Travels",
+  title: "Shifting Hajj Packages UK | Al-Ahsan Travels",
   description:
-    "Book Shifting Hajj packages with Al Ahsan Travels. Stay closer to key rituals with strategically shifting hotel accommodation, comfortable flights, and complete visa assistance for your Hajj journey.",
+    "Book Shifting Hajj packages from the UK with flights, visa, hotels and transport included. ATOL protected. Get your free Hajj quote today.",
   keywords: [
     "Shifting Hajj packages",
     "Shifting Hajj UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/shifting-hajj",
+    canonical: "https://alahsantravels.co.uk/shiftinghajj",
   },
   openGraph: {
-    title: "Shifting Hajj Packages | Al Ahsan Travels",
+    title: "Shifting Hajj Packages UK | Al-Ahsan Travels",
     description:
-      "Book your Shifting Hajj package with Al Ahsan Travels — strategic hotel locations, flights, and visa support all included.",
-    url: "https://alahsantravels.co.uk/shifting-hajj",
+      "Book Shifting Hajj packages from the UK with flights, visa, hotels and transport included. ATOL protected. Get your free Hajj quote today.",
+    url: "https://alahsantravels.co.uk/shiftinghajj",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shifting Hajj Packages | Al Ahsan Travels",
+    title: "Shifting Hajj Packages UK | Al-Ahsan Travels",
     description:
-      "Book your Shifting Hajj journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Book Shifting Hajj packages from the UK with flights, visa, hotels and transport included.",
   },
 };
 

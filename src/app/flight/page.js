@@ -1,35 +1,36 @@
 import FlightCombine from "@/Components/Flight/FlightCombine";
 
 export const metadata = {
-  title: "Flight Booking | Al Ahsan Travels",
+  title: "Cheap Umrah Flights UK | Flight Deals",
   description:
-    "Book affordable flights for Umrah, Hajj, and holiday travel with Al Ahsan Travels. Compare deals, find the best routes, and travel with comfort and reliability.",
+    "Compare and book affordable flights to Jeddah and Madinah from UK airports. Part of Al-Ahsan Travels' Umrah packages.",
   keywords: [
-    "Flight booking UK",
-    "Cheap flights Umrah",
+    "Cheap Umrah flights UK",
+    "Flights to Jeddah",
+    "Flights to Madinah",
     "Al Ahsan Travels flights",
-    "Hajj flight booking",
     "Umrah flight deals",
-    "International flight booking UK",
+    "UK to Saudi Arabia flights",
+    "Hajj flight booking",
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/flights",
+    canonical: "https://alahsantravels.co.uk/flight",
   },
   openGraph: {
-    title: "Flight Booking | Al Ahsan Travels",
+    title: "Cheap Umrah Flights UK | Flight Deals",
     description:
-      "Find and book the best flight deals for your Umrah, Hajj, or holiday trip with Al Ahsan Travels.",
-    url: "https://alahsantravels.co.uk/flights",
+      "Compare and book affordable flights to Jeddah and Madinah from UK airports. Part of Al-Ahsan Travels' Umrah packages.",
+    url: "https://alahsantravels.co.uk/flight",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flight Booking | Al Ahsan Travels",
+    title: "Cheap Umrah Flights UK | Flight Deals",
     description:
-      "Book affordable flights with Al Ahsan Travels for your next journey.",
+      "Compare and book affordable flights to Jeddah and Madinah from UK airports.",
   },
 };
 

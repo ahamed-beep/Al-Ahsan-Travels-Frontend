@@ -1,9 +1,9 @@
 import CombineSpecialPackage from "@/Components/Client-Side/SpecialPackage/CombineSpecialPackage";
 
 export const metadata = {
-  title: "Family Umrah Packages | Al Ahsan Travels",
+  title: "Family Umrah Packages UK | Al-Ahsan Travels",
   description:
-    "Book special Family Umrah packages with Al Ahsan Travels. Comfortable flights, quality hotels near Haram, and complete visa assistance for a memorable spiritual journey with your loved ones.",
+    "Comfortable Family Umrah packages designed for parents and children. Flexible dates, group discounts and dedicated family support.",
   keywords: [
     "Family Umrah packages",
     "Umrah packages for families UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/family-umrah-package",
+    canonical: "https://alahsantravels.co.uk/familyumrahpackage",
   },
   openGraph: {
-    title: "Family Umrah Packages | Al Ahsan Travels",
+    title: "Family Umrah Packages UK | Al-Ahsan Travels",
     description:
-      "Exclusive Umrah packages for families — flights, hotels, and visa support all included. Travel together with comfort and peace of mind.",
-    url: "https://alahsantravels.co.uk/family-umrah-package",
+      "Comfortable Family Umrah packages designed for parents and children. Flexible dates, group discounts and dedicated family support.",
+    url: "https://alahsantravels.co.uk/familyumrahpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Family Umrah Packages | Al Ahsan Travels",
+    title: "Family Umrah Packages UK | Al-Ahsan Travels",
     description:
-      "Book your Family Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Comfortable Family Umrah packages designed for parents and children.",
   },
 };
 

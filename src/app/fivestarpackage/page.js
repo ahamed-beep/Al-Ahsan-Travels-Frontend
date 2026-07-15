@@ -1,9 +1,9 @@
 import CombineFiveStar from "@/Components/Client-Side/FiveStarPackage/CombineFiveStar";
 
 export const metadata = {
-  title: "5 Star Umrah Packages | Al Ahsan Travels",
+  title: "5-Star Umrah Packages UK | Luxury Stays",
   description:
-    "Book luxury 5 star Umrah packages with Al Ahsan Travels. Enjoy premium flights, top-rated 5 star hotels near Haram, and complete visa assistance for the ultimate comfortable spiritual journey.",
+    "Premium 5-Star Umrah packages with luxury Haram-view hotels, private transport and VIP support from Al-Ahsan Travels.",
   keywords: [
     "5 star Umrah packages",
     "Luxury Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/five-star-package",
+    canonical: "https://alahsantravels.co.uk/fivestarpackage",
   },
   openGraph: {
-    title: "5 Star Umrah Packages | Al Ahsan Travels",
+    title: "5-Star Umrah Packages UK | Luxury Stays",
     description:
-      "Experience luxury with our 5 star Umrah packages — premium flights, top-rated hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/five-star-package",
+      "Premium 5-Star Umrah packages with luxury Haram-view hotels, private transport and VIP support from Al-Ahsan Travels.",
+    url: "https://alahsantravels.co.uk/fivestarpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "5 Star Umrah Packages | Al Ahsan Travels",
+    title: "5-Star Umrah Packages UK | Luxury Stays",
     description:
-      "Book your luxury 5 Star Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Premium 5-Star Umrah packages with luxury Haram-view hotels and private transport.",
   },
 };
 

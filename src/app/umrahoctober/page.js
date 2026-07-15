@@ -1,9 +1,9 @@
 import CombineOctober from "@/Components/Client-Side/Umrah Packages Month wise/October/CombineOctober";
 
 export const metadata = {
-  title: "October Umrah Packages | Al Ahsan Travels",
+  title: "October Umrah Packages 2026 | UK Deals",
   description:
-    "Book Umrah packages for October with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this October.",
+    "October Umrah packages from the UK with competitive prices, quality hotels and full travel support.",
   keywords: [
     "October Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-october",
+    canonical: "https://alahsantravels.co.uk/umrahoctober",
   },
   openGraph: {
-    title: "October Umrah Packages | Al Ahsan Travels",
+    title: "October Umrah Packages 2026 | UK Deals",
     description:
-      "Book your October Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-october",
+      "October Umrah packages from the UK with competitive prices, quality hotels and full travel support.",
+    url: "https://alahsantravels.co.uk/umrahoctober",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "October Umrah Packages | Al Ahsan Travels",
+    title: "October Umrah Packages 2026 | UK Deals",
     description:
-      "Book your October Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "October Umrah packages with competitive prices and full travel support.",
   },
 };
 

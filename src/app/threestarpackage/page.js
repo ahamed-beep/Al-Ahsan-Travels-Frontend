@@ -1,9 +1,9 @@
 import CombineThreeStar from "@/Components/Client-Side/ThreeStar/CombineThreeStar";
 
 export const metadata = {
-  title: "3 Star Umrah Packages | Al Ahsan Travels",
+  title: "3-Star Umrah Packages UK | Budget Friendly",
   description:
-    "Book budget-friendly 3 star Umrah packages with Al Ahsan Travels. Enjoy comfortable flights, quality 3 star hotels near Haram, and complete visa assistance for an affordable spiritual journey.",
+    "Affordable 3-Star Umrah packages with flights, visa and comfortable hotels near the Haram. Best value packages for UK pilgrims.",
   keywords: [
     "3 star Umrah packages",
     "Affordable Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/three-star-package",
+    canonical: "https://alahsantravels.co.uk/threestarpackage",
   },
   openGraph: {
-    title: "3 Star Umrah Packages | Al Ahsan Travels",
+    title: "3-Star Umrah Packages UK | Budget Friendly",
     description:
-      "Affordable 3 star Umrah packages — quality flights, comfortable hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/three-star-package",
+      "Affordable 3-Star Umrah packages with flights, visa and comfortable hotels near the Haram. Best value packages for UK pilgrims.",
+    url: "https://alahsantravels.co.uk/threestarpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "3 Star Umrah Packages | Al Ahsan Travels",
+    title: "3-Star Umrah Packages UK | Budget Friendly",
     description:
-      "Book your 3 Star Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Affordable 3-Star Umrah packages with flights, visa and comfortable hotels near the Haram.",
   },
 };
 

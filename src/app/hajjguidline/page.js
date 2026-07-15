@@ -1,9 +1,9 @@
 import CombineHajjGuide from "@/Components/Client-Side/hajjguidline/CombineHajjGuide";
 
 export const metadata = {
-  title: "Hajj Guide | Al Ahsan Travels",
+  title: "Hajj Guideline 2026 | Rituals & Requirements",
   description:
-    "Complete Hajj guide by Al Ahsan Travels — learn about rituals, requirements, preparation tips, and everything you need to know for a smooth and spiritually fulfilling Hajj journey.",
+    "Complete Hajj guideline for UK pilgrims — rituals, requirements, visa process and preparation tips from Al-Ahsan Travels' certified experts.",
   keywords: [
     "Hajj guide",
     "Hajj rituals",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/hajj-guideline",
+    canonical: "https://alahsantravels.co.uk/hajjguidline",
   },
   openGraph: {
-    title: "Hajj Guide | Al Ahsan Travels",
+    title: "Hajj Guideline 2026 | Rituals & Requirements",
     description:
-      "Everything you need to know about performing Hajj — rituals, requirements, and preparation tips from Al Ahsan Travels.",
-    url: "https://alahsantravels.co.uk/hajj-guideline",
+      "Complete Hajj guideline for UK pilgrims — rituals, requirements, visa process and preparation tips from Al-Ahsan Travels' certified experts.",
+    url: "https://alahsantravels.co.uk/hajjguidline",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hajj Guide | Al Ahsan Travels",
+    title: "Hajj Guideline 2026 | Rituals & Requirements",
     description:
-      "A complete Hajj guide by Al Ahsan Travels to help you prepare for your journey.",
+      "Complete Hajj guideline for UK pilgrims — rituals, requirements, visa process and preparation tips.",
   },
 };
 

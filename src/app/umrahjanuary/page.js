@@ -1,9 +1,9 @@
 import CombineJanuary from "@/Components/Client-Side/Umrah Packages Month wise/January/CombineJanuary";
 
 export const metadata = {
-  title: "January Umrah Packages | Al Ahsan Travels",
+  title: "January Umrah Packages 2027 | UK Deals",
   description:
-    "Book Umrah packages for January with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this January.",
+    "Book your January Umrah package from the UK. Cooler weather, flexible dates and premium hotel options. Get a free quote today.",
   keywords: [
     "January Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-january",
+    canonical: "https://alahsantravels.co.uk/umrahjanuary",
   },
   openGraph: {
-    title: "January Umrah Packages | Al Ahsan Travels",
+    title: "January Umrah Packages 2027 | UK Deals",
     description:
-      "Book your January Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-january",
+      "Book your January Umrah package from the UK. Cooler weather, flexible dates and premium hotel options. Get a free quote today.",
+    url: "https://alahsantravels.co.uk/umrahjanuary",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "January Umrah Packages | Al Ahsan Travels",
+    title: "January Umrah Packages 2027 | UK Deals",
     description:
-      "Book your January Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Book your January Umrah package from the UK. Cooler weather and flexible dates.",
   },
 };
 

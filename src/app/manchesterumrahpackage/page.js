@@ -1,36 +1,36 @@
 import CombineManchesterPackage from "@/Components/Client-Side/ManchesterPackage/CombineManchesterPackage";
 
 export const metadata = {
-  title: "Manchester Umrah Packages | Al Ahsan Travels",
+  title: "Umrah Packages from Manchester | UK Departures",
   description:
-    "Book Umrah packages departing from Manchester with Al Ahsan Travels. Enjoy convenient flights, quality hotels near Haram, and complete visa assistance for a smooth spiritual journey.",
+    "Book Umrah packages departing from Manchester Airport. Complete flights, visa and hotel packages included.",
   keywords: [
-    "Manchester Umrah packages",
     "Umrah packages from Manchester",
+    "Manchester Airport Umrah",
+    "UK Umrah packages",
     "Al Ahsan Travels",
-    "Umrah booking Manchester",
-    "Umrah packages UK",
+    "Manchester Umrah departures",
     "Hajj and Umrah packages",
     "Umrah visa UK",
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/manchester-umrah-package",
+    canonical: "https://alahsantravels.co.uk/manchesterumrahpackage",
   },
   openGraph: {
-    title: "Manchester Umrah Packages | Al Ahsan Travels",
+    title: "Umrah Packages from Manchester | UK Departures",
     description:
-      "Convenient Umrah packages departing from Manchester — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/manchester-umrah-package",
+      "Book Umrah packages departing from Manchester Airport. Complete flights, visa and hotel packages included.",
+    url: "https://alahsantravels.co.uk/manchesterumrahpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manchester Umrah Packages | Al Ahsan Travels",
+    title: "Umrah Packages from Manchester | UK Departures",
     description:
-      "Book your Manchester Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Direct departures from Manchester Airport for your Umrah journey.",
   },
 };
 

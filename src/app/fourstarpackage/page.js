@@ -1,9 +1,9 @@
 import CombineFourStar from "@/Components/FourStar/CombineFourStar";
 
 export const metadata = {
-  title: "4 Star Umrah Packages | Al Ahsan Travels",
+  title: "4-Star Umrah Packages UK | Comfort & Value",
   description:
-    "Book comfortable 4 star Umrah packages with Al Ahsan Travels. Enjoy quality flights, well-rated 4 star hotels near Haram, and complete visa assistance for a smooth spiritual journey.",
+    "4-Star Umrah packages offering balanced comfort and proximity to the holy sites. Flights, visa and quality hotels included.",
   keywords: [
     "4 star Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/four-star-package",
+    canonical: "https://alahsantravels.co.uk/fourstarpackage",
   },
   openGraph: {
-    title: "4 Star Umrah Packages | Al Ahsan Travels",
+    title: "4-Star Umrah Packages UK | Comfort & Value",
     description:
-      "Comfortable 4 star Umrah packages — quality flights, well-rated hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/four-star-package",
+      "4-Star Umrah packages offering balanced comfort and proximity to the holy sites. Flights, visa and quality hotels included.",
+    url: "https://alahsantravels.co.uk/fourstarpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "4 Star Umrah Packages | Al Ahsan Travels",
+    title: "4-Star Umrah Packages UK | Comfort & Value",
     description:
-      "Book your 4 Star Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "4-Star Umrah packages offering balanced comfort and proximity to the holy sites.",
   },
 };
 

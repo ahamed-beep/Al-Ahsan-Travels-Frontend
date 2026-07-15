@@ -1,9 +1,9 @@
 import CombineJuly from "@/Components/Client-Side/Umrah Packages Month wise/July/CombineJuly";
 
 export const metadata = {
-  title: "July Umrah Packages | Al Ahsan Travels",
+  title: "July Umrah Packages 2026 | UK Deals",
   description:
-    "Book Umrah packages for July with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this July.",
+    "Book your July Umrah package from the UK. School holiday friendly dates with flights, visa and hotels included.",
   keywords: [
     "July Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-july",
+    canonical: "https://alahsantravels.co.uk/umrahjuly",
   },
   openGraph: {
-    title: "July Umrah Packages | Al Ahsan Travels",
+    title: "July Umrah Packages 2026 | UK Deals",
     description:
-      "Book your July Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-july",
+      "Book your July Umrah package from the UK. School holiday friendly dates with flights, visa and hotels included.",
+    url: "https://alahsantravels.co.uk/umrahjuly",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "July Umrah Packages | Al Ahsan Travels",
+    title: "July Umrah Packages 2026 | UK Deals",
     description:
-      "Book your July Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Book your July Umrah package — school holiday friendly dates.",
   },
 };
 
