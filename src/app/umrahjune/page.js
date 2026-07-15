@@ -1,9 +1,9 @@
 import CombineJune from "@/Components/Client-Side/Umrah Packages Month wise/June/CombineJune";
 
 export const metadata = {
-  title: "June Umrah Packages | Al Ahsan Travels",
+  title: "June Umrah Packages 2026 | UK Deals",
   description:
-    "Book Umrah packages for June with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this June.",
+    "June Umrah packages for UK pilgrims — summer travel dates, family-friendly options and ATOL protected bookings.",
   keywords: [
     "June Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-june",
+    canonical: "https://alahsantravels.co.uk/umrahjune",
   },
   openGraph: {
-    title: "June Umrah Packages | Al Ahsan Travels",
+    title: "June Umrah Packages 2026 | UK Deals",
     description:
-      "Book your June Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-june",
+      "June Umrah packages for UK pilgrims — summer travel dates, family-friendly options and ATOL protected bookings.",
+    url: "https://alahsantravels.co.uk/umrahjune",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "June Umrah Packages | Al Ahsan Travels",
+    title: "June Umrah Packages 2026 | UK Deals",
     description:
-      "Book your June Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "June Umrah packages for UK pilgrims — summer travel dates and ATOL protected bookings.",
   },
 };
 

@@ -1,9 +1,9 @@
 import CombineAugust from "@/Components/Client-Side/Umrah Packages Month wise/August/CombineAugest";
 
 export const metadata = {
-  title: "August Umrah Packages | Al Ahsan Travels",
+  title: "August Umrah Packages 2026 | UK Deals",
   description:
-    "Book Umrah packages for August with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this August.",
+    "August Umrah packages from the UK with flexible dates, family options and premium Haram-view hotel choices.",
   keywords: [
     "August Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-august",
+    canonical: "https://alahsantravels.co.uk/umrahaugust",
   },
   openGraph: {
-    title: "August Umrah Packages | Al Ahsan Travels",
+    title: "August Umrah Packages 2026 | UK Deals",
     description:
-      "Book your August Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-august",
+      "August Umrah packages from the UK with flexible dates, family options and premium Haram-view hotel choices.",
+    url: "https://alahsantravels.co.uk/umrahaugust",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "August Umrah Packages | Al Ahsan Travels",
+    title: "August Umrah Packages 2026 | UK Deals",
     description:
-      "Book your August Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "August Umrah packages with flexible dates and premium Haram-view hotel choices.",
   },
 };
 

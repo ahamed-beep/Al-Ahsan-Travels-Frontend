@@ -1,9 +1,9 @@
 import CombineSeptember from "@/Components/Client-Side/Umrah Packages Month wise/September/CombineSeptember";
 
 export const metadata = {
-  title: "September Umrah Packages | Al Ahsan Travels",
+  title: "September Umrah Packages 2026 | UK Deals",
   description:
-    "Book Umrah packages for September with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this September.",
+    "September Umrah packages — cooler weather and quieter Haram. Book your journey with Al-Ahsan Travels today.",
   keywords: [
     "September Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-september",
+    canonical: "https://alahsantravels.co.uk/umrahseptember",
   },
   openGraph: {
-    title: "September Umrah Packages | Al Ahsan Travels",
+    title: "September Umrah Packages 2026 | UK Deals",
     description:
-      "Book your September Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-september",
+      "September Umrah packages — cooler weather and quieter Haram. Book your journey with Al-Ahsan Travels today.",
+    url: "https://alahsantravels.co.uk/umrahseptember",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "September Umrah Packages | Al Ahsan Travels",
+    title: "September Umrah Packages 2026 | UK Deals",
     description:
-      "Book your September Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "September Umrah packages — cooler weather and quieter Haram.",
   },
 };
 

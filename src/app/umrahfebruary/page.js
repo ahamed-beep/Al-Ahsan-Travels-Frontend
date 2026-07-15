@@ -1,9 +1,9 @@
 import CombineFebruary from "@/Components/Client-Side/Umrah Packages Month wise/February/CombineFebruary";
 
 export const metadata = {
-  title: "February Umrah Packages | Al Ahsan Travels",
+  title: "February Umrah Packages 2027 | UK Deals",
   description:
-    "Book Umrah packages for February with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this February.",
+    "Plan your February Umrah trip with Al-Ahsan Travels. Affordable flights, visa and hotel packages for UK pilgrims.",
   keywords: [
     "February Umrah packages",
     "Umrah packages UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-february",
+    canonical: "https://alahsantravels.co.uk/umrahfebruary",
   },
   openGraph: {
-    title: "February Umrah Packages | Al Ahsan Travels",
+    title: "February Umrah Packages 2027 | UK Deals",
     description:
-      "Book your February Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-february",
+      "Plan your February Umrah trip with Al-Ahsan Travels. Affordable flights, visa and hotel packages for UK pilgrims.",
+    url: "https://alahsantravels.co.uk/umrahfebruary",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "February Umrah Packages | Al Ahsan Travels",
+    title: "February Umrah Packages 2027 | UK Deals",
     description:
-      "Book your February Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Plan your February Umrah trip. Affordable flights, visa and hotel packages for UK pilgrims.",
   },
 };
 

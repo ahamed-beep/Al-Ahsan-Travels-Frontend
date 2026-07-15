@@ -1,9 +1,9 @@
 import CombineContactUs from "@/Components/Client-Side/ContactUs/CombineContactUs";
 
 export const metadata = {
-  title: "Contact Us | Al Ahsan Travels",
+  title: "Contact Al-Ahsan Travels | Birmingham Office",
   description:
-    "Get in touch with Al Ahsan Travels for Umrah, Hajj, and holiday package bookings. Reach out to us for queries, support, and personalized travel assistance.",
+    "Get in touch with Al-Ahsan Travels. Call, WhatsApp or visit our Birmingham office. We respond to all Umrah & Hajj enquiries within 1–2 hours.",
   keywords: [
     "Contact Al Ahsan Travels",
     "Umrah booking contact",
@@ -13,22 +13,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/contact-us",
+    canonical: "https://alahsantravels.co.uk/contactus",
   },
   openGraph: {
-    title: "Contact Us | Al Ahsan Travels",
+    title: "Contact Al-Ahsan Travels | Birmingham Office",
     description:
-      "Reach out to Al Ahsan Travels for all your Umrah, Hajj, and holiday package needs. We're here to help.",
-    url: "https://alahsantravels.co.uk/contact-us",
+      "Get in touch with Al-Ahsan Travels. Call, WhatsApp or visit our Birmingham office. We respond to all Umrah & Hajj enquiries within 1–2 hours.",
+    url: "https://alahsantravels.co.uk/contactus",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us | Al Ahsan Travels",
+    title: "Contact Al-Ahsan Travels | Birmingham Office",
     description:
-      "Get in touch with Al Ahsan Travels for bookings and support.",
+      "Get in touch with Al-Ahsan Travels. Call, WhatsApp or visit our Birmingham office.",
   },
 };
 

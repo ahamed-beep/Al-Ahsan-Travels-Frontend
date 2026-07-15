@@ -1,9 +1,9 @@
 import NonShiftingCombine from "@/Components/Client-Side/NonShiftingHajj/NonShiftingCombine";
 
 export const metadata = {
-  title: "Non Shifting Hajj Packages | Al Ahsan Travels",
+  title: "Non-Shifting Hajj Packages UK 2026",
   description:
-    "Book Non Shifting Hajj packages with Al Ahsan Travels. Stay at the same hotel throughout your journey with premium accommodation, flights, and complete visa assistance for a hassle-free Hajj.",
+    "Affordable Non-Shifting Hajj packages for UK pilgrims. Fixed accommodation, guided Ziyarah and full support from Al-Ahsan Travels.",
   keywords: [
     "Non Shifting Hajj packages",
     "Non Shifting Hajj UK",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/non-shifting-hajj",
+    canonical: "https://alahsantravels.co.uk/nonshiftinghajj",
   },
   openGraph: {
-    title: "Non Shifting Hajj Packages | Al Ahsan Travels",
+    title: "Non-Shifting Hajj Packages UK 2026",
     description:
-      "Enjoy a hassle-free Hajj with our Non Shifting Hajj packages — same hotel throughout, flights, and visa support all included.",
-    url: "https://alahsantravels.co.uk/non-shifting-hajj",
+      "Affordable Non-Shifting Hajj packages for UK pilgrims. Fixed accommodation, guided Ziyarah and full support from Al-Ahsan Travels.",
+    url: "https://alahsantravels.co.uk/nonshiftinghajj",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Non Shifting Hajj Packages | Al Ahsan Travels",
+    title: "Non-Shifting Hajj Packages UK 2026",
     description:
-      "Book your Non Shifting Hajj journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Affordable Non-Shifting Hajj packages for UK pilgrims. Fixed accommodation and full support.",
   },
 };
 

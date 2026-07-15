@@ -1,36 +1,36 @@
 import CombineMarch from "@/Components/Client-Side/Umrah Packages Month wise/March/CombineMarch";
 
 export const metadata = {
-  title: "March Umrah Packages | Al Ahsan Travels",
+  title: "March Umrah Packages 2027 | UK Deals",
   description:
-    "Book Umrah packages for March with Al Ahsan Travels. Enjoy comfortable flights, quality hotels near Haram, and complete visa assistance for a peaceful spiritual journey this March.",
+    "March Umrah packages from the UK — ideal weather and pre-Ramadan availability. Book your spiritual journey today.",
   keywords: [
     "March Umrah packages",
     "Umrah packages UK",
     "Al Ahsan Travels",
     "Umrah booking March",
-    "Spring Umrah packages",
+    "Pre-Ramadan Umrah packages",
     "Hajj and Umrah packages",
     "Umrah visa UK",
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/umrah-march",
+    canonical: "https://alahsantravels.co.uk/umrahmarch",
   },
   openGraph: {
-    title: "March Umrah Packages | Al Ahsan Travels",
+    title: "March Umrah Packages 2027 | UK Deals",
     description:
-      "Book your March Umrah journey with Al Ahsan Travels — flights, hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/umrah-march",
+      "March Umrah packages from the UK — ideal weather and pre-Ramadan availability. Book your spiritual journey today.",
+    url: "https://alahsantravels.co.uk/umrahmarch",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "March Umrah Packages | Al Ahsan Travels",
+    title: "March Umrah Packages 2027 | UK Deals",
     description:
-      "Book your March Umrah journey today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "March Umrah packages — ideal weather and pre-Ramadan availability.",
   },
 };
 

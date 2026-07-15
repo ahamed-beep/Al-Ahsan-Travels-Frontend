@@ -1,9 +1,9 @@
 import CombineClockTower from "@/Components/Client-Side/ClockTowerPackage/CombineClock";
 
 export const metadata = {
-  title: "Clock Tower Umrah Packages | Al Ahsan Travels",
+  title: "Clock Tower Umrah Package | Makkah Hotels",
   description:
-    "Book Umrah packages with stay at the iconic Makkah Clock Tower hotels. Enjoy prime location near Haram, luxury accommodation, flights, and visa assistance with Al Ahsan Travels.",
+    "Stay at the iconic Makkah Clock Tower with our premium Umrah package — closest possible access to Masjid al-Haram.",
   keywords: [
     "Clock Tower Umrah packages",
     "Makkah Clock Tower hotel",
@@ -15,22 +15,22 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/clock-tower-umrah",
+    canonical: "https://alahsantravels.co.uk/clocktowerumrahpackage",
   },
   openGraph: {
-    title: "Clock Tower Umrah Packages | Al Ahsan Travels",
+    title: "Clock Tower Umrah Package | Makkah Hotels",
     description:
-      "Stay at the world-famous Makkah Clock Tower with our exclusive Umrah packages. Flights, luxury hotels, and visa support all included.",
-    url: "https://alahsantravels.co.uk/clock-tower-umrah",
+      "Stay at the iconic Makkah Clock Tower with our premium Umrah package — closest possible access to Masjid al-Haram.",
+    url: "https://alahsantravels.co.uk/clocktowerumrahpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clock Tower Umrah Packages | Al Ahsan Travels",
+    title: "Clock Tower Umrah Package | Makkah Hotels",
     description:
-      "Experience Umrah with a stay at the iconic Clock Tower Makkah. Book now with Al Ahsan Travels.",
+      "Stay at the iconic Makkah Clock Tower — closest possible access to Masjid al-Haram.",
   },
 };
 

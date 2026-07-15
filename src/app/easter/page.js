@@ -1,36 +1,36 @@
 import EasterCombine from "@/Components/EasterPackage/EasterCombine";
 
 export const metadata = {
-  title: "Easter Umrah & Holiday Packages | Al Ahsan Travels",
+  title: "Easter Umrah Packages UK 2026",
   description:
-    "Book special Easter holiday and Umrah packages with Al Ahsan Travels. Enjoy comfortable flights, quality hotels, and complete visa assistance for your spring getaway or spiritual journey.",
+    "Perform Umrah during the Easter school holidays. Family-friendly packages with flights, visa and hotels included.",
   keywords: [
     "Easter Umrah packages",
-    "Easter holiday packages UK",
+    "Easter school holidays Umrah",
+    "Family Umrah packages UK",
     "Al Ahsan Travels",
-    "Easter travel deals",
     "Umrah packages UK",
-    "Easter break packages",
+    "Easter break Umrah",
     "Hajj and Umrah packages",
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/easter",
+    canonical: "https://alahsantravels.co.uk/easterumrahpackage",
   },
   openGraph: {
-    title: "Easter Umrah & Holiday Packages | Al Ahsan Travels",
+    title: "Easter Umrah Packages UK 2026",
     description:
-      "Exclusive Easter packages — flights, hotels, and visa support all included. Book your Easter getaway or Umrah journey today.",
-    url: "https://alahsantravels.co.uk/easter",
+      "Perform Umrah during the Easter school holidays. Family-friendly packages with flights, visa and hotels included.",
+    url: "https://alahsantravels.co.uk/easterumrahpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Easter Umrah & Holiday Packages | Al Ahsan Travels",
+    title: "Easter Umrah Packages UK 2026",
     description:
-      "Book your Easter package today with Al Ahsan Travels — flights, hotels, and visa all included.",
+      "Family-friendly Umrah packages during the Easter school holidays.",
   },
 };
 
