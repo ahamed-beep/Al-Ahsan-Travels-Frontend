@@ -117,6 +117,24 @@ style={{ width: "320px", height: "auto" }}
           <p className="text-sm text-[#1C398E] text-center md:text-left">
             © {new Date().getFullYear()} Al Ahsan Travels
           </p>
+
+          {/* Developed by Devzone credit */}
+          <a
+            href="https://www.devzonepk.online/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#1C398E] transition duration-300"
+          >
+            <span>Developed by</span>
+            <img
+              src="/Images/Devzone_logo_dp-removebg-preview.png"
+              alt="Devzone"
+              className="object-contain mt-1.5"
+              style={{ width: "70px", height: "auto" }}
+              loading="lazy"
+            />
+          </a>
+
           <div className="flex items-center gap-3" aria-label="Social media links">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
               <a
@@ -135,23 +153,22 @@ style={{ width: "320px", height: "auto" }}
             <span className="w-px h-6 bg-gray-300 mx-1" aria-hidden="true" />
 
             {/* Payment method icons */}
-         {/* Payment method icons */}
-<div className="flex items-center gap-2" aria-label="Accepted payment methods">
-  <span
-    title="Visa accepted"
-    aria-label="Visa accepted"
-    className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#1A1F71] shadow-sm"
-  >
-    <FaCcVisa size={28} aria-hidden="true" />
-  </span>
-  <span
-    title="Mastercard accepted"
-    aria-label="Mastercard accepted"
-    className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
-  >
-   <img src="/Images/Mastercard_logo.webp" alt="" />
-  </span>
-</div>
+            <div className="flex items-center gap-2" aria-label="Accepted payment methods">
+              <span
+                title="Visa accepted"
+                aria-label="Visa accepted"
+                className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#1A1F71] shadow-sm"
+              >
+                <FaCcVisa size={28} aria-hidden="true" />
+              </span>
+              <span
+                title="Mastercard accepted"
+                aria-label="Mastercard accepted"
+                className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
+              >
+                <img src="/Images/Mastercard_logo.webp" alt="" />
+              </span>
+            </div>
           </div>
         </div>
       </div>
