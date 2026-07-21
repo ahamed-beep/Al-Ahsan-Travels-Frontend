@@ -119,7 +119,7 @@ style={{ width: "320px", height: "auto" }}
           </p>
 
           {/* Developed by Devzone credit */}
-          <a
+          {/* <a
             href="https://www.devzonepk.online/"
             target="_blank"
             rel="noopener noreferrer"
@@ -133,7 +133,7 @@ style={{ width: "320px", height: "auto" }}
               style={{ width: "70px", height: "auto" }}
               loading="lazy"
             />
-          </a>
+          </a> */}
 
           <div className="flex items-center gap-3" aria-label="Social media links">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
