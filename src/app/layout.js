@@ -13,8 +13,8 @@ export default function RootLayout({ children }) {
     "@id": "https://alahsantravels.co.uk/#organization",
     name: "Al-Ahsan Travels",
     url: "https://alahsantravels.co.uk",
-    logo: "https://alahsantravels.co.uk/images/logo-512x512.png",
-    image: "https://alahsantravels.co.uk/images/homepage-hero.jpg",
+    logo: "https://alahsantravels.co.uk/Images/Al Ahsan Logo.png",
+    image: "https://alahsantravels.co.uk/Images/IMG_0722.JPG.webp",
     description:
       "ATOL & IATA protected Hajj and Umrah travel agency based in Birmingham, UK, offering flights, visas, hotels and complete pilgrimage packages.",
     telephone: "+447440064066",
