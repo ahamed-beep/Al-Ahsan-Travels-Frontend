@@ -15,13 +15,13 @@ export const metadata = {
   ],
   metadataBase: new URL("https://alahsantravels.co.uk"),
   alternates: {
-    canonical: "https://alahsantravels.co.uk/easter-umrah-package",
+    canonical: "https://alahsantravels.co.uk/easterumrahpackage",
   },
   openGraph: {
     title: "Easter Umrah Packages | Al Ahsan Travels",
     description:
       "Exclusive Easter Umrah packages — flights, hotels, and visa support all included. Book your Easter spiritual journey today.",
-    url: "https://alahsantravels.co.uk/easter-umrah-package",
+    url: "https://alahsantravels.co.uk/easterumrahpackage",
     siteName: "Al Ahsan Travels",
     locale: "en_GB",
     type: "website",
