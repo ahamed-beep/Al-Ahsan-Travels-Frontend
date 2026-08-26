@@ -22,7 +22,7 @@ export default function MissionSection() {
 
             {/* Paragraphs */}
             <p className="text-[#364153] text-sm sm:text-base leading-relaxed">
-              At 7 Continents Travel, we are committed to providing comfortable,
+              Al Ahsan  Travel, we are committed to providing comfortable,
               affordable, and hassle-free Umrah and Hajj journeys to pilgrims
               from across the United Kingdom.
             </p>
