@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { FaFacebookF, FaTiktok, FaInstagram, FaLinkedinIn, FaWhatsapp, FaCcVisa, FaCcMastercard } from "react-icons/fa";
+import { FaFacebookF, FaTiktok, FaInstagram, FaLinkedinIn, FaWhatsapp, FaCcVisa } from "react-icons/fa";
 
 const SOCIAL_LINKS = [
   { Icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1QeAP2yNs3/" },
@@ -12,10 +12,12 @@ const SOCIAL_LINKS = [
 ];
 
 const CONTACT = {
-  phone: "01216670366",
-  phoneTel: "tel:01216670366",
-  whatsapp: "447440064066",
-  whatsappLink: "https://wa.me/447440064066",
+  phone: "+44 121 667 0366",
+  phoneTel: "tel:+441216670366",
+  whatsappNumbers: [
+    { label: "+44 121 667 0366", href: "https://wa.me/441216670366" },
+    { label: "+44 7440 064066", href: "https://wa.me/447440064066" },
+  ],
   email: "info@alahsantravels.co.uk",
   address: "156 Great Charles Street, Queensway, Birmingham, B3 3HN, United Kingdom",
 };
@@ -25,7 +27,7 @@ const structuredData = {
   "@type": "TravelAgency",
   name: "Al-Ahsan Travels",
   url: "https://alahsantravels.co.uk",
-  telephone: CONTACT.phone,
+  telephone: "+441216670366",
   email: CONTACT.email,
   address: {
     "@type": "PostalAddress",
@@ -40,28 +42,23 @@ const structuredData = {
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-600 pb-8 px-4 sm:px-6 lg:px-10">
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
       <div className="mx-auto">
-
-        {/* Logo */}
         <div className="flex mb-10 mt-6 justify-start">
           <img
             src="/Images/Al Ahsan Logo.png"
             alt="Al-Ahsan Travels — Hajj & Umrah Travel Agency"
             className="object-contain"
-style={{ width: "320px", height: "auto" }}
+            style={{ width: "320px", height: "auto" }}
             loading="eager"
           />
         </div>
 
-        {/* Top grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-
           <nav aria-label="Main footer links">
             <ul className="space-y-2 text-sm">
               <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
@@ -77,6 +74,7 @@ style={{ width: "320px", height: "auto" }}
           <nav aria-label="Support footer links">
             <ul className="space-y-2 text-sm">
               <li><Link href="/contactus" className="text-[#1C398E] hover:underline">Contact</Link></li>
+              <li><Link href="/blog" className="text-[#1C398E] hover:underline">Blog</Link></li>
               <li><Link href="/familyumrahpackage#FAQs" className="text-[#1C398E] hover:underline">FAQs</Link></li>
               <li><Link href="/flight#Flightdeals" className="text-[#1C398E] hover:underline">Travel Guide</Link></li>
             </ul>
@@ -86,14 +84,21 @@ style={{ width: "320px", height: "auto" }}
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-2 text-[#1C398E]">
                 <FaWhatsapp size={16} aria-hidden="true" />
-                <a
-                  href={CONTACT.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {CONTACT.whatsapp}
-                </a>
+                <span className="flex flex-wrap items-center gap-x-2">
+                  {CONTACT.whatsappNumbers.map((item, index) => (
+                    <span key={item.href} className="flex items-center gap-2">
+                      {index > 0 && <span aria-hidden="true">-</span>}
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {item.label}
+                      </a>
+                    </span>
+                  ))}
+                </span>
               </li>
               <li className="flex items-center gap-2 text-[#1C398E]">
                 <Phone size={16} aria-hidden="true" />
@@ -118,23 +123,6 @@ style={{ width: "320px", height: "auto" }}
             © {new Date().getFullYear()} Al Ahsan Travels
           </p>
 
-          {/* Developed by Devzone credit */}
-          {/* <a
-            href="https://www.devzonepk.online/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-[#1C398E] transition duration-300"
-          >
-            <span>Developed by</span>
-            <img
-              src="/Images/Devzone_logo_dp-removebg-preview.png"
-              alt="Devzone"
-              className="object-contain mt-1.5"
-              style={{ width: "70px", height: "auto" }}
-              loading="lazy"
-            />
-          </a> */}
-
           <div className="flex items-center gap-3" aria-label="Social media links">
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
               <a
@@ -149,10 +137,8 @@ style={{ width: "320px", height: "auto" }}
               </a>
             ))}
 
-            {/* Divider between social icons and payment icons */}
             <span className="w-px h-6 bg-gray-300 mx-1" aria-hidden="true" />
 
-            {/* Payment method icons */}
             <div className="flex items-center gap-2" aria-label="Accepted payment methods">
               <span
                 title="Visa accepted"
@@ -167,6 +153,20 @@ style={{ width: "320px", height: "auto" }}
                 className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
               >
                 <img src="/Images/Mastercard_logo.webp" alt="" />
+              </span>
+              <span
+                title="Payment accepted"
+                aria-label="Payment accepted"
+                className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
+              >
+                <img src="/Images/footer/tag1.PNG" alt="" />
+              </span>
+              <span
+                title="Payment accepted"
+                aria-label="Payment accepted"
+                className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
+              >
+                <img src="/Images/footer/tag2.PNG" alt="" />
               </span>
             </div>
           </div>

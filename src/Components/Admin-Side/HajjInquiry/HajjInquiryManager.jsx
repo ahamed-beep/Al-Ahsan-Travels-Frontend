@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { RefreshCw, Eye, MailOpen, Trash2 } from "lucide-react";
+import { RefreshCw, Eye, MailOpen, Trash2, Search } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import {
   API_HAJJ_INQUIRIES_ALL,
@@ -10,6 +10,20 @@ import {
 import DeleteModal from "@/Components/Client-Side/ui/DeleteModal";
 import ViewModal from "@/Components/Client-Side/ui/ViewModal";
 import DataTable from "@/Components/Client-Side/ui/DataTable";
+import useDebounce from "@/Components/Client-Side/hooks/useDebounce";
+
+const CATEGORY_FILTERS = [
+  { value: "",       label: "All" },
+  { value: "hajj",   label: "Hajj" },
+  { value: "flight", label: "Only Flights" },
+  // { value: "umrah", label: "Umrah" }, // Umrah add karte waqt uncomment karo
+];
+
+const CATEGORY_LABELS = {
+  hajj:   "Hajj",
+  flight: "Only Flights",
+  umrah:  "Umrah",
+};
 
 export default function HajjInquiryManager() {
   const [inquiries, setInquiries] = useState([]);
@@ -17,11 +31,18 @@ export default function HajjInquiryManager() {
   const [viewItem, setViewItem]   = useState(null);
   const [deleteId, setDeleteId]   = useState(null);
   const [deleting, setDeleting]   = useState(false);
+  const [category, setCategory]   = useState("");
+  const [search, setSearch]       = useState("");
+  const debouncedSearch           = useDebounce(search, 500);
 
   const fetchAll = useCallback(async () => {
     setLoading(true);
     try {
-      const res  = await axiosInstance.get(API_HAJJ_INQUIRIES_ALL);
+      const params = {};
+      if (category) params.inquiryType = category;
+      if (debouncedSearch.trim()) params.search = debouncedSearch.trim();
+
+      const res  = await axiosInstance.get(API_HAJJ_INQUIRIES_ALL, { params });
       const list = Array.isArray(res.data) ? res.data : (res.data.data ?? []);
       setInquiries(list);
     } catch (err) {
@@ -29,7 +50,7 @@ export default function HajjInquiryManager() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [category, debouncedSearch]);
 
   useEffect(() => { fetchAll(); }, [fetchAll]);
 
@@ -57,6 +78,14 @@ export default function HajjInquiryManager() {
           {row.fullName}
         </span>
       )
+    },
+    {
+      key: "inquiryType", label: "Category",
+      render: (row) => (
+        <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 text-xs rounded-full font-medium">
+          {CATEGORY_LABELS[row.inquiryType] || "Hajj"}
+        </span>
+      ),
     },
     { key: "phoneNumber",     label: "Phone" },
     { key: "packageType",     label: "Package",  render: (row) => row.packageType     || "—" },
@@ -117,6 +146,37 @@ export default function HajjInquiryManager() {
         </button>
       </div>
 
+      {/* Filters */}
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="inline-flex gap-1 rounded-xl border border-gray-200 p-1">
+          {CATEGORY_FILTERS.map((f) => (
+            <button
+              key={f.value}
+              type="button"
+              onClick={() => setCategory(f.value)}
+              className={`rounded-lg px-4 py-1.5 text-sm font-medium transition ${
+                category === f.value
+                  ? "bg-[#1C398E] text-white shadow-sm"
+                  : "text-gray-600 hover:bg-gray-100"
+              }`}
+            >
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search name, phone, airport..."
+            className="h-10 w-64 rounded-xl border border-gray-200 pl-9 pr-3 text-sm outline-none transition focus:border-[#28439b] focus:ring-2 focus:ring-[#28439b]/20"
+          />
+        </div>
+      </div>
+
       {/* Reusable DataTable */}
       <DataTable columns={columns} data={inquiries} loading={loading} />
 
@@ -125,6 +185,7 @@ export default function HajjInquiryManager() {
         <ViewModal title="Hajj Inquiry Details" onClose={() => setViewItem(null)}>
           <div className="space-y-3 text-sm">
             {[
+              ["Category",        CATEGORY_LABELS[viewItem.inquiryType] || "Hajj"],
               ["Full Name",       viewItem.fullName],
               ["Phone",           viewItem.phoneNumber],
               ["Package Type",    viewItem.packageType],
