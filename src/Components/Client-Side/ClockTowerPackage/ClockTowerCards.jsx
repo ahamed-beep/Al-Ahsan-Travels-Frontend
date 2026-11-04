@@ -5,6 +5,8 @@ import { Clock, MapPin, MessageCircle, Plane, FileText } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_SPECIAL_PACKAGES } from "@/constants/api";
 
+const WA_NUMBER = "441216670366";
+
 function StarRating({ count }) {
   return (
     <div className="flex gap-1">
@@ -28,31 +30,35 @@ function FeaturePill({ icon, label }) {
   );
 }
 
-function PackageCard({ 
-  stars, 
-  title, 
-  price, 
-  originalPrice, 
-  nights, 
-  save, 
-  makkahHotel, 
-  madinahHotel, 
-  popular, 
+function PackageCard({
+  stars,
+  title,
+  price,
+  originalPrice,
+  nights,
+  save,
+  makkahHotel,
+  madinahHotel,
+  popular,
   image,
   badge,
   features,
-  onSelect 
 }) {
-  // Calculate save if not provided
-  const calculatedSave = save || (originalPrice && price 
-    ? parseInt(originalPrice.replace(/[^0-9]/g, '')) - parseInt(price.replace(/[^0-9]/g, ''))
-    : null);
-  
-  const saveAmount = calculatedSave ? `£${calculatedSave}` : null;
+  const calculatedSave =
+    save ||
+    (originalPrice && price
+      ? parseInt(String(originalPrice).replace(/[^0-9]/g, "")) - parseInt(String(price).replace(/[^0-9]/g, ""))
+      : null);
 
-  // Check if Flights and Visa are in features
-  const hasFlights = features?.some(f => f.toLowerCase().includes('flight'));
-  const hasVisa = features?.some(f => f.toLowerCase().includes('visa'));
+  const saveAmount = calculatedSave ? (String(calculatedSave).startsWith("£") ? calculatedSave : `£${calculatedSave}`) : null;
+
+  const hasFlights = features?.some((f) => f.toLowerCase().includes("flight"));
+  const hasVisa = features?.some((f) => f.toLowerCase().includes("visa"));
+
+  const handleSelect = () => {
+    const message = `Assalamu Alaikum, I would like to inquire about the "${title}" package (${nights} Nights).`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+  };
 
   return (
     <div
@@ -63,23 +69,19 @@ function PackageCard({
           : "border border-gray-200 shadow-lg",
       ].join(" ")}
     >
-      {/* Image */}
       <div className="relative h-52 overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover" />
 
-        {/* Stars Badge - top left */}
         <div className="absolute top-4 left-4 bg-white rounded-lg px-3 py-2 shadow-md flex items-center gap-1">
           <StarRating count={stars} />
         </div>
 
-        {/* Most Popular Badge - top right */}
         {(popular || badge === "Most Popular") && (
           <div className="absolute top-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
             Most Popular
           </div>
         )}
 
-        {/* Save Badge - bottom right */}
         {saveAmount && (
           <div className="absolute bottom-4 right-4 bg-[#1C398E] text-white text-xs font-bold px-3 py-2 rounded-lg">
             Save {saveAmount}
@@ -87,10 +89,7 @@ function PackageCard({
         )}
       </div>
 
-      {/* Content */}
       <div className="flex flex-col flex-1 p-6 gap-4">
-
-        {/* Title + Meta */}
         <div>
           <h3 className="text-xl font-extrabold text-[#101828] mb-2">{title}</h3>
           <div className="flex items-center gap-2 text-[#6A7282] text-sm">
@@ -100,7 +99,6 @@ function PackageCard({
           </div>
         </div>
 
-        {/* Price */}
         <div>
           <div className="flex items-baseline gap-3">
             <p className="text-4xl font-bold text-[#1C398E]">{price}</p>
@@ -113,7 +111,6 @@ function PackageCard({
 
         <hr className="border border-[#E5E7EB]" />
 
-        {/* Hotels */}
         <div className="flex flex-col gap-3">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 text-[#1C398E] mt-0.5 shrink-0" />
@@ -133,7 +130,6 @@ function PackageCard({
 
         <hr className="border border-[#E5E7EB]" />
 
-        {/* Feature Pills - Dynamic based on features */}
         <div className="flex gap-3 flex-wrap">
           {(hasFlights || features?.length === 0) && (
             <FeaturePill icon={<Plane className="w-4 h-4" />} label="Flights" />
@@ -142,22 +138,22 @@ function PackageCard({
             <FeaturePill icon={<FileText className="w-4 h-4" />} label="Visa" />
           )}
           {features?.slice(0, 2).map((feature, idx) => {
-            if (feature.toLowerCase().includes('flight') || feature.toLowerCase().includes('visa')) {
+            if (feature.toLowerCase().includes("flight") || feature.toLowerCase().includes("visa")) {
               return null;
             }
             return (
-              <FeaturePill 
-                key={idx} 
-                icon={<MessageCircle className="w-4 h-4" />} 
-                label={feature} 
+              <FeaturePill
+                key={idx}
+                icon={<MessageCircle className="w-4 h-4" />}
+                label={feature}
               />
             );
           })}
         </div>
 
-        {/* Select Package Button */}
         <button
-          onClick={() => onSelect?.(packageData)}
+          type="button"
+          onClick={handleSelect}
           className={[
             "mt-auto w-full py-4 rounded-2xl font-bold text-base transition-opacity duration-150 hover:opacity-90",
             popular
@@ -167,7 +163,6 @@ function PackageCard({
         >
           Select Package
         </button>
-
       </div>
     </div>
   );
@@ -184,21 +179,19 @@ export default function ClockTowerCards() {
 
   const fetchClockTowerPackages = async () => {
     setLoading(true);
+    setError(null);
     try {
       const response = await axiosInstance.get(API_SPECIAL_PACKAGES, {
         params: {
-          category: 'clock_tower',
+          category: "clock_tower",
           isActive: true,
           page: 1,
-          limit: 100
-        }
+          limit: 100,
+        },
       });
-      
-      console.log('Clock Tower Packages:', response.data);
-      
+
       if (response.data.success && response.data.data) {
-        // Transform backend data to frontend format
-        const transformedPackages = response.data.data.map(pkg => ({
+        const transformedPackages = response.data.data.map((pkg) => ({
           id: pkg._id,
           stars: pkg.stars,
           nights: pkg.nights,
@@ -212,16 +205,16 @@ export default function ClockTowerCards() {
           image: pkg.image || "/Images/default-package.webp",
           badge: pkg.badge,
           features: pkg.features || [],
-          isActive: pkg.isActive
+          isActive: pkg.isActive,
         }));
-        
+
         setPackages(transformedPackages);
       } else {
         setPackages([]);
       }
     } catch (err) {
-      console.error('Error fetching clock tower packages:', err);
-      setError('Failed to load packages. Please try again later.');
+      console.error("Error fetching clock tower packages:", err);
+      setError("Failed to load packages. Please try again later.");
       setPackages([]);
     } finally {
       setLoading(false);
@@ -230,30 +223,27 @@ export default function ClockTowerCards() {
 
   const calculateSave = (originalPrice, price) => {
     if (!originalPrice || !price) return null;
-    const original = parseInt(originalPrice.replace(/[^0-9]/g, ''));
-    const current = parseInt(price.replace(/[^0-9]/g, ''));
+    const original = parseInt(String(originalPrice).replace(/[^0-9]/g, ""));
+    const current = parseInt(String(price).replace(/[^0-9]/g, ""));
     if (isNaN(original) || isNaN(current)) return null;
     return `£${original - current}`;
   };
 
-  const handleSelectPackage = (pkg) => {
-    console.log('Selected package:', pkg);
-    // Add your selection logic here
-    // e.g., open inquiry modal, add to cart, etc.
-    alert(`Selected: ${pkg.title}\nPrice: ${pkg.price}\nContact us for booking!`);
-  };
+  const Header = () => (
+    <div className="text-center mb-14">
+      <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
+        Luxury Clock Tower Packages
+      </h2>
+      <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+        Experience unparalleled comfort with the closest hotels to the Holy Kaaba
+      </p>
+    </div>
+  );
 
   if (loading) {
     return (
       <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
-            Luxury Clock Tower Packages
-          </h2>
-          <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-            Experience unparalleled comfort with the closest hotels to the Holy Kaaba
-          </p>
-        </div>
+        <Header />
         <div className="flex justify-center items-center py-20">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1C398E]"></div>
         </div>
@@ -264,17 +254,10 @@ export default function ClockTowerCards() {
   if (error) {
     return (
       <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
-            Luxury Clock Tower Packages
-          </h2>
-          <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-            Experience unparalleled comfort with the closest hotels to the Holy Kaaba
-          </p>
-        </div>
+        <Header />
         <div className="text-center py-20">
           <p className="text-red-500 mb-4">{error}</p>
-          <button 
+          <button
             onClick={fetchClockTowerPackages}
             className="px-6 py-2 bg-[#1C398E] text-white rounded-lg hover:bg-[#152d73]"
           >
@@ -288,14 +271,7 @@ export default function ClockTowerCards() {
   if (packages.length === 0) {
     return (
       <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
-            Luxury Clock Tower Packages
-          </h2>
-          <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-            Experience unparalleled comfort with the closest hotels to the Holy Kaaba
-          </p>
-        </div>
+        <Header />
         <div className="text-center py-20">
           <p className="text-gray-500">No packages available at the moment.</p>
           <p className="text-sm text-gray-400 mt-2">Please check back later.</p>
@@ -306,28 +282,12 @@ export default function ClockTowerCards() {
 
   return (
     <section className="bg-slate-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
-
-      {/* Header */}
-      <div className="text-center mb-14">
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#101828] mb-3">
-          Luxury Clock Tower Packages
-        </h2>
-        <p className="text-[#4A5565] text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-          Experience unparalleled comfort with the closest hotels to the Holy Kaaba
-        </p>
-      </div>
-
-      {/* Cards Grid */}
+      <Header />
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
         {packages.map((pkg, index) => (
-          <PackageCard 
-            key={pkg.id || index} 
-            {...pkg} 
-            onSelect={handleSelectPackage}
-          />
+          <PackageCard key={pkg.id || index} {...pkg} />
         ))}
       </div>
-
     </section>
   );
 }

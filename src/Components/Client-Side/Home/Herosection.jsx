@@ -43,7 +43,7 @@ export default function HeroSection() {
                 Contact Us
               </a>
             </div>
-          </div>
+        </div>
 
           {/* Right: dark glass form card */}
           <div className="w-full max-w-md mx-auto lg:mx-0 lg:w-[420px] xl:w-[450px] shrink-0">

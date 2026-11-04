@@ -3,7 +3,7 @@
 import { Phone, Mail, MessageCircle, MapPin, ChevronRight } from "lucide-react";
 
 const cards = [
-{
+  {
     icon: <Phone className="w-5 h-5" />,
     iconBg: "bg-[#D0FAE5]",
     iconColor: "text-[#009966]",
@@ -11,9 +11,9 @@ const cards = [
     linkColor: "text-green-600 hover:text-green-700",
     title: "Call Us",
     subtitle: "Speak to our team",
-    lines: ["+447440064066"],
+    lines: ["+44 121 667 0366"],
     actionLabel: "Call Now",
-    onAction: () => { window.location.href = "tel:+447440064066"; },  // ✅ same
+    onAction: () => { window.location.href = "tel:+441216670366"; },
   },
   {
     icon: <Mail className="w-5 h-5" />,
@@ -23,9 +23,9 @@ const cards = [
     linkColor: "text-blue-500 hover:text-blue-600",
     title: "Email Us",
     subtitle: "Send us a message",
-    lines: ["info@alahsantravels.co.uk"],                             // ✅ updated
+    lines: ["info@alahsantravels.co.uk"],
     actionLabel: "Send Email",
-    onAction: () => { window.location.href = "mailto:info@alahsantravels.co.uk"; },  // ✅ updated
+    onAction: () => { window.location.href = "mailto:info@alahsantravels.co.uk"; },
   },
   {
     icon: <MessageCircle className="w-5 h-5" />,
@@ -35,11 +35,11 @@ const cards = [
     linkColor: "text-green-500 hover:text-green-600",
     title: "WhatsApp",
     subtitle: "Quick response",
-    lines: ["Chat with us instantly"],
+    lines: ["+44 121 667 0366"],
     actionLabel: "Open WhatsApp",
     onAction: () => {
       window.open(
-        "https://wa.me/447440064066?text=" +
+        "https://wa.me/441216670366?text=" +
           encodeURIComponent("Assalamu Alaikum, I would like to inquire about Umrah packages."),
         "_blank"
       );
@@ -53,7 +53,7 @@ const cards = [
     linkColor: "text-yellow-600 hover:text-yellow-700",
     title: "Visit Office",
     subtitle: "Come see us",
-    lines: ["156 Great Charles Street Queensway", "Birmingham, B3 3HN"],  // ✅ updated
+    lines: ["156 Great Charles Street Queensway", "Birmingham, B3 3HN"],
     actionLabel: "Get Directions",
     onAction: () => {
       window.open("https://maps.google.com/?q=156+Great+Charles+Street+Queensway+Birmingham+B3+3HN+United+Kingdom", "_blank");
@@ -74,25 +74,21 @@ export default function ContactCards() {
               card.borderColor,
             ].join(" ")}
           >
-            {/* Icon */}
             <div className={["w-12 h-12 rounded-xl flex items-center justify-center", card.iconBg, card.iconColor].join(" ")}>
               {card.icon}
             </div>
 
-            {/* Text */}
             <div className="flex flex-col gap-1">
               <h3 className="text-base font-medium text-[#101828]">{card.title}</h3>
               <p className="text-sm text-[#6A7282]">{card.subtitle}</p>
             </div>
 
-            {/* Info Lines */}
             <div className="flex flex-col gap-0.5">
               {card.lines.map((line) => (
                 <p key={line} className="text-sm font-medium text-[#364153]">{line}</p>
               ))}
             </div>
 
-            {/* Action Link */}
             <button
               onClick={card.onAction}
               className={["flex items-center gap-1 text-sm font-regular mt-auto transition-colors duration-150", card.linkColor].join(" ")}

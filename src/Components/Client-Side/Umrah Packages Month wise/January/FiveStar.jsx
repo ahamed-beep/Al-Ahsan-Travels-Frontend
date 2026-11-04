@@ -50,7 +50,7 @@ function Card({ item, features }) {
 
         <div className="mt-auto">
           <button
-            onClick={() => window.open("https://wa.me/447440064066", "_blank")}
+            onClick={() => window.open("https://wa.me/441216670366", "_blank")}
             className="w-full bg-[#25D366] flex items-center justify-center gap-2 text-[#FFFFFF] py-2 rounded-lg text-sm"
           >
             <MessageCircle className="text-[#ffffff] w-4 h-4" /> WhatsApp

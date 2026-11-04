@@ -5,6 +5,8 @@ import { Clock, MapPin, Check, MessageCircle } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_SPECIAL_PACKAGES } from "@/constants/api";
 
+const WA_NUMBER = "441216670366";
+
 function Stars({ count }) {
   return (
     <div className="flex text-white text-sm tracking-wide">
@@ -25,7 +27,6 @@ function Card({ pkg }) {
           : "border border-gray-200 shadow-md hover:shadow-lg"
       }`}
     >
-      {/* IMAGE */}
       <div className="relative h-52">
         <img
           src={pkg.image}
@@ -33,15 +34,12 @@ function Card({ pkg }) {
           className="w-full h-full object-cover"
         />
 
-        {/* overlay */}
         <div className="absolute inset-0 bg-black/25" />
 
-        {/* stars */}
         <div className="absolute bottom-3 left-4">
           <Stars count={pkg.stars} />
         </div>
 
-        {/* badge */}
         {pkg.badge && (
           <div
             className={`absolute top-3 right-3 text-xs font-semibold px-3 py-1 rounded-md text-white shadow
@@ -52,13 +50,11 @@ function Card({ pkg }) {
         )}
       </div>
 
-      {/* CONTENT */}
       <div className="p-6 flex flex-col gap-4 flex-1">
         <h3 className="text-lg font-semibold text-[#101828]">
           {pkg.title}
         </h3>
 
-        {/* price */}
         <div>
           <p className="text-3xl font-bold text-[#1C398E]">
             {pkg.price}
@@ -68,7 +64,6 @@ function Card({ pkg }) {
 
         <div className="border-t border-gray-200" />
 
-        {/* nights */}
         <div className="flex items-center gap-2 text-sm text-[#4A5565]">
           <Clock size={16} className="text-[#4A5565]" />
           {pkg.nights} Nights
@@ -76,7 +71,6 @@ function Card({ pkg }) {
 
         <div className="border-t border-gray-200" />
 
-        {/* locations */}
         <div className="space-y-3 text-sm">
           <div className="flex gap-2">
             <MapPin size={16} className="text-[#1C398E] mt-1" />
@@ -97,7 +91,6 @@ function Card({ pkg }) {
 
         <div className="border-t border-gray-200" />
 
-        {/* features */}
         <ul className="space-y-2 text-sm text-[#364153]">
           {pkg.features.map((f, idx) => (
             <li key={idx} className="flex items-center gap-2">
@@ -107,14 +100,13 @@ function Card({ pkg }) {
           ))}
         </ul>
 
-        {/* button */}
         <button
-  onClick={() => window.open("https://wa.me/447440064066", "_blank")}
-  className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium"
->
-  <MessageCircle size={16} />
-  WhatsApp
-</button>
+          onClick={() => window.open(`https://wa.me/${WA_NUMBER}`, "_blank")}
+          className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium"
+        >
+          <MessageCircle size={16} />
+          WhatsApp
+        </button>
       </div>
     </div>
   );
@@ -132,17 +124,14 @@ export default function LondonPackageCards() {
     try {
       const response = await axiosInstance.get(API_SPECIAL_PACKAGES, {
         params: {
-          category: 'umrah_london',
+          category: "umrah_london",
           isActive: true,
           page: 1,
-          limit: 10
-        }
+          limit: 10,
+        },
       });
-      
-      console.log('API Response:', response.data);
-      
+
       if (response.data.success && response.data.data) {
-        // Transform backend data to match frontend format (keeping all original fields)
         const transformedPackages = response.data.data.map((pkg, index) => ({
           id: pkg._id || index + 1,
           stars: pkg.stars,
@@ -150,31 +139,26 @@ export default function LondonPackageCards() {
           price: pkg.price,
           nights: pkg.nights,
           image: pkg.image,
-          // Use backend hotel data
           makkah: pkg.hotels?.makkah || "Standard Hotel",
           madinah: pkg.hotels?.madinah || "Standard Hotel",
           features: pkg.features || ["Return Flights", "Visa", "Transport"],
-          // Handle badge and highlight based on backend data
           badge: pkg.badge || (pkg.isPopular ? "Best Value" : null),
           highlight: pkg.isPopular || pkg.badge === "Best Value",
-          // Preserve original price if exists
-          originalPrice: pkg.originalPrice
+          originalPrice: pkg.originalPrice,
         }));
-        
+
         setPackages(transformedPackages);
       } else {
-        // Fallback to empty array if no data
         setPackages([]);
       }
     } catch (error) {
-      console.error('Error fetching packages:', error);
+      console.error("Error fetching packages:", error);
       setPackages([]);
     } finally {
       setLoading(false);
     }
   };
 
-  // Show loading state
   if (loading) {
     return (
       <section className="bg-[#F9FAFB] py-16 px-4">
@@ -196,7 +180,6 @@ export default function LondonPackageCards() {
 
   return (
     <section className="bg-[#F9FAFB] py-16 px-4">
-      {/* heading */}
       <div className="text-center mb-14 max-w-2xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-[#101828]">
           Choose Your Umrah Package
@@ -207,7 +190,6 @@ export default function LondonPackageCards() {
         </p>
       </div>
 
-      {/* grid */}
       <div className="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {packages.map((pkg) => (
           <Card key={pkg.id} pkg={pkg} />

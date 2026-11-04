@@ -5,6 +5,8 @@ import { Clock, MapPin, Check, MessageCircle } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_SPECIAL_PACKAGES } from "@/constants/api";
 
+const WA_NUMBER = "441216670366";
+
 function Stars({ count }) {
   return (
     <div className="flex text-white text-sm tracking-wide">
@@ -86,7 +88,7 @@ function Card({ pkg }) {
         </ul>
 
         <button
-          onClick={() => window.open("https://wa.me/447440064066", "_blank")}
+          onClick={() => window.open(`https://wa.me/${WA_NUMBER}`, "_blank")}
           className="mt-auto bg-[#25D366] hover:bg-green-600 transition text-white py-3 rounded-lg flex items-center justify-center gap-2 font-medium"
         >
           <MessageCircle size={16} />

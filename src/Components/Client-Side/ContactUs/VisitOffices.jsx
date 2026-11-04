@@ -3,11 +3,11 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 
 const offices = [
-{
+  {
     city: "Birmingham",
     address: "156 Great Charles Street Queensway, Birmingham, B3 3HN",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM",
-    phone: "+447440064066",
+    phone: "+44 121 667 0366",
     mapsUrl: "https://maps.google.com?q=156+Great+Charles+Street+Queensway+Birmingham+B3+3HN",
   },
 ];

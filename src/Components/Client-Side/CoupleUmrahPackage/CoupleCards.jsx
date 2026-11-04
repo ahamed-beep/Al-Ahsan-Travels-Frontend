@@ -5,6 +5,8 @@ import { Clock, MapPin, Users, Plane, FileText } from "lucide-react";
 import axiosInstance from "@/lib/axios";
 import { API_SPECIAL_PACKAGES } from "@/constants/api";
 
+const WA_NUMBER = "441216670366";
+
 function StarRating({ count }) {
   return (
     <div className="flex gap-1">
@@ -29,6 +31,11 @@ function FeaturePill({ icon, label }) {
 }
 
 function PackageCard({ stars, title, price, originalPrice, nights, makkahHotel, madinahHotel, popular, image }) {
+  const handleSelect = () => {
+    const message = `Assalamu Alaikum, I would like to inquire about the "${title}" package (${nights} Nights).`;
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+  };
+
   return (
     <div
       className={[
@@ -100,6 +107,8 @@ function PackageCard({ stars, title, price, originalPrice, nights, makkahHotel, 
         </div>
 
         <button
+          type="button"
+          onClick={handleSelect}
           className={[
             "mt-auto w-full py-4 rounded-2xl font-bold text-base transition-opacity duration-150 hover:opacity-90",
             popular
