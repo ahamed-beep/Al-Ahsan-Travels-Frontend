@@ -48,17 +48,16 @@ export default function Footer() {
       />
 
       <div className="mx-auto">
-        <div className="flex mb-10 mt-6 justify-start">
+        <div className="flex mb-8 sm:mb-10 mt-6 justify-start">
           <img
             src="/Images/Al Ahsan Logo.png"
             alt="Al-Ahsan Travels — Hajj & Umrah Travel Agency"
-            className="object-contain"
-            style={{ width: "320px", height: "auto" }}
+            className="object-contain h-auto w-[220px] sm:w-[320px] max-w-full"
             loading="eager"
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 items-start">
           <nav aria-label="Main footer links">
             <ul className="space-y-2 text-sm">
               <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
@@ -80,10 +79,10 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <address className="not-italic">
+          <address className="not-italic sm:col-span-2 lg:col-span-1">
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-2 text-[#1C398E]">
-                <FaWhatsapp size={16} aria-hidden="true" />
+                <FaWhatsapp size={16} className="shrink-0" aria-hidden="true" />
                 <span className="flex flex-wrap items-center gap-x-2">
                   {CONTACT.whatsappNumbers.map((item, index) => (
                     <span key={item.href} className="flex items-center gap-2">
@@ -101,16 +100,16 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-2 text-[#1C398E]">
-                <Phone size={16} aria-hidden="true" />
+                <Phone size={16} className="shrink-0" aria-hidden="true" />
                 <a href={CONTACT.phoneTel} className="hover:underline">{CONTACT.phone}</a>
               </li>
               <li className="flex items-center gap-2 text-[#1C398E]">
-                <Mail size={16} aria-hidden="true" />
-                <a href={`mailto:${CONTACT.email}`} className="hover:underline">{CONTACT.email}</a>
+                <Mail size={16} className="shrink-0" aria-hidden="true" />
+                <a href={`mailto:${CONTACT.email}`} className="hover:underline break-words min-w-0">{CONTACT.email}</a>
               </li>
               <li className="flex items-start gap-2 text-[#1C398E]">
                 <MapPin size={16} className="mt-1 flex-shrink-0" aria-hidden="true" />
-                <span>156 Great Charles Street, Queensway, Birmingham B3 3HN, United Kingdom</span>
+                <span className="break-words min-w-0">156 Great Charles Street, Queensway, Birmingham B3 3HN, United Kingdom</span>
               </li>
             </ul>
           </address>
@@ -123,7 +122,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Al Ahsan Travels
           </p>
 
-          <div className="flex items-center gap-3" aria-label="Social media links">
+          <div
+            className="flex flex-wrap items-center justify-center md:justify-end gap-3"
+            aria-label="Social media links"
+          >
             {SOCIAL_LINKS.map(({ Icon, label, href }) => (
               <a
                 key={label}
@@ -137,9 +139,12 @@ export default function Footer() {
               </a>
             ))}
 
-            <span className="w-px h-6 bg-gray-300 mx-1" aria-hidden="true" />
+            <span className="hidden sm:block w-px h-6 bg-gray-300 mx-1" aria-hidden="true" />
 
-            <div className="flex items-center gap-2" aria-label="Accepted payment methods">
+            <div
+              className="flex flex-wrap items-center justify-center gap-2"
+              aria-label="Accepted payment methods"
+            >
               <span
                 title="Visa accepted"
                 aria-label="Visa accepted"
@@ -152,21 +157,21 @@ export default function Footer() {
                 aria-label="Mastercard accepted"
                 className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
               >
-                <img src="/Images/Mastercard_logo.webp" alt="" />
+                <img src="/Images/Mastercard_logo.webp" alt="" className="max-h-full max-w-full object-contain" />
               </span>
               <span
                 title="Payment accepted"
                 aria-label="Payment accepted"
                 className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
               >
-                <img src="/Images/footer/tag1.PNG" alt="" />
+                <img src="/Images/footer/tag1.PNG" alt="" className="max-h-full max-w-full object-contain" />
               </span>
               <span
                 title="Payment accepted"
                 aria-label="Payment accepted"
                 className="w-11 h-8 flex items-center justify-center rounded-md bg-white border border-gray-300 text-[#EB001B] shadow-sm"
               >
-                <img src="/Images/footer/tag2.PNG" alt="" />
+                <img src="/Images/footer/tag2.PNG" alt="" className="max-h-full max-w-full object-contain" />
               </span>
             </div>
           </div>
