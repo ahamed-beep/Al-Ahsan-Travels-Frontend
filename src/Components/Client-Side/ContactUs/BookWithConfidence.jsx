@@ -2,12 +2,12 @@ import { Shield, Award, Lock } from "lucide-react";
 
 const badges = [
   {
-    icon: <img src="/Images/icon2.jpeg" alt="ATOL Protected"   className=" h-30 " />,
+    icon: <img src="/Images/icon3.jpeg" alt="ATOL Protected"   className=" h-30 " />,
     title: "ATOL Protected",
     desc: "Your bookings are fully protected",
   },
   {
-    icon: <img src="/Images/icon3.jpeg" alt="IATA Certified" className=" h-30 " />,
+    icon: <img src="/Images/icon2.jpeg" alt="IATA Certified" className=" h-30 " />,
     title: "IATA Certified",
     desc: "Internationally recognized standards",
   },
