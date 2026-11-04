@@ -1,11 +1,10 @@
 "use client";
 
-// ── EDIT THESE 3 VALUES with your real contact details ─────────────────────
-const PHONE_DISPLAY   = "0121 667 0366";      // shown to user
-const PHONE_TEL        = "01216670366";       // used in tel: link (with country code)
-const WHATSAPP_NUMBER  = "447440064066";      // used in wa.me link (no + , no spaces)
-const EMAIL_ADDRESS    = "info@alahsantravels.co.uk";
-// ─────────────────────────────────────────────────────────────────────────
+const PHONE_DISPLAY = "+44 121 667 0366";
+const PHONE_TEL = "+441216670366";
+const WHATSAPP_DISPLAY = "+44 121 667 0366";
+const WHATSAPP_NUMBER = "441216670366";
+const EMAIL_ADDRESS = "info@alahsantravels.co.uk";
 
 function PhoneIcon() {
   return (
@@ -36,8 +35,6 @@ export default function TopBar() {
   return (
     <div className="w-full bg-white text-[#1C398E] border-b border-gray-100">
       <div className="w-full max-w-full px-2 sm:px-2.5 lg:px-4 flex flex-wrap items-center justify-center sm:justify-between gap-x-2 gap-y-1 h-auto py-1.5 text-[11px] xs:text-[12px] sm:text-[13px]">
-
-        {/* Left side: Call + WhatsApp */}
         <div className="flex items-center flex-wrap justify-center gap-1.5 sm:gap-3 md:gap-4 min-w-0">
           <a
             href={`tel:${PHONE_TEL}`}
@@ -55,11 +52,10 @@ export default function TopBar() {
             className="flex items-center gap-1 sm:gap-1.5 no-underline text-white bg-[#1C398E] hover:opacity-90 transition-opacity duration-150 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full whitespace-nowrap shrink-0"
           >
             <WhatsAppIcon />
-            <span className="font-medium">+{WHATSAPP_NUMBER}</span>
+            <span className="font-medium">{WHATSAPP_DISPLAY}</span>
           </a>
         </div>
 
-        {/* Right side: Email */}
         <a
           href={`mailto:${EMAIL_ADDRESS}`}
           className="flex items-center gap-1 sm:gap-1.5 no-underline text-[#1C398E] hover:opacity-75 transition-opacity duration-150 min-w-0 max-w-full"

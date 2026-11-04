@@ -4,7 +4,7 @@ import Image from "next/image";
 import { CheckIcon, Clock, MapPin, MessageCircle } from "lucide-react";
 import { useMonthlyPackages } from "./Usemonthlypackages/Usemonthlypackages";
 
-const WA_NUMBER = "447440064066"; // ← apna WhatsApp number yahan daalo
+const WA_NUMBER = "441216670366";
 
 const DEFAULT_FEATURES = ["Flights", "Visa", "Transport", "Hotels"];
 

@@ -54,7 +54,7 @@ function PackageCard({ pkg, starLabel }) {
                 <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-[#E5E7EB]"></div>
                 <p className="text-3xl font-bold text-[#1a3a2a]">{pkg.price}</p>
                 <button
-                    onClick={() => window.open("https://wa.me/447440064066", "_blank")}
+                    onClick={() => window.open("https://wa.me/441216670366", "_blank")}
                     className="w-full flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ebe5d] text-white py-2 px-4 rounded-xl text-sm font-medium transition-colors"
                 >
                     <MessageCircle size={16} /> WhatsApp

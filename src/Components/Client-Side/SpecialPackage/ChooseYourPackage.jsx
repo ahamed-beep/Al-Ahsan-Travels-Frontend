@@ -29,7 +29,7 @@ function FeaturePill({ icon, label }) {
 
 function PackageCard({ pkg }) {
  function handleWhatsApp() {
-  const url = "https://wa.me/447440064066?text=" + encodeURIComponent("I'm interested in the " + pkg.title + " (" + pkg.price + ")");
+  const url = "https://wa.me/441216670366?text=" + encodeURIComponent("I'm interested in the " + pkg.title + " (" + pkg.price + ")");
   window.open(url, "_blank");
 }
 

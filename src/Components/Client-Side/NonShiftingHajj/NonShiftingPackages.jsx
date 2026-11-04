@@ -34,7 +34,6 @@ export default function NonShiftingPackages() {
 
   return (
     <div className="bg-[#FAFAFA] py-10 sm:py-14 px-3 sm:px-6 flex flex-col items-center">
-      {/* Heading */}
       <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#1F1F1F] text-center">
         Choose Your Package
       </h2>
@@ -46,18 +45,18 @@ export default function NonShiftingPackages() {
         {packages.map((pkg) => (
           <div
             key={pkg.id ?? pkg._id}
-       className={`bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border-2 ${
+            className={`bg-[#ffffff] rounded-xl shadow-sm hover:shadow-md transition overflow-hidden border-2 ${
               pkg.popular ? "border-[#1C398E]" : "border-[#E5E7EB]"
             }`}
           >
-            {/* Popular Badge */}
             {pkg.popular && (
               <div
-                  style={{
+                style={{
                   background: "linear-gradient(90deg, #1C398E, #1C398E)",
                 }}
-               className=" text-[#ffffff] text-[10px] sm:text-xs text-center py-1">
-       <img
+                className=" text-[#ffffff] text-[10px] sm:text-xs text-center py-1"
+              >
+                <img
                   src="/Images/star.webp"
                   alt="Star"
                   className="inline-block mr-1 h-3 mb-1"
@@ -67,7 +66,6 @@ export default function NonShiftingPackages() {
             )}
 
             <div className="flex flex-col lg:flex-row">
-              {/* Image */}
               <div className="w-full lg:w-1/2 h-50 sm:h-52 lg:h-auto relative">
                 <Image
                   src={pkg.imageUrl}
@@ -77,7 +75,6 @@ export default function NonShiftingPackages() {
                 />
               </div>
 
-              {/* Content */}
               <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-[#1F1F1F]">
@@ -88,7 +85,6 @@ export default function NonShiftingPackages() {
                     {pkg.duration}
                   </p>
 
-                  {/* Locations */}
                   <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-600 mb-4">
                     {pkg.locations?.map((loc) => (
                       <div key={loc} className="flex items-center gap-2">
@@ -100,7 +96,6 @@ export default function NonShiftingPackages() {
                     ))}
                   </div>
 
-                  {/* Tags */}
                   <div className="flex flex-wrap text-[#1F1F1F] gap-2 mb-4">
                     {pkg.tags?.map((tag) => (
                       <span
@@ -114,7 +109,6 @@ export default function NonShiftingPackages() {
                   </div>
                 </div>
 
-                {/* Price + Button */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-3">
                   <div>
                     <p className="text-[10px] sm:text-xs text-[#6A7282]">From</p>
@@ -125,7 +119,7 @@ export default function NonShiftingPackages() {
                   </div>
 
                   <button
-                    onClick={() => window.open(`https://wa.me/447440064066`, "_blank")}
+                    onClick={() => window.open(`https://wa.me/441216670366`, "_blank")}
                     className="w-full sm:w-auto mr-40 flex justify-center items-center gap-2 bg-[#25D366] text-[#ffffff] px-4 py-2 rounded-lg text-xs sm:text-sm"
                   >
                     <FaWhatsapp /> WhatsApp
