@@ -1,4 +1,4 @@
-import LondonCombine from "@/Components/Client-Side/London/LondonCombine";
+import LondonCombine from "@/Components/Client-Side/London Package/CombineLondonPackage";
 
 export const metadata = {
   title: "Umrah Packages from London | Al Ahsan Travels",

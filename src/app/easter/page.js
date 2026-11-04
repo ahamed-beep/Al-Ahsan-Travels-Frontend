@@ -1,4 +1,4 @@
-import EasterCombine from "@/Components/EasterPackage/EasterCombine";
+import EasterCombine from "@/Components/Client-Side/Easter package/CombineEaster";
 
 export const metadata = {
   title: "Easter Umrah Packages UK 2026",
