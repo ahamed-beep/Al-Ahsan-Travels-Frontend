@@ -8,6 +8,7 @@ import {
   ChartColumn, Shield, User,
   Package,
   Plane,
+  BookOpen,
 } from "lucide-react";
 import PackagesManager from "./HomeFeaturedPackages/PackagesManager";
 import InquiryManagement from "./Inquiries/InquiryManagement";
@@ -22,6 +23,7 @@ import AshraPackagesManager from "./AshraPackagesManager/AshraPackagesManager";
 import SpecialPackagesManager from "./Specialpackagesmanager/Specialpackagesmanager";
 import FlightDealsManager from "./FlightDealsManager/FlightDealsManager";
 import ContactInquiriesManager from "./ContactInquiriesManager/ContactInquiriesManager";
+import BlogManager from "./BlogManager/BlogManager";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -37,43 +39,45 @@ export default function AdminDashboard() {
   }, []);
 
   const handleLogout = () => {
-if (!window.confirm("Are you sure you want to log out?")) return;
+    if (!window.confirm("Are you sure you want to log out?")) return;
     setLoggingOut(true);
     localStorage.clear();
     router.replace("/login");
   };
 
   const menuItems = [
-   { id: "packages", label: "Home Featured packages", icon: Package },
-{ id: "inquiries", label: "Inquiries", icon: MessageSquare },
-   { id: "hajj", label: "Shifting Hajj Packages", icon: Package },
-   { id: "nonShiftingHajj", label: "Non-Shifting Hajj Packages", icon: Package },
- { id: "umrahPackages", label: "Umrah Packages", icon: Package },
-      { id: "groupFamilyPackages",label: "Group & Family Packages",    icon: Users2 },
- { id: "hajjInquiries", label: "Hajj Inquiries", icon: MessageSquare },
+    { id: "packages", label: "Home Featured packages", icon: Package },
+    { id: "inquiries", label: "Inquiries", icon: MessageSquare },
+    { id: "hajj", label: "Shifting Hajj Packages", icon: Package },
+    { id: "nonShiftingHajj", label: "Non-Shifting Hajj Packages", icon: Package },
+    { id: "umrahPackages", label: "Umrah Packages", icon: Package },
+    { id: "groupFamilyPackages", label: "Group & Family Packages", icon: Users2 },
+    { id: "hajjInquiries", label: "Hajj Inquiries", icon: MessageSquare },
     { id: "pricingPackages", label: "Pricing Packages", icon: Package },
-{ id: "monthlyUmrahPackages", label: "Monthly Umrah Packages", icon: Package },
-{ id: "ashraPackages", label: "Ashra Packages", icon: Package },
-{ id: "specialPackages", label: "Special Packages", icon: Package },
- { id: "flightDeals", label: "Flight Deals", icon: Plane },
-  { id: "contactInquiries", label: "Contact Inquiries", icon: MessageSquare },
+    { id: "monthlyUmrahPackages", label: "Monthly Umrah Packages", icon: Package },
+    { id: "ashraPackages", label: "Ashra Packages", icon: Package },
+    { id: "specialPackages", label: "Special Packages", icon: Package },
+    { id: "flightDeals", label: "Flight Deals", icon: Plane },
+    { id: "contactInquiries", label: "Contact Inquiries", icon: MessageSquare },
+    { id: "blogs", label: "Blogs", icon: BookOpen },
   ];
 
   const renderContent = () => {
     switch (activeItem) {
-  case "packages": return <PackagesManager />;
-     case "inquiries": return <InquiryManagement />;
-case "hajj": return <ShiftingHajjManager />;
-case "nonShiftingHajj": return <NonShiftingHajjManager />;
-case "umrahPackages": return <UmrahPackagesManager />;
-  case "groupFamilyPackages": return <GroupFamilyPackagesManager />;
-   case "hajjInquiries": return <HajjInquiryManager />;
-    case "pricingPackages": return <PricingPackageManager />;
-case "monthlyUmrahPackages": return <MonthlyUmrahPackagesManager />;
-case "ashraPackages": return <AshraPackagesManager />;
-case "specialPackages": return <SpecialPackagesManager />;
-    case "flightDeals": return <FlightDealsManager />;  
+      case "packages": return <PackagesManager />;
+      case "inquiries": return <InquiryManagement />;
+      case "hajj": return <ShiftingHajjManager />;
+      case "nonShiftingHajj": return <NonShiftingHajjManager />;
+      case "umrahPackages": return <UmrahPackagesManager />;
+      case "groupFamilyPackages": return <GroupFamilyPackagesManager />;
+      case "hajjInquiries": return <HajjInquiryManager />;
+      case "pricingPackages": return <PricingPackageManager />;
+      case "monthlyUmrahPackages": return <MonthlyUmrahPackagesManager />;
+      case "ashraPackages": return <AshraPackagesManager />;
+      case "specialPackages": return <SpecialPackagesManager />;
+      case "flightDeals": return <FlightDealsManager />;
       case "contactInquiries": return <ContactInquiriesManager />;
+      case "blogs": return <BlogManager />;
       default: return <Overview />;
     }
   };
@@ -171,11 +175,9 @@ case "specialPackages": return <SpecialPackagesManager />;
 
 // ─── Overview Page ───────────────────────────────────────────────────────────
 function Overview() {
-
-
   return (
     <div className="space-y-6">
-     <h1>Dashboard Overview</h1>
+      <h1>Dashboard Overview</h1>
     </div>
   );
 }
@@ -186,7 +188,7 @@ function PlaceholderPage({ title }) {
     <div className="flex items-center justify-center h-full">
       <div className="text-center">
         <h2 className="text-2xl font-semibold text-gray-700">{title}</h2>
-     <p className="text-gray-400 mt-2">This section is still under development</p>
+        <p className="text-gray-400 mt-2">This section is still under development</p>
       </div>
     </div>
   );

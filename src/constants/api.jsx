@@ -72,4 +72,11 @@ export const API_CONTACT_MARK_READ = (id) => `/contact/${id}/mark-read`;
 export const API_CONTACT_MARK_REPLIED = (id) => `/contact/${id}/mark-replied`;
 export const API_CONTACT_STATS = "/contact/stats";
 
+export const API_BLOGS               = "/blogs";
+export const API_BLOGS_ADMIN_ALL     = "/blogs/admin/all";
+export const API_BLOGS_FEATURED = "/blogs/featured";
+export const API_BLOG_BY_ID          = (id) => `/blogs/${id}`;
+export const API_BLOG_TOGGLE_PUBLISH  = (id) => `/blogs/${id}/toggle-publish`;
+export const API_BLOG_TOGGLE_FEATURED = (id) => `/blogs/${id}/toggle-featured`;
+
 export const ROLE_ADMIN = "admin";

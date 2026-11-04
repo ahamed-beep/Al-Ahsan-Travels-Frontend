@@ -79,6 +79,7 @@ const navItems = [
       { label: "Women Umrah package", href: "/manchesterumrahpackage" },
     ],
   },
+   { label: "Blog", href: "/blog" },
   { label: "Flight", href: "/flight" },
   { label: "Contact us", href: "/contactus" },
 ];

@@ -6,47 +6,95 @@ import Image from "next/image";
 const baseLogos = [
   {
     name: "Hilton",
-    src: "/Images/Hilton.png",
+    src: "/Images/home/partners/partner1.jpeg",
   },
   {
     name: "Mövenpick",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.03 AM (1).jpeg",
+    src: "/Images/home/partners/partner2.jpeg",
   },
   {
     name: "Pakistan International Airlines",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.03 AM (2).jpeg",
+    src: "/Images/home/partners/partner3.jpeg",
   },
   {
     name: "Zee Overseas",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.03 AM.jpeg",
+    src: "/Images/home/partners/partner4.jpeg",
   },
   {
     name: "Saudi Tourism Authority",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.04 AM (1).jpeg",
+    src: "/Images/home/partners/partner5.jpeg",
   },
   {
     name: "Etihad Airways",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.04 AM (2).jpeg",
+    src: "/Images/home/partners/partner6.jpeg",
   },
   {
     name: "Turkish Airlines",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.05 AM (2).jpeg",
+    src: "/Images/home/partners/partner7.jpeg",
   },
   {
     name: "Partner",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.05 AM.jpeg",
+    src: "/Images/home/partners/partner8.jpeg",
   },
   {
     name: "Dar Al Eiman Co.",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.06 AM (1).jpeg",
+    src: "/Images/home/partners/partner9.jpeg",
   },
   {
     name: "Royal Jordanian",
-    src: "/Images/WhatsApp Image 2026-07-02 at 3.08.06 AM.jpeg",
+    src: "/Images/home/partners/partner10.jpeg",
   },
    {
     name: "Royal Jordanian",
-    src: "/Images/new.jpeg",
+    src: "/Images/home/partners/partner11.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner12.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner13.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner14.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner15.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner16.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner17.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner18.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner19.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner20.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner21.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner22.png",
+  },
+    {
+    name: "Royal Jordanian",
+    src: "/Images/home/partners/partner23.png",
   },
 ];
 

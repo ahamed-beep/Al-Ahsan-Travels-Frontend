@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 
+const NUMBER = { label: "+44 121 667 0366", href: "https://wa.me/441216670366" };
+
 export default function WhatsAppButton() {
   const [waPulse, setWaPulse] = useState(false);
 
@@ -18,7 +20,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/447440064066"
+      href={NUMBER.href}
       target="_blank"
       rel="noopener noreferrer"
       className="group fixed left-0 top-1/2 -translate-y-1/2 z-50 flex items-center cursor-pointer"
@@ -29,7 +31,7 @@ export default function WhatsAppButton() {
           waPulse ? "!ml-2 !max-w-xs !opacity-100 !px-3" : ""
         }`}
       >
-        +44 7440 064066
+        {NUMBER.label}
       </span>
 
       <span className="w-10 h-10 bg-[#25D366] rounded-r-lg flex items-center justify-center shadow-lg hover:scale-110 transition-transform order-1">
