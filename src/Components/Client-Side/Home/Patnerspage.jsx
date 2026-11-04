@@ -16,10 +16,7 @@ const baseLogos = [
     name: "Pakistan International Airlines",
     src: "/Images/home/partners/partner3.jpeg",
   },
-  {
-    name: "Zee Overseas",
-    src: "/Images/home/partners/partner4.jpeg",
-  },
+ 
   {
     name: "Saudi Tourism Authority",
     src: "/Images/home/partners/partner5.jpeg",

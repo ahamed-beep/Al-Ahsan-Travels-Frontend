@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+
+const WHATSAPP_URL = "https://wa.me/441216670366";
 
 export default function CtaBanner() {
   return (
@@ -15,13 +16,15 @@ export default function CtaBanner() {
           specialists take care of the details.
         </p>
 
-        <Link
-          href="/contact"
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-6 inline-flex items-center justify-center gap-2 rounded-[10px] bg-[#FFFFFF]  px-6 py-3 font-inter text-[14px] font-semibold text-[#1C398E] transition-colors hover:bg-gray-100 lg:mt-7"
         >
           Book Now
           <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-        </Link>
+        </a>
       </div>
     </section>
   );
