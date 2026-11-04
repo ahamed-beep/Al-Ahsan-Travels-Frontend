@@ -28,6 +28,7 @@ const EMPTY_FORM = {
   country: "",
   excerpt: "",
   body: "",
+  readTimeMinutes: "",
   isPublished: false,
   isFeatured: false,
 };
@@ -67,11 +68,11 @@ export default function BlogManager() {
   const [deleting, setDeleting] = useState(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [busyId, setBusyId] = useState(null);
-const search = useDebounce(searchInput.trim(), 500);
+  const search = useDebounce(searchInput.trim(), 500);
 
-useEffect(() => {
-  setPage(1);
-}, [search]);
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
 
   const fetchBlogs = useCallback(async () => {
     setLoading(true);
@@ -180,6 +181,7 @@ useEffect(() => {
     },
     { key: "category", label: "Category" },
     { key: "country", label: "Country" },
+    { key: "readTime", label: "Read time" },
     {
       key: "isPublished",
       label: "Status",
@@ -451,6 +453,8 @@ function BlogFormModal({ blog, onClose, onSaved }) {
           country: blog.country || "",
           excerpt: blog.excerpt || "",
           body: blog.body || "",
+          // "6 min read" -> "6"
+          readTimeMinutes: String(parseInt(blog.readTime, 10) || ""),
           isPublished: !!blog.isPublished,
           isFeatured: !!blog.isFeatured,
         }
@@ -499,12 +503,18 @@ function BlogFormModal({ blog, onClose, onSaved }) {
     if (!form.body.trim()) return setFormError("Body is required");
     if (!isEdit && !imageFile) return setFormError("Image is required");
 
+    const minutes = form.readTimeMinutes === "" ? null : Number(form.readTimeMinutes);
+    if (minutes !== null && (!Number.isInteger(minutes) || minutes < 1 || minutes > 120)) {
+      return setFormError("Read time must be a whole number between 1 and 120");
+    }
+
     const fd = new FormData();
     fd.append("title", form.title.trim());
     fd.append("category", form.category);
     fd.append("country", form.country.trim());
     fd.append("excerpt", form.excerpt.trim());
     fd.append("body", form.body.trim());
+    if (minutes !== null) fd.append("readTimeMinutes", String(minutes));
     fd.append("isPublished", String(form.isPublished));
     fd.append("isFeatured", String(form.isFeatured));
     if (imageFile) fd.append("image", imageFile);
@@ -622,6 +632,26 @@ function BlogFormModal({ blog, onClose, onSaved }) {
                   placeholder="Saudi Arabia"
                 />
               </div>
+            </div>
+
+            {/* Read time */}
+            <div>
+              <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">
+                Read time (minutes)
+              </label>
+              <input
+                type="number"
+                min={1}
+                max={120}
+                step={1}
+                value={form.readTimeMinutes}
+                onChange={(e) => setField("readTimeMinutes", e.target.value)}
+                className={inputCls}
+                placeholder="Leave empty to calculate automatically"
+              />
+              <p className="text-xs text-gray-400 mt-1">
+                Shown on the site as &quot;{form.readTimeMinutes || "N"} min read&quot;. If left empty, it is calculated from the body.
+              </p>
             </div>
 
             {/* Excerpt */}
