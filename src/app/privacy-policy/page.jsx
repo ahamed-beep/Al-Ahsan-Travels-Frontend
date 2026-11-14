@@ -1,5 +1,6 @@
 import Footer from "@/Components/Client-Side/Home/Footer";
 import Navbar from "@/Components/Client-Side/Home/Navbar";
+import TopBar from "@/Components/Client-Side/Home/Topbar";
 import CtaSection from "@/Components/privacy/CtaSection";
 import HeroSection from "@/Components/privacy/HeroSection";
 import PolicyContent from "@/Components/privacy/PolicyContent";
@@ -22,6 +23,7 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <main id="top" className="min-h-screen bg-white font-sans ">
+      <TopBar/>
       <Navbar/>
       <HeroSection />
       <PolicyContent />

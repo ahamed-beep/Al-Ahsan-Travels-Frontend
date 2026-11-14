@@ -3,6 +3,7 @@ import BlogPageContent from "@/Components/Client-Side/Blog/BlogPageContent";
 import Navbar from "@/Components/Client-Side/Home/Navbar";
 import Footer from "@/Components/Client-Side/Home/Footer";
 import CtaBanner from "@/Components/Client-Side/Blog/CtaBanner";
+import TopBar from "@/Components/Client-Side/Home/Topbar";
 
 export const metadata = {
   title: "Travel Blog — Your next journey starts here",
@@ -20,6 +21,7 @@ export const metadata = {
 export default function BlogPage() {
   return (
     <div className="">
+      <TopBar/>
       <Navbar />
       <BlogHero />
 
