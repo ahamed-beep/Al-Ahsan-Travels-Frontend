@@ -58,17 +58,18 @@ export default function Footer() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 items-start">
-          <nav aria-label="Main footer links">
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
-              <li>
-                <Link href="/#FeaturedPackages" className="text-[#1C398E] hover:underline">
-                  Packages
-                </Link>
-              </li>
-              <li><Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">Services</Link></li>
-            </ul>
-          </nav>
+        <nav aria-label="Main footer links">
+  <ul className="space-y-2 text-sm">
+    <li><Link href="/aboutus" className="text-[#1C398E] hover:underline">About Us</Link></li>
+    <li>
+      <Link href="/#FeaturedPackages" className="text-[#1C398E] hover:underline">
+        Packages
+      </Link>
+    </li>
+    <li><Link href="/aboutus#our-services" className="text-[#1C398E] hover:underline">Services</Link></li>
+    <li><Link href="/privacy-policy" className="text-[#1C398E] hover:underline">Privacy Policy</Link></li>
+  </ul>
+</nav>
 
           <nav aria-label="Support footer links">
             <ul className="space-y-2 text-sm">

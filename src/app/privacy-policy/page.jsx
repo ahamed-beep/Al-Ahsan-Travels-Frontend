@@ -1,6 +1,8 @@
-import HeroSection from "@/components/privacy/HeroSection";
-import PolicyContent from "@/components/privacy/PolicyContent";
-import CtaSection from "@/components/privacy/CtaSection";
+import Footer from "@/Components/Client-Side/Home/Footer";
+import Navbar from "@/Components/Client-Side/Home/Navbar";
+import CtaSection from "@/Components/privacy/CtaSection";
+import HeroSection from "@/Components/privacy/HeroSection";
+import PolicyContent from "@/Components/privacy/PolicyContent";
 
 export const metadata = {
   title: "Privacy Policy | Easton",
@@ -19,10 +21,12 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main id="top" className="min-h-screen bg-white font-sans text-gray-700">
+    <main id="top" className="min-h-screen bg-white font-sans ">
+      <Navbar/>
       <HeroSection />
       <PolicyContent />
       <CtaSection />
+      <Footer/>
     </main>
   );
 }
