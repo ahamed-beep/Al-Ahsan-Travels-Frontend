@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import HajjForm from "../ui/HajjForm";
+import UmrahForm from "../ui/UmrahForm";
 
 export default function RamadanHajjSection() {
   return (
@@ -39,9 +39,9 @@ export default function RamadanHajjSection() {
           {/* Right Form Card */}
           <div className="w-full">
             <div className="mx-auto w-full max-w-xl rounded-2xl bg-[#ffffff] p-5 shadow-2xl sm:p-7">
-              <h2 className="text-2xl font-bold text-[#101828]">Customize Your Hajj</h2>
+              <h2 className="text-2xl font-bold text-[#101828] mb-5">Customize Your Umrah</h2>
 
-              <HajjForm />
+              <UmrahForm/>
             </div>
           </div>
         </div>
