@@ -69,7 +69,6 @@ function PackageCard({ stars, title, price, originalPrice, nights, save, makkahH
             <Clock className="w-4 h-4 text-[#4A5565]" />
             <span className="text-[#4A5565]">{nights} Nights</span>
             <span className="text-[#CBD5E1]">•</span>
-            <span className="text-[#4A5565]">Easter Break 2026</span>
           </div>
         </div>
 

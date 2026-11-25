@@ -4,7 +4,7 @@ export const CATEGORIES = {
   couple:            "Couple",
   easter:            "Easter",
   umrah_london:      "Umrah London",
-  umrah_manchester:  "Umrah Manchester",
+  umrah_manchester:  "Umrah Women",
 };
 
 export const STARS = [3, 4, 5];
