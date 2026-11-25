@@ -36,7 +36,7 @@ export default function RamadanHajjSection() {
             </div>
           </div>
 
-          {/* Right Form Card */}
+          
           <div className="w-full">
             <div className="mx-auto w-full max-w-xl rounded-2xl bg-[#ffffff] p-5 shadow-2xl sm:p-7">
               <h2 className="text-2xl font-bold text-[#101828] mb-5">Customize Your Umrah</h2>
