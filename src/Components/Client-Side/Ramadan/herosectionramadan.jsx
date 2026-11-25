@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import HajjForm from "../ui/HajjForm";
 import UmrahForm from "../ui/UmrahForm";
 
 export default function RamadanHajjSection() {
