@@ -3,8 +3,8 @@ import { Plane, MapPin, Users, TrendingUp } from "lucide-react";
 const features = [
   {
     icon: <Plane className="w-6 h-6 text-[#1C398E]" />,
-    title: "Flights from Manchester",
-    desc: "Direct or connecting flights from Manchester Airport",
+    title: "Flights from Women",
+    desc: "Direct or connecting flights  for Women",
   },
   {
     icon: <MapPin className="w-6 h-6 text-[#1C398E]" />,
@@ -32,7 +32,7 @@ export default function PackageFeatures() {
           Everything Included in Your Package
         </h2>
         <p className="mt-3 text-[#4A5565] text-sm sm:text-base">
-          Complete Umrah solutions from Manchester — no hidden extras
+          Complete Umrah solutions for Women — no hidden extras
         </p>
 
         {/* Cards */}
