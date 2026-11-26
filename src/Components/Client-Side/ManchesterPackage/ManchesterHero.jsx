@@ -23,7 +23,7 @@ export default function ManchesterHero() {
                 {/* LEFT SIDE */}
                 <div className="text-center lg:text-left space-y-6">
                     <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white">
-                        Umrah Packages from Women 2026
+                        Umrah Packages for Women 2026
                     </h1>
 
                     <p className="text-sm sm:text-base md:text-lg text-white max-w-xl mx-auto lg:mx-0">
