@@ -99,7 +99,7 @@ function Card({ pkg }) {
   );
 }
 
-export default function ManchesterPackageCards() {
+export default function WomenPackageCards() {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
 

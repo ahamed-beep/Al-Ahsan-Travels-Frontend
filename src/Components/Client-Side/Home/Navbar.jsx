@@ -76,7 +76,7 @@ const navItems = [
       { label: "Couple Umrah package", href: "/coupleumrahpackage" },
       { label: "Easter Umrah packages", href: "/easterumrahpackage" },
       { label: "London Umrah package", href: "/londonumrahpackage" },
-      { label: "Women Umrah package", href: "/manchesterumrahpackage" },
+      { label: "Women Umrah package", href: "/womens-umrah-packages" },
     ],
   },
    { label: "Blog", href: "/blog" },

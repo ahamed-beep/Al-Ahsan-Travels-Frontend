@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { ChevronRight } from "lucide-react";
 
-export default function BookCTAManchester() {
+export default function BookCTAWomen() {
   return (
     <section className="bg-[#1C398E] py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">

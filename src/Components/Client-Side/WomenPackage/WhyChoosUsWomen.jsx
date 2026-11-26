@@ -18,7 +18,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-export default function WhyChooseUsManchester() {
+export default function WhyChooseUsWomen() {
   return (
     <section className="w-full bg-white px-4 py-16">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">

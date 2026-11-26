@@ -9,7 +9,7 @@ const airlines = [
   { name: "Turkish Airlines", code: "TK" },
 ];
 
-export default function ManchesterPlanIcon() {
+export default function WomenPlanIcon() {
   return (
     <section className="w-full bg-[#FFFFFF] py-12 px-4 sm:px-6 lg:px-16">
       

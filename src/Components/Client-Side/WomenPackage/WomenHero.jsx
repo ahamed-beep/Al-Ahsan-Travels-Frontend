@@ -3,7 +3,7 @@
 import { Plane, FileText, MapPin } from "lucide-react";
 import UmrahForm from "../ui/UmrahForm";
 
-export default function ManchesterHero() {
+export default function WomenHero() {
     return (
         <div className="relative w-full min-h-screen flex items-center justify-center">
 
