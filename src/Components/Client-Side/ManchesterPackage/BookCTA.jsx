@@ -10,12 +10,12 @@ export default function BookCTAManchester() {
 
         {/* Heading */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#ffffff] mb-4 leading-tight">
-        Start Your Umrah Journey from Manchester
+        Start Your Women's Umrah Journey
         </h2>
 
         {/* Subtext */}
-        <p className="text-[#FFFFFFE5] text-sm sm:text-base mb-10 max-w-lg mx-auto leading-relaxed">
-          Book your all-inclusive Umrah package with flights from Manchester. Fixed pricing, no hidden charges, and trusted service.
+         <p className="text-[#FFFFFFE5] text-sm sm:text-base mb-10 max-w-lg mx-auto leading-relaxed">
+          Book your all-inclusive Women's Umrah package with a female group leader. Fixed pricing, no hidden charges, and trusted service.
         </p>
 
         {/* Button */}
