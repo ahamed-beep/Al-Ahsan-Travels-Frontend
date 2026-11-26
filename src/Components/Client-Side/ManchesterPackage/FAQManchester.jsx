@@ -4,20 +4,20 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Do you fly directly from Manchester Airport?",
-    answer: "Yes, we offer direct and connecting flights from Manchester Airport to Jeddah and Madinah. Our packages include flight arrangements so you don't need to worry about booking separately.",
+    question: "Is this Umrah package exclusively for women?",
+    answer: "Yes, this package is designed specifically for women travelling in a women-only group. Sisters travel together with a female group leader, so you can perform your Umrah in a comfortable and supportive environment.",
   },
   {
-    question: "What is included in the package price from Manchester?",
-    answer: "Our packages from Manchester typically include return flights, hotel accommodation in Makkah and Madinah, airport transfers, and guidance throughout your journey. Full details are listed on each individual package page.",
+    question: "Do I need a Mahram to join the women's package?",
+    answer: "Our women's group packages are arranged to make travel easier for sisters. Requirements can depend on your age and current Saudi regulations, so please contact us before booking and our team will guide you on the exact eligibility for your situation.",
   },
   {
-    question: "Can 4 people share a room to reduce costs?",
-    answer: "Yes, we offer quad-sharing room options which significantly reduce the per-person cost. Please contact us directly and we will arrange the most suitable room configuration for your group.",
+    question: "What is included in the women's package price?",
+    answer: "Our women's packages typically include return flights, hotel accommodation in Makkah and Madinah, airport transfers, and guidance throughout your journey. Full details are listed on each individual package page.",
   },
   {
-    question: "Is the price fixed once I book?",
-    answer: "Yes, once your booking is confirmed and deposit is paid, your package price is fixed. We recommend booking early to secure the best rates as prices may increase closer to the travel date.",
+    question: "Will there be a female guide or group leader with us?",
+    answer: "Yes, a female group leader accompanies the group to help with Umrah rituals, daily schedules, Ziyarat, and any questions you have during the trip.",
   },
   {
     question: "How does the deposit booking system work?",
@@ -55,7 +55,7 @@ function FAQItem({ faq, isOpen, onClick }) {
   );
 }
 
-export default function FAQManchester() {
+export default function FAQWomen() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
@@ -67,7 +67,7 @@ export default function FAQManchester() {
             Frequently Asked Questions
           </h2>
           <p className="text-[#6B7280] text-base">
-            Common questions about Umrah from Manchester
+            Common questions about our Women's Umrah Package
           </p>
         </div>
 

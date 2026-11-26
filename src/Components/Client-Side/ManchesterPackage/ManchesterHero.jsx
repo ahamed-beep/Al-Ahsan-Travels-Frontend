@@ -27,9 +27,8 @@ export default function ManchesterHero() {
                     </h1>
 
                     <p className="text-sm sm:text-base md:text-lg text-white max-w-xl mx-auto lg:mx-0">
-                        All-inclusive Umrah packages with flights, hotels, visa, and transport from Manchester Airport
+                        All-inclusive Women's Umrah packages with flights, hotels, visa, and transport in a comfortable women-only group
                     </p>
-
                     <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs sm:text-sm text-white">
                         <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2B7FFF33] backdrop-blur-md border border-white/30 shadow-sm">
                             <Plane className="w-4 h-4 text-white" />
