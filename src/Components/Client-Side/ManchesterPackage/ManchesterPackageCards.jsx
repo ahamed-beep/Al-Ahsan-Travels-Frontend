@@ -147,7 +147,7 @@ export default function ManchesterPackageCards() {
           Choose Your Umrah Package
         </h2>
         <p className="text-[#4A5565] mt-3 text-sm md:text-base">
-          All-inclusive packages from Manchester with transparent pricing
+          All-inclusive packages for Women with transparent pricing
         </p>
       </div>
       <div className="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
